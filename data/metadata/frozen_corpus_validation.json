@@ -1,0 +1,124 @@
+{
+  "created_at_utc": "2026-08-28T11:09:35.340888+00:00",
+  "environment": {
+    "packages": {
+      "PyYAML": "6.0.3",
+      "datasketch": "2.0.0",
+      "matplotlib": "3.10.8",
+      "numpy": "2.4.0",
+      "pyarrow": "25.0.1",
+      "pytest": "8.4.2",
+      "sentencepiece": "0.2.1"
+    },
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.13.14"
+  },
+  "leakage_status": "pass",
+  "manifest_hashes": {
+    "data/manifests/test.parquet": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+    "data/manifests/train.parquet": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+    "data/manifests/validation.parquet": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+  },
+  "preparation_state": {
+    "database_counts": {
+      "exact_duplicate_removals": 144480,
+      "exact_unique_documents": 6209184,
+      "near_accepted_edges": 86697,
+      "near_candidate_pairs": 6444499,
+      "near_clustered_documents": 28461,
+      "near_clusters": 13208,
+      "near_duplicate_removals": 15253
+    },
+    "evidence": "SQLite counts, final reports, retained manifests, and frozen hashes reconcile.",
+    "near_band_bytes_each": 149020416,
+    "near_band_files": 8,
+    "stage": "prepare_complete"
+  },
+  "raw_immutability_status": "pass",
+  "status": "pass",
+  "token_counts": {
+    "path": "data/metadata/document_token_counts.parquet",
+    "sha256": "b3e2bbb324caef8d608cabb3dc8445387c8268e9fb3ea49f7d3ffee397482d8c",
+    "splits": {
+      "test": {
+        "documents": 309369,
+        "tokens": 30892742,
+        "unknown_tokens": 115
+      },
+      "train": {
+        "documents": 5574885,
+        "tokens": 544498912,
+        "unknown_tokens": 2712
+      },
+      "validation": {
+        "documents": 309677,
+        "tokens": 30329083,
+        "unknown_tokens": 46
+      }
+    },
+    "total_documents": 6193931,
+    "total_tokens": 605720737
+  },
+  "tokenizer": {
+    "artifact_hashes": {
+      "special_tokens.json": "21d6ed125762219c944b7ba31f1d59d057d5766300671319a6083a2cac5863ce",
+      "tokenizer.model": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+      "tokenizer.vocab": "e7e0a932054e4917442fc960469c864de75a05eb7dd0e6234b17f0b09f9c9905",
+      "tokenizer_config.json": "595adb4626a3f38148543ad055dc5796d3550a9255a8f9b5327fedbe7cb8fbda"
+    },
+    "bos_id": -1,
+    "eod_id": 1,
+    "pad_id": -1,
+    "round_trip_checks": [
+      {
+        "decoded": "Azərbaycan",
+        "ids": [
+          112
+        ],
+        "text": "Azərbaycan"
+      },
+      {
+        "decoded": "şəhərlərimizdəki",
+        "ids": [
+          525,
+          1777,
+          2160
+        ],
+        "text": "şəhərlərimizdəki"
+      },
+      {
+        "decoded": "öyrənəcəyik",
+        "ids": [
+          1549,
+          6733
+        ],
+        "text": "öyrənəcəyik"
+      },
+      {
+        "decoded": "müəllimlərimizlə",
+        "ids": [
+          1470,
+          1777,
+          63
+        ],
+        "text": "müəllimlərimizlə"
+      }
+    ],
+    "training_sample_documents": 1000000,
+    "training_sample_split": "train",
+    "unk_id": 0,
+    "vocab_size": 16000
+  },
+  "training_subset": {
+    "documents": 277027,
+    "duplicate_document_ids": 0,
+    "matched_processed_references": 277027,
+    "matched_train_token_records": 277027,
+    "path": "data/manifests/train_50m.parquet",
+    "sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48",
+    "streamable_reference_check": "pass",
+    "target_consumed_tokens": 50000000,
+    "unique_tokens": 50062887,
+    "validation_or_test_documents": 0
+  }
+}

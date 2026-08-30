@@ -1,0 +1,58 @@
+{
+  "portability": {
+    "sampled_subset_references": 100,
+    "simulated_repository_root": "C:/Research/azerbaijani-positional-encoding",
+    "status": "pass"
+  },
+  "status": "pass",
+  "token_counts": {
+    "documents": 6193931,
+    "sha256": "b3e2bbb324caef8d608cabb3dc8445387c8268e9fb3ea49f7d3ffee397482d8c"
+  },
+  "tokenizer_training": {
+    "candidate_checks": {
+      "16000": {
+        "model_sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+        "training_corpus_sha256": "da0ff4b8209ab40e98afc96c71584a15defbd962d2f50e9b4f5ebc4e0a65a1d1",
+        "unknown_rate_denominator_token_count": 9701653,
+        "unknown_token_count": 1,
+        "vocab_size": 16000
+      },
+      "32000": {
+        "model_sha256": "6cb625cdbb620ebc5e851da793edac26eea12c433a34c765616a22d5857a82fc",
+        "training_corpus_sha256": "da0ff4b8209ab40e98afc96c71584a15defbd962d2f50e9b4f5ebc4e0a65a1d1",
+        "unknown_rate_denominator_token_count": 8741364,
+        "unknown_token_count": 1,
+        "vocab_size": 32000
+      },
+      "8000": {
+        "model_sha256": "52b4dd1fc9c0ae017bba13fd41aa020b05409356a397d840ca699b47428e4bbe",
+        "training_corpus_sha256": "da0ff4b8209ab40e98afc96c71584a15defbd962d2f50e9b4f5ebc4e0a65a1d1",
+        "unknown_rate_denominator_token_count": 11132227,
+        "unknown_token_count": 1,
+        "vocab_size": 8000
+      }
+    },
+    "documents": 1000000,
+    "matches_first_repaired_train_documents": true,
+    "split": "train",
+    "training_corpus_sha256": "da0ff4b8209ab40e98afc96c71584a15defbd962d2f50e9b4f5ebc4e0a65a1d1",
+    "training_sample_manifest_sha256": "937db7d8af5a744e55187d693129f5acc322f48066a432e1b6d887d97a525122"
+  },
+  "training_subset": {
+    "documents": 277027,
+    "duplicates": 0,
+    "exact_boundary_replayed": {
+      "cumulative_tokens_before_document": 49995815,
+      "document_id": "db05beef4e2c5dec4bf978a78afd788f579429852afea925852f7122b7608c36",
+      "eod_consumed": false,
+      "full_document_tokens_including_eod": 6799,
+      "sampling_order_zero_based": 276625,
+      "tokens_consumed_from_document": 4185
+    },
+    "ids_and_order_match_independent_replay": true,
+    "manifest_sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48",
+    "tokens": 50062887,
+    "train_only": true
+  }
+}
