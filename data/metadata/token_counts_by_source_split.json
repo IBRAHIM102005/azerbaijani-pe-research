@@ -1,0 +1,170 @@
+{
+  "test": {
+    "anl-news": {
+      "documents": 11081,
+      "documents_with_unknown_tokens": 3,
+      "sentencepiece_tokens_excluding_eod": 11544478,
+      "tokens": 11555559,
+      "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+      "unknown_token_rate": 5.197289994402519e-07,
+      "unknown_tokens": 6
+    },
+    "azwiki": {
+      "documents": 6632,
+      "documents_with_unknown_tokens": 0,
+      "sentencepiece_tokens_excluding_eod": 4036975,
+      "tokens": 4043607,
+      "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+      "unknown_token_rate": 0.0,
+      "unknown_tokens": 0
+    },
+    "elite-blogs": {
+      "documents": 37,
+      "documents_with_unknown_tokens": 1,
+      "sentencepiece_tokens_excluding_eod": 61835,
+      "tokens": 61872,
+      "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+      "unknown_token_rate": 1.6172070833670252e-05,
+      "unknown_tokens": 1
+    },
+    "elite-books": {
+      "documents": 5,
+      "documents_with_unknown_tokens": 0,
+      "sentencepiece_tokens_excluding_eod": 200902,
+      "tokens": 200907,
+      "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+      "unknown_token_rate": 0.0,
+      "unknown_tokens": 0
+    },
+    "eqanun": {
+      "documents": 2548,
+      "documents_with_unknown_tokens": 5,
+      "sentencepiece_tokens_excluding_eod": 4078579,
+      "tokens": 4081127,
+      "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+      "unknown_token_rate": 9.316970444853464e-06,
+      "unknown_tokens": 38
+    },
+    "mediocore-books": {
+      "documents": 289066,
+      "documents_with_unknown_tokens": 53,
+      "sentencepiece_tokens_excluding_eod": 10660604,
+      "tokens": 10949670,
+      "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+      "unknown_token_rate": 6.566232082159698e-06,
+      "unknown_tokens": 70
+    }
+  },
+  "train": {
+    "anl-news": {
+      "documents": 199587,
+      "documents_with_unknown_tokens": 31,
+      "sentencepiece_tokens_excluding_eod": 213755101,
+      "tokens": 213954688,
+      "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+      "unknown_token_rate": 4.818598457680783e-07,
+      "unknown_tokens": 103
+    },
+    "azwiki": {
+      "documents": 116025,
+      "documents_with_unknown_tokens": 0,
+      "sentencepiece_tokens_excluding_eod": 66639133,
+      "tokens": 66755158,
+      "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+      "unknown_token_rate": 0.0,
+      "unknown_tokens": 0
+    },
+    "elite-blogs": {
+      "documents": 665,
+      "documents_with_unknown_tokens": 9,
+      "sentencepiece_tokens_excluding_eod": 1405599,
+      "tokens": 1406264,
+      "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+      "unknown_token_rate": 2.1343213818450354e-05,
+      "unknown_tokens": 30
+    },
+    "elite-books": {
+      "documents": 85,
+      "documents_with_unknown_tokens": 2,
+      "sentencepiece_tokens_excluding_eod": 7077093,
+      "tokens": 7077178,
+      "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+      "unknown_token_rate": 4.239028652018562e-07,
+      "unknown_tokens": 3
+    },
+    "eqanun": {
+      "documents": 44789,
+      "documents_with_unknown_tokens": 65,
+      "sentencepiece_tokens_excluding_eod": 57741182,
+      "tokens": 57785971,
+      "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+      "unknown_token_rate": 2.3691929271555265e-05,
+      "unknown_tokens": 1368
+    },
+    "mediocore-books": {
+      "documents": 5213734,
+      "documents_with_unknown_tokens": 676,
+      "sentencepiece_tokens_excluding_eod": 192305919,
+      "tokens": 197519653,
+      "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+      "unknown_token_rate": 6.281657924424052e-06,
+      "unknown_tokens": 1208
+    }
+  },
+  "validation": {
+    "anl-news": {
+      "documents": 11217,
+      "documents_with_unknown_tokens": 1,
+      "sentencepiece_tokens_excluding_eod": 12038440,
+      "tokens": 12049657,
+      "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+      "unknown_token_rate": 8.306724127046361e-08,
+      "unknown_tokens": 1
+    },
+    "azwiki": {
+      "documents": 6506,
+      "documents_with_unknown_tokens": 0,
+      "sentencepiece_tokens_excluding_eod": 3805717,
+      "tokens": 3812223,
+      "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+      "unknown_token_rate": 0.0,
+      "unknown_tokens": 0
+    },
+    "elite-blogs": {
+      "documents": 33,
+      "documents_with_unknown_tokens": 1,
+      "sentencepiece_tokens_excluding_eod": 60075,
+      "tokens": 60108,
+      "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+      "unknown_token_rate": 1.6645859342488557e-05,
+      "unknown_tokens": 1
+    },
+    "elite-books": {
+      "documents": 7,
+      "documents_with_unknown_tokens": 0,
+      "sentencepiece_tokens_excluding_eod": 672073,
+      "tokens": 672080,
+      "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+      "unknown_token_rate": 0.0,
+      "unknown_tokens": 0
+    },
+    "eqanun": {
+      "documents": 2471,
+      "documents_with_unknown_tokens": 3,
+      "sentencepiece_tokens_excluding_eod": 2774331,
+      "tokens": 2776802,
+      "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+      "unknown_token_rate": 2.883578058998728e-06,
+      "unknown_tokens": 8
+    },
+    "mediocore-books": {
+      "documents": 289443,
+      "documents_with_unknown_tokens": 27,
+      "sentencepiece_tokens_excluding_eod": 10668770,
+      "tokens": 10958213,
+      "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+      "unknown_token_rate": 3.37433462339145e-06,
+      "unknown_tokens": 36
+    }
+  }
+}
