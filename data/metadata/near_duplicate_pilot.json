@@ -1,0 +1,498 @@
+{
+  "bands": 8,
+  "fingerprint_size": 32,
+  "lsh_candidate_pairs": 10513,
+  "runtime_seconds": 213.976,
+  "sample_cross_source_exact_groups": 0,
+  "sample_documents_after_exact_dedup": 11929,
+  "sample_documents_before_exact_dedup": 12088,
+  "sample_exact_duplicate_documents": 159,
+  "selection_method": "Stable provenance-hash sample, normalized and filtered at 50 Unicode letters, then exact-deduplicated before near-pair scoring.",
+  "shingle_size": 5,
+  "threshold_results": [
+    {
+      "accepted_pair_count": 932,
+      "examples": [
+        {
+          "left_excerpt": "HEÇ NƏ İTMİR “Get, 90 nömrəli açarı gətir!” Gətirirdim. “Kabeli aç!” Açırdım. “İzolyasiya tap, məftil tap!” Həm onu, həm də bunu tapırdım. “Baş energetiki çağır!” Çağırırdım. Bəzən də çox qorxduğum tapşırığı verirdi: “Vışkaya qalx, elektrik",
+          "left_record_id": "339dbd83466686f738b530357fd45a25e564d62da53f5a0bdd292c4cd1934902",
+          "left_source": "elite-books",
+          "right_excerpt": "“Get, 90 nömrəli açarı gətir!” Gətirirdim. “Kabeli aç!” Açırdım. “İzolyasiya tap, məftil tap!” Həm onu, həm də bunu tapırdım. “Baş energetiki çağır!” Çağırırdım. Bəzən də çox qorxduğum tapşırığı verirdi: “Vışkaya qalx, elektrik xəttini yoxl",
+          "right_record_id": "f87db7987bbd62577ceb3bff4336a6e1b26bf87739157bc61a07e16d5cb9522c",
+          "right_source": "elite-books",
+          "similarity": 0.999859
+        },
+        {
+          "left_excerpt": "İnsan söz işığında, fikir axtarışında Şərqin böyük söz sahibləri insana qüdrət və qüvvət yiyəsi kimi yanaşmışlar. C.Rumi yazırdı; Ey insan, ən müqəddəs kitab sənsən. Sən dünya gözəlliklərinə bir aynasan. Bəli, İNSAN! İlahi insanı torpaqdan ",
+          "left_record_id": "0f417491315c8c2e03e7f6c86dffc6528e5a51c21ee628217d1a780305ee49f7",
+          "left_source": "elite-books",
+          "right_excerpt": "İnsan söz işığında, fikir axtarışında Şərqin böyük söz sahibləri insana qüdrət və qüvvət yiyəsi kimi yanaşmışlar. C.Rumi yazırdı; Ey insan, ən müqəddəs kitab sənsən. Sən dünya gözəlliklərinə bir aynasan. Bəli, İNSAN! İlahi insanı torpaqdan ",
+          "right_record_id": "4f07c56bba357d7c1654bc97eedb4f3927b3031c5c7a98182525b036d3389f56",
+          "right_source": "elite-books",
+          "similarity": 0.999708
+        },
+        {
+          "left_excerpt": "DÜNYANIN XILAS YOLU NƏĞMƏ... (Naibə Yusifin “Zərbə” romanına ön söz) Naibə Yusifi uzun illərdir ki, tanıyıram, Şirvan şəhərində Azərbaycan dili və ədəbiyyatından dərs deyir, gələcək nəsillərə ədəbiyyatın sirlərini öyrədir, ədəbiyyatımızı da",
+          "left_record_id": "4b629cfd29082a866b27566345c7420b4156408366f1741a1a03638c85cf62c5",
+          "left_source": "elite-books",
+          "right_excerpt": "Naibə Yusifi uzun illərdir ki, tanıyıram, Şirvan şəhərində Azərbaycan dili və ədəbiyyatından dərs deyir, gələcək nəsillərə ədəbiyyatın sirlərini öyrədir, ədəbiyyatımızı daim təbliğ edir. İndiyə kimi onun bir neçə kitabını oxumuşam, dövri mə",
+          "right_record_id": "ca6f1e0b5b3dca4b55e2a1193efba2429020cbc123a05a1f37240fb17bca6ea6",
+          "right_source": "elite-books",
+          "similarity": 0.999456
+        },
+        {
+          "left_excerpt": "Bir evin içinə düşəndə işıq Qalmaz belə yerdə zülmət, qaranlıq... Hava günəşli idi. Xəzərdən sərin yaz küləyi əsir, yaşıl yarpaqlı ağacların xışıltısı maşın səslərinin azaldığı bu yerdə az da olsa eşidilirdi. Leyla və Ramil ilk dəfə idi ki,",
+          "left_record_id": "40e32b2df7b7affb4285954192d8e309c63a7ca3b7680fb6e7849ed3db07f013",
+          "left_source": "elite-books",
+          "right_excerpt": "Bir evin içinə düşəndə işıq Qalmaz belə yerdə zülmət, qaranlıq... Hava günəşli idi. Xəzərdən sərin yaz küləyi əsir, yaşıl yarpaqlı ağacların xışıltısı maşın səslərinin azaldığı bu yerdə az da olsa eşidilirdi. Leyla və Ramil ilk dəfə idi ki,",
+          "right_record_id": "980addf9c34e73132f3da4c73dc7edad5c493bc06d9e6b8b222e3faa321e5ef4",
+          "right_source": "elite-books",
+          "similarity": 0.99926
+        },
+        {
+          "left_excerpt": "Hələ uşaq yaşlarımda kiçik hekayələr, hərdən də şeirlər yazar, ancaq yazdıqlarımı hamıdan gizlədərdim. Yuxarı siniflərdə oxuduğum zaman Abdal Qasım haqqında atamdan və Abdal kəndinin köhnə kişilərindən eşitdiklərimi toplayıb iki hissəli bir",
+          "left_record_id": "4a7a24f80243b6094cea68c46c8d31be1450d68df7ffc60b7ed932572cc49695",
+          "left_source": "elite-books",
+          "right_excerpt": "Hələ uşaq yaşlarımda kiçik hekayələr, hərdən də şeirlər yazar, ancaq yazdıqlarımı hamıdan gizlədərdim. Yuxarı siniflərdə oxuduğum zaman Abdal Qasım haqqında atamdan və Abdal kəndinin köhnə kişilərindən eşitdiklərimi toplayıb iki hissəli bir",
+          "right_record_id": "edb26df06de0b39a04e41213f303614a0fd070e04276987c66bb2f5c7a5ab534",
+          "right_source": "elite-books",
+          "similarity": 0.999208
+        },
+        {
+          "left_excerpt": "Müharibə veteranı, yazıçı Səfdər Eminovun eyni adlı əsəri haqqında düşüncələrim... Çoxlu sayda kitabların redaktoru olmağıma baxmayaraq, hər kitab məni özünə çəkə bilməyib. İstər şeir, olsun, istər nəsr. Amma elə kitablar var ki, məni önünd",
+          "left_record_id": "367c16ff21e5dfb8e2eec2c7ea74947af350302c6591e549e342f7c70726ac7a",
+          "left_source": "elite-books",
+          "right_excerpt": "Müharibə veteranı, dəyərli yazıçımız Səfdər Eminovun yazdığı əsərlərin hamısı müharibə mövzusundadır. İnanırıq ku, onun yazdığı hər bir əsər Azərbaycan ədəbiyyatına ən gözəl töhvə olmaqla bərabər, gələcək nəsilimizə kişilik, igidlik məktəbi",
+          "right_record_id": "3ea5563a60505b670af91c56f29839bb6cdf6938846e1d091a112df99261bd75",
+          "right_source": "elite-books",
+          "similarity": 0.999191
+        },
+        {
+          "left_excerpt": "İlxıçı Həsən Əfəndi bələdiyyəsinin iclasının QƏRARI № 06 12 aprel 2012-ci il Xaçmaz rayonunun Ağçay kəndi ÇIXARIŞ Gündəlikdə duran məsələ: 1. “Azərbaycan Respublikası Xaçmaz rayonunun İlxıçı Həsən Əfəndi bələdiyyəsinin Nizamnaməsi”nin təsdi",
+          "left_record_id": "31bfd0f3f5535ad5ccae8803447489fbbf8403b68f032b06c7a940d4620c39ea",
+          "left_source": "eqanun",
+          "right_excerpt": "İlxıçı Həsən Əfəndi bələdiyyəsinin iclasının QƏRARI № 06 12 aprel 2012-ci il Xaçmaz rayonunun Ağçay kəndi ÇIXARIŞ Gündəlikdə duran məsələ: 1. “Azərbaycan Respublikası Xaçmaz rayonunun İlxıçı Həsən Əfəndi bələdiyyəsinin Nizamnaməsi”nin təsdi",
+          "right_record_id": "9b356741b8bd5d80e84145b9307126532dcb683b46bc195a933a2f30e2b531c6",
+          "right_source": "eqanun",
+          "similarity": 0.995144
+        },
+        {
+          "left_excerpt": "\"Dövlət qeydiyyatına alınmışdır\" \"Təsdiq edilmişdir\" Azərbaycan Respublikasının Bələdiyyə üzvlərinin Ədliyyə Nazirliyi Qeydiyyat № 678 02 saylı iclas protokolu 17 mart 2000-ci il 11 fevral 2000-ci il Nazir ____________ S.C.Həsənova Sədr ___",
+          "left_record_id": "85e8eb6b7d9d63f14d108ee1d58968e86acca0636c6512a47e50c2349bcc4f29",
+          "left_source": "eqanun",
+          "right_excerpt": "\"Dövlət qeydiyyatına alınmışdır\" \"Təsdiq edilmişdir\" Azərbaycan Respublikasının Bələdiyyə üzvlərinin Ədliyyə Nazirliyi Qeydiyyat № 686 02 saylı iclas protokolu 17 mart 2000-ci il 15 fevral 2000-ci il Nazir ____________ S.C.Həsənova Sədr ___",
+          "right_record_id": "d4b69d103237b747430212786bb3e022d987452e6b8df737f96245a66885c616",
+          "right_source": "eqanun",
+          "similarity": 0.986792
+        },
+        {
+          "left_excerpt": "\"Dövlət qeydiyyatına alınmışdır\" \"Təsdiq edilmişdir\" Azərbaycan Respublikasının Bələdiyyə üzvlərinin Ədliyyə Nazirliyi Qeydiyyat № 623 02 saylı iclas protokolu 15 mart 2000-ci il 10 fevral 2000-ci il Nazir ____________ S.C.Həsənova Sədr ___",
+          "left_record_id": "1aea38acd027e313738aae29ad699daeaca8beb28f1d0d0db873cf12bedf1ce5",
+          "left_source": "eqanun",
+          "right_excerpt": "\"Dövlət qeydiyyatına alınmışdır\" \"Təsdiq edilmişdir\" Azərbaycan Respublikasının Bələdiyyə üzvlərinin Ədliyyə Nazirliyi Qeydiyyat № 624 02 saylı iclas protokolu 15 mart 2000-ci il 9 fevral 2000-ci il Nazir ____________ S.C.Həsənova Sədr ____",
+          "right_record_id": "995532aaa1cb7b919709d769d7b3dd158ca3ff4ea87e3169b5e005b09f0bca79",
+          "right_source": "eqanun",
+          "similarity": 0.986649
+        },
+        {
+          "left_excerpt": "Mən xoşbəxtliyi nədə görürəm? Xoşbəxtlik! Onu hərə bir cür başa düşür. Kimi şən həyatda, kimi arzularının yerinə yetməsində, kimi pulda, var-dövlətdə, kimi zəhmətdə, əməkdə, kimi də səmimi ailə həyatında görür.  Məncə, xoşbəxtlik - qurmaq, ",
+          "left_record_id": "3eb16c7ece8ca45e77052e5c3e5bc5ff27e03eec4805002fcd8fa428305c95e4",
+          "left_source": "elite-blogs",
+          "right_excerpt": "Mən əsil xoşbəxtliyi nədə görürəm? Xoşbəxtlik! Onu hərə bir cür başa düşür. Kimi şən həyatda, kimi arzularının yerinə yetməsində, kimi pulda, var-dövlətdə, kimi zəhmətdə, əməkdə, kimi də səmimi ailə həyatında görür.  Məncə xoşbəxtlik - qurm",
+          "right_record_id": "d0afe563a075b3d8118ee0a69a7a3780c08e045982e721715a1a4f2afbed3fb7",
+          "right_source": "elite-blogs",
+          "similarity": 0.98356
+        },
+        {
+          "left_excerpt": "Kosalar bələdiyyəsinin iclasının QƏRARI № 18 07 iyul 2022-ci il Qazax rayonunun Kosalar kəndi ÇIXARIŞ Gündəlikdə duran məsələ: 1. “Azərbaycan Respublikası Qazax rayonunun Kosalar bələdiyyəsinin Nizamnaməsi”nin təsdiq edilməsi haqqında Kosal",
+          "left_record_id": "7079bd9ea1375ed939ab5866baff18abd5c8fe4572553a26c9742d918b3c1292",
+          "left_source": "eqanun",
+          "right_excerpt": "Xanlıqlar bələdiyyəsinin iclasının QƏRARI № 08 07 iyul 2022-ci il Qazax rayonunun Xanlıqlar kəndi ÇIXARIŞ Gündəlikdə duran məsələ: 1. “Azərbaycan Respublikası Qazax rayonunun Xanlıqlar bələdiyyəsinin Nizamnaməsi”nin təsdiq edilməsi haqqında",
+          "right_record_id": "a8d164d377c7344cf34a5d55fa13764418580d7db6a834b94a88203baf5cb89f",
+          "right_source": "eqanun",
+          "similarity": 0.982021
+        },
+        {
+          "left_excerpt": "Kiş bələdiyyəsinin iclasının QƏRARI № 08 “ 18” iyul 2018-ci il Şəki rayonunun Kiş kəndi ÇIXARIŞ Gündəlikdə duran məsələ: 1. “Azərbaycan Respublikası Şəki rayonunun Kiş bələdiyyəsinin Nizamnaməsi”nin təsdiq edilməsi haqqında Kiş bələdiyyəsin",
+          "left_record_id": "664a17f9750a83e4db88051d31ca3c91e58f7e76c846227b27e481ba2d16f398",
+          "left_source": "eqanun",
+          "right_excerpt": "Küdürlü bələdiyyəsinin iclasının QƏRARI № 08 “ 18” iyul 2018-ci il Şəki rayonunun Küdürlü kəndi ÇIXARIŞ Gündəlikdə duran məsələ: 1. “Azərbaycan Respublikası Şəki rayonunun Küdürlü bələdiyyəsinin Nizamnaməsi”nin təsdiq edilməsi haqqında Küdü",
+          "right_record_id": "c1bd95a9d338d837e6f9d2f004b112fff976bc03d85a26de9a6d288145a84d0e",
+          "right_source": "eqanun",
+          "similarity": 0.981285
+        }
+      ],
+      "source_pairs": {
+        "anl-news / anl-news": 16,
+        "azwiki / azwiki": 8,
+        "elite-blogs / elite-blogs": 8,
+        "elite-books / elite-books": 6,
+        "eqanun / eqanun": 894
+      },
+      "threshold": 0.85
+    },
+    {
+      "accepted_pair_count": 556,
+      "examples": [
+        {
+          "left_excerpt": "HEÇ NƏ İTMİR “Get, 90 nömrəli açarı gətir!” Gətirirdim. “Kabeli aç!” Açırdım. “İzolyasiya tap, məftil tap!” Həm onu, həm də bunu tapırdım. “Baş energetiki çağır!” Çağırırdım. Bəzən də çox qorxduğum tapşırığı verirdi: “Vışkaya qalx, elektrik",
+          "left_record_id": "339dbd83466686f738b530357fd45a25e564d62da53f5a0bdd292c4cd1934902",
+          "left_source": "elite-books",
+          "right_excerpt": "“Get, 90 nömrəli açarı gətir!” Gətirirdim. “Kabeli aç!” Açırdım. “İzolyasiya tap, məftil tap!” Həm onu, həm də bunu tapırdım. “Baş energetiki çağır!” Çağırırdım. Bəzən də çox qorxduğum tapşırığı verirdi: “Vışkaya qalx, elektrik xəttini yoxl",
+          "right_record_id": "f87db7987bbd62577ceb3bff4336a6e1b26bf87739157bc61a07e16d5cb9522c",
+          "right_source": "elite-books",
+          "similarity": 0.999859
+        },
+        {
+          "left_excerpt": "İnsan söz işığında, fikir axtarışında Şərqin böyük söz sahibləri insana qüdrət və qüvvət yiyəsi kimi yanaşmışlar. C.Rumi yazırdı; Ey insan, ən müqəddəs kitab sənsən. Sən dünya gözəlliklərinə bir aynasan. Bəli, İNSAN! İlahi insanı torpaqdan ",
+          "left_record_id": "0f417491315c8c2e03e7f6c86dffc6528e5a51c21ee628217d1a780305ee49f7",
+          "left_source": "elite-books",
+          "right_excerpt": "İnsan söz işığında, fikir axtarışında Şərqin böyük söz sahibləri insana qüdrət və qüvvət yiyəsi kimi yanaşmışlar. C.Rumi yazırdı; Ey insan, ən müqəddəs kitab sənsən. Sən dünya gözəlliklərinə bir aynasan. Bəli, İNSAN! İlahi insanı torpaqdan ",
+          "right_record_id": "4f07c56bba357d7c1654bc97eedb4f3927b3031c5c7a98182525b036d3389f56",
+          "right_source": "elite-books",
+          "similarity": 0.999708
+        },
+        {
+          "left_excerpt": "DÜNYANIN XILAS YOLU NƏĞMƏ... (Naibə Yusifin “Zərbə” romanına ön söz) Naibə Yusifi uzun illərdir ki, tanıyıram, Şirvan şəhərində Azərbaycan dili və ədəbiyyatından dərs deyir, gələcək nəsillərə ədəbiyyatın sirlərini öyrədir, ədəbiyyatımızı da",
+          "left_record_id": "4b629cfd29082a866b27566345c7420b4156408366f1741a1a03638c85cf62c5",
+          "left_source": "elite-books",
+          "right_excerpt": "Naibə Yusifi uzun illərdir ki, tanıyıram, Şirvan şəhərində Azərbaycan dili və ədəbiyyatından dərs deyir, gələcək nəsillərə ədəbiyyatın sirlərini öyrədir, ədəbiyyatımızı daim təbliğ edir. İndiyə kimi onun bir neçə kitabını oxumuşam, dövri mə",
+          "right_record_id": "ca6f1e0b5b3dca4b55e2a1193efba2429020cbc123a05a1f37240fb17bca6ea6",
+          "right_source": "elite-books",
+          "similarity": 0.999456
+        },
+        {
+          "left_excerpt": "Bir evin içinə düşəndə işıq Qalmaz belə yerdə zülmət, qaranlıq... Hava günəşli idi. Xəzərdən sərin yaz küləyi əsir, yaşıl yarpaqlı ağacların xışıltısı maşın səslərinin azaldığı bu yerdə az da olsa eşidilirdi. Leyla və Ramil ilk dəfə idi ki,",
+          "left_record_id": "40e32b2df7b7affb4285954192d8e309c63a7ca3b7680fb6e7849ed3db07f013",
+          "left_source": "elite-books",
+          "right_excerpt": "Bir evin içinə düşəndə işıq Qalmaz belə yerdə zülmət, qaranlıq... Hava günəşli idi. Xəzərdən sərin yaz küləyi əsir, yaşıl yarpaqlı ağacların xışıltısı maşın səslərinin azaldığı bu yerdə az da olsa eşidilirdi. Leyla və Ramil ilk dəfə idi ki,",
+          "right_record_id": "980addf9c34e73132f3da4c73dc7edad5c493bc06d9e6b8b222e3faa321e5ef4",
+          "right_source": "elite-books",
+          "similarity": 0.99926
+        },
+        {
+          "left_excerpt": "Hələ uşaq yaşlarımda kiçik hekayələr, hərdən də şeirlər yazar, ancaq yazdıqlarımı hamıdan gizlədərdim. Yuxarı siniflərdə oxuduğum zaman Abdal Qasım haqqında atamdan və Abdal kəndinin köhnə kişilərindən eşitdiklərimi toplayıb iki hissəli bir",
+          "left_record_id": "4a7a24f80243b6094cea68c46c8d31be1450d68df7ffc60b7ed932572cc49695",
+          "left_source": "elite-books",
+          "right_excerpt": "Hələ uşaq yaşlarımda kiçik hekayələr, hərdən də şeirlər yazar, ancaq yazdıqlarımı hamıdan gizlədərdim. Yuxarı siniflərdə oxuduğum zaman Abdal Qasım haqqında atamdan və Abdal kəndinin köhnə kişilərindən eşitdiklərimi toplayıb iki hissəli bir",
+          "right_record_id": "edb26df06de0b39a04e41213f303614a0fd070e04276987c66bb2f5c7a5ab534",
+          "right_source": "elite-books",
+          "similarity": 0.999208
+        },
+        {
+          "left_excerpt": "Müharibə veteranı, yazıçı Səfdər Eminovun eyni adlı əsəri haqqında düşüncələrim... Çoxlu sayda kitabların redaktoru olmağıma baxmayaraq, hər kitab məni özünə çəkə bilməyib. İstər şeir, olsun, istər nəsr. Amma elə kitablar var ki, məni önünd",
+          "left_record_id": "367c16ff21e5dfb8e2eec2c7ea74947af350302c6591e549e342f7c70726ac7a",
+          "left_source": "elite-books",
+          "right_excerpt": "Müharibə veteranı, dəyərli yazıçımız Səfdər Eminovun yazdığı əsərlərin hamısı müharibə mövzusundadır. İnanırıq ku, onun yazdığı hər bir əsər Azərbaycan ədəbiyyatına ən gözəl töhvə olmaqla bərabər, gələcək nəsilimizə kişilik, igidlik məktəbi",
+          "right_record_id": "3ea5563a60505b670af91c56f29839bb6cdf6938846e1d091a112df99261bd75",
+          "right_source": "elite-books",
+          "similarity": 0.999191
+        },
+        {
+          "left_excerpt": "İlxıçı Həsən Əfəndi bələdiyyəsinin iclasının QƏRARI № 06 12 aprel 2012-ci il Xaçmaz rayonunun Ağçay kəndi ÇIXARIŞ Gündəlikdə duran məsələ: 1. “Azərbaycan Respublikası Xaçmaz rayonunun İlxıçı Həsən Əfəndi bələdiyyəsinin Nizamnaməsi”nin təsdi",
+          "left_record_id": "31bfd0f3f5535ad5ccae8803447489fbbf8403b68f032b06c7a940d4620c39ea",
+          "left_source": "eqanun",
+          "right_excerpt": "İlxıçı Həsən Əfəndi bələdiyyəsinin iclasının QƏRARI № 06 12 aprel 2012-ci il Xaçmaz rayonunun Ağçay kəndi ÇIXARIŞ Gündəlikdə duran məsələ: 1. “Azərbaycan Respublikası Xaçmaz rayonunun İlxıçı Həsən Əfəndi bələdiyyəsinin Nizamnaməsi”nin təsdi",
+          "right_record_id": "9b356741b8bd5d80e84145b9307126532dcb683b46bc195a933a2f30e2b531c6",
+          "right_source": "eqanun",
+          "similarity": 0.995144
+        },
+        {
+          "left_excerpt": "\"Dövlət qeydiyyatına alınmışdır\" \"Təsdiq edilmişdir\" Azərbaycan Respublikasının Bələdiyyə üzvlərinin Ədliyyə Nazirliyi Qeydiyyat № 678 02 saylı iclas protokolu 17 mart 2000-ci il 11 fevral 2000-ci il Nazir ____________ S.C.Həsənova Sədr ___",
+          "left_record_id": "85e8eb6b7d9d63f14d108ee1d58968e86acca0636c6512a47e50c2349bcc4f29",
+          "left_source": "eqanun",
+          "right_excerpt": "\"Dövlət qeydiyyatına alınmışdır\" \"Təsdiq edilmişdir\" Azərbaycan Respublikasının Bələdiyyə üzvlərinin Ədliyyə Nazirliyi Qeydiyyat № 686 02 saylı iclas protokolu 17 mart 2000-ci il 15 fevral 2000-ci il Nazir ____________ S.C.Həsənova Sədr ___",
+          "right_record_id": "d4b69d103237b747430212786bb3e022d987452e6b8df737f96245a66885c616",
+          "right_source": "eqanun",
+          "similarity": 0.986792
+        },
+        {
+          "left_excerpt": "\"Dövlət qeydiyyatına alınmışdır\" \"Təsdiq edilmişdir\" Azərbaycan Respublikasının Bələdiyyə üzvlərinin Ədliyyə Nazirliyi Qeydiyyat № 623 02 saylı iclas protokolu 15 mart 2000-ci il 10 fevral 2000-ci il Nazir ____________ S.C.Həsənova Sədr ___",
+          "left_record_id": "1aea38acd027e313738aae29ad699daeaca8beb28f1d0d0db873cf12bedf1ce5",
+          "left_source": "eqanun",
+          "right_excerpt": "\"Dövlət qeydiyyatına alınmışdır\" \"Təsdiq edilmişdir\" Azərbaycan Respublikasının Bələdiyyə üzvlərinin Ədliyyə Nazirliyi Qeydiyyat № 624 02 saylı iclas protokolu 15 mart 2000-ci il 9 fevral 2000-ci il Nazir ____________ S.C.Həsənova Sədr ____",
+          "right_record_id": "995532aaa1cb7b919709d769d7b3dd158ca3ff4ea87e3169b5e005b09f0bca79",
+          "right_source": "eqanun",
+          "similarity": 0.986649
+        },
+        {
+          "left_excerpt": "Mən xoşbəxtliyi nədə görürəm? Xoşbəxtlik! Onu hərə bir cür başa düşür. Kimi şən həyatda, kimi arzularının yerinə yetməsində, kimi pulda, var-dövlətdə, kimi zəhmətdə, əməkdə, kimi də səmimi ailə həyatında görür.  Məncə, xoşbəxtlik - qurmaq, ",
+          "left_record_id": "3eb16c7ece8ca45e77052e5c3e5bc5ff27e03eec4805002fcd8fa428305c95e4",
+          "left_source": "elite-blogs",
+          "right_excerpt": "Mən əsil xoşbəxtliyi nədə görürəm? Xoşbəxtlik! Onu hərə bir cür başa düşür. Kimi şən həyatda, kimi arzularının yerinə yetməsində, kimi pulda, var-dövlətdə, kimi zəhmətdə, əməkdə, kimi də səmimi ailə həyatında görür.  Məncə xoşbəxtlik - qurm",
+          "right_record_id": "d0afe563a075b3d8118ee0a69a7a3780c08e045982e721715a1a4f2afbed3fb7",
+          "right_source": "elite-blogs",
+          "similarity": 0.98356
+        },
+        {
+          "left_excerpt": "Kosalar bələdiyyəsinin iclasının QƏRARI № 18 07 iyul 2022-ci il Qazax rayonunun Kosalar kəndi ÇIXARIŞ Gündəlikdə duran məsələ: 1. “Azərbaycan Respublikası Qazax rayonunun Kosalar bələdiyyəsinin Nizamnaməsi”nin təsdiq edilməsi haqqında Kosal",
+          "left_record_id": "7079bd9ea1375ed939ab5866baff18abd5c8fe4572553a26c9742d918b3c1292",
+          "left_source": "eqanun",
+          "right_excerpt": "Xanlıqlar bələdiyyəsinin iclasının QƏRARI № 08 07 iyul 2022-ci il Qazax rayonunun Xanlıqlar kəndi ÇIXARIŞ Gündəlikdə duran məsələ: 1. “Azərbaycan Respublikası Qazax rayonunun Xanlıqlar bələdiyyəsinin Nizamnaməsi”nin təsdiq edilməsi haqqında",
+          "right_record_id": "a8d164d377c7344cf34a5d55fa13764418580d7db6a834b94a88203baf5cb89f",
+          "right_source": "eqanun",
+          "similarity": 0.982021
+        },
+        {
+          "left_excerpt": "Kiş bələdiyyəsinin iclasının QƏRARI № 08 “ 18” iyul 2018-ci il Şəki rayonunun Kiş kəndi ÇIXARIŞ Gündəlikdə duran məsələ: 1. “Azərbaycan Respublikası Şəki rayonunun Kiş bələdiyyəsinin Nizamnaməsi”nin təsdiq edilməsi haqqında Kiş bələdiyyəsin",
+          "left_record_id": "664a17f9750a83e4db88051d31ca3c91e58f7e76c846227b27e481ba2d16f398",
+          "left_source": "eqanun",
+          "right_excerpt": "Küdürlü bələdiyyəsinin iclasının QƏRARI № 08 “ 18” iyul 2018-ci il Şəki rayonunun Küdürlü kəndi ÇIXARIŞ Gündəlikdə duran məsələ: 1. “Azərbaycan Respublikası Şəki rayonunun Küdürlü bələdiyyəsinin Nizamnaməsi”nin təsdiq edilməsi haqqında Küdü",
+          "right_record_id": "c1bd95a9d338d837e6f9d2f004b112fff976bc03d85a26de9a6d288145a84d0e",
+          "right_source": "eqanun",
+          "similarity": 0.981285
+        }
+      ],
+      "source_pairs": {
+        "anl-news / anl-news": 3,
+        "azwiki / azwiki": 7,
+        "elite-blogs / elite-blogs": 8,
+        "elite-books / elite-books": 6,
+        "eqanun / eqanun": 532
+      },
+      "threshold": 0.9
+    },
+    {
+      "accepted_pair_count": 536,
+      "examples": [
+        {
+          "left_excerpt": "HEÇ NƏ İTMİR “Get, 90 nömrəli açarı gətir!” Gətirirdim. “Kabeli aç!” Açırdım. “İzolyasiya tap, məftil tap!” Həm onu, həm də bunu tapırdım. “Baş energetiki çağır!” Çağırırdım. Bəzən də çox qorxduğum tapşırığı verirdi: “Vışkaya qalx, elektrik",
+          "left_record_id": "339dbd83466686f738b530357fd45a25e564d62da53f5a0bdd292c4cd1934902",
+          "left_source": "elite-books",
+          "right_excerpt": "“Get, 90 nömrəli açarı gətir!” Gətirirdim. “Kabeli aç!” Açırdım. “İzolyasiya tap, məftil tap!” Həm onu, həm də bunu tapırdım. “Baş energetiki çağır!” Çağırırdım. Bəzən də çox qorxduğum tapşırığı verirdi: “Vışkaya qalx, elektrik xəttini yoxl",
+          "right_record_id": "f87db7987bbd62577ceb3bff4336a6e1b26bf87739157bc61a07e16d5cb9522c",
+          "right_source": "elite-books",
+          "similarity": 0.999859
+        },
+        {
+          "left_excerpt": "İnsan söz işığında, fikir axtarışında Şərqin böyük söz sahibləri insana qüdrət və qüvvət yiyəsi kimi yanaşmışlar. C.Rumi yazırdı; Ey insan, ən müqəddəs kitab sənsən. Sən dünya gözəlliklərinə bir aynasan. Bəli, İNSAN! İlahi insanı torpaqdan ",
+          "left_record_id": "0f417491315c8c2e03e7f6c86dffc6528e5a51c21ee628217d1a780305ee49f7",
+          "left_source": "elite-books",
+          "right_excerpt": "İnsan söz işığında, fikir axtarışında Şərqin böyük söz sahibləri insana qüdrət və qüvvət yiyəsi kimi yanaşmışlar. C.Rumi yazırdı; Ey insan, ən müqəddəs kitab sənsən. Sən dünya gözəlliklərinə bir aynasan. Bəli, İNSAN! İlahi insanı torpaqdan ",
+          "right_record_id": "4f07c56bba357d7c1654bc97eedb4f3927b3031c5c7a98182525b036d3389f56",
+          "right_source": "elite-books",
+          "similarity": 0.999708
+        },
+        {
+          "left_excerpt": "DÜNYANIN XILAS YOLU NƏĞMƏ... (Naibə Yusifin “Zərbə” romanına ön söz) Naibə Yusifi uzun illərdir ki, tanıyıram, Şirvan şəhərində Azərbaycan dili və ədəbiyyatından dərs deyir, gələcək nəsillərə ədəbiyyatın sirlərini öyrədir, ədəbiyyatımızı da",
+          "left_record_id": "4b629cfd29082a866b27566345c7420b4156408366f1741a1a03638c85cf62c5",
+          "left_source": "elite-books",
+          "right_excerpt": "Naibə Yusifi uzun illərdir ki, tanıyıram, Şirvan şəhərində Azərbaycan dili və ədəbiyyatından dərs deyir, gələcək nəsillərə ədəbiyyatın sirlərini öyrədir, ədəbiyyatımızı daim təbliğ edir. İndiyə kimi onun bir neçə kitabını oxumuşam, dövri mə",
+          "right_record_id": "ca6f1e0b5b3dca4b55e2a1193efba2429020cbc123a05a1f37240fb17bca6ea6",
+          "right_source": "elite-books",
+          "similarity": 0.999456
+        },
+        {
+          "left_excerpt": "Bir evin içinə düşəndə işıq Qalmaz belə yerdə zülmət, qaranlıq... Hava günəşli idi. Xəzərdən sərin yaz küləyi əsir, yaşıl yarpaqlı ağacların xışıltısı maşın səslərinin azaldığı bu yerdə az da olsa eşidilirdi. Leyla və Ramil ilk dəfə idi ki,",
+          "left_record_id": "40e32b2df7b7affb4285954192d8e309c63a7ca3b7680fb6e7849ed3db07f013",
+          "left_source": "elite-books",
+          "right_excerpt": "Bir evin içinə düşəndə işıq Qalmaz belə yerdə zülmət, qaranlıq... Hava günəşli idi. Xəzərdən sərin yaz küləyi əsir, yaşıl yarpaqlı ağacların xışıltısı maşın səslərinin azaldığı bu yerdə az da olsa eşidilirdi. Leyla və Ramil ilk dəfə idi ki,",
+          "right_record_id": "980addf9c34e73132f3da4c73dc7edad5c493bc06d9e6b8b222e3faa321e5ef4",
+          "right_source": "elite-books",
+          "similarity": 0.99926
+        },
+        {
+          "left_excerpt": "Hələ uşaq yaşlarımda kiçik hekayələr, hərdən də şeirlər yazar, ancaq yazdıqlarımı hamıdan gizlədərdim. Yuxarı siniflərdə oxuduğum zaman Abdal Qasım haqqında atamdan və Abdal kəndinin köhnə kişilərindən eşitdiklərimi toplayıb iki hissəli bir",
+          "left_record_id": "4a7a24f80243b6094cea68c46c8d31be1450d68df7ffc60b7ed932572cc49695",
+          "left_source": "elite-books",
+          "right_excerpt": "Hələ uşaq yaşlarımda kiçik hekayələr, hərdən də şeirlər yazar, ancaq yazdıqlarımı hamıdan gizlədərdim. Yuxarı siniflərdə oxuduğum zaman Abdal Qasım haqqında atamdan və Abdal kəndinin köhnə kişilərindən eşitdiklərimi toplayıb iki hissəli bir",
+          "right_record_id": "edb26df06de0b39a04e41213f303614a0fd070e04276987c66bb2f5c7a5ab534",
+          "right_source": "elite-books",
+          "similarity": 0.999208
+        },
+        {
+          "left_excerpt": "Müharibə veteranı, yazıçı Səfdər Eminovun eyni adlı əsəri haqqında düşüncələrim... Çoxlu sayda kitabların redaktoru olmağıma baxmayaraq, hər kitab məni özünə çəkə bilməyib. İstər şeir, olsun, istər nəsr. Amma elə kitablar var ki, məni önünd",
+          "left_record_id": "367c16ff21e5dfb8e2eec2c7ea74947af350302c6591e549e342f7c70726ac7a",
+          "left_source": "elite-books",
+          "right_excerpt": "Müharibə veteranı, dəyərli yazıçımız Səfdər Eminovun yazdığı əsərlərin hamısı müharibə mövzusundadır. İnanırıq ku, onun yazdığı hər bir əsər Azərbaycan ədəbiyyatına ən gözəl töhvə olmaqla bərabər, gələcək nəsilimizə kişilik, igidlik məktəbi",
+          "right_record_id": "3ea5563a60505b670af91c56f29839bb6cdf6938846e1d091a112df99261bd75",
+          "right_source": "elite-books",
+          "similarity": 0.999191
+        },
+        {
+          "left_excerpt": "İlxıçı Həsən Əfəndi bələdiyyəsinin iclasının QƏRARI № 06 12 aprel 2012-ci il Xaçmaz rayonunun Ağçay kəndi ÇIXARIŞ Gündəlikdə duran məsələ: 1. “Azərbaycan Respublikası Xaçmaz rayonunun İlxıçı Həsən Əfəndi bələdiyyəsinin Nizamnaməsi”nin təsdi",
+          "left_record_id": "31bfd0f3f5535ad5ccae8803447489fbbf8403b68f032b06c7a940d4620c39ea",
+          "left_source": "eqanun",
+          "right_excerpt": "İlxıçı Həsən Əfəndi bələdiyyəsinin iclasının QƏRARI № 06 12 aprel 2012-ci il Xaçmaz rayonunun Ağçay kəndi ÇIXARIŞ Gündəlikdə duran məsələ: 1. “Azərbaycan Respublikası Xaçmaz rayonunun İlxıçı Həsən Əfəndi bələdiyyəsinin Nizamnaməsi”nin təsdi",
+          "right_record_id": "9b356741b8bd5d80e84145b9307126532dcb683b46bc195a933a2f30e2b531c6",
+          "right_source": "eqanun",
+          "similarity": 0.995144
+        },
+        {
+          "left_excerpt": "\"Dövlət qeydiyyatına alınmışdır\" \"Təsdiq edilmişdir\" Azərbaycan Respublikasının Bələdiyyə üzvlərinin Ədliyyə Nazirliyi Qeydiyyat № 678 02 saylı iclas protokolu 17 mart 2000-ci il 11 fevral 2000-ci il Nazir ____________ S.C.Həsənova Sədr ___",
+          "left_record_id": "85e8eb6b7d9d63f14d108ee1d58968e86acca0636c6512a47e50c2349bcc4f29",
+          "left_source": "eqanun",
+          "right_excerpt": "\"Dövlət qeydiyyatına alınmışdır\" \"Təsdiq edilmişdir\" Azərbaycan Respublikasının Bələdiyyə üzvlərinin Ədliyyə Nazirliyi Qeydiyyat № 686 02 saylı iclas protokolu 17 mart 2000-ci il 15 fevral 2000-ci il Nazir ____________ S.C.Həsənova Sədr ___",
+          "right_record_id": "d4b69d103237b747430212786bb3e022d987452e6b8df737f96245a66885c616",
+          "right_source": "eqanun",
+          "similarity": 0.986792
+        },
+        {
+          "left_excerpt": "\"Dövlət qeydiyyatına alınmışdır\" \"Təsdiq edilmişdir\" Azərbaycan Respublikasının Bələdiyyə üzvlərinin Ədliyyə Nazirliyi Qeydiyyat № 623 02 saylı iclas protokolu 15 mart 2000-ci il 10 fevral 2000-ci il Nazir ____________ S.C.Həsənova Sədr ___",
+          "left_record_id": "1aea38acd027e313738aae29ad699daeaca8beb28f1d0d0db873cf12bedf1ce5",
+          "left_source": "eqanun",
+          "right_excerpt": "\"Dövlət qeydiyyatına alınmışdır\" \"Təsdiq edilmişdir\" Azərbaycan Respublikasının Bələdiyyə üzvlərinin Ədliyyə Nazirliyi Qeydiyyat № 624 02 saylı iclas protokolu 15 mart 2000-ci il 9 fevral 2000-ci il Nazir ____________ S.C.Həsənova Sədr ____",
+          "right_record_id": "995532aaa1cb7b919709d769d7b3dd158ca3ff4ea87e3169b5e005b09f0bca79",
+          "right_source": "eqanun",
+          "similarity": 0.986649
+        },
+        {
+          "left_excerpt": "Mən xoşbəxtliyi nədə görürəm? Xoşbəxtlik! Onu hərə bir cür başa düşür. Kimi şən həyatda, kimi arzularının yerinə yetməsində, kimi pulda, var-dövlətdə, kimi zəhmətdə, əməkdə, kimi də səmimi ailə həyatında görür.  Məncə, xoşbəxtlik - qurmaq, ",
+          "left_record_id": "3eb16c7ece8ca45e77052e5c3e5bc5ff27e03eec4805002fcd8fa428305c95e4",
+          "left_source": "elite-blogs",
+          "right_excerpt": "Mən əsil xoşbəxtliyi nədə görürəm? Xoşbəxtlik! Onu hərə bir cür başa düşür. Kimi şən həyatda, kimi arzularının yerinə yetməsində, kimi pulda, var-dövlətdə, kimi zəhmətdə, əməkdə, kimi də səmimi ailə həyatında görür.  Məncə xoşbəxtlik - qurm",
+          "right_record_id": "d0afe563a075b3d8118ee0a69a7a3780c08e045982e721715a1a4f2afbed3fb7",
+          "right_source": "elite-blogs",
+          "similarity": 0.98356
+        },
+        {
+          "left_excerpt": "Kosalar bələdiyyəsinin iclasının QƏRARI № 18 07 iyul 2022-ci il Qazax rayonunun Kosalar kəndi ÇIXARIŞ Gündəlikdə duran məsələ: 1. “Azərbaycan Respublikası Qazax rayonunun Kosalar bələdiyyəsinin Nizamnaməsi”nin təsdiq edilməsi haqqında Kosal",
+          "left_record_id": "7079bd9ea1375ed939ab5866baff18abd5c8fe4572553a26c9742d918b3c1292",
+          "left_source": "eqanun",
+          "right_excerpt": "Xanlıqlar bələdiyyəsinin iclasının QƏRARI № 08 07 iyul 2022-ci il Qazax rayonunun Xanlıqlar kəndi ÇIXARIŞ Gündəlikdə duran məsələ: 1. “Azərbaycan Respublikası Qazax rayonunun Xanlıqlar bələdiyyəsinin Nizamnaməsi”nin təsdiq edilməsi haqqında",
+          "right_record_id": "a8d164d377c7344cf34a5d55fa13764418580d7db6a834b94a88203baf5cb89f",
+          "right_source": "eqanun",
+          "similarity": 0.982021
+        },
+        {
+          "left_excerpt": "Kiş bələdiyyəsinin iclasının QƏRARI № 08 “ 18” iyul 2018-ci il Şəki rayonunun Kiş kəndi ÇIXARIŞ Gündəlikdə duran məsələ: 1. “Azərbaycan Respublikası Şəki rayonunun Kiş bələdiyyəsinin Nizamnaməsi”nin təsdiq edilməsi haqqında Kiş bələdiyyəsin",
+          "left_record_id": "664a17f9750a83e4db88051d31ca3c91e58f7e76c846227b27e481ba2d16f398",
+          "left_source": "eqanun",
+          "right_excerpt": "Küdürlü bələdiyyəsinin iclasının QƏRARI № 08 “ 18” iyul 2018-ci il Şəki rayonunun Küdürlü kəndi ÇIXARIŞ Gündəlikdə duran məsələ: 1. “Azərbaycan Respublikası Şəki rayonunun Küdürlü bələdiyyəsinin Nizamnaməsi”nin təsdiq edilməsi haqqında Küdü",
+          "right_record_id": "c1bd95a9d338d837e6f9d2f004b112fff976bc03d85a26de9a6d288145a84d0e",
+          "right_source": "eqanun",
+          "similarity": 0.981285
+        }
+      ],
+      "source_pairs": {
+        "anl-news / anl-news": 3,
+        "azwiki / azwiki": 7,
+        "elite-blogs / elite-blogs": 8,
+        "elite-books / elite-books": 6,
+        "eqanun / eqanun": 512
+      },
+      "threshold": 0.92
+    },
+    {
+      "accepted_pair_count": 290,
+      "examples": [
+        {
+          "left_excerpt": "HEÇ NƏ İTMİR “Get, 90 nömrəli açarı gətir!” Gətirirdim. “Kabeli aç!” Açırdım. “İzolyasiya tap, məftil tap!” Həm onu, həm də bunu tapırdım. “Baş energetiki çağır!” Çağırırdım. Bəzən də çox qorxduğum tapşırığı verirdi: “Vışkaya qalx, elektrik",
+          "left_record_id": "339dbd83466686f738b530357fd45a25e564d62da53f5a0bdd292c4cd1934902",
+          "left_source": "elite-books",
+          "right_excerpt": "“Get, 90 nömrəli açarı gətir!” Gətirirdim. “Kabeli aç!” Açırdım. “İzolyasiya tap, məftil tap!” Həm onu, həm də bunu tapırdım. “Baş energetiki çağır!” Çağırırdım. Bəzən də çox qorxduğum tapşırığı verirdi: “Vışkaya qalx, elektrik xəttini yoxl",
+          "right_record_id": "f87db7987bbd62577ceb3bff4336a6e1b26bf87739157bc61a07e16d5cb9522c",
+          "right_source": "elite-books",
+          "similarity": 0.999859
+        },
+        {
+          "left_excerpt": "İnsan söz işığında, fikir axtarışında Şərqin böyük söz sahibləri insana qüdrət və qüvvət yiyəsi kimi yanaşmışlar. C.Rumi yazırdı; Ey insan, ən müqəddəs kitab sənsən. Sən dünya gözəlliklərinə bir aynasan. Bəli, İNSAN! İlahi insanı torpaqdan ",
+          "left_record_id": "0f417491315c8c2e03e7f6c86dffc6528e5a51c21ee628217d1a780305ee49f7",
+          "left_source": "elite-books",
+          "right_excerpt": "İnsan söz işığında, fikir axtarışında Şərqin böyük söz sahibləri insana qüdrət və qüvvət yiyəsi kimi yanaşmışlar. C.Rumi yazırdı; Ey insan, ən müqəddəs kitab sənsən. Sən dünya gözəlliklərinə bir aynasan. Bəli, İNSAN! İlahi insanı torpaqdan ",
+          "right_record_id": "4f07c56bba357d7c1654bc97eedb4f3927b3031c5c7a98182525b036d3389f56",
+          "right_source": "elite-books",
+          "similarity": 0.999708
+        },
+        {
+          "left_excerpt": "DÜNYANIN XILAS YOLU NƏĞMƏ... (Naibə Yusifin “Zərbə” romanına ön söz) Naibə Yusifi uzun illərdir ki, tanıyıram, Şirvan şəhərində Azərbaycan dili və ədəbiyyatından dərs deyir, gələcək nəsillərə ədəbiyyatın sirlərini öyrədir, ədəbiyyatımızı da",
+          "left_record_id": "4b629cfd29082a866b27566345c7420b4156408366f1741a1a03638c85cf62c5",
+          "left_source": "elite-books",
+          "right_excerpt": "Naibə Yusifi uzun illərdir ki, tanıyıram, Şirvan şəhərində Azərbaycan dili və ədəbiyyatından dərs deyir, gələcək nəsillərə ədəbiyyatın sirlərini öyrədir, ədəbiyyatımızı daim təbliğ edir. İndiyə kimi onun bir neçə kitabını oxumuşam, dövri mə",
+          "right_record_id": "ca6f1e0b5b3dca4b55e2a1193efba2429020cbc123a05a1f37240fb17bca6ea6",
+          "right_source": "elite-books",
+          "similarity": 0.999456
+        },
+        {
+          "left_excerpt": "Bir evin içinə düşəndə işıq Qalmaz belə yerdə zülmət, qaranlıq... Hava günəşli idi. Xəzərdən sərin yaz küləyi əsir, yaşıl yarpaqlı ağacların xışıltısı maşın səslərinin azaldığı bu yerdə az da olsa eşidilirdi. Leyla və Ramil ilk dəfə idi ki,",
+          "left_record_id": "40e32b2df7b7affb4285954192d8e309c63a7ca3b7680fb6e7849ed3db07f013",
+          "left_source": "elite-books",
+          "right_excerpt": "Bir evin içinə düşəndə işıq Qalmaz belə yerdə zülmət, qaranlıq... Hava günəşli idi. Xəzərdən sərin yaz küləyi əsir, yaşıl yarpaqlı ağacların xışıltısı maşın səslərinin azaldığı bu yerdə az da olsa eşidilirdi. Leyla və Ramil ilk dəfə idi ki,",
+          "right_record_id": "980addf9c34e73132f3da4c73dc7edad5c493bc06d9e6b8b222e3faa321e5ef4",
+          "right_source": "elite-books",
+          "similarity": 0.99926
+        },
+        {
+          "left_excerpt": "Hələ uşaq yaşlarımda kiçik hekayələr, hərdən də şeirlər yazar, ancaq yazdıqlarımı hamıdan gizlədərdim. Yuxarı siniflərdə oxuduğum zaman Abdal Qasım haqqında atamdan və Abdal kəndinin köhnə kişilərindən eşitdiklərimi toplayıb iki hissəli bir",
+          "left_record_id": "4a7a24f80243b6094cea68c46c8d31be1450d68df7ffc60b7ed932572cc49695",
+          "left_source": "elite-books",
+          "right_excerpt": "Hələ uşaq yaşlarımda kiçik hekayələr, hərdən də şeirlər yazar, ancaq yazdıqlarımı hamıdan gizlədərdim. Yuxarı siniflərdə oxuduğum zaman Abdal Qasım haqqında atamdan və Abdal kəndinin köhnə kişilərindən eşitdiklərimi toplayıb iki hissəli bir",
+          "right_record_id": "edb26df06de0b39a04e41213f303614a0fd070e04276987c66bb2f5c7a5ab534",
+          "right_source": "elite-books",
+          "similarity": 0.999208
+        },
+        {
+          "left_excerpt": "Müharibə veteranı, yazıçı Səfdər Eminovun eyni adlı əsəri haqqında düşüncələrim... Çoxlu sayda kitabların redaktoru olmağıma baxmayaraq, hər kitab məni özünə çəkə bilməyib. İstər şeir, olsun, istər nəsr. Amma elə kitablar var ki, məni önünd",
+          "left_record_id": "367c16ff21e5dfb8e2eec2c7ea74947af350302c6591e549e342f7c70726ac7a",
+          "left_source": "elite-books",
+          "right_excerpt": "Müharibə veteranı, dəyərli yazıçımız Səfdər Eminovun yazdığı əsərlərin hamısı müharibə mövzusundadır. İnanırıq ku, onun yazdığı hər bir əsər Azərbaycan ədəbiyyatına ən gözəl töhvə olmaqla bərabər, gələcək nəsilimizə kişilik, igidlik məktəbi",
+          "right_record_id": "3ea5563a60505b670af91c56f29839bb6cdf6938846e1d091a112df99261bd75",
+          "right_source": "elite-books",
+          "similarity": 0.999191
+        },
+        {
+          "left_excerpt": "İlxıçı Həsən Əfəndi bələdiyyəsinin iclasının QƏRARI № 06 12 aprel 2012-ci il Xaçmaz rayonunun Ağçay kəndi ÇIXARIŞ Gündəlikdə duran məsələ: 1. “Azərbaycan Respublikası Xaçmaz rayonunun İlxıçı Həsən Əfəndi bələdiyyəsinin Nizamnaməsi”nin təsdi",
+          "left_record_id": "31bfd0f3f5535ad5ccae8803447489fbbf8403b68f032b06c7a940d4620c39ea",
+          "left_source": "eqanun",
+          "right_excerpt": "İlxıçı Həsən Əfəndi bələdiyyəsinin iclasının QƏRARI № 06 12 aprel 2012-ci il Xaçmaz rayonunun Ağçay kəndi ÇIXARIŞ Gündəlikdə duran məsələ: 1. “Azərbaycan Respublikası Xaçmaz rayonunun İlxıçı Həsən Əfəndi bələdiyyəsinin Nizamnaməsi”nin təsdi",
+          "right_record_id": "9b356741b8bd5d80e84145b9307126532dcb683b46bc195a933a2f30e2b531c6",
+          "right_source": "eqanun",
+          "similarity": 0.995144
+        },
+        {
+          "left_excerpt": "\"Dövlət qeydiyyatına alınmışdır\" \"Təsdiq edilmişdir\" Azərbaycan Respublikasının Bələdiyyə üzvlərinin Ədliyyə Nazirliyi Qeydiyyat № 678 02 saylı iclas protokolu 17 mart 2000-ci il 11 fevral 2000-ci il Nazir ____________ S.C.Həsənova Sədr ___",
+          "left_record_id": "85e8eb6b7d9d63f14d108ee1d58968e86acca0636c6512a47e50c2349bcc4f29",
+          "left_source": "eqanun",
+          "right_excerpt": "\"Dövlət qeydiyyatına alınmışdır\" \"Təsdiq edilmişdir\" Azərbaycan Respublikasının Bələdiyyə üzvlərinin Ədliyyə Nazirliyi Qeydiyyat № 686 02 saylı iclas protokolu 17 mart 2000-ci il 15 fevral 2000-ci il Nazir ____________ S.C.Həsənova Sədr ___",
+          "right_record_id": "d4b69d103237b747430212786bb3e022d987452e6b8df737f96245a66885c616",
+          "right_source": "eqanun",
+          "similarity": 0.986792
+        },
+        {
+          "left_excerpt": "\"Dövlət qeydiyyatına alınmışdır\" \"Təsdiq edilmişdir\" Azərbaycan Respublikasının Bələdiyyə üzvlərinin Ədliyyə Nazirliyi Qeydiyyat № 623 02 saylı iclas protokolu 15 mart 2000-ci il 10 fevral 2000-ci il Nazir ____________ S.C.Həsənova Sədr ___",
+          "left_record_id": "1aea38acd027e313738aae29ad699daeaca8beb28f1d0d0db873cf12bedf1ce5",
+          "left_source": "eqanun",
+          "right_excerpt": "\"Dövlət qeydiyyatına alınmışdır\" \"Təsdiq edilmişdir\" Azərbaycan Respublikasının Bələdiyyə üzvlərinin Ədliyyə Nazirliyi Qeydiyyat № 624 02 saylı iclas protokolu 15 mart 2000-ci il 9 fevral 2000-ci il Nazir ____________ S.C.Həsənova Sədr ____",
+          "right_record_id": "995532aaa1cb7b919709d769d7b3dd158ca3ff4ea87e3169b5e005b09f0bca79",
+          "right_source": "eqanun",
+          "similarity": 0.986649
+        },
+        {
+          "left_excerpt": "Mən xoşbəxtliyi nədə görürəm? Xoşbəxtlik! Onu hərə bir cür başa düşür. Kimi şən həyatda, kimi arzularının yerinə yetməsində, kimi pulda, var-dövlətdə, kimi zəhmətdə, əməkdə, kimi də səmimi ailə həyatında görür.  Məncə, xoşbəxtlik - qurmaq, ",
+          "left_record_id": "3eb16c7ece8ca45e77052e5c3e5bc5ff27e03eec4805002fcd8fa428305c95e4",
+          "left_source": "elite-blogs",
+          "right_excerpt": "Mən əsil xoşbəxtliyi nədə görürəm? Xoşbəxtlik! Onu hərə bir cür başa düşür. Kimi şən həyatda, kimi arzularının yerinə yetməsində, kimi pulda, var-dövlətdə, kimi zəhmətdə, əməkdə, kimi də səmimi ailə həyatında görür.  Məncə xoşbəxtlik - qurm",
+          "right_record_id": "d0afe563a075b3d8118ee0a69a7a3780c08e045982e721715a1a4f2afbed3fb7",
+          "right_source": "elite-blogs",
+          "similarity": 0.98356
+        },
+        {
+          "left_excerpt": "Kosalar bələdiyyəsinin iclasının QƏRARI № 18 07 iyul 2022-ci il Qazax rayonunun Kosalar kəndi ÇIXARIŞ Gündəlikdə duran məsələ: 1. “Azərbaycan Respublikası Qazax rayonunun Kosalar bələdiyyəsinin Nizamnaməsi”nin təsdiq edilməsi haqqında Kosal",
+          "left_record_id": "7079bd9ea1375ed939ab5866baff18abd5c8fe4572553a26c9742d918b3c1292",
+          "left_source": "eqanun",
+          "right_excerpt": "Xanlıqlar bələdiyyəsinin iclasının QƏRARI № 08 07 iyul 2022-ci il Qazax rayonunun Xanlıqlar kəndi ÇIXARIŞ Gündəlikdə duran məsələ: 1. “Azərbaycan Respublikası Qazax rayonunun Xanlıqlar bələdiyyəsinin Nizamnaməsi”nin təsdiq edilməsi haqqında",
+          "right_record_id": "a8d164d377c7344cf34a5d55fa13764418580d7db6a834b94a88203baf5cb89f",
+          "right_source": "eqanun",
+          "similarity": 0.982021
+        },
+        {
+          "left_excerpt": "Kiş bələdiyyəsinin iclasının QƏRARI № 08 “ 18” iyul 2018-ci il Şəki rayonunun Kiş kəndi ÇIXARIŞ Gündəlikdə duran məsələ: 1. “Azərbaycan Respublikası Şəki rayonunun Kiş bələdiyyəsinin Nizamnaməsi”nin təsdiq edilməsi haqqında Kiş bələdiyyəsin",
+          "left_record_id": "664a17f9750a83e4db88051d31ca3c91e58f7e76c846227b27e481ba2d16f398",
+          "left_source": "eqanun",
+          "right_excerpt": "Küdürlü bələdiyyəsinin iclasının QƏRARI № 08 “ 18” iyul 2018-ci il Şəki rayonunun Küdürlü kəndi ÇIXARIŞ Gündəlikdə duran məsələ: 1. “Azərbaycan Respublikası Şəki rayonunun Küdürlü bələdiyyəsinin Nizamnaməsi”nin təsdiq edilməsi haqqında Küdü",
+          "right_record_id": "c1bd95a9d338d837e6f9d2f004b112fff976bc03d85a26de9a6d288145a84d0e",
+          "right_source": "eqanun",
+          "similarity": 0.981285
+        }
+      ],
+      "source_pairs": {
+        "anl-news / anl-news": 1,
+        "azwiki / azwiki": 6,
+        "elite-blogs / elite-blogs": 4,
+        "elite-books / elite-books": 6,
+        "eqanun / eqanun": 273
+      },
+      "threshold": 0.95
+    }
+  ]
+}
