@@ -1,0 +1,622 @@
+{
+  "audit": {
+    "accepted_edge_pairs": 321263,
+    "bucket_results": [
+      {
+        "band": 0,
+        "candidates": 7,
+        "edges": 7,
+        "eligible": 7,
+        "key": "184e2dc43b387785d238beecc47533ad",
+        "pairs": 52003,
+        "size": 323,
+        "true": 7
+      },
+      {
+        "band": 0,
+        "candidates": 6,
+        "edges": 6,
+        "eligible": 6,
+        "key": "2b8bba57b6baadb4ff16d7205dc16476",
+        "pairs": 43365,
+        "size": 295,
+        "true": 6
+      },
+      {
+        "band": 0,
+        "candidates": 2,
+        "edges": 2,
+        "eligible": 2,
+        "key": "2ef9eb75ecb83bdaa3b56c746370ef9c",
+        "pairs": 34191,
+        "size": 262,
+        "true": 2
+      },
+      {
+        "band": 0,
+        "candidates": 0,
+        "edges": 0,
+        "eligible": 0,
+        "key": "561924d6807315d268750db19531fa85",
+        "pairs": 27028,
+        "size": 233,
+        "true": 0
+      },
+      {
+        "band": 0,
+        "candidates": 24,
+        "edges": 24,
+        "eligible": 24,
+        "key": "5b1c101ffdb71e4ff74ef52f6ae562e7",
+        "pairs": 22791,
+        "size": 214,
+        "true": 24
+      },
+      {
+        "band": 0,
+        "candidates": 3,
+        "edges": 3,
+        "eligible": 3,
+        "key": "741ba4b0a7832a342a1f42301818c663",
+        "pairs": 27495,
+        "size": 235,
+        "true": 3
+      },
+      {
+        "band": 0,
+        "candidates": 1,
+        "edges": 1,
+        "eligible": 1,
+        "key": "7ee379e2c3f455347e2a7c8143f832b5",
+        "pairs": 25651,
+        "size": 227,
+        "true": 1
+      },
+      {
+        "band": 0,
+        "candidates": 2,
+        "edges": 2,
+        "eligible": 2,
+        "key": "992f94d47d783905c3884e2bb1525c86",
+        "pairs": 42195,
+        "size": 291,
+        "true": 2
+      },
+      {
+        "band": 0,
+        "candidates": 32,
+        "edges": 32,
+        "eligible": 32,
+        "key": "9a1c9e1d24c53102e6dc8ab1e1e17562",
+        "pairs": 30381,
+        "size": 247,
+        "true": 32
+      },
+      {
+        "band": 0,
+        "candidates": 1,
+        "edges": 1,
+        "eligible": 1,
+        "key": "b81ad4566fa80038d493b8c59b359e77",
+        "pairs": 23871,
+        "size": 219,
+        "true": 1
+      },
+      {
+        "band": 0,
+        "candidates": 10,
+        "edges": 10,
+        "eligible": 10,
+        "key": "da258959696a9d7ae4f6f71a42d8e073",
+        "pairs": 441330,
+        "size": 940,
+        "true": 10
+      },
+      {
+        "band": 0,
+        "candidates": 0,
+        "edges": 0,
+        "eligible": 0,
+        "key": "e890475787e89b7cf852dfd71780864e",
+        "pairs": 78606,
+        "size": 397,
+        "true": 0
+      },
+      {
+        "band": 0,
+        "candidates": 54813,
+        "edges": 54813,
+        "eligible": 54813,
+        "key": "e949fc2dab3504e39c192606227322e3",
+        "pairs": 152076,
+        "size": 552,
+        "true": 54813
+      },
+      {
+        "band": 0,
+        "candidates": 60,
+        "edges": 60,
+        "eligible": 60,
+        "key": "e9f928c4cab68032c38ba74b30d00598",
+        "pairs": 318801,
+        "size": 799,
+        "true": 60
+      },
+      {
+        "band": 1,
+        "candidates": 31,
+        "edges": 31,
+        "eligible": 31,
+        "key": "4a8d519eac36897ced0df8843db6d424",
+        "pairs": 193753,
+        "size": 623,
+        "true": 32
+      },
+      {
+        "band": 1,
+        "candidates": 48250,
+        "edges": 48250,
+        "eligible": 48250,
+        "key": "8178a6b3fcefda4cb0bd90577aa54ae0",
+        "pairs": 115921,
+        "size": 482,
+        "true": 48250
+      },
+      {
+        "band": 1,
+        "candidates": 0,
+        "edges": 0,
+        "eligible": 0,
+        "key": "84211846ae40dea2aeb0e7ec721c1270",
+        "pairs": 79003,
+        "size": 398,
+        "true": 0
+      },
+      {
+        "band": 1,
+        "candidates": 79,
+        "edges": 79,
+        "eligible": 79,
+        "key": "8441f4daac29fe74da35b5f30d4c32f5",
+        "pairs": 52975,
+        "size": 326,
+        "true": 80
+      },
+      {
+        "band": 1,
+        "candidates": 0,
+        "edges": 0,
+        "eligible": 0,
+        "key": "a0abce129ade06cef525a2a849b49528",
+        "pairs": 27028,
+        "size": 233,
+        "true": 0
+      },
+      {
+        "band": 1,
+        "candidates": 1,
+        "edges": 1,
+        "eligible": 1,
+        "key": "cc869c363ce8dfeb4ffe4666581b490b",
+        "pairs": 52650,
+        "size": 325,
+        "true": 1
+      },
+      {
+        "band": 1,
+        "candidates": 1,
+        "edges": 1,
+        "eligible": 1,
+        "key": "d7d71dc6cbdd3643946e40c7bda35e84",
+        "pairs": 21945,
+        "size": 210,
+        "true": 1
+      },
+      {
+        "band": 1,
+        "candidates": 1,
+        "edges": 1,
+        "eligible": 1,
+        "key": "ea83c4e028f9d13d985a54fc1c9caab4",
+        "pairs": 26335,
+        "size": 230,
+        "true": 1
+      },
+      {
+        "band": 1,
+        "candidates": 54,
+        "edges": 54,
+        "eligible": 54,
+        "key": "f50ce12d7eda943ef1e4b584d5f10ef7",
+        "pairs": 77028,
+        "size": 393,
+        "true": 54
+      },
+      {
+        "band": 2,
+        "candidates": 47693,
+        "edges": 47693,
+        "eligible": 47693,
+        "key": "16ff81de41dfd91144f8a80549f5c0b0",
+        "pairs": 90525,
+        "size": 426,
+        "true": 47693
+      },
+      {
+        "band": 2,
+        "candidates": 0,
+        "edges": 0,
+        "eligible": 0,
+        "key": "1dd063503a954ecfbda6c646d4bcb943",
+        "pairs": 20503,
+        "size": 203,
+        "true": 0
+      },
+      {
+        "band": 2,
+        "candidates": 1,
+        "edges": 1,
+        "eligible": 1,
+        "key": "28d1727636e2de0f52b81ab45b71567a",
+        "pairs": 27028,
+        "size": 233,
+        "true": 1
+      },
+      {
+        "band": 2,
+        "candidates": 11,
+        "edges": 11,
+        "eligible": 11,
+        "key": "4a8d519eac36897ced0df8843db6d424",
+        "pairs": 82621,
+        "size": 407,
+        "true": 11
+      },
+      {
+        "band": 2,
+        "candidates": 18,
+        "edges": 18,
+        "eligible": 18,
+        "key": "7feb7305c101a56a542a798d624d592b",
+        "pairs": 29161,
+        "size": 242,
+        "true": 18
+      },
+      {
+        "band": 2,
+        "candidates": 0,
+        "edges": 0,
+        "eligible": 0,
+        "key": "80d86feef55a5618676fe20ef944afa0",
+        "pairs": 29646,
+        "size": 244,
+        "true": 0
+      },
+      {
+        "band": 2,
+        "candidates": 2,
+        "edges": 2,
+        "eligible": 2,
+        "key": "94f50db1a347d6b696b167de99d3f217",
+        "pairs": 33153,
+        "size": 258,
+        "true": 2
+      },
+      {
+        "band": 2,
+        "candidates": 46,
+        "edges": 46,
+        "eligible": 46,
+        "key": "9665bcfb07f3d437b907c26f72776137",
+        "pairs": 71253,
+        "size": 378,
+        "true": 46
+      },
+      {
+        "band": 2,
+        "candidates": 0,
+        "edges": 0,
+        "eligible": 0,
+        "key": "9bb1120d39fc12533a37b8403e1a6888",
+        "pairs": 20100,
+        "size": 201,
+        "true": 0
+      },
+      {
+        "band": 2,
+        "candidates": 3,
+        "edges": 3,
+        "eligible": 3,
+        "key": "cc869c363ce8dfeb4ffe4666581b490b",
+        "pairs": 38226,
+        "size": 277,
+        "true": 3
+      },
+      {
+        "band": 2,
+        "candidates": 17,
+        "edges": 17,
+        "eligible": 17,
+        "key": "fb93196941b31918057bd9cc6533a20e",
+        "pairs": 35778,
+        "size": 268,
+        "true": 17
+      },
+      {
+        "band": 3,
+        "candidates": 1,
+        "edges": 1,
+        "eligible": 1,
+        "key": "526c5ba3c63b2fd8446bea480bf9b9db",
+        "pairs": 25651,
+        "size": 227,
+        "true": 1
+      },
+      {
+        "band": 3,
+        "candidates": 41018,
+        "edges": 41018,
+        "eligible": 41018,
+        "key": "c89a1d920258bbab5049db4e9bb91eb4",
+        "pairs": 78210,
+        "size": 396,
+        "true": 41018
+      },
+      {
+        "band": 3,
+        "candidates": 26,
+        "edges": 26,
+        "eligible": 26,
+        "key": "de16495c872e92fa27a215a05da671d5",
+        "pairs": 44551,
+        "size": 299,
+        "true": 26
+      },
+      {
+        "band": 3,
+        "candidates": 8,
+        "edges": 8,
+        "eligible": 8,
+        "key": "e9c0e3b254bec5650b54d1e74fe4ef8d",
+        "pairs": 24976,
+        "size": 224,
+        "true": 8
+      },
+      {
+        "band": 4,
+        "candidates": 12,
+        "edges": 12,
+        "eligible": 12,
+        "key": "935d8883e5e064cedd2f0323ed488d6e",
+        "pairs": 21321,
+        "size": 207,
+        "true": 13
+      },
+      {
+        "band": 4,
+        "candidates": 12,
+        "edges": 12,
+        "eligible": 12,
+        "key": "ad5b74b4d811eb021419dbe386a7d285",
+        "pairs": 28680,
+        "size": 240,
+        "true": 12
+      },
+      {
+        "band": 4,
+        "candidates": 37616,
+        "edges": 37616,
+        "eligible": 37616,
+        "key": "d678754d133db5692d80dc579314e1e4",
+        "pairs": 72390,
+        "size": 381,
+        "true": 37616
+      },
+      {
+        "band": 5,
+        "candidates": 28,
+        "edges": 28,
+        "eligible": 28,
+        "key": "5ed32f88a5eb4caf9568d42235060170",
+        "pairs": 42486,
+        "size": 292,
+        "true": 28
+      },
+      {
+        "band": 5,
+        "candidates": 16,
+        "edges": 16,
+        "eligible": 16,
+        "key": "7572c393f2a7b8b8247990ba36b4db92",
+        "pairs": 24753,
+        "size": 223,
+        "true": 16
+      },
+      {
+        "band": 5,
+        "candidates": 33662,
+        "edges": 33662,
+        "eligible": 33662,
+        "key": "7bf3e8d7033e3a7adcfd65f4e5ade9c3",
+        "pairs": 65341,
+        "size": 362,
+        "true": 33662
+      },
+      {
+        "band": 5,
+        "candidates": 15,
+        "edges": 15,
+        "eligible": 15,
+        "key": "935d8883e5e064cedd2f0323ed488d6e",
+        "pairs": 58653,
+        "size": 343,
+        "true": 15
+      },
+      {
+        "band": 5,
+        "candidates": 19,
+        "edges": 19,
+        "eligible": 19,
+        "key": "a7093008bfb95f23741c7e69dd4aa027",
+        "pairs": 42486,
+        "size": 292,
+        "true": 19
+      },
+      {
+        "band": 5,
+        "candidates": 37,
+        "edges": 37,
+        "eligible": 37,
+        "key": "fa6edccecd257987d0d4adbe94bfdd2d",
+        "pairs": 55945,
+        "size": 335,
+        "true": 37
+      },
+      {
+        "band": 6,
+        "candidates": 9,
+        "edges": 9,
+        "eligible": 9,
+        "key": "5ed32f88a5eb4caf9568d42235060170",
+        "pairs": 51040,
+        "size": 320,
+        "true": 9
+      },
+      {
+        "band": 6,
+        "candidates": 22,
+        "edges": 22,
+        "eligible": 22,
+        "key": "6970bcbd6ad26a5a258e39455a2ae661",
+        "pairs": 29890,
+        "size": 245,
+        "true": 22
+      },
+      {
+        "band": 6,
+        "candidates": 28703,
+        "edges": 28703,
+        "eligible": 28703,
+        "key": "d84dd398a56081a44db2e0c859e7b829",
+        "pairs": 61776,
+        "size": 352,
+        "true": 28703
+      },
+      {
+        "band": 6,
+        "candidates": 31,
+        "edges": 31,
+        "eligible": 31,
+        "key": "dea751712317a265ce904a66b9709bdc",
+        "pairs": 27966,
+        "size": 237,
+        "true": 31
+      },
+      {
+        "band": 6,
+        "candidates": 23,
+        "edges": 23,
+        "eligible": 23,
+        "key": "e7c509a43631d3d1b81a6adc660f0aeb",
+        "pairs": 49455,
+        "size": 315,
+        "true": 23
+      },
+      {
+        "band": 6,
+        "candidates": 30,
+        "edges": 30,
+        "eligible": 30,
+        "key": "fa6edccecd257987d0d4adbe94bfdd2d",
+        "pairs": 48205,
+        "size": 311,
+        "true": 30
+      },
+      {
+        "band": 7,
+        "candidates": 10,
+        "edges": 10,
+        "eligible": 10,
+        "key": "03dc785cc11226665693ab64982b1ef0",
+        "pairs": 20301,
+        "size": 202,
+        "true": 11
+      },
+      {
+        "band": 7,
+        "candidates": 49,
+        "edges": 49,
+        "eligible": 49,
+        "key": "184527a8765c3e2ae26049a87e3fe1e7",
+        "pairs": 23220,
+        "size": 216,
+        "true": 49
+      },
+      {
+        "band": 7,
+        "candidates": 13,
+        "edges": 13,
+        "eligible": 13,
+        "key": "3489df90a0424ba294edb98308408d93",
+        "pairs": 36046,
+        "size": 269,
+        "true": 13
+      },
+      {
+        "band": 7,
+        "candidates": 21,
+        "edges": 21,
+        "eligible": 21,
+        "key": "dea751712317a265ce904a66b9709bdc",
+        "pairs": 29890,
+        "size": 245,
+        "true": 21
+      },
+      {
+        "band": 7,
+        "candidates": 28707,
+        "edges": 28707,
+        "eligible": 28707,
+        "key": "ee60fa1948ea8892b2d2926f64e83f04",
+        "pairs": 61776,
+        "size": 352,
+        "true": 28707
+      },
+      {
+        "band": 7,
+        "candidates": 6,
+        "edges": 6,
+        "eligible": 6,
+        "key": "fe8721d4e3d364703338a52ac4912f8a",
+        "pairs": 33930,
+        "size": 261,
+        "true": 6
+      }
+    ],
+    "candidate_true_pairs": 321263,
+    "confirmed_pair_preview": [],
+    "cross_split_retained_representative_pairs": 0,
+    "elapsed_seconds": 4104.349,
+    "eligible_true_pairs": 321263,
+    "measured_candidate_recall": 1.0,
+    "pair_opportunities": 3503354,
+    "true_jaccard_pairs": 321267
+  },
+  "bucket_scan": {
+    "bucket_distribution": {
+      "11-50": 6713,
+      "2-10": 721417,
+      "201-400": 52,
+      "401-700": 5,
+      "51-200": 583,
+      "701-1000": 2
+    },
+    "colliding_bucket_events": 728772,
+    "large_bucket_events": 59,
+    "maximum_bucket_size": 940
+  },
+  "database": "corpus_index_repair.sqlite",
+  "scope": "all-large",
+  "shingle_size": 5,
+  "threshold": 0.95
+}

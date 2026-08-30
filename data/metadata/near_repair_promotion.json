@@ -1,0 +1,14 @@
+{
+  "candidate_pairs": 6444499,
+  "created_at_utc": "2026-08-28T09:51:29.060856+00:00",
+  "database": "data/interim/corpus/corpus_index.sqlite",
+  "leakage_audit_sha256": "89dc339a3d46de66faa54785ff68c59ce15566ae033b6183cffb9ed3b4b831c6",
+  "manifest_hashes": {
+    "data/manifests/test.parquet": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+    "data/manifests/train.parquet": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+    "data/manifests/validation.parquet": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+  },
+  "prerepair_database": "data/interim/corpus/corpus_index_prerepair.sqlite",
+  "retained_documents": 6193931,
+  "status": "complete"
+}
