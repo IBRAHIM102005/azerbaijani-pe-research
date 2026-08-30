@@ -1,0 +1,240 @@
+{
+  "accounting": {
+    "exact_unique_documents": 6209184,
+    "quality_flags_after_normalization": {},
+    "runtime_seconds": "unknown_resumed",
+    "sources": {
+      "anl-news": {
+        "changed_horizontal_space": "unknown_resumed",
+        "changed_newlines": "unknown_resumed",
+        "changed_nfc": "unknown_resumed",
+        "exact_duplicate": 11845,
+        "normalized": 236443,
+        "parsed": 236443,
+        "raw": 236443,
+        "removed_control_characters": "unknown_resumed",
+        "removed_empty": 0,
+        "removed_short": 189
+      },
+      "azwiki": {
+        "changed_horizontal_space": "unknown_resumed",
+        "changed_newlines": "unknown_resumed",
+        "changed_nfc": "unknown_resumed",
+        "exact_duplicate": 53,
+        "normalized": 129433,
+        "parsed": 129433,
+        "raw": 129433,
+        "removed_control_characters": "unknown_resumed",
+        "removed_empty": 0,
+        "removed_short": 0
+      },
+      "elite-blogs": {
+        "changed_horizontal_space": "unknown_resumed",
+        "changed_newlines": "unknown_resumed",
+        "changed_nfc": "unknown_resumed",
+        "exact_duplicate": 0,
+        "normalized": 755,
+        "parsed": 755,
+        "raw": 755,
+        "removed_control_characters": "unknown_resumed",
+        "removed_empty": 0,
+        "removed_short": 16
+      },
+      "elite-books": {
+        "changed_horizontal_space": "unknown_resumed",
+        "changed_newlines": "unknown_resumed",
+        "changed_nfc": "unknown_resumed",
+        "exact_duplicate": 1,
+        "normalized": 104,
+        "parsed": 104,
+        "raw": 104,
+        "removed_control_characters": "unknown_resumed",
+        "removed_empty": 0,
+        "removed_short": 0
+      },
+      "eqanun": {
+        "changed_horizontal_space": "unknown_resumed",
+        "changed_newlines": "unknown_resumed",
+        "changed_nfc": "unknown_resumed",
+        "exact_duplicate": 2756,
+        "normalized": 53656,
+        "parsed": 53656,
+        "raw": 53656,
+        "removed_control_characters": "unknown_resumed",
+        "removed_empty": 0,
+        "removed_short": 5
+      },
+      "mediocore-books": {
+        "changed_horizontal_space": "unknown_resumed",
+        "changed_newlines": "unknown_resumed",
+        "changed_nfc": "unknown_resumed",
+        "exact_duplicate": 129825,
+        "normalized": 7807263,
+        "parsed": 7807263,
+        "raw": 7807263,
+        "removed_control_characters": "unknown_resumed",
+        "removed_empty": 0,
+        "removed_short": 1873780
+      }
+    }
+  },
+  "config_sha256": "830b21c0347a8f6343354634cdaf4e94dfb9179643875e28cd7cddb99c58c5d7",
+  "corpus_accounting": {
+    "exact_duplicate_removals": 144480,
+    "exact_unique_documents": 6209184,
+    "final_retained_documents": 6194052,
+    "near_accepted_edges": 36333,
+    "near_candidate_pairs": 4191262,
+    "near_clustered_documents": 28322,
+    "near_clusters": 13190,
+    "near_duplicate_removals": 15132,
+    "raw_core_documents": 8227654,
+    "reconciliation": "raw = empty + short + exact removals + exact unique; retained = exact unique - near removals",
+    "removed_empty": 0,
+    "removed_invalid_or_too_short": 1873990,
+    "removed_short": 1873990
+  },
+  "exact_duplicates": {
+    "cross_source_groups": 0,
+    "group_report": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\metadata\\exact_duplicate_groups.csv",
+    "groups": 107267,
+    "member_report": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\metadata\\exact_duplicate_members.csv",
+    "removed_documents": 144480
+  },
+  "manifest_hashes": {
+    "data/manifests/test.parquet": "e3d827093061396745ccb0d3edad3932d955b325bd8da268b603d0baa06e1521",
+    "data/manifests/train.parquet": "7a597d072fd2aeb3b4df0741390fdc8fc296d57c7b783f86760044747fd2296c",
+    "data/manifests/validation.parquet": "86ecafec374c9b560b4bd2a40e2fe1276ed8737b58f4d19fffef29987ea58741"
+  },
+  "near_duplicates": {
+    "accepted_edges": 36333,
+    "candidate_generation": {
+      "complete": 728713,
+      "pair_insert_attempts": 5307765,
+      "skipped": 0,
+      "star": 59,
+      "total_colliding": 728772,
+      "unique_candidate_pairs": 4191262
+    },
+    "candidate_pairs_checked": 4191262,
+    "clustered_documents": 28322,
+    "clusters": 13190,
+    "fingerprinted_documents": 6209184,
+    "removed_documents": 15132
+  },
+  "split_summary": {
+    "splits": {
+      "test": {
+        "approximate_words": 18067401,
+        "characters": 142153205,
+        "documents": 309378,
+        "sources": {
+          "anl-news": {
+            "approximate_words": 7284134,
+            "characters": 58521670,
+            "documents": 11081
+          },
+          "azwiki": {
+            "approximate_words": 2221423,
+            "characters": 16910383,
+            "documents": 6632
+          },
+          "elite-blogs": {
+            "approximate_words": 36472,
+            "characters": 270280,
+            "documents": 37
+          },
+          "elite-books": {
+            "approximate_words": 112347,
+            "characters": 838056,
+            "documents": 5
+          },
+          "eqanun": {
+            "approximate_words": 2436776,
+            "characters": 18900049,
+            "documents": 2557
+          },
+          "mediocore-books": {
+            "approximate_words": 5976249,
+            "characters": 46712767,
+            "documents": 289066
+          }
+        }
+      },
+      "train": {
+        "approximate_words": 320997259,
+        "characters": 2529532536,
+        "documents": 5574986,
+        "sources": {
+          "anl-news": {
+            "approximate_words": 134832152,
+            "characters": 1083258200,
+            "documents": 199588
+          },
+          "azwiki": {
+            "approximate_words": 36564575,
+            "characters": 278401834,
+            "documents": 116025
+          },
+          "elite-blogs": {
+            "approximate_words": 803170,
+            "characters": 5763161,
+            "documents": 665
+          },
+          "elite-books": {
+            "approximate_words": 3855669,
+            "characters": 27565978,
+            "documents": 85
+          },
+          "eqanun": {
+            "approximate_words": 37105243,
+            "characters": 291673262,
+            "documents": 44889
+          },
+          "mediocore-books": {
+            "approximate_words": 107836450,
+            "characters": 842870101,
+            "documents": 5213734
+          }
+        }
+      },
+      "validation": {
+        "approximate_words": 17875758,
+        "characters": 140712344,
+        "documents": 309688,
+        "sources": {
+          "anl-news": {
+            "approximate_words": 7581202,
+            "characters": 60876324,
+            "documents": 11217
+          },
+          "azwiki": {
+            "approximate_words": 2078046,
+            "characters": 15827868,
+            "documents": 6506
+          },
+          "elite-blogs": {
+            "approximate_words": 33702,
+            "characters": 234205,
+            "documents": 33
+          },
+          "elite-books": {
+            "approximate_words": 367496,
+            "characters": 2512198,
+            "documents": 7
+          },
+          "eqanun": {
+            "approximate_words": 1840377,
+            "characters": 14571057,
+            "documents": 2482
+          },
+          "mediocore-books": {
+            "approximate_words": 5974935,
+            "characters": 46690692,
+            "documents": 289443
+          }
+        }
+      }
+    }
+  }
+}

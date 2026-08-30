@@ -1,0 +1,89 @@
+{
+  "accounting": {
+    "exact_duplicate_removals": 144480,
+    "exact_unique_documents": 6209184,
+    "final_retained_documents": 6194052,
+    "near_accepted_edges": 36333,
+    "near_candidate_pairs": 4191262,
+    "near_clustered_documents": 28322,
+    "near_clusters": 13190,
+    "near_duplicate_removals": 15132,
+    "raw_core_documents": 8227654,
+    "reconciliation": "raw = empty + short + exact removals + exact unique; retained = exact unique - near removals",
+    "removed_empty": 0,
+    "removed_invalid_or_too_short": 1873990,
+    "removed_short": 1873990
+  },
+  "created_at_utc": "2026-08-27T14:04:55.846575+00:00",
+  "cross_split_intersections": {
+    "canonical_text_hash": {
+      "train_test": 0,
+      "train_validation": 0,
+      "validation_test": 0
+    },
+    "document_id": {
+      "train_test": 0,
+      "train_validation": 0,
+      "validation_test": 0
+    },
+    "duplicate_cluster_id": {
+      "train_test": 0,
+      "train_validation": 0,
+      "validation_test": 0
+    }
+  },
+  "exact_group_audit": {
+    "cross_source_groups": 0,
+    "groups": 107267,
+    "policy": "Exact duplicates were removed globally before split assignment; canonical hashes are unique in retained manifests."
+  },
+  "manifest_hashes": {
+    "data/manifests/test.parquet": "e3d827093061396745ccb0d3edad3932d955b325bd8da268b603d0baa06e1521",
+    "data/manifests/train.parquet": "7a597d072fd2aeb3b4df0741390fdc8fc296d57c7b783f86760044747fd2296c",
+    "data/manifests/validation.parquet": "86ecafec374c9b560b4bd2a40e2fe1276ed8737b58f4d19fffef29987ea58741"
+  },
+  "manifests": {
+    "test": {
+      "documents": 309378,
+      "sources": {
+        "anl-news": 11081,
+        "azwiki": 6632,
+        "elite-blogs": 37,
+        "elite-books": 5,
+        "eqanun": 2557,
+        "mediocore-books": 289066
+      }
+    },
+    "train": {
+      "documents": 5574986,
+      "sources": {
+        "anl-news": 199588,
+        "azwiki": 116025,
+        "elite-blogs": 665,
+        "elite-books": 85,
+        "eqanun": 44889,
+        "mediocore-books": 5213734
+      }
+    },
+    "validation": {
+      "documents": 309688,
+      "sources": {
+        "anl-news": 11217,
+        "azwiki": 6506,
+        "elite-blogs": 33,
+        "elite-books": 7,
+        "eqanun": 2482,
+        "mediocore-books": 289443
+      }
+    }
+  },
+  "near_edge_audit": {
+    "accepted_edges": 36333,
+    "clusters_crossing_splits": 0,
+    "edges_crossing_clusters": 0,
+    "persisted_clusters": 13190
+  },
+  "split_policy": "deterministic document/cluster-level 90/5/5",
+  "split_seed": 2026,
+  "status": "pass"
+}

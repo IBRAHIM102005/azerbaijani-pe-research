@@ -2,32 +2,43 @@
 
 **Research question:** Which positional encoding scheme generalizes best when a small causal language model is pretrained on a limited amount of Azerbaijani text?
 
-This project will compare learned positional embeddings, sinusoidal encoding, RoPE, ALiBi, and NoPE. The dataset, tokenizer, model architecture, optimization setup, and training budget will be held constant as far as possible so that the positional encoding scheme remains the main experimental variable.
+The study compares learned absolute embeddings, sinusoidal encoding, RoPE, ALiBi, and NoPE. The corpus, tokenizer, document order, model architecture, optimization setup, and token budget are held fixed so that positional encoding is the main experimental variable.
 
-DOLLMA is the planned source corpus for Azerbaijani pretraining data. The repository is still at the initial setup and data-preparation stage, so no experimental results are available yet.
+The data and tokenizer foundation is complete. The frozen corpus comes from six native-Azerbaijani DOLLMA components, uses document-level duplicate-aware splits, and has one shared 16,000-piece SentencePiece BPE tokenizer. No model training or positional-encoding experiment has started, so there are no experimental results yet.
 
-## Planned setup
+## Frozen data pipeline setup
 
-- Azerbaijani text selected from DOLLMA
-- A small Pythia-style causal decoder
-- Five positional encoding variants
-- Low-data pretraining with multiple random seeds
-- Negative log-likelihood and perplexity evaluation
+- Core sources: news, native Azerbaijani Wikipedia, blogs, laws, and two book components
+- Split: deterministic 90/5/5 at document/duplicate-cluster level, seed 2026
+- Tokenizer: SentencePiece BPE, 16,000 pieces, trained on 1,000,000 train documents only
+- Model-data target: one deterministic train-only sequence with an exact 50,000,000-token consumption boundary
 
-These details are provisional until the data and experiment configurations are frozen.
+`translated-enwiki` is excluded to avoid a translated-text confound. `bhos` remains excluded because the local upstream material does not resolve its native-source role clearly enough.
 
 ## Repository structure
 
-- `data/` contains local inputs and will hold later data products and metadata.
-- `src/` is reserved for the research implementation.
-- `configs/` will hold positional-encoding, hardware, and frozen experiment settings.
-- `experiments/`, `results/`, and `checkpoints/` separate run records from generated artifacts.
-- `docs/`, `report/`, and `presentation/` contain project notes and research deliverables.
+- `data/` holds local raw data, processed corpus files, frozen manifests, and data pipeline metadata.
+- `tokenizer/` contains the final shared tokenizer and its hashes.
+- `src/data/` and `src/tokenizer/` contain the data pipeline implementation.
+- `scripts/` contains inspection, repair, validation, and artifact-generation entry points.
+- `tests/` contains unit, integration, and repair-regression tests.
+- `docs/notes/` contains the data pipeline analysis, data card, and independent audit.
+- `configs/`, `experiments/`, `results/`, `report/`, and `presentation/` support later phases.
 
-## Data
+## Data integrity
 
-Raw DOLLMA parquet files are kept locally under `data/raw/` and are intentionally excluded from Git. See [`data/README.md`](data/README.md) for the current source selection and directory policy.
+Raw DOLLMA parquet files stay local under `data/raw/` and are not part of the repository's portable operational artifacts. The processed manifests use paths relative to the repository root. The external DOLLMA location is runtime-resolved and can be overridden with `AZ_PE_DOLLMA_ROOT` after moving the project.
+
+An independent pre-experiment audit found that the first near-duplicate implementation missed non-anchor pairs in large LSH buckets. The data pipeline was repaired before model training by replacing that shortcut with complete, chunked pair enumeration for every observed bucket. Exact Jaccard verification, regenerated splits, independent leakage checks, tokenizer retraining, token recounting, and the 50M sequence rebuild were completed from the repaired state.
+
+## Validate the frozen handoff
+
+Run `python scripts/validate_frozen_corpus.py` from the repository root for a full read-only scan of the frozen manifests, tokenizer, token counts, processed-row references, and 50M sequence. The command refreshes only `data/metadata/frozen_corpus_validation.json` after all checks pass; it does not rebuild the data pipeline.
+
+M2/M3 should read `data/metadata/training_data_contract.json`. Repository-internal paths resolve relative to the current project root. If the external DOLLMA clone is not at the configured relative location, set `AZ_PE_DOLLMA_ROOT`; a missing root produces an actionable error rather than a filesystem-wide search.
 
 ## Status
 
-Current stage: repository bootstrap and dataset preparation. Model, tokenizer, preprocessing, training, and evaluation code have not been added.
+Current stage: the data and tokenizer artifacts are frozen and validated for M2/M3 handoff. Model implementation and training remain out of scope for this stage.
+
+See [`data/README.md`](data/README.md), [`docs/notes/corpus_data_card.md`](docs/notes/corpus_data_card.md), and [`docs/notes/corpus_data_analysis.md`](docs/notes/corpus_data_analysis.md) for the measured data details.

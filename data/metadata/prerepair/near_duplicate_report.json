@@ -1,0 +1,16 @@
+{
+  "accepted_edges": 36333,
+  "candidate_generation": {
+    "complete": 728713,
+    "pair_insert_attempts": 5307765,
+    "skipped": 0,
+    "star": 59,
+    "total_colliding": 728772,
+    "unique_candidate_pairs": 4191262
+  },
+  "candidate_pairs_checked": 4191262,
+  "clustered_documents": 28322,
+  "clusters": 13190,
+  "fingerprinted_documents": 6209184,
+  "removed_documents": 15132
+}

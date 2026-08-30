@@ -1,0 +1,31 @@
+{
+  "created_at_utc": "2026-08-27T14:58:03.482796+00:00",
+  "data_preparation": {
+    "accounting_reconciled": true,
+    "completed_preparation_verified": true,
+    "leakage_gate_passed": true,
+    "split_manifests_hash_frozen": true
+  },
+  "out_of_scope_model_work_created": false,
+  "reproducibility": {
+    "all_tests_passed": true,
+    "processed_manifest_tokenizer_and_subset_hashes_recorded": true,
+    "raw_immutability_passed": true,
+    "real_artifact_validation_passed": true,
+    "reports_and_handoff_generated": true
+  },
+  "status": "complete",
+  "token_counts_and_subset": {
+    "fixed_order_and_exact_consumption_policy_recorded": true,
+    "no_replacement_or_split_leakage": true,
+    "real_16k_counts_complete": true,
+    "source_shortage_and_redistribution_recorded": true,
+    "train_only_50m_selection_complete": true
+  },
+  "tokenizer": {
+    "candidate_audit_complete": true,
+    "candidates_8k_16k_32k_trained_on_same_train_only_input": true,
+    "final_16k_frozen": true,
+    "special_tokens_and_hashes_valid": true
+  }
+}

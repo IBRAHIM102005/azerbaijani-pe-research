@@ -1,0 +1,116 @@
+{
+  "test": {
+    "anl-news": {
+      "documents": 11081,
+      "documents_with_unknown_tokens": 3,
+      "tokens": 11555598,
+      "unknown_tokens": 6
+    },
+    "azwiki": {
+      "documents": 6632,
+      "documents_with_unknown_tokens": 0,
+      "tokens": 4043468,
+      "unknown_tokens": 0
+    },
+    "elite-blogs": {
+      "documents": 37,
+      "documents_with_unknown_tokens": 1,
+      "tokens": 61874,
+      "unknown_tokens": 1
+    },
+    "elite-books": {
+      "documents": 5,
+      "documents_with_unknown_tokens": 0,
+      "tokens": 200908,
+      "unknown_tokens": 0
+    },
+    "eqanun": {
+      "documents": 2557,
+      "documents_with_unknown_tokens": 5,
+      "tokens": 4108641,
+      "unknown_tokens": 38
+    },
+    "mediocore-books": {
+      "documents": 289066,
+      "documents_with_unknown_tokens": 53,
+      "tokens": 10949829,
+      "unknown_tokens": 70
+    }
+  },
+  "train": {
+    "anl-news": {
+      "documents": 199588,
+      "documents_with_unknown_tokens": 31,
+      "tokens": 213954181,
+      "unknown_tokens": 103
+    },
+    "azwiki": {
+      "documents": 116025,
+      "documents_with_unknown_tokens": 0,
+      "tokens": 66753442,
+      "unknown_tokens": 0
+    },
+    "elite-blogs": {
+      "documents": 665,
+      "documents_with_unknown_tokens": 9,
+      "tokens": 1406424,
+      "unknown_tokens": 30
+    },
+    "elite-books": {
+      "documents": 85,
+      "documents_with_unknown_tokens": 2,
+      "tokens": 7077127,
+      "unknown_tokens": 3
+    },
+    "eqanun": {
+      "documents": 44889,
+      "documents_with_unknown_tokens": 65,
+      "tokens": 58202361,
+      "unknown_tokens": 1368
+    },
+    "mediocore-books": {
+      "documents": 5213734,
+      "documents_with_unknown_tokens": 676,
+      "tokens": 197521901,
+      "unknown_tokens": 1208
+    }
+  },
+  "validation": {
+    "anl-news": {
+      "documents": 11217,
+      "documents_with_unknown_tokens": 1,
+      "tokens": 12049642,
+      "unknown_tokens": 1
+    },
+    "azwiki": {
+      "documents": 6506,
+      "documents_with_unknown_tokens": 0,
+      "tokens": 3812107,
+      "unknown_tokens": 0
+    },
+    "elite-blogs": {
+      "documents": 33,
+      "documents_with_unknown_tokens": 1,
+      "tokens": 60104,
+      "unknown_tokens": 1
+    },
+    "elite-books": {
+      "documents": 7,
+      "documents_with_unknown_tokens": 0,
+      "tokens": 672069,
+      "unknown_tokens": 0
+    },
+    "eqanun": {
+      "documents": 2482,
+      "documents_with_unknown_tokens": 3,
+      "tokens": 2830658,
+      "unknown_tokens": 8
+    },
+    "mediocore-books": {
+      "documents": 289443,
+      "documents_with_unknown_tokens": 27,
+      "tokens": 10958439,
+      "unknown_tokens": 36
+    }
+  }
+}

@@ -1,0 +1,1102 @@
+{
+  "audit_scope": "Independent post-repair audit of the frozen M1 data, near-dedup repair, splits, leakage, tokenizer, token counts, 50M sequence, portability, tests, handoff, and DoD.",
+  "before_after": {
+    "after": {
+      "code_quality": 91,
+      "engineering": 94,
+      "m2_m3": 97,
+      "overall": 95.8,
+      "reproducibility": 94,
+      "scientific": 97,
+      "verdict": "READY"
+    },
+    "before": {
+      "code_quality": 78,
+      "engineering": 70,
+      "m2_m3": 45,
+      "overall": 78.0,
+      "reproducibility": 68,
+      "scientific": 72,
+      "verdict": "NOT READY"
+    }
+  },
+  "category_scores": [
+    {
+      "category": "Research design compliance",
+      "confidence": "HIGH",
+      "evidence": "One repaired corpus, split, tokenizer, and fixed order are shared by every PE condition; translated-enwiki remains excluded.",
+      "score": 97.0,
+      "status": "PASS",
+      "weight": 8,
+      "weighted_score": 7.3905
+    },
+    {
+      "category": "Source/provenance",
+      "confidence": "HIGH",
+      "evidence": "Twenty original and fourteen local-core shard checks pass; access date and dataset license are recorded, while unavailable per-source revisions/licenses remain explicit.",
+      "score": 88.0,
+      "status": "WARNING",
+      "weight": 5,
+      "weighted_score": 4.1905
+    },
+    {
+      "category": "Cleaning/normalization",
+      "confidence": "HIGH",
+      "evidence": "Conservative NFC and whitespace/control handling preserve Azerbaijani text; the frozen 50-letter rule has a documented Books II distribution effect.",
+      "score": 90.0,
+      "status": "WARNING",
+      "weight": 5,
+      "weighted_score": 4.2857
+    },
+    {
+      "category": "Exact dedup",
+      "confidence": "HIGH",
+      "evidence": "SHA-256 exact groups, deterministic representatives, provenance, and 144,480 removals reconcile.",
+      "score": 97.0,
+      "status": "PASS",
+      "weight": 5,
+      "weighted_score": 4.619
+    },
+    {
+      "category": "Near dedup",
+      "confidence": "HIGH",
+      "evidence": "Complete observed-bucket expansion produced 6,444,499 candidates; sample and all-59-bucket audits measured 100% eligible-pair recall before exact verification.",
+      "score": 96.0,
+      "status": "PASS",
+      "weight": 8,
+      "weighted_score": 7.3143
+    },
+    {
+      "category": "Accounting",
+      "confidence": "HIGH",
+      "evidence": "All raw, short, exact, near, retained, and split identities reconcile exactly.",
+      "score": 100.0,
+      "status": "PASS",
+      "weight": 4,
+      "weighted_score": 3.8095
+    },
+    {
+      "category": "Split correctness",
+      "confidence": "HIGH",
+      "evidence": "Cluster-aware seed-2026 manifests are deterministic, hash-frozen, and sum to 6,193,931 retained documents.",
+      "score": 98.0,
+      "status": "PASS",
+      "weight": 5,
+      "weighted_score": 4.6667
+    },
+    {
+      "category": "Leakage prevention",
+      "confidence": "HIGH",
+      "evidence": "Internal ID/hash/graph gates, all large buckets, and the former-237 regression pass with zero known retained true-near cross-split pairs.",
+      "score": 99.0,
+      "status": "PASS",
+      "weight": 8,
+      "weighted_score": 7.5429
+    },
+    {
+      "category": "Tokenizer training correctness",
+      "confidence": "HIGH",
+      "evidence": "All candidates share the same hash-frozen one-million-document repaired-train-only corpus.",
+      "score": 99.0,
+      "status": "PASS",
+      "weight": 7,
+      "weighted_score": 6.6
+    },
+    {
+      "category": "Tokenizer quality",
+      "confidence": "HIGH",
+      "evidence": "8K/16K/32K metrics use the same audit sample and explicit token denominators; Azerbaijani round trips and coverage checks pass.",
+      "score": 97.0,
+      "status": "PASS",
+      "weight": 5,
+      "weighted_score": 4.619
+    },
+    {
+      "category": "Final tokenizer freeze",
+      "confidence": "HIGH",
+      "evidence": "The final 16K BPE reloads with verified artifact hashes and fixed <unk>/<eod> IDs.",
+      "score": 99.0,
+      "status": "PASS",
+      "weight": 4,
+      "weighted_score": 3.7714
+    },
+    {
+      "category": "Token counting",
+      "confidence": "HIGH",
+      "evidence": "All 6,193,931 rows reconcile to 605,720,737 final-16K tokens with one EOD per document.",
+      "score": 99.0,
+      "status": "PASS",
+      "weight": 5,
+      "weighted_score": 4.7143
+    },
+    {
+      "category": "50M subset correctness",
+      "confidence": "HIGH",
+      "evidence": "Independent replay matched 277,027 unique train IDs, order, source totals, subset hash, and exact inside-document boundary.",
+      "score": 99.0,
+      "status": "PASS",
+      "weight": 8,
+      "weighted_score": 7.5429
+    },
+    {
+      "category": "Reproducibility",
+      "confidence": "HIGH",
+      "evidence": "Seeds, versions, config hashes, checkpoints, artifact hashes, relative operational paths, and relocation simulation are recorded.",
+      "score": 94.0,
+      "status": "PASS",
+      "weight": 7,
+      "weighted_score": 6.2667
+    },
+    {
+      "category": "Code correctness",
+      "confidence": "HIGH",
+      "evidence": "The faulty star path was replaced by complete deterministic enumeration with config-bound stage state, bounded transactions, and guarded promotion.",
+      "score": 92.0,
+      "status": "PASS",
+      "weight": 5,
+      "weighted_score": 4.381
+    },
+    {
+      "category": "Code cleanliness/humanization",
+      "confidence": "MEDIUM",
+      "evidence": "Core modules are focused and naturally documented; a few legacy parameter names and long finalization scripts remain.",
+      "score": 89.0,
+      "status": "PASS",
+      "weight": 3,
+      "weighted_score": 2.5429
+    },
+    {
+      "category": "Performance/optimality",
+      "confidence": "MEDIUM",
+      "evidence": "Streaming Parquet, batched SQLite, durable checkpoints, and bounded enumeration are practical; full validation remains intentionally I/O-heavy.",
+      "score": 88.0,
+      "status": "PASS",
+      "weight": 3,
+      "weighted_score": 2.5143
+    },
+    {
+      "category": "Test quality",
+      "confidence": "HIGH",
+      "evidence": "Thirty tests pass, including the original large-bucket failure, resume, leakage, relocation, boundary, and frozen-artifact regression cases.",
+      "score": 90.0,
+      "status": "PASS",
+      "weight": 3,
+      "weighted_score": 2.5714
+    },
+    {
+      "category": "Artifact consistency",
+      "confidence": "HIGH",
+      "evidence": "The full validator checked every selected processed-row reference and reconciled final hashes, counts, tokenizer, subset, and prerequisites.",
+      "score": 99.0,
+      "status": "PASS",
+      "weight": 4,
+      "weighted_score": 3.7714
+    },
+    {
+      "category": "Report/defense readiness",
+      "confidence": "HIGH",
+      "evidence": "Measured notes, data card, four figures, repair disclosure, limitations, hashes, and the exact boundary are report-ready.",
+      "score": 95.0,
+      "status": "PASS",
+      "weight": 3,
+      "weighted_score": 2.7143
+    }
+  ],
+  "definition_of_done_reassessment": "COMPLETE WITH WARNINGS",
+  "findings": [
+    {
+      "area": "Near deduplication",
+      "description": "Connected-component closure is intentionally transitive; sampled arbitrary endpoints reached Jaccard 0.8199 although every accepted graph edge is at least 0.95.",
+      "engineering_impact": "None for M2/M3 consumption; semantics must remain visible in methods and limitations.",
+      "evidence": "near_repair_validation.json sampled the 25 largest clusters; 24 contained an endpoint pair below 0.95.",
+      "exact_recommended_fix": "Keep the frozen policy and report edge-versus-component semantics and the sampled range in the final paper.",
+      "id": "P3-TRANSITIVITY-DOC",
+      "must_fix_before_final_paper": true,
+      "must_fix_before_m2_m3": false,
+      "requires_expensive_rerun": false,
+      "scientific_impact": "The policy is leakage-protective but can remove a document not directly near the chosen representative.",
+      "severity": "P3"
+    },
+    {
+      "area": "Provenance",
+      "description": "Per-source licenses and revisions are unavailable in local upstream metadata; Books I/II labels are size-based inferences.",
+      "engineering_impact": "None for frozen artifact consumption.",
+      "evidence": "source_registry.yaml records null source-level values and explains the inference; dataset-level CC BY-NC-SA 4.0 is locally documented.",
+      "exact_recommended_fix": "Retain explicit unknown values and seek authoritative upstream component metadata before publication if available.",
+      "id": "P3-UPSTREAM-PROVENANCE",
+      "must_fix_before_final_paper": false,
+      "must_fix_before_m2_m3": false,
+      "requires_expensive_rerun": false,
+      "scientific_impact": "No measured data-integrity effect, but provenance claims must remain qualified.",
+      "severity": "P3"
+    },
+    {
+      "area": "Cleaning",
+      "description": "The 50-Unicode-letter threshold removes most short records from mediocore-books and changes document-level source balance.",
+      "engineering_impact": "None for handoff correctness.",
+      "evidence": "1,873,780 of 1,873,990 short removals come from mediocore-books; retained character and token totals are reported separately.",
+      "exact_recommended_fix": "Report the source-specific removal table and avoid post-hoc threshold changes after experiments begin.",
+      "id": "P3-SHORT-FILTER-DISTRIBUTION",
+      "must_fix_before_final_paper": true,
+      "must_fix_before_m2_m3": false,
+      "requires_expensive_rerun": false,
+      "scientific_impact": "This is a frozen pre-model choice and a limitation when interpreting book-domain coverage.",
+      "severity": "P3"
+    },
+    {
+      "area": "Portability",
+      "description": "Historical raw inventory and audit evidence retain original absolute access/display paths.",
+      "engineering_impact": "After relocation, raw revalidation needs the default relative clone location or AZ_PE_DOLLMA_ROOT.",
+      "evidence": "Operational manifests and handoff paths are repository-relative; simulated relocation passes. External DOLLMA resolution is separate.",
+      "exact_recommended_fix": "Set AZ_PE_DOLLMA_ROOT if the external clone is not adjacent to the moved repository.",
+      "id": "P4-PROVENANCE-PATHS",
+      "must_fix_before_final_paper": false,
+      "must_fix_before_m2_m3": false,
+      "requires_expensive_rerun": false,
+      "scientific_impact": "None; original access locations are provenance, not operational dependencies.",
+      "severity": "P4"
+    },
+    {
+      "area": "Code cleanliness",
+      "description": "The complete candidate function retains a max_star_bucket compatibility parameter name although no star expansion is reachable.",
+      "engineering_impact": "Small readability cost only.",
+      "evidence": "near.py reports strategy complete_bucket_pairs, star=0, skipped=0; regression tests verify non-anchor completeness.",
+      "exact_recommended_fix": "Rename in a later cleanup only if backward compatibility can be preserved without touching frozen behavior.",
+      "id": "P4-LEGACY-NAMING",
+      "must_fix_before_final_paper": false,
+      "must_fix_before_m2_m3": false,
+      "requires_expensive_rerun": false,
+      "scientific_impact": "None.",
+      "severity": "P4"
+    }
+  ],
+  "hard_gates": {
+    "all_large_misses": true,
+    "all_large_recall": true,
+    "dod_complete": true,
+    "downstream_replay": true,
+    "former_237": true,
+    "full_validator": true,
+    "handoff_complete": true,
+    "large_bucket_cross_split": true,
+    "portability": true,
+    "raw_immutability": true,
+    "sample_recall": true,
+    "subset": true,
+    "tests": true,
+    "tokenizer": true
+  },
+  "independent_measurements": {
+    "accounting": {
+      "exact_duplicate_removals": 144480,
+      "exact_unique_documents": 6209184,
+      "final_retained_documents": 6193931,
+      "near_accepted_edges": 86697,
+      "near_candidate_pairs": 6444499,
+      "near_clustered_documents": 28461,
+      "near_clusters": 13208,
+      "near_duplicate_removals": 15253,
+      "raw_core_documents": 8227654,
+      "reconciliation": "raw = empty + short + exact removals + exact unique; retained = exact unique - near removals",
+      "removed_empty": 0,
+      "removed_invalid_or_too_short": 1873990,
+      "removed_short": 1873990
+    },
+    "all_large_bucket_audit": {
+      "captured": 321263,
+      "cross_split_retained": 0,
+      "eligible_true_pairs": 321263,
+      "events": 59,
+      "missed": 0,
+      "pair_opportunities": 3503354,
+      "recall": 1.0
+    },
+    "definition_of_done_sha256": "af1335bc2314153346f7e138849143a57e1bb9ab8488d061a014d8afb3cb0d56",
+    "final_tokenizer_hashes": {
+      "special_tokens.json": "21d6ed125762219c944b7ba31f1d59d057d5766300671319a6083a2cac5863ce",
+      "tokenizer.model": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+      "tokenizer.vocab": "e7e0a932054e4917442fc960469c864de75a05eb7dd0e6234b17f0b09f9c9905",
+      "tokenizer_config.json": "7c29f3ea655583cb3e7d12db97a622685f5756ac1c32f2957c7e272e74c06d4f"
+    },
+    "full_validation_sha256": "c51706bcc9922e9edd594358b72f108476f4b4f1ef95d70959402b34a0b12980",
+    "handoff_sha256": "d7c6589f699b820369a5c52a9643b443272bbceac06bb9438001ebcd809581d1",
+    "manifest_hashes": {
+      "data/manifests/test.parquet": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+      "data/manifests/train.parquet": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+      "data/manifests/validation.parquet": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+    },
+    "near_dedup": {
+      "accepted_edges": 86697,
+      "candidate_generation": {
+        "band_hashes": {
+          "band-00.bin": "71fae35ec475452f86ca618273fef55fe8e0f4a79147a94c05947db9a934b4e0",
+          "band-01.bin": "0fee9629bee7312c76f9a1a049fab231419dc061aaa0ebe8b4c1efcc19e0595a",
+          "band-02.bin": "109e5a356f15d6eed0155b8913728418340dc859a6d06a2a20a136b70558eace",
+          "band-03.bin": "b38c45d6a6fd13d819f508911586b4b04bd64decee86884c577e3e58225aeb67",
+          "band-04.bin": "875a3cd3d72e7766a86a6fa21865ae92ea8e646955e4e0ad9ac92b14a0fab513",
+          "band-05.bin": "32ac7b500014bd9d8fba20b638e8ebb8d9ba558e34bc1134dbffbf673e9f6cb8",
+          "band-06.bin": "35141b40d85a19cf3b94cd5f08036799f5f9f4f7bfe82a78a8f92016cc86ae78",
+          "band-07.bin": "7e4768347f5992a817d5d63d1cf233f332174c6b77db30c7d799153f513907af"
+        },
+        "complete": 728772,
+        "maximum_observed_bucket_size": 940,
+        "maximum_supported_bucket_size": 10000,
+        "pair_insert_attempts": 8792441,
+        "skipped": 0,
+        "star": 0,
+        "strategy": "complete_bucket_pairs",
+        "strategy_hash": "c61e97a10bbd556689a1f205c4f684b965925d10146bcaad10d154484df59c85",
+        "strategy_version": 2,
+        "total_colliding": 728772,
+        "unique_candidate_pairs": 6444499
+      },
+      "candidate_pairs_checked": 6444499,
+      "clustered_documents": 28461,
+      "clusters": 13208,
+      "connected_component_semantics": "Every accepted edge has direct character-5-gram Jaccard >= 0.95. Clusters are connected components and are not necessarily pairwise >= 0.95.",
+      "fingerprinted_documents": 6209184,
+      "removed_documents": 15253,
+      "resumed": true,
+      "supersedes_prerepair_report": "data/metadata/prerepair/near_duplicate_report.json",
+      "verification_hash": "0e33974ddb442c6e2d312df60a6b474caa8edd6dcac4aaed6e0b427665383457"
+    },
+    "raw_immutability": {
+      "local_core_shards_checked": 14,
+      "mismatches": 0,
+      "original_shards_checked": 20
+    },
+    "repair_evidence_hashes": {
+      "downstream_repair_validation": {
+        "bytes": 2313,
+        "path": "data/metadata/downstream_repair_validation.json",
+        "sha256": "e9ceaf0e6486bb270bc2ba85daca2dd7911167a02829271245bcfe13a5d6913c"
+      },
+      "leakage_audit": {
+        "bytes": 34821,
+        "path": "data/metadata/leakage_audit.json",
+        "sha256": "6ccda7acecd33f103a98c2af121deeb06930bb887fa010017201b57918833764"
+      },
+      "m1_validation": {
+        "bytes": 3630,
+        "path": "data/metadata/m1_validation.json",
+        "sha256": "c51706bcc9922e9edd594358b72f108476f4b4f1ef95d70959402b34a0b12980"
+      },
+      "near_repair_all_large_bucket_audit": {
+        "bytes": 13877,
+        "path": "data/metadata/near_repair_large_bucket_leakage.json",
+        "sha256": "ee5f059fce6e79ea5ccc69baf2f6700eddcb22a1e98a8ce20aa71c0ac296b123"
+      },
+      "near_repair_candidate_recall": {
+        "bytes": 7241,
+        "path": "data/metadata/near_repair_candidate_recall.json",
+        "sha256": "acb02e667c89d336f23cb3877c86469114de5340af984e8c71c37d8a5012480b"
+      },
+      "near_repair_validation": {
+        "bytes": 13895,
+        "path": "data/metadata/near_repair_validation.json",
+        "sha256": "1749df593115d3630c2f013aadbc17708be6c8b8f7bab8a43106c31bafc52ee6"
+      },
+      "pytest_junit": {
+        "bytes": 4042,
+        "path": "data/metadata/pytest_m1.xml",
+        "sha256": "acad2ad707b2be0cda57dd54a5e875669a0a743dbe2bc37dc130267af0762e9e"
+      },
+      "raw_immutability": {
+        "bytes": 19702,
+        "path": "data/metadata/raw_immutability.json",
+        "sha256": "0c4d2ba908e1b968504bbda3d2974530591802a919c48c03ba00127cccee7f80"
+      },
+      "token_counts": {
+        "bytes": 217940976,
+        "path": "data/metadata/document_token_counts.parquet",
+        "sha256": "b3e2bbb324caef8d608cabb3dc8445387c8268e9fb3ea49f7d3ffee397482d8c"
+      },
+      "tokenizer_audit": {
+        "bytes": 59286,
+        "path": "data/metadata/tokenizer_audit.json",
+        "sha256": "742286bd9f64e67afa7c3edaa625dfa325817dfb02187223210f17ff0aa53bbf"
+      },
+      "training_subset": {
+        "bytes": 22361997,
+        "path": "data/manifests/train_50m.parquet",
+        "sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48"
+      }
+    },
+    "split_counts": {
+      "test": 309369,
+      "train": 5574885,
+      "validation": 309677
+    },
+    "split_percentages": {
+      "test": 4.994711758978265,
+      "train": 90.00560387256493,
+      "validation": 4.9996843684568
+    },
+    "tests": {
+      "errors": 0,
+      "failures": 0,
+      "integration_tests": 5,
+      "junit_path": "data/metadata/pytest_m1.xml",
+      "junit_sha256": "acad2ad707b2be0cda57dd54a5e875669a0a743dbe2bc37dc130267af0762e9e",
+      "skipped": 0,
+      "tests": 30,
+      "time_seconds": 6.137,
+      "unit_tests": 25
+    },
+    "token_counts": {
+      "artifact": {
+        "bytes": 217940976,
+        "path": "data/metadata/document_token_counts.parquet",
+        "sha256": "b3e2bbb324caef8d608cabb3dc8445387c8268e9fb3ea49f7d3ffee397482d8c"
+      },
+      "by_group_all_splits": {
+        "Blogs": 1528244,
+        "Books": 227377701,
+        "Laws": 64643900,
+        "Native Wikipedia": 74610988,
+        "News": 237559904
+      },
+      "by_source_all_splits": {
+        "anl-news": 237559904,
+        "azwiki": 74610988,
+        "elite-blogs": 1528244,
+        "elite-books": 7950165,
+        "eqanun": 64643900,
+        "mediocore-books": 219427536
+      },
+      "by_split_and_source": {
+        "test": {
+          "anl-news": {
+            "documents": 11081,
+            "documents_with_unknown_tokens": 3,
+            "sentencepiece_tokens_excluding_eod": 11544478,
+            "tokens": 11555559,
+            "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+            "unknown_token_rate": 5.197289994402519e-07,
+            "unknown_tokens": 6
+          },
+          "azwiki": {
+            "documents": 6632,
+            "documents_with_unknown_tokens": 0,
+            "sentencepiece_tokens_excluding_eod": 4036975,
+            "tokens": 4043607,
+            "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+            "unknown_token_rate": 0.0,
+            "unknown_tokens": 0
+          },
+          "elite-blogs": {
+            "documents": 37,
+            "documents_with_unknown_tokens": 1,
+            "sentencepiece_tokens_excluding_eod": 61835,
+            "tokens": 61872,
+            "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+            "unknown_token_rate": 1.6172070833670252e-05,
+            "unknown_tokens": 1
+          },
+          "elite-books": {
+            "documents": 5,
+            "documents_with_unknown_tokens": 0,
+            "sentencepiece_tokens_excluding_eod": 200902,
+            "tokens": 200907,
+            "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+            "unknown_token_rate": 0.0,
+            "unknown_tokens": 0
+          },
+          "eqanun": {
+            "documents": 2548,
+            "documents_with_unknown_tokens": 5,
+            "sentencepiece_tokens_excluding_eod": 4078579,
+            "tokens": 4081127,
+            "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+            "unknown_token_rate": 9.316970444853464e-06,
+            "unknown_tokens": 38
+          },
+          "mediocore-books": {
+            "documents": 289066,
+            "documents_with_unknown_tokens": 53,
+            "sentencepiece_tokens_excluding_eod": 10660604,
+            "tokens": 10949670,
+            "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+            "unknown_token_rate": 6.566232082159698e-06,
+            "unknown_tokens": 70
+          }
+        },
+        "train": {
+          "anl-news": {
+            "documents": 199587,
+            "documents_with_unknown_tokens": 31,
+            "sentencepiece_tokens_excluding_eod": 213755101,
+            "tokens": 213954688,
+            "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+            "unknown_token_rate": 4.818598457680783e-07,
+            "unknown_tokens": 103
+          },
+          "azwiki": {
+            "documents": 116025,
+            "documents_with_unknown_tokens": 0,
+            "sentencepiece_tokens_excluding_eod": 66639133,
+            "tokens": 66755158,
+            "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+            "unknown_token_rate": 0.0,
+            "unknown_tokens": 0
+          },
+          "elite-blogs": {
+            "documents": 665,
+            "documents_with_unknown_tokens": 9,
+            "sentencepiece_tokens_excluding_eod": 1405599,
+            "tokens": 1406264,
+            "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+            "unknown_token_rate": 2.1343213818450354e-05,
+            "unknown_tokens": 30
+          },
+          "elite-books": {
+            "documents": 85,
+            "documents_with_unknown_tokens": 2,
+            "sentencepiece_tokens_excluding_eod": 7077093,
+            "tokens": 7077178,
+            "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+            "unknown_token_rate": 4.239028652018562e-07,
+            "unknown_tokens": 3
+          },
+          "eqanun": {
+            "documents": 44789,
+            "documents_with_unknown_tokens": 65,
+            "sentencepiece_tokens_excluding_eod": 57741182,
+            "tokens": 57785971,
+            "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+            "unknown_token_rate": 2.3691929271555265e-05,
+            "unknown_tokens": 1368
+          },
+          "mediocore-books": {
+            "documents": 5213734,
+            "documents_with_unknown_tokens": 676,
+            "sentencepiece_tokens_excluding_eod": 192305919,
+            "tokens": 197519653,
+            "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+            "unknown_token_rate": 6.281657924424052e-06,
+            "unknown_tokens": 1208
+          }
+        },
+        "validation": {
+          "anl-news": {
+            "documents": 11217,
+            "documents_with_unknown_tokens": 1,
+            "sentencepiece_tokens_excluding_eod": 12038440,
+            "tokens": 12049657,
+            "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+            "unknown_token_rate": 8.306724127046361e-08,
+            "unknown_tokens": 1
+          },
+          "azwiki": {
+            "documents": 6506,
+            "documents_with_unknown_tokens": 0,
+            "sentencepiece_tokens_excluding_eod": 3805717,
+            "tokens": 3812223,
+            "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+            "unknown_token_rate": 0.0,
+            "unknown_tokens": 0
+          },
+          "elite-blogs": {
+            "documents": 33,
+            "documents_with_unknown_tokens": 1,
+            "sentencepiece_tokens_excluding_eod": 60075,
+            "tokens": 60108,
+            "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+            "unknown_token_rate": 1.6645859342488557e-05,
+            "unknown_tokens": 1
+          },
+          "elite-books": {
+            "documents": 7,
+            "documents_with_unknown_tokens": 0,
+            "sentencepiece_tokens_excluding_eod": 672073,
+            "tokens": 672080,
+            "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+            "unknown_token_rate": 0.0,
+            "unknown_tokens": 0
+          },
+          "eqanun": {
+            "documents": 2471,
+            "documents_with_unknown_tokens": 3,
+            "sentencepiece_tokens_excluding_eod": 2774331,
+            "tokens": 2776802,
+            "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+            "unknown_token_rate": 2.883578058998728e-06,
+            "unknown_tokens": 8
+          },
+          "mediocore-books": {
+            "documents": 289443,
+            "documents_with_unknown_tokens": 27,
+            "sentencepiece_tokens_excluding_eod": 10668770,
+            "tokens": 10958213,
+            "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+            "unknown_token_rate": 3.37433462339145e-06,
+            "unknown_tokens": 36
+          }
+        }
+      },
+      "includes_one_eod_per_document": true,
+      "split_totals": {
+        "test": 30892742,
+        "train": 544498912,
+        "validation": 30329083
+      },
+      "total_retained_tokens": 605720737
+    },
+    "tokenizer_candidates": {
+      "16000": {
+        "characters_per_token": 4.688761801725954,
+        "fertility": 1.6743012148350949,
+        "model_sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+        "unknown_rate_denominator_policy": "SentencePiece tokens on the shared train-only audit sample; EOD is not appended.",
+        "unknown_rate_denominator_token_count": 9701653,
+        "unknown_token_count": 1,
+        "unknown_token_rate": 1.0307521821281384e-07,
+        "vocab_sha256": "e7e0a932054e4917442fc960469c864de75a05eb7dd0e6234b17f0b09f9c9905",
+        "vocab_size": 16000
+      },
+      "32000": {
+        "characters_per_token": 5.203849193329553,
+        "fertility": 1.5085755349645842,
+        "model_sha256": "6cb625cdbb620ebc5e851da793edac26eea12c433a34c765616a22d5857a82fc",
+        "unknown_rate_denominator_policy": "SentencePiece tokens on the shared train-only audit sample; EOD is not appended.",
+        "unknown_rate_denominator_token_count": 8741364,
+        "unknown_token_count": 1,
+        "unknown_token_rate": 1.1439862245754782e-07,
+        "vocab_sha256": "56ee80c131fdb7a279b70d6c664a0f1b872fe0e851b2701730b7c0b520648c3e",
+        "vocab_size": 32000
+      },
+      "8000": {
+        "characters_per_token": 4.086221022981296,
+        "fertility": 1.9211881923544414,
+        "model_sha256": "52b4dd1fc9c0ae017bba13fd41aa020b05409356a397d840ca699b47428e4bbe",
+        "unknown_rate_denominator_policy": "SentencePiece tokens on the shared train-only audit sample; EOD is not appended.",
+        "unknown_rate_denominator_token_count": 11132227,
+        "unknown_token_count": 1,
+        "unknown_token_rate": 8.982928573051915e-08,
+        "vocab_sha256": "226c02c67b99381beb2237e86b9200c03afd834923b8472e2dad067b0e8bbeae",
+        "vocab_size": 8000
+      }
+    },
+    "tokenizer_training": {
+      "candidate_checks": {
+        "16000": {
+          "model_sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+          "training_corpus_sha256": "da0ff4b8209ab40e98afc96c71584a15defbd962d2f50e9b4f5ebc4e0a65a1d1",
+          "unknown_rate_denominator_token_count": 9701653,
+          "unknown_token_count": 1,
+          "vocab_size": 16000
+        },
+        "32000": {
+          "model_sha256": "6cb625cdbb620ebc5e851da793edac26eea12c433a34c765616a22d5857a82fc",
+          "training_corpus_sha256": "da0ff4b8209ab40e98afc96c71584a15defbd962d2f50e9b4f5ebc4e0a65a1d1",
+          "unknown_rate_denominator_token_count": 8741364,
+          "unknown_token_count": 1,
+          "vocab_size": 32000
+        },
+        "8000": {
+          "model_sha256": "52b4dd1fc9c0ae017bba13fd41aa020b05409356a397d840ca699b47428e4bbe",
+          "training_corpus_sha256": "da0ff4b8209ab40e98afc96c71584a15defbd962d2f50e9b4f5ebc4e0a65a1d1",
+          "unknown_rate_denominator_token_count": 11132227,
+          "unknown_token_count": 1,
+          "vocab_size": 8000
+        }
+      },
+      "documents": 1000000,
+      "matches_first_repaired_train_documents": true,
+      "split": "train",
+      "training_corpus_sha256": "da0ff4b8209ab40e98afc96c71584a15defbd962d2f50e9b4f5ebc4e0a65a1d1",
+      "training_sample_manifest_sha256": "937db7d8af5a744e55187d693129f5acc322f48066a432e1b6d887d97a525122"
+    },
+    "training_subset": {
+      "actual_group_proportions": {
+        "Blogs": 0.02808995014610324,
+        "Books": 0.322026314623046,
+        "Laws": 0.1667360893509797,
+        "Native Wikipedia": 0.2147032790977476,
+        "News": 0.26844436678212347
+      },
+      "actual_group_tokens": {
+        "Blogs": 1406264,
+        "Books": 16121567,
+        "Laws": 8347290,
+        "Native Wikipedia": 10748666,
+        "News": 13439100
+      },
+      "actual_source_tokens": {
+        "anl-news": 13439100,
+        "azwiki": 10748666,
+        "elite-blogs": 1406264,
+        "elite-books": 7077178,
+        "eqanun": 8347290,
+        "mediocore-books": 9044389
+      },
+      "available_group_tokens": {
+        "Blogs": 1406264,
+        "Books": 204596831,
+        "Laws": 57785971,
+        "Native Wikipedia": 66755158,
+        "News": 213954688
+      },
+      "boundary_policy": "Select full documents; downstream training stops at the exact 50M model-token boundary without changing canonical documents.",
+      "data_seed": 2026,
+      "exact_consumption_boundary": {
+        "cumulative_tokens_before_document": 49995815,
+        "document_id": "db05beef4e2c5dec4bf978a78afd788f579429852afea925852f7122b7608c36",
+        "eod_consumed": false,
+        "full_document_tokens_including_eod": 6799,
+        "sampling_order_zero_based": 276625,
+        "sequence_position_one_based": 276626,
+        "stop_semantics": "Read documents in frozen sampling order, append one <eod> after each document, and stop after exactly the target number of token IDs.",
+        "tokens_consumed_from_document": 4185,
+        "unconsumed_document_tokens": 2614
+      },
+      "exhausted_groups": [
+        "Blogs"
+      ],
+      "manifest_sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48",
+      "model_seed_affects_order": false,
+      "overshoot_tokens": 62887,
+      "processed_reference_policy": "Each selected document records its frozen processed parquet path and zero-based row number.",
+      "quota_phase_group_tokens": {
+        "Blogs": 1406264,
+        "Books": 15000039,
+        "Laws": 7725606,
+        "Native Wikipedia": 10000175,
+        "News": 12503436
+      },
+      "quota_shortages": {
+        "Blogs": 3593736,
+        "Books": 0,
+        "Laws": 0,
+        "Native Wikipedia": 0,
+        "News": 0
+      },
+      "requested_group_tokens": {
+        "Blogs": 5000000,
+        "Books": 15000000,
+        "Laws": 7500000,
+        "Native Wikipedia": 10000000,
+        "News": 12500000
+      },
+      "selected_documents": 277027,
+      "selected_unique_tokens": 50062887,
+      "target_tokens": 50000000
+    },
+    "transitivity": {
+      "cluster_distribution": {
+        "maximum_size": 445,
+        "size_2": 12507,
+        "size_gt_2": 701
+      },
+      "minimum_endpoint_similarity": 0.8199233716475096,
+      "minimum_representative_member_similarity": 0.8582677165354331,
+      "sampled_below_threshold": 24,
+      "sampled_clusters": 25
+    }
+  },
+  "issue_tracking": [
+    {
+      "after": "resolved",
+      "before": "P1",
+      "fix": "Star expansion replaced by complete chunked pair enumeration.",
+      "id": "P1-LSH",
+      "status": "CLOSED",
+      "validation": "Sample and all 59 large buckets have 100% eligible true-pair recall."
+    },
+    {
+      "after": "resolved",
+      "before": "P1",
+      "fix": "Layered graph plus independent large-bucket and former-pair audits.",
+      "id": "P1-LEAKAGE-ASSURANCE",
+      "status": "CLOSED",
+      "validation": "Zero known retained cross-split true-near pairs; 237/237 resolved."
+    },
+    {
+      "after": "P4 external-root condition",
+      "before": "P2",
+      "fix": "Repository-relative operational references and centralized resolver.",
+      "id": "P2-PORTABILITY",
+      "status": "CLOSED",
+      "validation": "Independent replay under C:/Research simulation passed."
+    },
+    {
+      "after": "resolved",
+      "before": "P2",
+      "fix": "Large-bucket, resume, leakage, relocation, atomic-state, and boundary tests added.",
+      "id": "P2-TEST-COVERAGE",
+      "status": "CLOSED",
+      "validation": "30/30 full suite and 14/14 focused repair set pass."
+    },
+    {
+      "after": "resolved",
+      "before": "P2",
+      "fix": "Config-bound stage states, durable checkpoints, partial names, atomic metadata, guarded promotion.",
+      "id": "P2-RESUME-SAFETY",
+      "status": "CLOSED",
+      "validation": "Resume-equivalence and incomplete-stage regressions pass."
+    },
+    {
+      "after": "resolved",
+      "before": "P3",
+      "fix": "Root and data READMEs updated to repaired frozen M1 state.",
+      "id": "P3-README",
+      "status": "CLOSED",
+      "validation": "No stale 'preprocessing not started' statement remains."
+    },
+    {
+      "after": "resolved",
+      "before": "P3",
+      "fix": "Access date and its basis recorded in source registry and handoff.",
+      "id": "P3-ACCESS-DATE",
+      "status": "CLOSED",
+      "validation": "2026-08-28 is present with a local revalidation basis."
+    },
+    {
+      "after": "resolved",
+      "before": "P3",
+      "fix": "Every candidate rate records count, token denominator, and policy; full-corpus values remain counts by split/source.",
+      "id": "P3-UNK-DENOMINATOR",
+      "status": "CLOSED",
+      "validation": "Handoff and analysis table expose denominators explicitly."
+    },
+    {
+      "after": "resolved",
+      "before": "P3",
+      "fix": "Exact inside-document stopping structure frozen and replayed.",
+      "id": "P3-50M-BOUNDARY",
+      "status": "CLOSED",
+      "validation": "Boundary ID, position, cumulative count, 4,185 consumed tokens, and pre-EOD stop agree."
+    },
+    {
+      "after": "P3 documented limitation",
+      "before": "P3",
+      "fix": "Edge-versus-component semantics and measured transitivity sample documented.",
+      "id": "P3-TRANSITIVITY-DOC",
+      "status": "ACCEPTED",
+      "validation": "Near report, data card, analysis, and handoff agree."
+    }
+  ],
+  "overall_m1_quality_score": 95.8,
+  "p0_blockers": [],
+  "p1_critical": [],
+  "p2_major": [],
+  "portability": {
+    "condition": "Keep DOLLMA at the config-relative external location or set AZ_PE_DOLLMA_ROOT after moving the repository.",
+    "internal_artifacts": "portable and relocation-tested",
+    "simulated_root": "C:/Research/azerbaijani-positional-encoding",
+    "verdict": "CONDITIONAL"
+  },
+  "readiness_scores": {
+    "code_quality": 91,
+    "data_integrity_confidence": 99,
+    "defense_report_readiness": 95,
+    "engineering_readiness": 94,
+    "fifty_m_corpus_confidence": 99,
+    "m2_m3_handoff_readiness": 97,
+    "reproducibility_readiness": 94,
+    "scientific_readiness": 97,
+    "tokenizer_confidence": 98
+  },
+  "requirement_matrix": [
+    [
+      "Native core; translated source excluded",
+      "Master plan / frozen config",
+      "configs/frozen/m1.yaml",
+      "source_registry.yaml and handoff",
+      "Six native components included; translated-enwiki and unresolved bhos excluded",
+      "PASS"
+    ],
+    [
+      "Conservative Azerbaijani-preserving cleaning",
+      "Master plan M1",
+      "src/data/normalize.py",
+      "Tests and source accounting",
+      "NFC/case/letters preserved; removals reconciled",
+      "PASS"
+    ],
+    [
+      "Exact global dedup",
+      "Master plan M1",
+      "src/data/dedup.py",
+      "SQLite and exact report",
+      "144,480 removals; 6,209,184 exact unique",
+      "PASS"
+    ],
+    [
+      "High-recall near candidates and exact 0.95 check",
+      "Master plan M1",
+      "src/data/near.py",
+      "Sample plus all-59-bucket audits",
+      "6,444,499 verified candidates; 321,263/321,263 eligible large-bucket pairs captured",
+      "PASS"
+    ],
+    [
+      "Cluster-aware 90/5/5 split",
+      "Master plan M1",
+      "src/data/split.py",
+      "Manifest hashes and full validator",
+      "5,574,885 / 309,677 / 309,369",
+      "PASS"
+    ],
+    [
+      "No cross-split duplicate leakage",
+      "Master plan hard gate",
+      "src/data/leakage.py",
+      "Layered leakage artifacts",
+      "Zero known retained true-near cross-split pairs",
+      "PASS"
+    ],
+    [
+      "8K/16K/32K same train-only input",
+      "Tokenizer protocol",
+      "src/tokenizer",
+      "Training corpus and sample hashes",
+      "1,000,000 repaired-train documents shared exactly",
+      "PASS"
+    ],
+    [
+      "Final 16K BPE",
+      "Preregistered default",
+      "src/tokenizer/train.py",
+      "Frozen model load and hashes",
+      "16,000 pieces; special IDs stable",
+      "PASS"
+    ],
+    [
+      "Real final-tokenizer counts",
+      "M1 token contract",
+      "src/tokenizer/counts.py",
+      "6.19M-row count index and validator",
+      "605,720,737 tokens including one EOD/document",
+      "PASS"
+    ],
+    [
+      "Deterministic 50M train sequence",
+      "Master plan quota policy",
+      "src/data/sampling.py",
+      "Independent replay and subset hash",
+      "277,027 unique train docs; exact boundary frozen",
+      "PASS"
+    ],
+    [
+      "Raw immutability",
+      "M1 safety gate",
+      "scripts/verify_raw_immutability.py",
+      "raw_immutability.json",
+      "34/34 path checks; zero mismatches",
+      "PASS"
+    ],
+    [
+      "Portable handoff",
+      "Repair requirement",
+      "src/data/paths.py",
+      "Relocation simulation",
+      "Operational paths resolve under alternate root",
+      "PASS"
+    ],
+    [
+      "Final validation and tests",
+      "M1 DoD",
+      "finalization scripts and tests",
+      "m1_validation.json and JUnit",
+      "Full validator pass; 30/30 tests",
+      "PASS"
+    ]
+  ],
+  "scientific_confidence": [
+    {
+      "answer": "YES",
+      "evidence": "All variants inherit one frozen corpus, tokenizer, sequence, and budget; repaired leakage gates pass.",
+      "question": "Is M1 scientifically valid for the PE comparison?"
+    },
+    {
+      "answer": "NO",
+      "evidence": "No known ID, exact, accepted-edge, cluster, sampled, or all-large-bucket true-near pair crosses splits.",
+      "question": "Could known data leakage bias future PE results?"
+    },
+    {
+      "answer": "NO",
+      "evidence": "One frozen 16K model is shared by all variants and was trained on train only.",
+      "question": "Could tokenizer construction favor one PE variant?"
+    },
+    {
+      "answer": "YES",
+      "evidence": "The subset manifest and data-seed-2026 order are hash-frozen and independent of model seeds.",
+      "question": "Is the same data and order guaranteed?"
+    },
+    {
+      "answer": "YES",
+      "evidence": "The exact 50M token boundary is machine-readable and independently replayed.",
+      "question": "Are low-data conditions reproducible?"
+    },
+    {
+      "answer": "YES",
+      "evidence": "translated-enwiki is absent from the core source map and all manifests.",
+      "question": "Is translated data excluded?"
+    },
+    {
+      "answer": "YES",
+      "evidence": "Exact global dedup plus repaired high-recall LSH candidates and exact 0.95 verification are applied.",
+      "question": "Is dedup aggressive enough?"
+    },
+    {
+      "answer": "PARTIAL",
+      "evidence": "Connected closure is intentionally conservative for leakage; sampled endpoints reach 0.8199 and this limitation is explicit.",
+      "question": "Is dedup too aggressive?"
+    },
+    {
+      "answer": "YES",
+      "evidence": "It disproportionately removes mediocore-books fragments; source-aware token quotas and reporting make the effect visible.",
+      "question": "Could the short filter distort source balance?"
+    },
+    {
+      "answer": "YES",
+      "evidence": "It is preregistered, technically valid, low-UNK, and audited beside 8K and 32K on identical train text.",
+      "question": "Is 16K defensible?"
+    },
+    {
+      "answer": "YES",
+      "evidence": "Train-only, unique, deterministic, source-aware, shortage-explicit, and exact-boundary replayed.",
+      "question": "Is the 50M corpus defensible?"
+    },
+    {
+      "answer": "YES",
+      "evidence": "The handoff exposes relative paths, hashes, tokenizer, manifests, counts, and stop semantics.",
+      "question": "Can M2/M3 start without rerunning M1?"
+    },
+    {
+      "answer": "PARTIAL",
+      "evidence": "Internal artifacts relocate; set AZ_PE_DOLLMA_ROOT if the external DOLLMA clone is not adjacent at the configured relative path.",
+      "question": "Can the repository move out of OneDrive?"
+    },
+    {
+      "answer": "PARTIAL",
+      "evidence": "Only provenance/display evidence retains original paths; operational paths are relative and relocation-tested.",
+      "question": "Are there absolute-path risks?"
+    },
+    {
+      "answer": "NO",
+      "evidence": "No unresolved P0/P1/P2 remains; documented source metadata, short-filter, and transitivity limitations must be reported.",
+      "question": "Could an identified M1 flaw invalidate the paper later?"
+    }
+  ],
+  "score_normalization": {
+    "method": "The historical weights sum to 105; weighted score is sum(weight * category score) / 105.",
+    "raw_weight_total": 105,
+    "unrounded_score": 95.82857142857142,
+    "weighted_numerator": 10062.0
+  },
+  "specification_references": [
+    "research_master_plan.pdf (M1-relevant requirements, external workspace document)",
+    "configs/frozen/m1.yaml",
+    "docs/notes/m1_final_independent_audit.md",
+    "data/metadata/m1_handoff.json"
+  ],
+  "timestamp_utc": "2026-08-28T16:21:22.155854+00:00",
+  "verdict": "READY",
+  "warnings": [
+    "P3-TRANSITIVITY-DOC",
+    "P3-UPSTREAM-PROVENANCE",
+    "P3-SHORT-FILTER-DISTRIBUTION"
+  ]
+}

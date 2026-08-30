@@ -1,0 +1,806 @@
+{
+  "timestamp": "2026-08-30T16:32:56.709Z",
+  "scope": "Functional filesystem rename and reference migration; scientific corpus, tokenizer model, manifests, and sequence remain frozen.",
+  "summary": {
+    "role_based_files_found": 38,
+    "role_based_directories_found": 2,
+    "files_renamed": 38,
+    "directories_renamed": 2,
+    "mechanically_counted_path_and_name_substitutions": 140,
+    "targeted_structured_reference_fixes": 10,
+    "current_terminology_and_logger_substitutions": 73,
+    "active_old_path_references_remaining": 0,
+    "active_role_based_filenames_remaining": 0,
+    "active_role_based_directories_remaining": 0,
+    "remaining_textual_occurrences": 519,
+    "remaining_textual_files": 20,
+    "remaining_textual_classification": {
+      "HISTORICAL_TEXT": 157,
+      "METADATA_SCHEMA_IDENTIFIER": 13,
+      "DATABASE_INTERNAL_IDENTIFIER": 9,
+      "CONFIG_IDENTIFIER": 1,
+      "EXTERNAL_UNRELATED_CORPUS_TEXT": 339
+    }
+  },
+  "renames": [
+    {
+      "old_path": "configs/frozen/m1.yaml",
+      "new_path": "configs/frozen/data_pipeline.yaml",
+      "reason": "Name the frozen configuration by its data-pipeline function.",
+      "artifact_type": "frozen_configuration",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "db1c4fbef901b8d3392c5566907fb1234754f8d4c20bbb8b1c78db3c73f7d8a3",
+      "content_hash_after": "6283c7502ddbd346c908f2744edbcb80ebbb6b7a381f9e945e1ae1ceed60290a",
+      "content_changed": true,
+      "size_bytes_before": 3272,
+      "size_bytes_after": 3280,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "data/interim/m1",
+      "new_path": "data/interim/corpus",
+      "reason": "Name resumable indexes and band files by their corpus function.",
+      "artifact_type": "interim_corpus_directory",
+      "references_updated": [
+        "configuration, source, metadata, tests, and documentation where operational"
+      ],
+      "content_hash_before": null,
+      "content_hash_after": null,
+      "content_changed": false,
+      "directory_snapshot_before": {
+        "file_count": 11,
+        "size_bytes": 16052205568
+      },
+      "directory_snapshot_after": {
+        "file_count": 11,
+        "size_bytes": 16052205568
+      },
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "data/interim/m1/m1_index.sqlite",
+      "new_path": "data/interim/corpus/corpus_index.sqlite",
+      "reason": "Name the SQLite index by its corpus role.",
+      "artifact_type": "sqlite_corpus_index",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "a2496cb59ecd9e85a65ef5d194010cbada5afebfa80e6dadef5fade85c54c1b0",
+      "content_hash_after": "a2496cb59ecd9e85a65ef5d194010cbada5afebfa80e6dadef5fade85c54c1b0",
+      "content_changed": false,
+      "size_bytes_before": 6412800000,
+      "size_bytes_after": 6412800000,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "data/interim/m1/m1_index_prerepair.sqlite",
+      "new_path": "data/interim/corpus/corpus_index_prerepair.sqlite",
+      "reason": "Name the SQLite index by its corpus role.",
+      "artifact_type": "sqlite_corpus_index",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "5bb0113c94daff7ae518c6ab2c2dcfdfc845dce7d9540fafd97d2700b1dfed0b",
+      "content_hash_after": "5bb0113c94daff7ae518c6ab2c2dcfdfc845dce7d9540fafd97d2700b1dfed0b",
+      "content_changed": false,
+      "size_bytes_before": 6319980544,
+      "size_bytes_after": 6319980544,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "data/processed/m1",
+      "new_path": "data/processed/corpus",
+      "reason": "Name the retained Parquet corpus by content rather than milestone ownership.",
+      "artifact_type": "processed_corpus_directory",
+      "references_updated": [
+        "configuration, source, metadata, tests, and documentation where operational"
+      ],
+      "content_hash_before": null,
+      "content_hash_after": null,
+      "content_changed": false,
+      "directory_snapshot_before": {
+        "file_count": 3,
+        "size_bytes": 2231653447
+      },
+      "directory_snapshot_after": {
+        "file_count": 3,
+        "size_bytes": 2231653447
+      },
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "data/metadata/m1_cleanup_manifest.json",
+      "new_path": "data/metadata/repository_cleanup_manifest.json",
+      "reason": "Describe repository cleanup without milestone terminology.",
+      "artifact_type": "research_metadata",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "f8d78030f605d025b6686e7d854f2a54ca033a2ff3990111a5ba48bd374c5e32",
+      "content_hash_after": "19c601afd4aa7fd59eb7c7f517d5fa585512dcc307ee697b16aefdb50d72d56f",
+      "content_changed": true,
+      "size_bytes_before": 6126,
+      "size_bytes_after": 6187,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "data/metadata/m1_definition_of_done.json",
+      "new_path": "data/metadata/corpus_release_status.json",
+      "reason": "Describe the artifact as corpus release status.",
+      "artifact_type": "research_metadata",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "f1eb2ab09deb7742550eccccc07dab6db1b3694e7659f6c0b8ba8a7462a6e708",
+      "content_hash_after": "49bfd23956d798c978358ec55a4f6f0db3b83c9041a04d9ccc0215fbd1304272",
+      "content_changed": true,
+      "size_bytes_before": 1872,
+      "size_bytes_after": 1872,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "data/metadata/m1_final_audit_scorecard.csv",
+      "new_path": "data/metadata/corpus_integrity_scorecard.csv",
+      "reason": "Describe corpus-integrity evidence.",
+      "artifact_type": "research_metadata",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "c21a03702b74abb5d31168affac22a40dc8e93e940602c889f0a6b260f01f95c",
+      "content_hash_after": "c21a03702b74abb5d31168affac22a40dc8e93e940602c889f0a6b260f01f95c",
+      "content_changed": false,
+      "size_bytes_before": 954,
+      "size_bytes_after": 954,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "data/metadata/m1_final_hardening_audit.json",
+      "new_path": "data/metadata/data_pipeline_hardening_audit.json",
+      "reason": "Describe the data-pipeline hardening audit directly.",
+      "artifact_type": "research_metadata",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "0252331a09d01122a1dd9f5c57fefa444777160b6fc0666c60f34c573fc684aa",
+      "content_hash_after": "366d84d695bc9629d2f0b8c7d449a93784cfbce531a20f844888c40b75a15ce8",
+      "content_changed": true,
+      "size_bytes_before": 9979,
+      "size_bytes_after": 10009,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "data/metadata/m1_final_hardening_scorecard.csv",
+      "new_path": "data/metadata/data_pipeline_hardening_scorecard.csv",
+      "reason": "Describe the data-pipeline hardening audit directly.",
+      "artifact_type": "research_metadata",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "33bf44da0d1037f9a41f2bed38e0cfcb0a9088ada3ceae5aa34d40387e55ff3b",
+      "content_hash_after": "33bf44da0d1037f9a41f2bed38e0cfcb0a9088ada3ceae5aa34d40387e55ff3b",
+      "content_changed": false,
+      "size_bytes_before": 941,
+      "size_bytes_after": 941,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "data/metadata/m1_final_independent_audit.json",
+      "new_path": "data/metadata/corpus_integrity_audit.json",
+      "reason": "Describe corpus-integrity evidence.",
+      "artifact_type": "research_metadata",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "467cbdaa54dd6299371cc5c88707002a19531926ccc51765f21a037924757144",
+      "content_hash_after": "467cbdaa54dd6299371cc5c88707002a19531926ccc51765f21a037924757144",
+      "content_changed": false,
+      "size_bytes_before": 35344,
+      "size_bytes_after": 35344,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "data/metadata/m1_handoff.json",
+      "new_path": "data/metadata/training_data_contract.json",
+      "reason": "Expose the frozen downstream interface as a training-data contract.",
+      "artifact_type": "research_metadata",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "16f6bff41aeba8c772bbfa1c2f406786f7a3db9d7b007b67e57818c34493ccbb",
+      "content_hash_after": "40c703264f1d0389cc303b1dac350a73d0daadfcbe2406af19f0990daf0361b7",
+      "content_changed": true,
+      "size_bytes_before": 44490,
+      "size_bytes_after": 44626,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "data/metadata/m1_postrepair_audit_scorecard.csv",
+      "new_path": "data/metadata/repaired_corpus_scorecard.csv",
+      "reason": "Describe historical repaired-corpus evidence.",
+      "artifact_type": "research_metadata",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "16a108f78939d35ba4412e890b76279c94983a2dbee10021a37c8a11eacc2608",
+      "content_hash_after": "16a108f78939d35ba4412e890b76279c94983a2dbee10021a37c8a11eacc2608",
+      "content_changed": false,
+      "size_bytes_before": 934,
+      "size_bytes_after": 934,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "data/metadata/m1_postrepair_independent_audit.json",
+      "new_path": "data/metadata/repaired_corpus_integrity_audit.json",
+      "reason": "Describe historical repaired-corpus evidence.",
+      "artifact_type": "research_metadata",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "de4a2375d4519534290b096b7df1d5414a068a63661ab4539874900acf8fc71a",
+      "content_hash_after": "de4a2375d4519534290b096b7df1d5414a068a63661ab4539874900acf8fc71a",
+      "content_changed": false,
+      "size_bytes_before": 43927,
+      "size_bytes_after": 43927,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "data/metadata/m1_report_tables.json",
+      "new_path": "data/metadata/data_pipeline_report_tables.json",
+      "reason": "Describe generated data-pipeline report tables.",
+      "artifact_type": "research_metadata",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "03d70604ca0043bad34ace04dce596c41161a7637634e6c104e9705d64f698f3",
+      "content_hash_after": "4597add684110c4ea4a665137bb91fd53c529de38b2b650aea912d279e05d32f",
+      "content_changed": true,
+      "size_bytes_before": 10981,
+      "size_bytes_after": 10997,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "data/metadata/m1_validation.json",
+      "new_path": "data/metadata/frozen_corpus_validation.json",
+      "reason": "Describe the validation scope explicitly.",
+      "artifact_type": "research_metadata",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "c51706bcc9922e9edd594358b72f108476f4b4f1ef95d70959402b34a0b12980",
+      "content_hash_after": "7cb9681c636cd58a534a38e83353dd3aa5baac461aea0bcb324d0caa4a3a52a6",
+      "content_changed": false,
+      "size_bytes_before": 3630,
+      "size_bytes_after": 3630,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "data/metadata/prerepair/m1_definition_of_done.json",
+      "new_path": "data/metadata/prerepair/corpus_release_status.json",
+      "reason": "Describe the artifact as corpus release status.",
+      "artifact_type": "historical_metadata",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "c20e4f0de53c82ea834d5497d97b6fa7b119fbb20a4f531d9bb31d4e6ca55e5b",
+      "content_hash_after": "c20e4f0de53c82ea834d5497d97b6fa7b119fbb20a4f531d9bb31d4e6ca55e5b",
+      "content_changed": false,
+      "size_bytes_before": 1046,
+      "size_bytes_after": 1046,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "data/metadata/prerepair/m1_handoff.json",
+      "new_path": "data/metadata/prerepair/training_data_contract.json",
+      "reason": "Expose the frozen downstream interface as a training-data contract.",
+      "artifact_type": "historical_metadata",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "eaf82dfbcee74704579fee0b73427b024a759bcc9e7685f8ac9054287c12442d",
+      "content_hash_after": "eaf82dfbcee74704579fee0b73427b024a759bcc9e7685f8ac9054287c12442d",
+      "content_changed": false,
+      "size_bytes_before": 32219,
+      "size_bytes_after": 32219,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "data/metadata/prerepair/m1_report_tables.json",
+      "new_path": "data/metadata/prerepair/data_pipeline_report_tables.json",
+      "reason": "Describe generated data-pipeline report tables.",
+      "artifact_type": "historical_metadata",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "aed041eb8ca8ca6b5fd90baaa26bf300d5cca38e26348d28152da1e22b40b01c",
+      "content_hash_after": "aed041eb8ca8ca6b5fd90baaa26bf300d5cca38e26348d28152da1e22b40b01c",
+      "content_changed": false,
+      "size_bytes_before": 10822,
+      "size_bytes_after": 10822,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "data/metadata/prerepair/m1_validation.json",
+      "new_path": "data/metadata/prerepair/frozen_corpus_validation.json",
+      "reason": "Describe the validation scope explicitly.",
+      "artifact_type": "historical_metadata",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "0f2d58cfbc88c8921e4a347d0e787310db64df79de1d0fb9166f223c9a749a7f",
+      "content_hash_after": "0f2d58cfbc88c8921e4a347d0e787310db64df79de1d0fb9166f223c9a749a7f",
+      "content_changed": false,
+      "size_bytes_before": 3772,
+      "size_bytes_after": 3772,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "data/metadata/pytest_m1.xml",
+      "new_path": "data/metadata/pytest_data_pipeline.xml",
+      "reason": "Name the test evidence by subsystem.",
+      "artifact_type": "research_metadata",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "f826ae2a1b20c60bf663a6c754867763995deb43d5b7686eeb86c5d080ca5b9e",
+      "content_hash_after": "0862c2bc9c3c420bfc737292957140dc9611254b23341c62699f8309b94df212",
+      "content_changed": true,
+      "size_bytes_before": 4652,
+      "size_bytes_after": 4653,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "docs/notes/m1_data_analysis.md",
+      "new_path": "docs/notes/corpus_data_analysis.md",
+      "reason": "Describe the document by its corpus or data-pipeline subject.",
+      "artifact_type": "research_documentation",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "547bdfaf352d0bbf153833c71e7195eb3fca3c57bb320f0cec8f17b8ec64118f",
+      "content_hash_after": "d3640807548ea8b028b01c7348e51fe27fe6342e8f84dfe9888cc980ab06c4f6",
+      "content_changed": true,
+      "size_bytes_before": 15274,
+      "size_bytes_after": 15278,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "docs/notes/m1_data_card.md",
+      "new_path": "docs/notes/corpus_data_card.md",
+      "reason": "Describe the document by its corpus or data-pipeline subject.",
+      "artifact_type": "research_documentation",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "7f5713734a0721062505c07decade6cc9a962ad97dbba94a8a5f3016024895ec",
+      "content_hash_after": "fd0a46ad877797316a29dbb1e3bec7e895761a0e29a186e1bce698899b703897",
+      "content_changed": true,
+      "size_bytes_before": 4178,
+      "size_bytes_after": 4217,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "docs/notes/m1_final_hardening_audit.md",
+      "new_path": "docs/notes/data_pipeline_hardening_audit.md",
+      "reason": "Describe the data-pipeline hardening audit directly.",
+      "artifact_type": "research_documentation",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "6eda911a01861764d82274b5bd4faee91254ed137a06e5dd238c61750df12086",
+      "content_hash_after": "f3be7ad26d5f099e83209ae1d87dc37ba0889c9dc01c8991b2df5f386f56a74a",
+      "content_changed": true,
+      "size_bytes_before": 9486,
+      "size_bytes_after": 9572,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "docs/notes/m1_final_independent_audit.md",
+      "new_path": "docs/notes/corpus_integrity_audit.md",
+      "reason": "Describe corpus-integrity evidence.",
+      "artifact_type": "research_documentation",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "e9dea0a8b57324a35872a03660560a0855f1dd5b1252cf239a154767d2d6a9ee",
+      "content_hash_after": "e9dea0a8b57324a35872a03660560a0855f1dd5b1252cf239a154767d2d6a9ee",
+      "content_changed": false,
+      "size_bytes_before": 34856,
+      "size_bytes_after": 34856,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "docs/notes/m1_postrepair_independent_audit.md",
+      "new_path": "docs/notes/repaired_corpus_integrity_audit.md",
+      "reason": "Describe historical repaired-corpus evidence.",
+      "artifact_type": "research_documentation",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "ef17079c6b5fed46e231077fa81b043678f0e766a07e791e79144d082f00f54f",
+      "content_hash_after": "ef17079c6b5fed46e231077fa81b043678f0e766a07e791e79144d082f00f54f",
+      "content_changed": false,
+      "size_bytes_before": 19194,
+      "size_bytes_after": 19194,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "requirements-m1.txt",
+      "new_path": "requirements-data-pipeline.txt",
+      "reason": "Name the dependency lock by subsystem.",
+      "artifact_type": "dependency_lock",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "7bdc2636a2d4ade16dd499c5064d62ef9ef0815ad59afb7c2d3b6a557961c117",
+      "content_hash_after": "7bdc2636a2d4ade16dd499c5064d62ef9ef0815ad59afb7c2d3b6a557961c117",
+      "content_changed": false,
+      "size_bytes_before": 115,
+      "size_bytes_after": 115,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "results/figures/m1_50m_source_mixture.png",
+      "new_path": "results/figures/training_sequence_source_mixture.png",
+      "reason": "Describe the plotted measurement rather than its milestone.",
+      "artifact_type": "generated_figure",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "c5a667f4764ef1d2b47b5de3214c955757f3226a81f8f4e54b70b663b549286e",
+      "content_hash_after": "c5a667f4764ef1d2b47b5de3214c955757f3226a81f8f4e54b70b663b549286e",
+      "content_changed": false,
+      "size_bytes_before": 32101,
+      "size_bytes_after": 32101,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "results/figures/m1_source_documents.png",
+      "new_path": "results/figures/corpus_source_documents.png",
+      "reason": "Describe the plotted measurement rather than its milestone.",
+      "artifact_type": "generated_figure",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "9c02c5fa225ed65632499913d3d3b92b752bb75ef06d55a2fe086dfc559622da",
+      "content_hash_after": "9c02c5fa225ed65632499913d3d3b92b752bb75ef06d55a2fe086dfc559622da",
+      "content_changed": false,
+      "size_bytes_before": 43468,
+      "size_bytes_after": 43468,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "results/figures/m1_source_group_tokens.png",
+      "new_path": "results/figures/corpus_source_group_tokens.png",
+      "reason": "Describe the plotted measurement rather than its milestone.",
+      "artifact_type": "generated_figure",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "9abf929ad36b9953dacc99bd5a4941806a6ee889c62f5eff438c8c924e5f48e4",
+      "content_hash_after": "9abf929ad36b9953dacc99bd5a4941806a6ee889c62f5eff438c8c924e5f48e4",
+      "content_changed": false,
+      "size_bytes_before": 25173,
+      "size_bytes_after": 25173,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "results/figures/m1_tokenizer_fertility.png",
+      "new_path": "results/figures/tokenizer_fertility.png",
+      "reason": "Describe the plotted measurement rather than its milestone.",
+      "artifact_type": "generated_figure",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "b6926ebd88dc081c71bb79f545c49dd937e5c4a11ab549f8c84d18a7874eb015",
+      "content_hash_after": "b6926ebd88dc081c71bb79f545c49dd937e5c4a11ab549f8c84d18a7874eb015",
+      "content_changed": false,
+      "size_bytes_before": 32066,
+      "size_bytes_after": 32066,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "scripts/audit_m1.py",
+      "new_path": "scripts/audit_data_pipeline.py",
+      "reason": "Name the command by the operation it performs.",
+      "artifact_type": "python_entrypoint",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "b149081dd9216e0d3995c2c8ba1a2bdcec3652e0b26c2cda7317a3e2b4bb00ae",
+      "content_hash_after": "470e22bcb5856ca8f8b4104cdc39742a8c8ca5f68d18a18253f6658c7d5cedf5",
+      "content_changed": true,
+      "size_bytes_before": 11910,
+      "size_bytes_after": 11969,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "scripts/finalize_m1_audit.py",
+      "new_path": "scripts/validate_frozen_corpus.py",
+      "reason": "Name the command by the operation it performs.",
+      "artifact_type": "python_entrypoint",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "1980be51cedf27ff7b28fc1f1264114570febb394b9634e8110f93cdb78b2fda",
+      "content_hash_after": "1570a6293369a5200fc1131dd74d5f404f511a454e85e5ec0dce7e301fe9d295",
+      "content_changed": true,
+      "size_bytes_before": 13701,
+      "size_bytes_after": 13760,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "scripts/generate_m1_handoff.py",
+      "new_path": "scripts/generate_training_data_contract.py",
+      "reason": "Expose the frozen downstream interface as a training-data contract.",
+      "artifact_type": "python_entrypoint",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "94f87031fb64bc500dbb39726ef67ba7b5f223e9fbe05ea5eaf53a70e680dd9f",
+      "content_hash_after": "af6c1cb0f7631193e218ee4adbbfea9d8c0e155b152ec895fb403a5bc3cab498",
+      "content_changed": true,
+      "size_bytes_before": 24703,
+      "size_bytes_after": 24894,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "scripts/generate_m1_report.py",
+      "new_path": "scripts/generate_data_pipeline_report.py",
+      "reason": "Name the command by the operation it performs.",
+      "artifact_type": "python_entrypoint",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "55708a7bcb1d513f4bcec6596f04edd261caaf3134d3d2bbe221e56b893781a8",
+      "content_hash_after": "e743b28a1706d3b1b7d89c546cecd75b31958f1715a8ffa3772f5ceeff7b2c37",
+      "content_changed": true,
+      "size_bytes_before": 25902,
+      "size_bytes_after": 26212,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "scripts/promote_m1_repair.py",
+      "new_path": "scripts/promote_corpus_repair.py",
+      "reason": "Name the command by the operation it performs.",
+      "artifact_type": "python_entrypoint",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "67d866739c7f4b35b8ab71c6f9329d1dfbc724ff404a41e76fdd66c0a4f4b0c1",
+      "content_hash_after": "db8f256ebd7f16942f0778be7c04fd9fb1350155ed0b786d57860e9fcd402838",
+      "content_changed": true,
+      "size_bytes_before": 8350,
+      "size_bytes_after": 8409,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "scripts/repair_m1_near.py",
+      "new_path": "scripts/repair_near_duplicates.py",
+      "reason": "Name the command by the operation it performs.",
+      "artifact_type": "python_entrypoint",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "1da4776cc528eb084c3b0e4745f6b432f2de0090f3e7aeeaef11c58d70bc9d87",
+      "content_hash_after": "c500a2eed83f5abb7f4825b5f31dcfa64563716547b5b1c57aa9939e09cf00a5",
+      "content_changed": true,
+      "size_bytes_before": 8444,
+      "size_bytes_after": 8500,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "scripts/validate_m1_downstream.py",
+      "new_path": "scripts/validate_training_data_contract.py",
+      "reason": "Name the command by the operation it performs.",
+      "artifact_type": "python_entrypoint",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "a86390e9451d08b613cbcc74150237cac0a2d1e6ca62ea3e2ee1ad9364b163dc",
+      "content_hash_after": "a86390e9451d08b613cbcc74150237cac0a2d1e6ca62ea3e2ee1ad9364b163dc",
+      "content_changed": false,
+      "size_bytes_before": 11282,
+      "size_bytes_after": 11282,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "scripts/validate_m1_repair.py",
+      "new_path": "scripts/validate_corpus_repair.py",
+      "reason": "Name the command by the operation it performs.",
+      "artifact_type": "python_entrypoint",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "0a6f31065ef6d2833828a83c8998f78791a98025c9fb8b33382a3581a94bb390",
+      "content_hash_after": "1491d5c7349d00dc9f92bacff4c92d17048cffcd851130f2c1e04ec39ff91c13",
+      "content_changed": true,
+      "size_bytes_before": 13746,
+      "size_bytes_after": 13751,
+      "validation_status": "pass"
+    },
+    {
+      "old_path": "tests/integration/test_frozen_m1_artifacts.py",
+      "new_path": "tests/integration/test_frozen_data_artifacts.py",
+      "reason": "Name the test module by the frozen artifacts it validates.",
+      "artifact_type": "pytest_module",
+      "references_updated": [
+        "repository-wide path/name migration",
+        "zero active old-path matches"
+      ],
+      "content_hash_before": "8e61c7adf364e9594211b08df08a662f8a7a1c1ac4dbe766a34aaf7688e0a30b",
+      "content_hash_after": "8e61c7adf364e9594211b08df08a662f8a7a1c1ac4dbe766a34aaf7688e0a30b",
+      "content_changed": false,
+      "size_bytes_before": 2084,
+      "size_bytes_after": 2084,
+      "validation_status": "pass"
+    }
+  ],
+  "paths_not_renamed": [
+    {
+      "identifier": "m1_stage_state",
+      "reason": "Frozen SQLite internal table name; schema migration is outside this filesystem rename and would add scientific risk.",
+      "classification": "database_internal_identifier"
+    },
+    {
+      "identifier": "pipeline_version: m1.1",
+      "reason": "Frozen pipeline version identifier, not a filesystem path.",
+      "classification": "config_identifier"
+    },
+    {
+      "identifier": "m1_status / m1_config / m1_validation",
+      "reason": "Existing machine-readable contract keys retained for schema compatibility.",
+      "classification": "metadata_schema_identifier"
+    },
+    {
+      "identifier": "Historical M1 wording in prerepair and independent audit bodies",
+      "reason": "Historical evidence is not globally rewritten; renamed filenames and active references are functional.",
+      "classification": "historical_text"
+    },
+    {
+      "identifier": "C:/Users/User/AppData/Local/Temp/azerbaijani-pe-m1-cleanup-20260828",
+      "reason": "External recovery/quarantine location recorded as historical cleanup provenance.",
+      "classification": "external_historical_path"
+    },
+    {
+      "identifier": "339 incidental m1 substrings in tokenizer/training_corpus.txt",
+      "reason": "Frozen Azerbaijani tokenizer-training text is scientific corpus content, not repository terminology; rewriting it would change the tokenizer corpus hash.",
+      "classification": "external_unrelated_corpus_text"
+    }
+  ],
+  "validation": {
+    "focused_regressions": {
+      "passed": 18,
+      "failed": 0
+    },
+    "full_tests": {
+      "passed": 35,
+      "failed": 0
+    },
+    "static_analysis": "pass",
+    "scientific_hashes_before": {
+      "tokenizer/tokenizer.model": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+      "data/manifests/train.parquet": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+      "data/manifests/validation.parquet": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786",
+      "data/manifests/test.parquet": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+      "data/manifests/train_50m.parquet": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48"
+    },
+    "scientific_hashes_after": {
+      "tokenizer/tokenizer.model": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+      "data/manifests/train.parquet": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+      "data/manifests/validation.parquet": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786",
+      "data/manifests/test.parquet": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+      "data/manifests/train_50m.parquet": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48"
+    },
+    "scientific_hashes_unchanged": true,
+    "exact_boundary_before": {
+      "cumulative_tokens_before_document": 49995815,
+      "document_id": "db05beef4e2c5dec4bf978a78afd788f579429852afea925852f7122b7608c36",
+      "eod_consumed": false,
+      "full_document_tokens_including_eod": 6799,
+      "sampling_order_zero_based": 276625,
+      "sequence_position_one_based": 276626,
+      "stop_semantics": "Read documents in frozen sampling order, append one <eod> after each document, and stop after exactly the target number of token IDs.",
+      "tokens_consumed_from_document": 4185,
+      "unconsumed_document_tokens": 2614
+    },
+    "exact_boundary_after": {
+      "cumulative_tokens_before_document": 49995815,
+      "document_id": "db05beef4e2c5dec4bf978a78afd788f579429852afea925852f7122b7608c36",
+      "eod_consumed": false,
+      "full_document_tokens_including_eod": 6799,
+      "sampling_order_zero_based": 276625,
+      "sequence_position_one_based": 276626,
+      "stop_semantics": "Read documents in frozen sampling order, append one <eod> after each document, and stop after exactly the target number of token IDs.",
+      "tokens_consumed_from_document": 4185,
+      "unconsumed_document_tokens": 2614
+    },
+    "exact_boundary_unchanged": true,
+    "database_counts_before": {
+      "candidates": 6444499,
+      "edges": 86697,
+      "clusters": 13208,
+      "clustered_documents": 28461,
+      "near_removals": 15253
+    },
+    "database_counts_after": {
+      "candidates": 6444499,
+      "edges": 86697,
+      "clusters": 13208,
+      "clustered_documents": 28461,
+      "near_removals": 15253
+    },
+    "database_counts_unchanged": true,
+    "corpus_accounting_before": {
+      "exact_duplicate_removals": 144480,
+      "exact_unique_documents": 6209184,
+      "final_retained_documents": 6193931,
+      "near_accepted_edges": 86697,
+      "near_candidate_pairs": 6444499,
+      "near_clustered_documents": 28461,
+      "near_clusters": 13208,
+      "near_duplicate_removals": 15253,
+      "raw_core_documents": 8227654,
+      "reconciliation": "raw = empty + short + exact removals + exact unique; retained = exact unique - near removals",
+      "removed_empty": 0,
+      "removed_invalid_or_too_short": 1873990,
+      "removed_short": 1873990
+    },
+    "corpus_accounting_after": {
+      "exact_duplicate_removals": 144480,
+      "exact_unique_documents": 6209184,
+      "final_retained_documents": 6193931,
+      "near_accepted_edges": 86697,
+      "near_candidate_pairs": 6444499,
+      "near_clustered_documents": 28461,
+      "near_clusters": 13208,
+      "near_duplicate_removals": 15253,
+      "raw_core_documents": 8227654,
+      "reconciliation": "raw = empty + short + exact removals + exact unique; retained = exact unique - near removals",
+      "removed_empty": 0,
+      "removed_invalid_or_too_short": 1873990,
+      "removed_short": 1873990
+    },
+    "corpus_accounting_unchanged": true,
+    "large_directory_snapshots_unchanged": true,
+    "validation_status": "pass"
+  }
+}

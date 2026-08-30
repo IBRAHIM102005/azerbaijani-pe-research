@@ -1,0 +1,126 @@
+{
+  "created_at_local": "2026-08-28T21:18:48+04:00",
+  "scope": "Repository files excluding .git and data/raw",
+  "removal_method": "Moved to a recoverable quarantine because direct deletion was blocked by the execution environment",
+  "quarantine_path": "C:/Users/User/AppData/Local/Temp/azerbaijani-pe-m1-cleanup-20260828",
+  "before": {
+    "file_count": 265,
+    "size_bytes": 26164795139
+  },
+  "after": {
+    "file_count": 191,
+    "size_bytes": 20076111358
+  },
+  "cleanup_totals": {
+    "files_moved_from_repository": 95,
+    "files_deleted_after_reference_review": 1,
+    "source_directories_moved_from_repository": 10,
+    "quarantined_bytes_including_regenerated_sqlite_sidecars": 6088712227,
+    "deleted_bytes_after_reference_review": 41059,
+    "net_repository_size_reduction_bytes": 6088683781
+  },
+  "deleted_files": [
+    {
+      "path": "scripts/generate_m1_postrepair_audit.py",
+      "size_bytes": 41059,
+      "classification": "G. ONE-OFF REPAIR TOOL",
+      "reason": "Stale one-time report generator whose finalized Markdown, JSON, and scorecard remain preserved.",
+      "reference_check_result": "No import, README, handoff, test, config, documentation, or command reference."
+    },
+    {
+      "path": "data/interim/corpus/token_counts_index_prerepair.sqlite",
+      "quarantined_as": "token_counts_index_prerepair.sqlite",
+      "size_bytes": 2127142912,
+      "classification": "E. STALE DUPLICATE",
+      "reason": "Superseded token-count index; final counts and repaired index are frozen elsewhere.",
+      "reference_check_result": "No current source, test, handoff, README, or final report reference."
+    },
+    {
+      "path": "data/metadata/prerepair/document_token_counts.parquet",
+      "quarantined_as": "prerepair_document_token_counts.parquet",
+      "size_bytes": 217941371,
+      "classification": "E. STALE DUPLICATE",
+      "reason": "Large prerepair count table is superseded by repaired final counts; compact prerepair metadata remains.",
+      "reference_check_result": "No current operational or final handoff reference."
+    },
+    {
+      "path": "data/interim/corpus/corpus_index.sqlite-wal and corpus_index.sqlite-shm",
+      "quarantined_as": "two inactive sidecar generations",
+      "size_bytes": 65536,
+      "classification": "D. DEVELOPMENT/DEBUG TEMPORARY",
+      "reason": "Read-only SQLite checks created zero-byte WAL and inactive SHM sidecars; no Python data pipeline process was active.",
+      "reference_check_result": "Not referenced; both WAL files were verified empty before quarantine."
+    }
+  ],
+  "deleted_directories": [
+    {
+      "path": "data/processed/corpus_prerepair",
+      "file_count": 3,
+      "size_bytes": 2232682675,
+      "classification": "E. STALE DUPLICATE",
+      "reason": "Superseded full-text prerepair copy; repaired processed corpus is authoritative.",
+      "reference_check_result": "No final source, handoff, report, or test reference. Compact audit evidence and prerepair SQLite remain."
+    },
+    {
+      "path": "data/manifests_prerepair",
+      "file_count": 4,
+      "size_bytes": 935453395,
+      "classification": "E. STALE DUPLICATE",
+      "reason": "Superseded split and 50M manifests; repaired manifests and hashes are authoritative.",
+      "reference_check_result": "Only the idempotent historical promotion destination name remains in the promotion script."
+    },
+    {
+      "path": "tokenizer_prerepair",
+      "file_count": 17,
+      "size_bytes": 574936865,
+      "classification": "E. STALE DUPLICATE",
+      "reason": "Superseded tokenizer corpus and models; final repaired candidates, tokenizer, audit metrics, and hashes remain.",
+      "reference_check_result": "No current source, handoff, report, or test reference."
+    },
+    {
+      "path": ".pytest_cache",
+      "file_count": 5,
+      "size_bytes": 3314,
+      "classification": "F. GENERATED CACHE",
+      "reason": "Pytest cache is reproducible and not scientific evidence.",
+      "reference_check_result": "Unreferenced."
+    },
+    {
+      "path": "src/__pycache__, src/data/__pycache__, src/tokenizer/__pycache__, scripts/__pycache__, tests/unit/__pycache__, tests/integration/__pycache__",
+      "file_count": 60,
+      "size_bytes": 486159,
+      "classification": "F. GENERATED CACHE",
+      "reason": "Interpreter bytecode caches are reproducible and machine-specific.",
+      "reference_check_result": "Unreferenced."
+    }
+  ],
+  "kept_historical_files": [
+    {
+      "path": "data/interim/corpus/corpus_index_prerepair.sqlite",
+      "classification": "C. HISTORICAL SCIENTIFIC EVIDENCE",
+      "reason": "Preserves the original candidate graph and exact repair comparison."
+    },
+    {
+      "path": "data/metadata/prerepair",
+      "classification": "C. HISTORICAL SCIENTIFIC EVIDENCE",
+      "reason": "Compact prerepair reports record the superseded counts, hashes, tokenizer metadata, and completion claim."
+    },
+    {
+      "path": "docs/notes/corpus_integrity_audit.md and data/metadata/corpus_integrity_audit.json",
+      "classification": "C. HISTORICAL SCIENTIFIC EVIDENCE",
+      "reason": "Documents discovery and measurement of the large-bucket candidate defect before experiments."
+    },
+    {
+      "path": "docs/notes/repaired_corpus_integrity_audit.md and data/metadata/repaired_corpus_integrity_audit.json",
+      "classification": "C. HISTORICAL SCIENTIFIC EVIDENCE",
+      "reason": "Documents independent post-repair acceptance evidence and the 95.8% baseline."
+    },
+    {
+      "path": "scripts/repair_near_duplicates.py, scripts/audit_near_buckets.py, scripts/promote_corpus_repair.py, scripts/promote_tokenizer_repair.py, scripts/validate_corpus_repair.py, scripts/validate_training_data_contract.py, scripts/finalize_repair_metadata.py, scripts/validate_frozen_corpus.py",
+      "classification": "B. REPRODUCIBILITY-REQUIRED",
+      "reason": "These scripts reproduce or independently validate the repair, promotion, leakage gates, portability, and final row references."
+    }
+  ],
+  "scientific_artifacts_changed": false,
+  "recovery_note": "Quarantined items remain recoverable from the recorded temporary path until the user removes that directory."
+}

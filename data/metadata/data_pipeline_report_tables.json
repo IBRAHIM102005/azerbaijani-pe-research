@@ -1,0 +1,431 @@
+{
+  "analysis_sha256": "d3640807548ea8b028b01c7348e51fe27fe6342e8f84dfe9888cc980ab06c4f6",
+  "data_card_sha256": "fd0a46ad877797316a29dbb1e3bec7e895761a0e29a186e1bce698899b703897",
+  "figure_hashes": {
+    "corpus_source_documents.png": "9c02c5fa225ed65632499913d3d3b92b752bb75ef06d55a2fe086dfc559622da",
+    "corpus_source_group_tokens.png": "9abf929ad36b9953dacc99bd5a4941806a6ee889c62f5eff438c8c924e5f48e4",
+    "tokenizer_fertility.png": "b6926ebd88dc081c71bb79f545c49dd937e5c4a11ab549f8c84d18a7874eb015",
+    "training_sequence_source_mixture.png": "c5a667f4764ef1d2b47b5de3214c955757f3226a81f8f4e54b70b663b549286e"
+  },
+  "length_rows": [
+    [
+      "anl-news",
+      "3,873",
+      "15,110",
+      "24,698"
+    ],
+    [
+      "azwiki",
+      "1,244",
+      "7,834",
+      "20,384"
+    ],
+    [
+      "elite-blogs",
+      "3,446",
+      "38,455",
+      "60,346"
+    ],
+    [
+      "elite-books",
+      "267,352",
+      "662,826",
+      "1,190,403"
+    ],
+    [
+      "eqanun",
+      "1,763",
+      "26,069",
+      "65,443"
+    ],
+    [
+      "mediocore-books",
+      "103",
+      "326",
+      "520"
+    ]
+  ],
+  "quality_flag_rows": [
+    [
+      "anl-news",
+      "76",
+      "control_character: 2, extremely_long: 12, html_xml_like_markup: 21, repeated_character: 22, unicode_replacement: 3, unusual_whitespace: 16"
+    ],
+    [
+      "azwiki",
+      "68",
+      "extremely_long: 22, high_line_break_density: 11, repeated_character: 35"
+    ],
+    [
+      "elite-blogs",
+      "77",
+      "high_line_break_density: 4, unicode_replacement: 1, unusual_whitespace: 72"
+    ],
+    [
+      "elite-books",
+      "102",
+      "extremely_long: 88, html_xml_like_markup: 3, repeated_character: 10, unusual_whitespace: 1"
+    ],
+    [
+      "eqanun",
+      "3,351",
+      "control_character: 67, extremely_long: 302, high_line_break_density: 1511, html_xml_like_markup: 15, null_byte: 44, repeated_character: 18, unicode_replacement: 16, unusual_whitespace: 1378"
+    ],
+    [
+      "mediocore-books",
+      "1,591",
+      "control_character: 164, html_xml_like_markup: 590, repeated_character: 535, unicode_replacement: 274, url_heavy: 28"
+    ]
+  ],
+  "source_rows": [
+    [
+      "anl-news",
+      "News",
+      "236,443",
+      "1,286,065,173",
+      "189",
+      "0.08%",
+      "11,845",
+      "2,524",
+      "221,885",
+      "237,559,904"
+    ],
+    [
+      "azwiki",
+      "Native Wikipedia",
+      "129,433",
+      "312,205,937",
+      "0",
+      "0.00%",
+      "53",
+      "217",
+      "129,163",
+      "74,610,988"
+    ],
+    [
+      "elite-blogs",
+      "Blogs",
+      "755",
+      "6,534,325",
+      "16",
+      "2.12%",
+      "0",
+      "4",
+      "735",
+      "1,528,244"
+    ],
+    [
+      "elite-books",
+      "Books",
+      "104",
+      "33,074,624",
+      "0",
+      "0.00%",
+      "1",
+      "6",
+      "97",
+      "7,950,165"
+    ],
+    [
+      "eqanun",
+      "Laws",
+      "53,656",
+      "348,973,113",
+      "5",
+      "0.01%",
+      "2,756",
+      "1,087",
+      "49,808",
+      "64,643,900"
+    ],
+    [
+      "mediocore-books",
+      "Books",
+      "7,807,263",
+      "1,025,523,064",
+      "1,873,780",
+      "24.00%",
+      "129,825",
+      "11,415",
+      "5,792,243",
+      "219,427,536"
+    ]
+  ],
+  "split_rows": [
+    [
+      "train",
+      "5,574,885",
+      "544,498,912",
+      "2,712"
+    ],
+    [
+      "validation",
+      "309,677",
+      "30,329,083",
+      "46"
+    ],
+    [
+      "test",
+      "309,369",
+      "30,892,742",
+      "115"
+    ]
+  ],
+  "split_source_rows": [
+    [
+      "anl-news",
+      "199,587",
+      "213,954,688",
+      "11,217",
+      "12,049,657",
+      "11,081",
+      "11,555,559"
+    ],
+    [
+      "azwiki",
+      "116,025",
+      "66,755,158",
+      "6,506",
+      "3,812,223",
+      "6,632",
+      "4,043,607"
+    ],
+    [
+      "elite-blogs",
+      "665",
+      "1,406,264",
+      "33",
+      "60,108",
+      "37",
+      "61,872"
+    ],
+    [
+      "elite-books",
+      "85",
+      "7,077,178",
+      "7",
+      "672,080",
+      "5",
+      "200,907"
+    ],
+    [
+      "eqanun",
+      "44,789",
+      "57,785,971",
+      "2,471",
+      "2,776,802",
+      "2,548",
+      "4,081,127"
+    ],
+    [
+      "mediocore-books",
+      "5,213,734",
+      "197,519,653",
+      "289,443",
+      "10,958,213",
+      "289,066",
+      "10,949,670"
+    ]
+  ],
+  "token_totals_by_group": {
+    "Blogs": 1528244,
+    "Books": 227377701,
+    "Laws": 64643900,
+    "Native Wikipedia": 74610988,
+    "News": 237559904
+  },
+  "token_totals_by_source": {
+    "anl-news": 237559904,
+    "azwiki": 74610988,
+    "elite-blogs": 1528244,
+    "elite-books": 7950165,
+    "eqanun": 64643900,
+    "mediocore-books": 219427536
+  },
+  "tokenizer_candidate_rows": [
+    [
+      "8,000",
+      "1.9212",
+      "4.0862",
+      "1 / 11,132,227",
+      "8.983e-08",
+      "1",
+      "129,151",
+      "119,717"
+    ],
+    [
+      "16,000",
+      "1.6743",
+      "4.6888",
+      "1 / 9,701,653",
+      "1.031e-07",
+      "1",
+      "277,746",
+      "266,309"
+    ],
+    [
+      "32,000",
+      "1.5086",
+      "5.2038",
+      "1 / 8,741,364",
+      "1.144e-07",
+      "1",
+      "586,192",
+      "574,754"
+    ]
+  ],
+  "tokenizer_long_word_rows": [
+    [
+      "CənabPrezidenthələötənilinyekunlarınışərhedərkənbütündünyanıbürüyəniqtisadiböhranlarınölkəmizdəqarşısınınalınmasınınyollarınıdagöstərərəkbizinikbinolmağaruhlandırdı",
+      "▁Cənab · P · rezident · h · ələ · ö · tən · ilin · y · ek · un · ların · ış · ər · he · dər · kən · b · ütün · d · üny · anıb · ür · ü · yən · iqtisadi · b · öh · ran · ların · öl · kə · mizdə · qar · şı · sının · alın · masının · yol · larını · da · gö · stər · ərək · b · izin · ik · bin · ol · mağ · ar · uh · landır · dı",
+      54
+    ],
+    [
+      "təsərrüfatgöstəricilərivədigərməqamlarbarədəZaqatalaRayonİcraHakimiyyətibaşçısınınDağlıkəndinzibatiərazidairəsiüzrənümayəndəsiÖmərQarayevdahagenişməlumatlarverir",
+      "▁təsərrüfat · gö · stər · icilər · iv · ədi · gər · m · əq · am · lar · bar · ədə · Z · aq · at · ala · R · ayon · İc · ra · H · akim · iyyət · ib · aş · çı · sının · Dağ · lı · kənd · in · zibati · ər · az · ida · ir · əsi · üz · r · ən · üm · ayəndə · si · Ö · mər · Qar · ayev · da · ha · gen · iş · m · əlum · atlar · ver · ir",
+      57
+    ],
+    [
+      "tikinti-abadlıqvəquruculuqişlərihamımızısevindirirvəbuişləringörülməsindəazdaolsabizimnümayəndəliyindəəməyininolmasıcamaatımızıruhlandırır",
+      "▁tikinti · - · ab · adlıq · v · əq · ur · uculuq · işləri · ham · ımızı · sev · in · dirir · v · əb · u · iş · lərin · gör · ül · məsində · az · da · ol · s · ab · iz · imn · üm · ayəndə · liyində · əm · əyinin · ol · ması · c · ama · at · ımız · ır · uh · landır · ır",
+      44
+    ],
+    [
+      "eləcədəgənclərgöstərilənqayğıvədiqqətəgörəAzərbaycanRespublikasınınPrezidenticənabİlhamƏliyevəminnətdarlıqlarınıbildiriblər",
+      "▁elə · cədə · gənc · lər · gö · stər · ilən · q · ay · ğı · və · diq · q · ətə · gö · rə · Azərbaycan · R · espublik · asının · P · rezident · ic · ənab · İl · ham · Əliyev · əmin · nət · darlıq · ların · ıb · il · dir · iblər",
+      35
+    ],
+    [
+      "AzərbaycanRespublikasınınPrezidentiİlhamƏliyevinölkəninbütünistiqamətlərüzrəinkişafınagöstərdiyiqayğıvədiqqətgözönündədir",
+      "▁Azərbaycan · R · espublik · asının · P · rezident · i · İl · ham · Əliyev · in · öl · k · ənin · b · ütün · ist · iq · amət · lər · üz · rə · in · kişaf · ına · gö · stər · diy · iq · ay · ğı · və · diq · q · ət · göz · ön · ündə · dir",
+      39
+    ],
+    [
+      "AzƏrbaycanRespublikasınınPrezidentiyanındakütlƏviinformasiyavasitƏlƏrinininkişafınadövlƏtdƏstƏyifondununmaliyyƏyardımıilƏ",
+      "▁Az · Ər · baycan · R · espublik · asının · P · rezident · iyan · ında · k · üt · l · Ə · vi · in · formasiya · v · asit · Əl · Ə · rinin · in · kişaf · ın · ad · öv · l · Ə · t · d · Ə · st · Ə · y · if · ond · unun · mal · iyy · Ə · yar · dım · ı · il · Ə",
+      46
+    ],
+    [
+      "Zaqatalanınbirvaxtlarəlçatmazgörünənənucqardağkəndlərindədəmüasirləşməistiqamətlərindəxeyliişlərgörülmüşvəgörülməkdədir",
+      "▁Zaqat · al · anın · bir · v · axt · lar · əl · çat · maz · gör · ün · ənən · uc · qar · dağ · kənd · lərində · də · mü · asir · ləşmə · ist · iq · amət · lərində · x · eyli · iş · lər · gör · ülmüş · və · gör · ül · məkdədir",
+      36
+    ],
+    [
+      "BizhamımızbirlikdəAzərbaycanıdahadagözəlləşdirməkvəAzərbaycaninsanınınbütünproblemləriniçözməküçünəlbirolmalıyıq",
+      "▁Biz · ham · ımız · bir · likdə · Azərbaycan · ı · da · h · ada · gözəl · ləşdirmək · və · Azərbaycan · ins · anının · b · ütün · pro · blem · lərini · ç · öz · mək · üç · ün · əl · bir · ol · malıyıq",
+      30
+    ]
+  ],
+  "tokenizer_source_fertility_rows": [
+    [
+      "anl-news",
+      "3,612",
+      "1.5753"
+    ],
+    [
+      "azwiki",
+      "2,063",
+      "1.8396"
+    ],
+    [
+      "elite-blogs",
+      "14",
+      "1.7242"
+    ],
+    [
+      "elite-books",
+      "1",
+      "1.7764"
+    ],
+    [
+      "eqanun",
+      "864",
+      "1.5160"
+    ],
+    [
+      "mediocore-books",
+      "93,446",
+      "1.7824"
+    ]
+  ],
+  "training_mixture_rows": [
+    [
+      "Blogs",
+      "5,000,000",
+      "1,406,264",
+      "3,593,736",
+      "1,406,264",
+      "2.81%"
+    ],
+    [
+      "Books",
+      "15,000,000",
+      "15,000,039",
+      "0",
+      "16,121,567",
+      "32.20%"
+    ],
+    [
+      "Laws",
+      "7,500,000",
+      "7,725,606",
+      "0",
+      "8,347,290",
+      "16.67%"
+    ],
+    [
+      "Native Wikipedia",
+      "10,000,000",
+      "10,000,175",
+      "0",
+      "10,748,666",
+      "21.47%"
+    ],
+    [
+      "News",
+      "12,500,000",
+      "12,503,436",
+      "0",
+      "13,439,100",
+      "26.84%"
+    ]
+  ],
+  "training_source_rows": [
+    [
+      "anl-news",
+      "News",
+      "13,439,100",
+      "26.84%"
+    ],
+    [
+      "azwiki",
+      "Native Wikipedia",
+      "10,748,666",
+      "21.47%"
+    ],
+    [
+      "elite-blogs",
+      "Blogs",
+      "1,406,264",
+      "2.81%"
+    ],
+    [
+      "elite-books",
+      "Books",
+      "7,077,178",
+      "14.14%"
+    ],
+    [
+      "eqanun",
+      "Laws",
+      "8,347,290",
+      "16.67%"
+    ],
+    [
+      "mediocore-books",
+      "Books",
+      "9,044,389",
+      "18.07%"
+    ]
+  ]
+}

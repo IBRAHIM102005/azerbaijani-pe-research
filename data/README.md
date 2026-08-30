@@ -1,28 +1,34 @@
 # Data
 
-The raw corpus for this study comes from DOLLMA. It is stored locally for the planned Azerbaijani language-model pretraining experiments and is not version-controlled.
+The core corpus is built from local DOLLMA parquet shards. Raw material is immutable and stays under `data/raw/DOLLMA/`; it is not a portable operational artifact.
 
-## Current local sources
+## Source selection
 
-The candidate directories currently included in the core corpus are:
+The frozen native-Azerbaijani corpus contains:
 
-- `anl-news`
-- `azwiki`
-- `elite-blogs`
-- `elite-books`
-- `eqanun`
-- `mediocore-books`
+- `anl-news` — News
+- `azwiki` — Native Wikipedia
+- `elite-blogs` — Blogs
+- `elite-books` — Books
+- `eqanun` — Laws
+- `mediocore-books` — Books
 
-Together, the local copy contains 14 parquet shards (about 1.85 GB, or 1.72 GiB). `translated-enwiki` is intentionally excluded from the planned native-Azerbaijani mixture. `bhos` is also excluded for now, pending a clearer source-level decision about its role in the core corpus.
+`translated-enwiki` is excluded because translated text would add a source and language confound. `bhos` remains `requires_source_decision`; the local DOLLMA documentation does not establish its source role clearly enough for inclusion.
 
-## Directory layout
+The local upstream README declares DOLLMA under CC BY-NC-SA 4.0. Per-component licenses and revisions are unavailable in the local upstream metadata and are recorded as unknown rather than inferred. The source registry records the access date, shard identifiers, and SHA-256 snapshot hashes.
 
-- `raw/` contains the unchanged local source material and is ignored by Git.
-- `interim/` is reserved for temporary outputs between processing stages.
-- `processed/` will contain the finalized corpus prepared for training.
-- `manifests/` will record reproducible file lists, splits, and dataset versions.
-- `metadata/` will hold corpus summaries and provenance notes.
+## Frozen data pipeline artifacts
 
-Later phases will cover cleaning, deduplication, document-level splitting, manifest creation, and tokenizer preparation. None of these preprocessing steps has been run yet.
+- `raw/` contains unchanged local source material.
+- `interim/` contains resumable indexes and preserved pre-repair evidence.
+- `processed/corpus/` contains the retained train, validation, and test text in Parquet.
+- `manifests/` contains portable split and 50M-sequence references.
+- `metadata/` contains inventories, hashes, accounting, audits, token counts, and the data pipeline handoff.
 
-The source DOLLMA README records the dataset license as CC BY-NC-SA 4.0.
+Cleaning is conservative: NFC normalization, CRLF handling, redundant horizontal-space cleanup, unsafe-control handling, and outer trimming. Azerbaijani spelling, case, punctuation, and paragraph boundaries are preserved. Documents below the frozen 50-Unicode-letter threshold are removed with source-level accounting.
+
+Exact duplicates are grouped globally by canonical-text SHA-256. Near duplicates use character 5-grams, complete pair emission inside every observed LSH bucket, and exact Jaccard acceptance at 0.95. Accepted edges form connected components; transitive members are not necessarily pairwise at or above 0.95. One deterministic representative is retained per component.
+
+The final manifests use a deterministic cluster-aware 90/5/5 split with seed 2026. The shared SentencePiece BPE tokenizer was fitted on a deterministic 1,000,000-document subset of train only. The source-aware model sequence is also train-only and fixes document order plus the exact 50,000,000-token stopping boundary.
+
+An independent audit identified and corrected the original large-bucket candidate-generation shortcut before model training. The repaired candidate set, split, tokenizer, token counts, and 50M sequence supersede the preserved pre-repair artifacts.

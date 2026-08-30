@@ -1,0 +1,159 @@
+{
+  "timestamp": "2026-08-28T17:18:48Z",
+  "audit_scope": "Final data pipeline repository hardening, cleanup, portability, reproducibility, test adequacy, and frozen-artifact invariants; no scientific stage was rerun.",
+  "baseline": {
+    "overall_quality": 95.8,
+    "scientific_readiness": 97,
+    "engineering_readiness": 94,
+    "reproducibility_readiness": 94,
+    "code_quality": 91,
+    "m2_m3_readiness": 97
+  },
+  "final_scores": {
+    "raw_weight_total": 105,
+    "normalized_overall_quality": 97.5,
+    "scientific_readiness": 98,
+    "engineering_readiness": 97,
+    "reproducibility_readiness": 98,
+    "code_quality": 96,
+    "m2_m3_readiness": 99,
+    "data_integrity_confidence": 99,
+    "tokenizer_confidence": 99,
+    "fifty_million_corpus_confidence": 100,
+    "defense_report_readiness": 98
+  },
+  "category_scores": [
+    {"category": "Research design compliance", "weight": 8, "score": 98.0, "weighted_score": 7.4667, "status": "PASS", "confidence": "HIGH"},
+    {"category": "Source/provenance", "weight": 5, "score": 89.0, "weighted_score": 4.2381, "status": "WARNING", "confidence": "HIGH"},
+    {"category": "Cleaning/normalization", "weight": 5, "score": 92.0, "weighted_score": 4.3810, "status": "WARNING", "confidence": "HIGH"},
+    {"category": "Exact dedup", "weight": 5, "score": 98.0, "weighted_score": 4.6667, "status": "PASS", "confidence": "HIGH"},
+    {"category": "Near dedup", "weight": 8, "score": 98.0, "weighted_score": 7.4667, "status": "PASS", "confidence": "HIGH"},
+    {"category": "Accounting", "weight": 4, "score": 100.0, "weighted_score": 3.8095, "status": "PASS", "confidence": "HIGH"},
+    {"category": "Split correctness", "weight": 5, "score": 99.0, "weighted_score": 4.7143, "status": "PASS", "confidence": "HIGH"},
+    {"category": "Leakage prevention", "weight": 8, "score": 99.0, "weighted_score": 7.5429, "status": "PASS", "confidence": "HIGH"},
+    {"category": "Tokenizer training correctness", "weight": 7, "score": 99.0, "weighted_score": 6.6000, "status": "PASS", "confidence": "HIGH"},
+    {"category": "Tokenizer quality", "weight": 5, "score": 97.0, "weighted_score": 4.6190, "status": "PASS", "confidence": "HIGH"},
+    {"category": "Final tokenizer freeze", "weight": 4, "score": 100.0, "weighted_score": 3.8095, "status": "PASS", "confidence": "HIGH"},
+    {"category": "Token counting", "weight": 5, "score": 99.0, "weighted_score": 4.7143, "status": "PASS", "confidence": "HIGH"},
+    {"category": "50M subset correctness", "weight": 8, "score": 100.0, "weighted_score": 7.6190, "status": "PASS", "confidence": "HIGH"},
+    {"category": "Reproducibility", "weight": 7, "score": 98.0, "weighted_score": 6.5333, "status": "PASS", "confidence": "HIGH"},
+    {"category": "Code correctness", "weight": 5, "score": 97.0, "weighted_score": 4.6190, "status": "PASS", "confidence": "HIGH"},
+    {"category": "Code cleanliness/humanization", "weight": 3, "score": 96.0, "weighted_score": 2.7429, "status": "PASS", "confidence": "HIGH"},
+    {"category": "Performance/optimality", "weight": 3, "score": 92.0, "weighted_score": 2.6286, "status": "PASS", "confidence": "MEDIUM"},
+    {"category": "Test quality", "weight": 3, "score": 96.0, "weighted_score": 2.7429, "status": "PASS", "confidence": "HIGH"},
+    {"category": "Artifact consistency", "weight": 4, "score": 100.0, "weighted_score": 3.8095, "status": "PASS", "confidence": "HIGH"},
+    {"category": "Report/defense readiness", "weight": 3, "score": 98.0, "weighted_score": 2.8000, "status": "PASS", "confidence": "HIGH"}
+  ],
+  "cleanup": {
+    "manifest": "data/metadata/repository_cleanup_manifest.json",
+    "files_moved_from_repository": 95,
+    "files_deleted_after_reference_review": 1,
+    "source_directories_moved_from_repository": 10,
+    "quarantined_bytes": 6088712227,
+    "method": "recoverable quarantine",
+    "scientific_artifacts_changed": false
+  },
+  "hardening_changes": [
+    "Removed the obsolete star-expansion compatibility parameter from the production candidate API; complete pair generation is the only production branch below the explicit safety cap.",
+    "Reused already-computed band SHA-256 values instead of scanning all band files twice.",
+    "Centralized external DOLLMA resolution with AZ_PE_DOLLMA_ROOT precedence and an actionable missing-root error.",
+    "Validated staged Parquet row totals before promotion can move a current directory.",
+    "Removed unused imports and the unused tqdm requirement; static checks pass when the intentional script bootstrap import pattern is excluded.",
+    "Removed the unreferenced one-time postrepair audit generator while preserving its finalized historical Markdown, JSON, and scorecard.",
+    "Added path override, missing-root, atomic JSON, and pre-promotion validation regressions.",
+    "Quantified the source-level effect of the frozen 50-letter filter and distinguished inventory revalidation date from unknown acquisition date.",
+    "Changed two exact-duplicate report references from machine-specific absolute paths to repository-relative paths."
+  ],
+  "frozen_invariants": {
+    "candidate_pairs": 6444499,
+    "verified_candidates": 6444499,
+    "accepted_edges": 86697,
+    "clusters": 13208,
+    "clustered_documents": 28461,
+    "near_removals": 15253,
+    "retained_documents": 6193931,
+    "train_documents": 5574885,
+    "validation_documents": 309677,
+    "test_documents": 309369,
+    "manifest_sha256": {
+      "train": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+      "validation": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786",
+      "test": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+      "train_50m": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48"
+    },
+    "tokenizer_model_sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+    "exact_boundary": {
+      "document_id": "db05beef4e2c5dec4bf978a78afd788f579429852afea925852f7122b7608c36",
+      "sequence_position_one_based": 276626,
+      "cumulative_tokens_before_document": 49995815,
+      "tokens_consumed_from_document": 4185,
+      "full_document_tokens_including_eod": 6799,
+      "eod_consumed": false
+    }
+  },
+  "validation_evidence": {
+    "full_tests": {"passed": 35, "failed": 0, "warnings": 2, "warnings_are_external_swig_deprecations": true},
+    "focused_repair_regressions": {"passed": 18, "failed": 0},
+    "static_check": "PASS with E402 ignored only for deliberate local script bootstrap imports",
+    "raw_immutability": {"checks": 34, "mismatches": 0},
+    "large_bucket_recall": {"events": 59, "true_pairs": 321263, "captured": 321263, "missed": 0, "recall": 1.0},
+    "former_cross_split_pairs": {"checked": 237, "unresolved": 0},
+    "handoff_sha256": "16f6bff41aeba8c772bbfa1c2f406786f7a3db9d7b007b67e57818c34493ccbb",
+    "definition_of_done_sha256": "f1eb2ab09deb7742550eccccc07dab6db1b3694e7659f6c0b8ba8a7462a6e708"
+  },
+  "remaining_findings": [
+    {
+      "id": "P3-PROVENANCE",
+      "severity": "P3",
+      "area": "Source provenance",
+      "description": "Per-source revisions and licenses and the original acquisition date are unavailable in local upstream metadata.",
+      "impact": "Limits provenance completeness but does not alter corpus identity because shard hashes are frozen.",
+      "recommended_action": "Retain explicit unknown values unless authoritative upstream evidence is later obtained.",
+      "requires_expensive_rerun": false,
+      "must_fix_before_m2_m3": false
+    },
+    {
+      "id": "P3-SHORT-FILTER",
+      "severity": "P3",
+      "area": "Cleaning",
+      "description": "The frozen 50-letter rule removed 24.00% of mediocore-books rows, more than other sources.",
+      "impact": "A documented domain-distribution limitation; changing it now would invalidate frozen artifacts.",
+      "recommended_action": "Report the measured source-level removal proportions in methods and limitations.",
+      "requires_expensive_rerun": false,
+      "must_fix_before_m2_m3": false
+    },
+    {
+      "id": "P3-TRANSITIVITY",
+      "severity": "P3",
+      "area": "Near deduplication",
+      "description": "Connected-component endpoints are not guaranteed pairwise >=0.95; sampled minimum endpoint similarity was 0.819923.",
+      "impact": "Documented property of the frozen linkage policy, not an accepted-edge threshold violation.",
+      "recommended_action": "Preserve the current disclosure in the handoff, data card, and report.",
+      "requires_expensive_rerun": false,
+      "must_fix_before_m2_m3": false
+    },
+    {
+      "id": "P4-FROZEN-LEGACY-KEY",
+      "severity": "P4",
+      "area": "Configuration",
+      "description": "The frozen YAML retains an unused max_star_band_bucket key as historical configuration state.",
+      "impact": "None: production code no longer reads it and the handoff records star=0 and skipped=0.",
+      "recommended_action": "Do not change the frozen config hash; omit the key from any future data pipeline configuration version.",
+      "requires_expensive_rerun": false,
+      "must_fix_before_m2_m3": false
+    }
+  ],
+  "severity_counts": {"P0": 0, "P1": 0, "P2": 0, "P3": 3, "P4": 1},
+  "portability": {
+    "verdict": "CONDITIONAL",
+    "repository_internal_artifacts": "portable and relocation-tested",
+    "condition": "Set AZ_PE_DOLLMA_ROOT if the external DOLLMA clone is not at the configured relative path after relocation. M2/M3 consumption of frozen processed artifacts does not need raw DOLLMA."
+  },
+  "literal_100_percent_justified": false,
+  "why_not_100_percent": "Upstream per-source provenance gaps are real, the frozen length filter has a documented source-distribution consequence, and connected-component linkage has a known transitivity limitation.",
+  "final_verdict": "READY",
+  "definition_of_done_reassessment": "COMPLETE WITH NON-BLOCKING WARNINGS",
+  "m1_requires_expensive_rerun": false,
+  "m2_m3_may_start": true,
+  "frozen_scientific_artifacts_changed_by_cleanup": false
+}

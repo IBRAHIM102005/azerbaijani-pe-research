@@ -1,0 +1,920 @@
+{
+  "artifacts": {
+    "analysis_note": {
+      "bytes": 13111,
+      "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\docs\\notes\\m1_data_analysis.md",
+      "sha256": "170cb415e2f9cf851ecc634da5f364445bf8458c917d9313f3d3768d370276a0"
+    },
+    "data_card": {
+      "bytes": 3170,
+      "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\docs\\notes\\m1_data_card.md",
+      "sha256": "b92639c135ff04f7f357408255edd5cf95947c98f661e8d09e097aac9598312a"
+    },
+    "document_token_counts": {
+      "bytes": 217941371,
+      "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\metadata\\document_token_counts.parquet",
+      "sha256": "f51c55ff880df9c21be3dc0e8288272ad9b0fd75bd43c4a1ced9cad80e7f7145"
+    },
+    "exact_duplicate_report": {
+      "bytes": 350,
+      "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\metadata\\exact_duplicate_report.json",
+      "sha256": "662226d2d26657f511048904410ad429fe88317868e92a66cf260ea8881f928e"
+    },
+    "leakage_audit": {
+      "bytes": 2572,
+      "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\metadata\\leakage_audit.json",
+      "sha256": "61f9c287c7a17820246de1aa3c286a3e249282db2b7c829e06980393f9b7d8ea"
+    },
+    "m1_config": {
+      "bytes": 3194,
+      "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\configs\\frozen\\m1.yaml",
+      "sha256": "451a532ddbba56f1d1b1601e146f6ea5b248f1ce6dbe6e5249268b15474810fa"
+    },
+    "m1_validation": {
+      "bytes": 3772,
+      "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\metadata\\m1_validation.json",
+      "sha256": "0f2d58cfbc88c8921e4a347d0e787310db64df79de1d0fb9166f223c9a749a7f"
+    },
+    "manifests": {
+      "test": {
+        "bytes": 45821161,
+        "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\manifests\\test.parquet",
+        "sha256": "e3d827093061396745ccb0d3edad3932d955b325bd8da268b603d0baa06e1521"
+      },
+      "train": {
+        "bytes": 821395329,
+        "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\manifests\\train.parquet",
+        "sha256": "7a597d072fd2aeb3b4df0741390fdc8fc296d57c7b783f86760044747fd2296c"
+      },
+      "validation": {
+        "bytes": 45875286,
+        "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\manifests\\validation.parquet",
+        "sha256": "86ecafec374c9b560b4bd2a40e2fe1276ed8737b58f4d19fffef29987ea58741"
+      }
+    },
+    "near_duplicate_report": {
+      "bytes": 386,
+      "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\metadata\\near_duplicate_report.json",
+      "sha256": "836009790bbd672bcd02fb65142f953f713be25e75388267b162f837f64de05d"
+    },
+    "preparation_summary": {
+      "bytes": 7540,
+      "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\metadata\\preparation_summary.json",
+      "sha256": "30654d475dd98e9ff681c8762e6f5255bb3ce19c0f486b1dd112aad3fce1be2d"
+    },
+    "processed_corpus": {
+      "test": {
+        "bytes": 111691992,
+        "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\processed\\m1\\test.parquet",
+        "sha256": "d1d4b1123c16ba253da6a60d711bd1b964207fa39280d41fb7374bcfbbc259a0"
+      },
+      "train": {
+        "bytes": 2008697063,
+        "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\processed\\m1\\train.parquet",
+        "sha256": "d4940de452a8d8b4b2a4af2929446e9651903e117f6e4cf780b8481fedfe84e5"
+      },
+      "validation": {
+        "bytes": 112293620,
+        "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\processed\\m1\\validation.parquet",
+        "sha256": "d72fe13f2fa19482ef2d4d9b56facfe01aab02faba551ad8c4905992f86fd860"
+      }
+    },
+    "processed_hashes": {
+      "bytes": 455,
+      "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\metadata\\processed_hashes.json",
+      "sha256": "5c0c23c3b949b6b8eff883402ab734954a83ad6172811df77df5365b088fb9e5"
+    },
+    "raw_immutability": {
+      "bytes": 18858,
+      "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\metadata\\raw_immutability.json",
+      "sha256": "059f7530998f369626259bc2e0027d2bf9ada38307e9f9cfb8e9822ea031ee31"
+    },
+    "raw_inventory": {
+      "bytes": 18306,
+      "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\metadata\\raw_inventory.json",
+      "sha256": "332a3edd4adaf06e9134f0d5a1aa46cb57abf92862251a4c45acedb85db0f5f1"
+    },
+    "source_registry": {
+      "bytes": 5569,
+      "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\metadata\\source_registry.yaml",
+      "sha256": "b93b8b1841062b5a1fa142a4f16dd84dea45c30bf86266da330b9bd0d30f9b87"
+    },
+    "test_results": {
+      "bytes": 2562,
+      "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\metadata\\pytest_m1.xml",
+      "sha256": "8f02c8fb69d17f6da22e95f89509ed55fd45ff2791e7a8e68048ab40c1e1259c"
+    },
+    "token_count_report": {
+      "bytes": 2682,
+      "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\metadata\\token_counts_by_source_split.json",
+      "sha256": "3ca411e79ea41184c15516240a3cb4b776f07bb52a677125de4ea542c323ec5d"
+    },
+    "tokenizer": {
+      "special_tokens.json": {
+        "bytes": 359,
+        "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\tokenizer\\special_tokens.json",
+        "sha256": "21d6ed125762219c944b7ba31f1d59d057d5766300671319a6083a2cac5863ce"
+      },
+      "tokenizer.model": {
+        "bytes": 277744,
+        "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\tokenizer\\tokenizer.model",
+        "sha256": "e28256d22ee0ce47a3fbdf223bf40297094eede567139f44ef7f65a4b967b7dc"
+      },
+      "tokenizer.vocab": {
+        "bytes": 266324,
+        "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\tokenizer\\tokenizer.vocab",
+        "sha256": "aed49d8684f19c2d5a44ec5bdfc28dc1b08cec5839d44071414ac16ff644bf1b"
+      },
+      "tokenizer_config.json": {
+        "bytes": 1063,
+        "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\tokenizer\\tokenizer_config.json",
+        "sha256": "2ccfdb04b5fd12b791e0e78c33194286b77771378d4a2b7db81052bf0fc6908a"
+      },
+      "tokenizer_hashes.json": {
+        "bytes": 369,
+        "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\tokenizer\\tokenizer_hashes.json",
+        "sha256": "f346a46fdc5b47e333ad2804a05575995946fae1492fd92074711c54fa6dffa7"
+      }
+    },
+    "tokenizer_audit": {
+      "bytes": 59158,
+      "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\metadata\\tokenizer_audit.json",
+      "sha256": "9446162b99c61627dc4de14cae4af356b33efcc1661573212d8b4e0ba480e745"
+    },
+    "tokenizer_training_sample": {
+      "bytes": 36426978,
+      "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\tokenizer\\training_sample_manifest.parquet",
+      "sha256": "b33353f1b13ab9fd95523299ac70155dacbf095c92ae6c1c2cbf0bd68855bca4"
+    },
+    "training_subset_manifest": {
+      "bytes": 22361619,
+      "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\manifests\\train_50m.parquet",
+      "sha256": "248b4462beb043e592993e69e858f02d102d955dbab638f5509c112927e3de8d"
+    },
+    "training_subset_summary": {
+      "bytes": 1590,
+      "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\metadata\\training_subset_summary.json",
+      "sha256": "9f4a87dcfc34853a30cc443e82464c8c63efdaa9c84fdb65e9c06cc2b2939498"
+    }
+  },
+  "cleaning": {
+    "minimum_unicode_letters": 50,
+    "preserve_newlines": true,
+    "source_accounting": {
+      "anl-news": {
+        "changed_horizontal_space": "unknown_resumed",
+        "changed_newlines": "unknown_resumed",
+        "changed_nfc": "unknown_resumed",
+        "exact_duplicate": 11845,
+        "normalized": 236443,
+        "parsed": 236443,
+        "raw": 236443,
+        "removed_control_characters": "unknown_resumed",
+        "removed_empty": 0,
+        "removed_short": 189
+      },
+      "azwiki": {
+        "changed_horizontal_space": "unknown_resumed",
+        "changed_newlines": "unknown_resumed",
+        "changed_nfc": "unknown_resumed",
+        "exact_duplicate": 53,
+        "normalized": 129433,
+        "parsed": 129433,
+        "raw": 129433,
+        "removed_control_characters": "unknown_resumed",
+        "removed_empty": 0,
+        "removed_short": 0
+      },
+      "elite-blogs": {
+        "changed_horizontal_space": "unknown_resumed",
+        "changed_newlines": "unknown_resumed",
+        "changed_nfc": "unknown_resumed",
+        "exact_duplicate": 0,
+        "normalized": 755,
+        "parsed": 755,
+        "raw": 755,
+        "removed_control_characters": "unknown_resumed",
+        "removed_empty": 0,
+        "removed_short": 16
+      },
+      "elite-books": {
+        "changed_horizontal_space": "unknown_resumed",
+        "changed_newlines": "unknown_resumed",
+        "changed_nfc": "unknown_resumed",
+        "exact_duplicate": 1,
+        "normalized": 104,
+        "parsed": 104,
+        "raw": 104,
+        "removed_control_characters": "unknown_resumed",
+        "removed_empty": 0,
+        "removed_short": 0
+      },
+      "eqanun": {
+        "changed_horizontal_space": "unknown_resumed",
+        "changed_newlines": "unknown_resumed",
+        "changed_nfc": "unknown_resumed",
+        "exact_duplicate": 2756,
+        "normalized": 53656,
+        "parsed": 53656,
+        "raw": 53656,
+        "removed_control_characters": "unknown_resumed",
+        "removed_empty": 0,
+        "removed_short": 5
+      },
+      "mediocore-books": {
+        "changed_horizontal_space": "unknown_resumed",
+        "changed_newlines": "unknown_resumed",
+        "changed_nfc": "unknown_resumed",
+        "exact_duplicate": 129825,
+        "normalized": 7807263,
+        "parsed": 7807263,
+        "raw": 7807263,
+        "removed_control_characters": "unknown_resumed",
+        "removed_empty": 0,
+        "removed_short": 1873780
+      }
+    },
+    "unicode_form": "NFC"
+  },
+  "corpus_provenance": {
+    "bhos_status": "requires_source_decision",
+    "core_raw_bytes": 1849066393,
+    "core_raw_documents": 8227654,
+    "core_shards": 14,
+    "dataset": "DOLLMA",
+    "dataset_declared_license": "CC BY-NC-SA 4.0",
+    "dataset_revision": null,
+    "excluded_sources": [
+      "bhos",
+      "translated-enwiki"
+    ],
+    "included_sources": [
+      "anl-news",
+      "azwiki",
+      "elite-blogs",
+      "elite-books",
+      "eqanun",
+      "mediocore-books"
+    ],
+    "inventory_sha256": "9c9ff30f00c3ef836f820a58be6379773ca9263a5a68957cd9fa3ce55257d6e0",
+    "original_shards": 20,
+    "raw_immutability": {
+      "local_core_shards_checked": 14,
+      "mismatches": 0,
+      "original_shards_checked": 20,
+      "status": "pass"
+    },
+    "schemas": {
+      "anl-news": {
+        "schemas": [
+          [
+            {
+              "name": "text",
+              "type": "string"
+            }
+          ]
+        ],
+        "text_column": "text"
+      },
+      "azwiki": {
+        "schemas": [
+          [
+            {
+              "name": "id",
+              "type": "int64"
+            },
+            {
+              "name": "text",
+              "type": "string"
+            },
+            {
+              "name": "title",
+              "type": "string"
+            }
+          ]
+        ],
+        "text_column": "text"
+      },
+      "elite-blogs": {
+        "schemas": [
+          [
+            {
+              "name": "id",
+              "type": "int64"
+            },
+            {
+              "name": "source",
+              "type": "string"
+            },
+            {
+              "name": "text",
+              "type": "string"
+            }
+          ]
+        ],
+        "text_column": "text"
+      },
+      "elite-books": {
+        "schemas": [
+          [
+            {
+              "name": "text",
+              "type": "string"
+            },
+            {
+              "name": "id",
+              "type": "int64"
+            }
+          ]
+        ],
+        "text_column": "text"
+      },
+      "eqanun": {
+        "schemas": [
+          [
+            {
+              "name": "text",
+              "type": "string"
+            },
+            {
+              "name": "title",
+              "type": "string"
+            },
+            {
+              "name": "id",
+              "type": "int64"
+            }
+          ]
+        ],
+        "text_column": "text"
+      },
+      "mediocore-books": {
+        "schemas": [
+          [
+            {
+              "name": "ID",
+              "type": "string"
+            },
+            {
+              "name": " Metadata",
+              "type": "string"
+            },
+            {
+              "name": "text",
+              "type": "string"
+            }
+          ]
+        ],
+        "text_column": "text"
+      }
+    },
+    "source_level_license_status": "unknown where not stated by local metadata",
+    "translated_enwiki_status": "excluded_translated_source"
+  },
+  "created_at_utc": "2026-08-27T14:58:03.482796+00:00",
+  "deduplication": {
+    "exact": {
+      "cross_source_groups": 0,
+      "group_report": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\metadata\\exact_duplicate_groups.csv",
+      "groups": 107267,
+      "member_report": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\metadata\\exact_duplicate_members.csv",
+      "removed_documents": 144480
+    },
+    "near": {
+      "accepted_edges": 36333,
+      "candidate_generation": {
+        "complete": 728713,
+        "pair_insert_attempts": 5307765,
+        "skipped": 0,
+        "star": 59,
+        "total_colliding": 728772,
+        "unique_candidate_pairs": 4191262
+      },
+      "candidate_pairs_checked": 4191262,
+      "clustered_documents": 28322,
+      "clusters": 13190,
+      "fingerprinted_documents": 6209184,
+      "removed_documents": 15132
+    },
+    "near_parameters": {
+      "bands": 8,
+      "fingerprint_size": 32,
+      "shingle_size": 5
+    },
+    "near_threshold": 0.95
+  },
+  "definition_of_done": {
+    "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\metadata\\m1_definition_of_done.json",
+    "sha256": "c20e4f0de53c82ea834d5497d97b6fa7b119fbb20a4f531d9bb31d4e6ca55e5b",
+    "status": "complete"
+  },
+  "dollma_path": "C:\\Users\\User\\OneDrive\\Desktop\\DOLLMA",
+  "environment": {
+    "packages": {
+      "PyYAML": "6.0.3",
+      "datasketch": "2.0.0",
+      "matplotlib": "3.10.8",
+      "numpy": "2.4.0",
+      "pyarrow": "25.0.1",
+      "pytest": "8.4.2",
+      "sentencepiece": "0.2.1"
+    },
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.13.14"
+  },
+  "known_limitations": [
+    "bhos remains excluded pending a source-level decision.",
+    "Source-level licenses and revisions are unknown where local metadata does not state them.",
+    "Books I/Books II mapping is inferred from published size descriptions; component identity is retained.",
+    "The 50-letter filter disproportionately removes short mediocore-books fragments.",
+    "Language, OCR, and suspicious-text indicators are heuristic audit flags."
+  ],
+  "m1_status": "complete",
+  "pipeline_version": "m1.0",
+  "preparation": {
+    "accounting": {
+      "exact_duplicate_removals": 144480,
+      "exact_unique_documents": 6209184,
+      "final_retained_documents": 6194052,
+      "near_accepted_edges": 36333,
+      "near_candidate_pairs": 4191262,
+      "near_clustered_documents": 28322,
+      "near_clusters": 13190,
+      "near_duplicate_removals": 15132,
+      "raw_core_documents": 8227654,
+      "reconciliation": "raw = empty + short + exact removals + exact unique; retained = exact unique - near removals",
+      "removed_empty": 0,
+      "removed_invalid_or_too_short": 1873990,
+      "removed_short": 1873990
+    },
+    "completion_evidence_local_time": "2026-08-27T10:20:50.361103+04:00",
+    "config_canonical_values_sha256": "830b21c0347a8f6343354634cdaf4e94dfb9179643875e28cd7cddb99c58c5d7",
+    "config_file_sha256": "451a532ddbba56f1d1b1601e146f6ea5b248f1ce6dbe6e5249268b15474810fa",
+    "config_path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\configs\\frozen\\m1.yaml",
+    "near_band_bytes_each": 149020416,
+    "near_band_files": 8,
+    "state": "prepare_complete"
+  },
+  "reports": {
+    "analysis_note": {
+      "bytes": 13111,
+      "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\docs\\notes\\m1_data_analysis.md",
+      "sha256": "170cb415e2f9cf851ecc634da5f364445bf8458c917d9313f3d3768d370276a0"
+    },
+    "data_card": {
+      "bytes": 3170,
+      "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\docs\\notes\\m1_data_card.md",
+      "sha256": "b92639c135ff04f7f357408255edd5cf95947c98f661e8d09e097aac9598312a"
+    },
+    "figures": {
+      "m1_50m_source_mixture.png": "de61b21a9457594894675402e4c1424fba805c708dfed251628fcf51170ff3b6",
+      "m1_source_documents.png": "9c02c5fa225ed65632499913d3d3b92b752bb75ef06d55a2fe086dfc559622da",
+      "m1_source_group_tokens.png": "fb3b55797175c786b9bd4164b9d270558212133965c8b81edcfae2aa32efd05a",
+      "m1_tokenizer_fertility.png": "043c126a273ab4808a79810b7e67ac07e8895d02b60201779f08ad3929ceed04"
+    }
+  },
+  "repository_path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding",
+  "splits": {
+    "counts": {
+      "test": 309378,
+      "train": 5574986,
+      "validation": 309688
+    },
+    "cross_split_intersections": {
+      "canonical_text_hash": {
+        "train_test": 0,
+        "train_validation": 0,
+        "validation_test": 0
+      },
+      "document_id": {
+        "train_test": 0,
+        "train_validation": 0,
+        "validation_test": 0
+      },
+      "duplicate_cluster_id": {
+        "train_test": 0,
+        "train_validation": 0,
+        "validation_test": 0
+      }
+    },
+    "leakage_audit_path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\metadata\\leakage_audit.json",
+    "leakage_status": "pass",
+    "manifests": {
+      "test": {
+        "bytes": 45821161,
+        "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\manifests\\test.parquet",
+        "sha256": "e3d827093061396745ccb0d3edad3932d955b325bd8da268b603d0baa06e1521"
+      },
+      "train": {
+        "bytes": 821395329,
+        "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\manifests\\train.parquet",
+        "sha256": "7a597d072fd2aeb3b4df0741390fdc8fc296d57c7b783f86760044747fd2296c"
+      },
+      "validation": {
+        "bytes": 45875286,
+        "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\manifests\\validation.parquet",
+        "sha256": "86ecafec374c9b560b4bd2a40e2fe1276ed8737b58f4d19fffef29987ea58741"
+      }
+    },
+    "near_edges_crossing_splits": 0,
+    "per_source": {
+      "test": {
+        "anl-news": {
+          "approximate_words": 7284134,
+          "characters": 58521670,
+          "documents": 11081
+        },
+        "azwiki": {
+          "approximate_words": 2221423,
+          "characters": 16910383,
+          "documents": 6632
+        },
+        "elite-blogs": {
+          "approximate_words": 36472,
+          "characters": 270280,
+          "documents": 37
+        },
+        "elite-books": {
+          "approximate_words": 112347,
+          "characters": 838056,
+          "documents": 5
+        },
+        "eqanun": {
+          "approximate_words": 2436776,
+          "characters": 18900049,
+          "documents": 2557
+        },
+        "mediocore-books": {
+          "approximate_words": 5976249,
+          "characters": 46712767,
+          "documents": 289066
+        }
+      },
+      "train": {
+        "anl-news": {
+          "approximate_words": 134832152,
+          "characters": 1083258200,
+          "documents": 199588
+        },
+        "azwiki": {
+          "approximate_words": 36564575,
+          "characters": 278401834,
+          "documents": 116025
+        },
+        "elite-blogs": {
+          "approximate_words": 803170,
+          "characters": 5763161,
+          "documents": 665
+        },
+        "elite-books": {
+          "approximate_words": 3855669,
+          "characters": 27565978,
+          "documents": 85
+        },
+        "eqanun": {
+          "approximate_words": 37105243,
+          "characters": 291673262,
+          "documents": 44889
+        },
+        "mediocore-books": {
+          "approximate_words": 107836450,
+          "characters": 842870101,
+          "documents": 5213734
+        }
+      },
+      "validation": {
+        "anl-news": {
+          "approximate_words": 7581202,
+          "characters": 60876324,
+          "documents": 11217
+        },
+        "azwiki": {
+          "approximate_words": 2078046,
+          "characters": 15827868,
+          "documents": 6506
+        },
+        "elite-blogs": {
+          "approximate_words": 33702,
+          "characters": 234205,
+          "documents": 33
+        },
+        "elite-books": {
+          "approximate_words": 367496,
+          "characters": 2512198,
+          "documents": 7
+        },
+        "eqanun": {
+          "approximate_words": 1840377,
+          "characters": 14571057,
+          "documents": 2482
+        },
+        "mediocore-books": {
+          "approximate_words": 5974935,
+          "characters": 46690692,
+          "documents": 289443
+        }
+      }
+    },
+    "policy": "cluster-aware SHA-256 hash ranges: 0-899 train, 900-949 validation, 950-999 test",
+    "seed": 2026
+  },
+  "tests": {
+    "errors": 0,
+    "failures": 0,
+    "integration_tests": 5,
+    "junit_path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\metadata\\pytest_m1.xml",
+    "junit_sha256": "8f02c8fb69d17f6da22e95f89509ed55fd45ff2791e7a8e68048ab40c1e1259c",
+    "skipped": 0,
+    "tests": 18,
+    "time_seconds": 3.702,
+    "unit_tests": 13
+  },
+  "token_counts": {
+    "artifact": {
+      "bytes": 217941371,
+      "path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\metadata\\document_token_counts.parquet",
+      "sha256": "f51c55ff880df9c21be3dc0e8288272ad9b0fd75bd43c4a1ced9cad80e7f7145"
+    },
+    "by_group_all_splits": {
+      "Blogs": 1528402,
+      "Books": 227380273,
+      "Laws": 65141660,
+      "Native Wikipedia": 74609017,
+      "News": 237559421
+    },
+    "by_source_all_splits": {
+      "anl-news": 237559421,
+      "azwiki": 74609017,
+      "elite-blogs": 1528402,
+      "elite-books": 7950104,
+      "eqanun": 65141660,
+      "mediocore-books": 219430169
+    },
+    "by_split_and_source": {
+      "test": {
+        "anl-news": {
+          "documents": 11081,
+          "documents_with_unknown_tokens": 3,
+          "tokens": 11555598,
+          "unknown_tokens": 6
+        },
+        "azwiki": {
+          "documents": 6632,
+          "documents_with_unknown_tokens": 0,
+          "tokens": 4043468,
+          "unknown_tokens": 0
+        },
+        "elite-blogs": {
+          "documents": 37,
+          "documents_with_unknown_tokens": 1,
+          "tokens": 61874,
+          "unknown_tokens": 1
+        },
+        "elite-books": {
+          "documents": 5,
+          "documents_with_unknown_tokens": 0,
+          "tokens": 200908,
+          "unknown_tokens": 0
+        },
+        "eqanun": {
+          "documents": 2557,
+          "documents_with_unknown_tokens": 5,
+          "tokens": 4108641,
+          "unknown_tokens": 38
+        },
+        "mediocore-books": {
+          "documents": 289066,
+          "documents_with_unknown_tokens": 53,
+          "tokens": 10949829,
+          "unknown_tokens": 70
+        }
+      },
+      "train": {
+        "anl-news": {
+          "documents": 199588,
+          "documents_with_unknown_tokens": 31,
+          "tokens": 213954181,
+          "unknown_tokens": 103
+        },
+        "azwiki": {
+          "documents": 116025,
+          "documents_with_unknown_tokens": 0,
+          "tokens": 66753442,
+          "unknown_tokens": 0
+        },
+        "elite-blogs": {
+          "documents": 665,
+          "documents_with_unknown_tokens": 9,
+          "tokens": 1406424,
+          "unknown_tokens": 30
+        },
+        "elite-books": {
+          "documents": 85,
+          "documents_with_unknown_tokens": 2,
+          "tokens": 7077127,
+          "unknown_tokens": 3
+        },
+        "eqanun": {
+          "documents": 44889,
+          "documents_with_unknown_tokens": 65,
+          "tokens": 58202361,
+          "unknown_tokens": 1368
+        },
+        "mediocore-books": {
+          "documents": 5213734,
+          "documents_with_unknown_tokens": 676,
+          "tokens": 197521901,
+          "unknown_tokens": 1208
+        }
+      },
+      "validation": {
+        "anl-news": {
+          "documents": 11217,
+          "documents_with_unknown_tokens": 1,
+          "tokens": 12049642,
+          "unknown_tokens": 1
+        },
+        "azwiki": {
+          "documents": 6506,
+          "documents_with_unknown_tokens": 0,
+          "tokens": 3812107,
+          "unknown_tokens": 0
+        },
+        "elite-blogs": {
+          "documents": 33,
+          "documents_with_unknown_tokens": 1,
+          "tokens": 60104,
+          "unknown_tokens": 1
+        },
+        "elite-books": {
+          "documents": 7,
+          "documents_with_unknown_tokens": 0,
+          "tokens": 672069,
+          "unknown_tokens": 0
+        },
+        "eqanun": {
+          "documents": 2482,
+          "documents_with_unknown_tokens": 3,
+          "tokens": 2830658,
+          "unknown_tokens": 8
+        },
+        "mediocore-books": {
+          "documents": 289443,
+          "documents_with_unknown_tokens": 27,
+          "tokens": 10958439,
+          "unknown_tokens": 36
+        }
+      }
+    },
+    "includes_one_eod_per_document": true,
+    "split_totals": {
+      "test": 30920318,
+      "train": 544915436,
+      "validation": 30383019
+    },
+    "total_retained_tokens": 606218773
+  },
+  "tokenizer": {
+    "artifact_hashes": {
+      "special_tokens.json": "21d6ed125762219c944b7ba31f1d59d057d5766300671319a6083a2cac5863ce",
+      "tokenizer.model": "e28256d22ee0ce47a3fbdf223bf40297094eede567139f44ef7f65a4b967b7dc",
+      "tokenizer.vocab": "aed49d8684f19c2d5a44ec5bdfc28dc1b08cec5839d44071414ac16ff644bf1b",
+      "tokenizer_config.json": "2ccfdb04b5fd12b791e0e78c33194286b77771378d4a2b7db81052bf0fc6908a"
+    },
+    "byte_fallback": false,
+    "candidate_audit_path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\metadata\\tokenizer_audit.json",
+    "candidate_comparison": {
+      "16000": {
+        "characters_per_token": 4.688835747049425,
+        "fertility": 1.6742748102537446,
+        "model_sha256": "e28256d22ee0ce47a3fbdf223bf40297094eede567139f44ef7f65a4b967b7dc",
+        "unknown_token_rate": 1.0307684378704325e-07,
+        "vocab_sha256": "aed49d8684f19c2d5a44ec5bdfc28dc1b08cec5839d44071414ac16ff644bf1b",
+        "vocab_size": 16000
+      },
+      "32000": {
+        "characters_per_token": 5.203936110505424,
+        "fertility": 1.5085503384359755,
+        "model_sha256": "e44730e52f6b2809bddae1944b94ba2f1ac48e35a7a9dbfb06ba4a1d7bd49dc7",
+        "unknown_token_rate": 1.1440053319800513e-07,
+        "vocab_sha256": "e4ad25c7f6af2cacc48f86751a0e205ea5946de3dc8c88395d7794058defb9ee",
+        "vocab_size": 32000
+      },
+      "8000": {
+        "characters_per_token": 4.086323068853441,
+        "fertility": 1.921140215402707,
+        "model_sha256": "9f1f06bec6d025d41698b93ba43215fb231feeb28233507d3f3f61f7c432463e",
+        "unknown_token_rate": 8.98315290521004e-08,
+        "vocab_sha256": "47cc6c9e7312666727c32eb09436e132abee8017dbd7bf772cb9d63dae5585f2",
+        "vocab_size": 8000
+      }
+    },
+    "character_coverage": 1.0,
+    "normalization_rule_name": "identity",
+    "selection_reason": "Protocol default retained; no technical or coverage failure was observed on the train-only audit.",
+    "sentencepiece_version": "0.2.1",
+    "special_tokens": {
+      "bos": {
+        "enabled": false,
+        "id": -1,
+        "piece": null
+      },
+      "document_boundary_policy": "Append one <eod> token after each document in downstream token counts and exports.",
+      "eod": {
+        "id": 1,
+        "piece": "<eod>"
+      },
+      "pad": {
+        "enabled": false,
+        "id": -1,
+        "piece": null
+      },
+      "unk": {
+        "id": 0,
+        "piece": "<unk>"
+      }
+    },
+    "text_projection": "Replace document-internal line breaks with spaces before SentencePiece encoding; canonical processed text is unchanged.",
+    "training_provenance": {
+      "characters": 461038582,
+      "documents": 1000000,
+      "newline_policy": "Internal line breaks are replaced with spaces only in the SentencePiece trainer input.",
+      "sample_manifest_path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\tokenizer\\training_sample_manifest.parquet",
+      "selection_rule": "First documents in the processed train parquet, which is sorted by SHA-256 document_id.",
+      "training_corpus_sha256": "137f4c2e4d43802f18ac81e615ce57119ad07e8487e763bd85deaf9b13284605",
+      "training_sample_manifest_sha256": "b33353f1b13ab9fd95523299ac70155dacbf095c92ae6c1c2cbf0bd68855bca4"
+    },
+    "type": "SentencePiece BPE",
+    "vocab_size": 16000
+  },
+  "training_subset": {
+    "actual_group_proportions": {
+      "Blogs": 0.028089310018964753,
+      "Books": 0.3216622484278124,
+      "Laws": 0.16765986167608993,
+      "Native Wikipedia": 0.21445976015366092,
+      "News": 0.268128819723472
+    },
+    "actual_group_tokens": {
+      "Blogs": 1406424,
+      "Books": 16105540,
+      "Laws": 8394683,
+      "Native Wikipedia": 10737941,
+      "News": 13425136
+    },
+    "actual_source_tokens": {
+      "anl-news": 13425136,
+      "azwiki": 10737941,
+      "elite-blogs": 1406424,
+      "elite-books": 7077127,
+      "eqanun": 8394683,
+      "mediocore-books": 9028413
+    },
+    "boundary_policy": "Select full documents; downstream training stops at the exact 50M model-token boundary without changing canonical documents.",
+    "data_seed": 2026,
+    "exhausted_groups": [
+      "Blogs"
+    ],
+    "future_consumption_policy": "Select full documents; downstream training stops at the exact 50M model-token boundary without changing canonical documents.",
+    "future_model_seed_affects_subset_or_order": false,
+    "manifest_path": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\manifests\\train_50m.parquet",
+    "manifest_sha256": "248b4462beb043e592993e69e858f02d102d955dbab638f5509c112927e3de8d",
+    "model_seed_affects_order": false,
+    "order_policy": "ascending SHA-256 of ('order', data_seed, document_id), then document_id",
+    "overshoot_tokens": 69724,
+    "processed_reference_policy": "Each selected document records its frozen processed parquet path and zero-based row number.",
+    "quota_phase_group_tokens": {
+      "Blogs": 1406424,
+      "Books": 15000025,
+      "Laws": 7773173,
+      "Native Wikipedia": 10000481,
+      "News": 12503464
+    },
+    "quota_shortages": {
+      "Blogs": 3593576,
+      "Books": 0,
+      "Laws": 0,
+      "Native Wikipedia": 0,
+      "News": 0
+    },
+    "requested_group_tokens": {
+      "Blogs": 5000000,
+      "Books": 15000000,
+      "Laws": 7500000,
+      "Native Wikipedia": 10000000,
+      "News": 12500000
+    },
+    "requested_group_weights": {
+      "Blogs": 0.1,
+      "Books": 0.3,
+      "Laws": 0.15,
+      "Native Wikipedia": 0.2,
+      "News": 0.25
+    },
+    "sampling_without_replacement": true,
+    "selected_documents": 276565,
+    "selected_unique_tokens": 50069724,
+    "split": "train",
+    "target_tokens": 50000000
+  }
+}

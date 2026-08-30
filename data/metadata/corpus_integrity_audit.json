@@ -1,0 +1,452 @@
+{
+  "timestamp_utc": "2026-08-27T17:19:42.0473840Z",
+  "audit_scope": "Independent, read-only audit of frozen M1 data, tokenizer, provenance, code, tests, manifests, 50M selection, handoff, and Definition-of-Done evidence.",
+  "specification_references": [
+    "C:/Users/User/OneDrive/Desktop/track_1_research/research_master_plan.pdf",
+    "configs/frozen/m1.yaml",
+    "data/metadata/m1_handoff.json",
+    "data/metadata/m1_definition_of_done.json"
+  ],
+  "execution_constraints": {
+    "raw_preprocessing_rerun": false,
+    "tokenizer_retrained": false,
+    "training_subset_rebuilt": false,
+    "frozen_artifacts_modified": false,
+    "git_or_github_used": false
+  },
+  "verdict": "NOT READY",
+  "definition_of_done_reassessment": "NOT COMPLETE",
+  "overall_m1_quality_score": 78.0,
+  "score_normalization": {
+    "provided_nominal_weight_sum": 105,
+    "prompt_claimed_weight_sum": 100,
+    "method": "Each supplied weight was retained and the weighted numerator was divided by 105.",
+    "weighted_numerator": 8187,
+    "unrounded_score": 77.9714
+  },
+  "readiness_scores": {
+    "scientific_readiness": 72,
+    "engineering_readiness": 70,
+    "reproducibility_readiness": 68,
+    "m2_m3_handoff_readiness": 45,
+    "code_quality": 78,
+    "data_integrity_confidence": 74,
+    "tokenizer_confidence": 97,
+    "fifty_m_corpus_confidence_as_currently_frozen": 92,
+    "defense_report_readiness": 68,
+    "security_data_safety": 72
+  },
+  "category_scores": [
+    {"category": "Research design compliance", "weight": 8, "score": 85.0, "weighted_score": 6.4762, "status": "WARNING", "confidence": "HIGH", "evidence": "Native-source policy, train-only fitting, and shared-data contract are frozen; incomplete near-pair recall leaves a domain-dependent leakage risk."},
+    {"category": "Source/provenance", "weight": 5, "score": 82.0, "weighted_score": 3.9048, "status": "WARNING", "confidence": "HIGH", "evidence": "Twenty original and fourteen core shards are inventoried and hash-verified; access date is absent and per-source revisions/licenses remain explicitly unavailable."},
+    {"category": "Cleaning/normalization", "weight": 5, "score": 88.0, "weighted_score": 4.1905, "status": "WARNING", "confidence": "HIGH", "evidence": "NFC and conservative whitespace/control handling preserve Azerbaijani orthography; the 50-letter rule is frozen but disproportionately removes mediocore-books fragments, and resumed transformation counters are unavailable."},
+    {"category": "Exact dedup", "weight": 5, "score": 95.0, "weighted_score": 4.5238, "status": "PASS", "confidence": "HIGH", "evidence": "SHA-256 grouping, deterministic retention, provenance, and 144,480-removal accounting matched SQLite and reports."},
+    {"category": "Near dedup", "weight": 8, "score": 35.0, "weighted_score": 2.6667, "status": "FAIL", "confidence": "HIGH", "evidence": "The star shortcut in 59 large band buckets had only 1.83% direct recall for eligible true near pairs in the stratified exhaustive sample."},
+    {"category": "Accounting", "weight": 4, "score": 99.0, "weighted_score": 3.7714, "status": "PASS", "confidence": "HIGH", "evidence": "All raw, short, exact, near, retained, and split equations reconcile exactly."},
+    {"category": "Split correctness", "weight": 5, "score": 92.0, "weighted_score": 4.3810, "status": "PASS", "confidence": "HIGH", "evidence": "Frozen manifests are deterministically ordered, hash-valid, and observe 90.0055/4.9998/4.9948 percent; known clusters remain intact."},
+    {"category": "Leakage prevention", "weight": 8, "score": 35.0, "weighted_score": 2.6667, "status": "FAIL", "confidence": "HIGH", "evidence": "Standard ID/hash/accepted-edge gates pass, but 237 retained representative pairs in sampled large buckets meet the frozen near criterion across splits."},
+    {"category": "Tokenizer training correctness", "weight": 7, "score": 98.0, "weighted_score": 6.5333, "status": "PASS", "confidence": "HIGH", "evidence": "All candidates use the same deterministic one-million-document train-only corpus and matching hashes."},
+    {"category": "Tokenizer quality", "weight": 5, "score": 95.0, "weighted_score": 4.5238, "status": "PASS", "confidence": "HIGH", "evidence": "Independent 8K/16K/32K metrics match; Azerbaijani characters and representative suffix-rich words round-trip without unknown pieces."},
+    {"category": "Final tokenizer freeze", "weight": 4, "score": 97.0, "weighted_score": 3.6952, "status": "PASS", "confidence": "HIGH", "evidence": "The 16K BPE loads, special IDs and trainer settings match metadata, and every recorded artifact SHA-256 verifies."},
+    {"category": "Token counting", "weight": 5, "score": 97.0, "weighted_score": 4.6190, "status": "PASS", "confidence": "HIGH", "evidence": "6,194,052 document rows aggregate exactly to 606,218,773 tokens and independent stratified retokenization matched."},
+    {"category": "50M subset correctness", "weight": 8, "score": 98.0, "weighted_score": 7.4667, "status": "PASS", "confidence": "HIGH", "evidence": "Independent replay matched 276,565 IDs, order, group totals, shortage redistribution, and manifest hash exactly."},
+    {"category": "Reproducibility", "weight": 7, "score": 65.0, "weighted_score": 4.3333, "status": "WARNING", "confidence": "HIGH", "evidence": "Seeds, versions, and hashes are strong, but absolute OneDrive paths break relocation and near-band contents are not hash-frozen."},
+    {"category": "Code correctness", "weight": 5, "score": 72.0, "weighted_score": 3.4286, "status": "WARNING", "confidence": "HIGH", "evidence": "Streaming and deterministic logic are generally sound; the large-bucket shortcut is a correctness defect and resume/rebuild guards are weak."},
+    {"category": "Code cleanliness/humanization", "weight": 3, "score": 86.0, "weighted_score": 2.4571, "status": "PASS", "confidence": "MEDIUM", "evidence": "Core modules use restrained comments and clear names; several report/finalization entry points are oversized and repetitive."},
+    {"category": "Performance/optimality", "weight": 3, "score": 80.0, "weighted_score": 2.2857, "status": "WARNING", "confidence": "MEDIUM", "evidence": "Bounded streaming and batched SQLite/Parquet work are appropriate; a speed shortcut traded away required near-pair recall even though full observed expansion is tractable."},
+    {"category": "Test quality", "weight": 3, "score": 55.0, "weighted_score": 1.5714, "status": "FAIL", "confidence": "HIGH", "evidence": "All 18 tests pass, but the suite omits large-bucket recall, true-near cross-split leakage, exact 50M boundary, resume, and relocation behavior."},
+    {"category": "Artifact consistency", "weight": 4, "score": 65.0, "weighted_score": 2.4762, "status": "FAIL", "confidence": "HIGH", "evidence": "Numerical artifacts agree, but handoff/DoD/leakage reports now contain semantically stale completion and pass claims exposed by this audit."},
+    {"category": "Report/defense readiness", "weight": 3, "score": 70.0, "weighted_score": 2.0000, "status": "WARNING", "confidence": "HIGH", "evidence": "Measured tables and four figures are useful, but the near-dedup limitation, transitivity, unknown-rate denominator, and exact 50M boundary need explicit treatment."}
+  ],
+  "independent_measurements": {
+    "corpus_accounting": {
+      "raw_core_documents": 8227654,
+      "removed_short": 1873990,
+      "removed_empty": 0,
+      "exact_duplicate_removals": 144480,
+      "exact_unique_documents": 6209184,
+      "near_candidate_pairs": 4191262,
+      "near_accepted_edges": 36333,
+      "near_clusters": 13190,
+      "near_clustered_documents": 28322,
+      "near_duplicate_removals": 15132,
+      "retained_documents": 6194052,
+      "train_documents": 5574986,
+      "validation_documents": 309688,
+      "test_documents": 309378,
+      "reconciled": true
+    },
+    "split_percentages": {
+      "train": 90.005476,
+      "validation": 4.999764,
+      "test": 4.994759
+    },
+    "large_bucket_lsh": {
+      "implementation": {
+        "full_pair_max_bucket_size": 200,
+        "star_bucket_min_size": 201,
+        "star_bucket_max_size": 10000,
+        "above_hard_cap_behavior": "skip and fail the preparation run if any skipped bucket is reported",
+        "anchor_rule": "minimum SQLite rowid after sorting bucket members",
+        "candidate_pair_deduplication": "SQLite primary key",
+        "other_bands_can_recover_omitted_pairs": true
+      },
+      "frozen_band_scan": {
+        "total_colliding_bucket_events": 728772,
+        "full_pair_bucket_events": 728713,
+        "star_bucket_events": 59,
+        "skipped_bucket_events": 0,
+        "documents_in_star_buckets": 10751,
+        "maximum_bucket_size": 940,
+        "full_pair_opportunities_across_star_bucket_events": 3503354,
+        "star_emitted_pair_attempts": 18678
+      },
+      "stratified_exhaustive_sample": {
+        "sampled_bucket_events": 8,
+        "bucket_sizes": [201, 247, 291, 352, 407, 623, 799, 940],
+        "unique_documents": 3857,
+        "unique_pairs_evaluated": 1190954,
+        "true_jaccard_at_least_0_95_pairs": 28850,
+        "eligible_true_pairs_after_length_ratio_gate": 28849,
+        "captured_true_candidate_pairs": 528,
+        "captured_eligible_edges": 527,
+        "missed_eligible_true_pairs": 28322,
+        "measured_direct_candidate_recall": 0.0182675,
+        "scope_warning": "This is measured sample recall, not a corpus-wide recall estimate. One 352-document laws bucket accounts for most true pairs."
+      },
+      "frozen_split_impact_in_sample": {
+        "eligible_true_pairs_in_same_frozen_cluster": 23504,
+        "eligible_true_pairs_in_different_frozen_clusters": 5345,
+        "original_endpoint_pairs_crossing_splits": 736,
+        "cross_split_pairs_with_both_endpoints_retained": 236,
+        "unique_cross_split_representative_pairs": 249,
+        "retained_cross_split_representative_pairs_meeting_frozen_near_criterion": 237,
+        "retained_pair_similarity_range": [0.950026, 0.976311]
+      }
+    },
+    "connected_components": {
+      "clusters": 13190,
+      "clusters_size_two": 12494,
+      "clusters_size_greater_than_two": 696,
+      "maximum_cluster_size": 359,
+      "representative_policy": "minimum SHA-256 document_id in each accepted-edge connected component",
+      "all_accepted_edges_meet_threshold": true,
+      "all_representative_member_pairs_meet_threshold": false,
+      "all_endpoint_pairs_meet_threshold": false,
+      "largest_twenty_clusters_with_endpoint_below_threshold": 17,
+      "largest_twenty_clusters_with_representative_member_below_threshold": 19,
+      "minimum_sampled_endpoint_similarity": 0.819923,
+      "minimum_sampled_representative_member_similarity": 0.858268,
+      "interpretation": "Connected closure is leakage-protective when candidate recall is adequate, but more aggressive than complete-link clustering and is insufficiently documented."
+    },
+    "tokenizer": {
+      "training_sample": {
+        "documents": 1000000,
+        "train_only": true,
+        "strictly_sorted_by_document_id": true,
+        "selection_rule": "first 1,000,000 rows of the document-id-sorted processed train corpus",
+        "manifest_sha256": "b33353f1b13ab9fd95523299ac70155dacbf095c92ae6c1c2cbf0bd68855bca4",
+        "training_corpus_sha256": "137f4c2e4d43802f18ac81e615ce57119ad07e8487e763bd85deaf9b13284605",
+        "identical_for_8k_16k_32k": true
+      },
+      "candidate_audit_sample_documents": 100000,
+      "candidates": {
+        "8000": {"tokens": 11131949, "words": 5794449, "fertility": 1.9211402154, "characters_per_token": 4.0863230689, "unknown_tokens": 1, "unknown_rate": 0.0000000898315291},
+        "16000": {"tokens": 9701500, "words": 5794449, "fertility": 1.6742748103, "characters_per_token": 4.6888357470, "unknown_tokens": 1, "unknown_rate": 0.0000001030768438},
+        "32000": {"tokens": 8741218, "words": 5794449, "fertility": 1.5085503384, "characters_per_token": 5.2039361105, "unknown_tokens": 1, "unknown_rate": 0.0000001144005332}
+      },
+      "unknown_rate_denominators": {
+        "candidate_audit": "unknown pieces divided by encoded SentencePiece pieces across 100,000 train-only audit documents; EOD excluded",
+        "full_corpus": "2,873 unknown pieces divided by 600,024,721 encoded text pieces; 606,218,773 stored tokens includes one EOD for each of 6,194,052 documents",
+        "full_corpus_rate_excluding_eod": 0.000004788136,
+        "full_corpus_rate_including_eod_if_reported": 0.000004739213,
+        "assessment": "Values are valid but the denominator distinction is not explicit enough in the human reports."
+      },
+      "final": {
+        "type": "SentencePiece BPE",
+        "vocabulary_size": 16000,
+        "normalization": "identity",
+        "character_coverage": 1.0,
+        "byte_fallback": false,
+        "unk_id": 0,
+        "eod_id": 1,
+        "bos_id": -1,
+        "eos_id": 1,
+        "pad_id": -1,
+        "model_sha256": "e28256d22ee0ce47a3fbdf223bf40297094eede567139f44ef7f65a4b967b7dc",
+        "vocab_sha256": "aed49d8684f19c2d5a44ec5bdfc28dc1b08cec5839d44071414ac16ff644bf1b",
+        "azerbaijani_roundtrip_passed": true
+      }
+    },
+    "token_counts": {
+      "includes_one_eod_per_document": true,
+      "train": 544915436,
+      "validation": 30383019,
+      "test": 30920318,
+      "total": 606218773,
+      "unknown_tokens": 2873,
+      "source_totals": {
+        "anl-news": 237559421,
+        "azwiki": 74609017,
+        "elite-blogs": 1528402,
+        "elite-books": 7950104,
+        "eqanun": 65141660,
+        "mediocore-books": 219430169
+      }
+    },
+    "fifty_m_replay": {
+      "matched_frozen_manifest_exactly": true,
+      "selected_documents": 276565,
+      "selected_documents_unique": true,
+      "train_only": true,
+      "selected_unique_tokens": 50069724,
+      "overshoot_tokens": 69724,
+      "data_seed": 2026,
+      "manifest_sha256": "248b4462beb043e592993e69e858f02d102d955dbab638f5509c112927e3de8d",
+      "actual_group_tokens": {"News": 13425136, "Native Wikipedia": 10737941, "Books": 16105540, "Laws": 8394683, "Blogs": 1406424},
+      "actual_group_percentages": {"News": 26.812882, "Native Wikipedia": 21.445976, "Books": 32.166225, "Laws": 16.765986, "Blogs": 2.808931},
+      "blog_shortage_tokens": 3593576,
+      "exact_consumption_boundary": {
+        "sampling_order_zero_based": 276157,
+        "sequence_position_one_based": 276158,
+        "document_id": "6aba7eed1cd6eb1ba6b677b9bf250d260af0418ca1c93cfa2db5b1e48afcce0b9",
+        "document_tokens_including_eod": 1954,
+        "cumulative_tokens_before_document": 49998512,
+        "tokens_consumed_from_document": 1488,
+        "unconsumed_document_tokens": 466,
+        "eod_consumed": false,
+        "required_m3_policy": "Encode documents in frozen manifest order, append exactly one EOD per document, and stop after the first 50,000,000 token IDs."
+      }
+    },
+    "provenance": {
+      "dataset": "DOLLMA",
+      "overall_license_locally_documented": "CC BY-NC-SA 4.0",
+      "overall_license_evidence_verified": true,
+      "access_date_recorded": false,
+      "dataset_revision": null,
+      "per_source_license_revision_status": "explicitly unavailable where upstream local metadata does not state it",
+      "original_shards": 20,
+      "core_shards": 14,
+      "raw_inventory_sha256": "9c9ff30f00c3ef836f820a58be6379773ca9263a5a68957cd9fa3ce55257d6e0",
+      "raw_files_rehashed": 34,
+      "raw_bytes_rehashed": 8994376464,
+      "raw_hash_or_size_mismatches": 0,
+      "bhos_status": "requires_source_decision",
+      "translated_enwiki_status": "excluded_translated_source"
+    },
+    "tests": {
+      "command": "python -m pytest -q -p no:cacheprovider",
+      "passed": 18,
+      "failed": 0,
+      "warnings": 2,
+      "elapsed_seconds": 7.03,
+      "adequacy_assessment": "Insufficient for critical large-bucket, true-near leakage, exact boundary, resume, and relocation paths."
+    },
+    "artifact_hash_check": {
+      "critical_artifacts_checked": 31,
+      "mismatches": 0
+    }
+  },
+  "requirement_compliance_matrix": [
+    {"requirement": "Native Azerbaijani core and translated-enwiki exclusion", "implementation": "configs/frozen/m1.yaml and source registry", "artifact": "data/metadata/source_registry.yaml", "verification": "config, inventory, and processed-source scan", "result": "Configured six native components; bhos unresolved and translated-enwiki excluded", "status": "PASS"},
+    {"requirement": "Conservative Azerbaijani-preserving normalization", "implementation": "src/data/normalize.py", "artifact": "preparation summary and tests", "verification": "code review and unit tests", "result": "NFC and formatting cleanup preserve case and Azerbaijani letters", "status": "PASS"},
+    {"requirement": "Exact deduplication and accounting", "implementation": "src/data/dedup.py and SQLite", "artifact": "exact duplicate report", "verification": "read-only SQL and arithmetic replay", "result": "144,480 removals and 6,209,184 unique documents reconcile", "status": "PASS"},
+    {"requirement": "Near deduplication with leakage protection", "implementation": "src/data/near.py", "artifact": "band files, candidates, accepted edges, clusters", "verification": "full band scan and stratified exhaustive large-bucket sample", "result": "Large-bucket star expansion misses eligible true pairs and leaves sampled cross-split near pairs", "status": "FAIL"},
+    {"requirement": "Deterministic 90/5/5 document split", "implementation": "src/data/split.py", "artifact": "three Parquet manifests", "verification": "full manifest scan and hash verification", "result": "90.005476/4.999764/4.994759 percent; IDs and known clusters are disjoint", "status": "PASS"},
+    {"requirement": "Hard cross-split leakage gate", "implementation": "audit scripts", "artifact": "leakage_audit.json and m1_validation.json", "verification": "standard full scan plus independent true-near sample", "result": "Standard fields pass; 237 retained cross-split representative near pairs invalidate the broader gate", "status": "FAIL"},
+    {"requirement": "Same train-only corpus for 8K/16K/32K", "implementation": "src/tokenizer/corpus.py and train.py", "artifact": "training sample manifest and candidate metadata", "verification": "one-million-row provenance scan and hash comparison", "result": "All candidates share the same deterministic train-only input", "status": "PASS"},
+    {"requirement": "Final 16K SentencePiece BPE freeze", "implementation": "src/tokenizer/train.py", "artifact": "root tokenizer directory", "verification": "model load, protobuf settings, special IDs, SHA-256, and round-trip tests", "result": "Valid 16,000-piece BPE with stable artifacts", "status": "PASS"},
+    {"requirement": "Real final-tokenizer counts", "implementation": "src/tokenizer/counts.py", "artifact": "document_token_counts.parquet and token report", "verification": "aggregation and stratified retokenization", "result": "606,218,773 tokens including one EOD per retained document", "status": "PASS"},
+    {"requirement": "Deterministic train-only 50M source mixture", "implementation": "src/data/sampling.py", "artifact": "train_50m.parquet and summary", "verification": "independent selection replay", "result": "Exact manifest match; full-document sequence has 50,069,724 tokens and deterministic Blog redistribution", "status": "PASS"},
+    {"requirement": "Raw immutability and provenance", "implementation": "inventory and immutability scripts", "artifact": "raw inventory, registry, raw_immutability.json", "verification": "independent SHA-256 rehash", "result": "No mismatch across 34 original/local paths; access date missing", "status": "WARNING"},
+    {"requirement": "M2/M3-consumable frozen handoff", "implementation": "handoff/finalization scripts", "artifact": "m1_handoff.json and m1_definition_of_done.json", "verification": "cross-artifact and portability review", "result": "Numbers and hashes agree, but completion/leakage claims are stale and absolute paths impede relocation", "status": "FAIL"}
+  ],
+  "issues": [
+    {
+      "id": "AUD-001",
+      "severity": "P1",
+      "area": "Near deduplication and leakage",
+      "description": "Star expansion for 201-10,000-member band buckets omits most pair combinations and leaves verified retained near pairs across frozen splits.",
+      "evidence": "Eight stratified bucket-events yielded 28,849 eligible true pairs, 527 direct accepted candidates, and 237 retained cross-split representative pairs meeting the frozen criterion.",
+      "scientific_impact": "Future validation/test estimates can be biased by high-similarity content shared with train; the effect is domain-dependent and cannot be bounded corpus-wide from the current sample.",
+      "engineering_impact": "The accepted-edge-only leakage audit, handoff completion flag, and DoD status are not sufficient.",
+      "exact_recommended_fix": "Raise complete pair expansion to cover the observed maximum bucket size or otherwise use a recall-preserving deterministic candidate strategy; rebuild candidate verification, clusters, split, tokenizer inputs/artifacts, token counts, 50M manifest, reports, handoff, and DoD. Reuse verified normalization, exact-dedup state, fingerprints, and band files after hashing them.",
+      "requires_expensive_rerun": true,
+      "must_fix_before_m2_m3": true,
+      "must_fix_before_final_paper": true
+    },
+    {
+      "id": "AUD-002",
+      "severity": "P2",
+      "area": "Portability",
+      "description": "Frozen manifests and metadata contain current OneDrive absolute paths, including every processed_file reference.",
+      "evidence": "At least 183 absolute path occurrences were found; train, validation, test, and train_50m Parquet metadata use the current repository path, while original_dollma is sibling-relative.",
+      "scientific_impact": "None if the current path is retained; relocation without controlled refreezing can make inputs unreadable or tempt ad hoc path edits.",
+      "engineering_impact": "The repository is not directly movable to C:/Research and consumable there.",
+      "exact_recommended_fix": "After the near-dedup correction, store repository-relative processed references or use a documented relocation-aware resolver; configure DOLLMA explicitly, regenerate affected hashes/handoff, then rerun hash, leakage, and test gates.",
+      "requires_expensive_rerun": false,
+      "must_fix_before_m2_m3": true,
+      "must_fix_before_final_paper": true
+    },
+    {
+      "id": "AUD-003",
+      "severity": "P2",
+      "area": "Test adequacy",
+      "description": "The passing suite does not exercise the branch responsible for the critical candidate-recall failure.",
+      "evidence": "No test covers star buckets above 200 members, exhaustive candidate recall, transitive cluster topology, true-near pairs outside accepted clusters, exact 50M cutoff, resume integrity, or relocation.",
+      "scientific_impact": "A leakage-affecting regression passed all 18 tests.",
+      "engineering_impact": "Future pipeline changes can repeat the defect without detection.",
+      "exact_recommended_fix": "Add targeted synthetic and frozen-sample regression tests before rerunning downstream M1 stages.",
+      "requires_expensive_rerun": false,
+      "must_fix_before_m2_m3": true,
+      "must_fix_before_final_paper": true
+    },
+    {
+      "id": "AUD-004",
+      "severity": "P2",
+      "area": "Resume and write safety",
+      "description": "Resume validation accepts band files mainly by count/size, several large outputs are not atomically published, and rebuild deletion lacks an explicit workspace-containment guard.",
+      "evidence": "Static review of preparation, manifest, report, and audit/finalization paths.",
+      "scientific_impact": "Partial or mismatched state could be mistaken for valid state during the required correction.",
+      "engineering_impact": "Recovery is less safe than the artifact sizes warrant.",
+      "exact_recommended_fix": "Hash and bind band files to the frozen config, validate stage invariants before resume, use temporary-plus-replace publication for critical outputs, and validate rebuild targets remain under configured M1 output roots.",
+      "requires_expensive_rerun": false,
+      "must_fix_before_m2_m3": true,
+      "must_fix_before_final_paper": true
+    },
+    {
+      "id": "AUD-005",
+      "severity": "P3",
+      "area": "Provenance",
+      "description": "The overall local DOLLMA license is recorded, but no access date is frozen; per-source licenses and revisions are correctly marked unavailable.",
+      "evidence": "Source registry, raw inventory, and handoff inspection.",
+      "scientific_impact": "Low; legal conclusions must not be inferred from missing component metadata.",
+      "engineering_impact": "Provenance is less complete for a later paper/data card.",
+      "exact_recommended_fix": "Record the verifiable local acquisition/access date if recoverable; otherwise state that it is unavailable. Keep unknown per-source revisions/licenses explicit.",
+      "requires_expensive_rerun": false,
+      "must_fix_before_m2_m3": false,
+      "must_fix_before_final_paper": true
+    },
+    {
+      "id": "AUD-006",
+      "severity": "P3",
+      "area": "Documentation",
+      "description": "README.md and data/README.md still say preprocessing has not started, and M1 reports do not explain large-bucket recall or component transitivity.",
+      "evidence": "Direct documentation review.",
+      "scientific_impact": "No direct data change, but readers can misunderstand the frozen state and dedup semantics.",
+      "engineering_impact": "Handoff documentation is stale.",
+      "exact_recommended_fix": "Update documentation only after corrected M1 artifacts are frozen; distinguish accepted-edge threshold from all-pairs cluster similarity.",
+      "requires_expensive_rerun": false,
+      "must_fix_before_m2_m3": false,
+      "must_fix_before_final_paper": true
+    },
+    {
+      "id": "AUD-007",
+      "severity": "P3",
+      "area": "Metric and boundary clarity",
+      "description": "Candidate unknown rates exclude EOD while full stored token totals include EOD, and the exact 50M inside-document boundary is derivable but not frozen explicitly.",
+      "evidence": "Candidate recomputation, full count arithmetic, and exact 50M replay.",
+      "scientific_impact": "No measured tokenizer or sequence error, but ambiguous denominators and cutoff semantics can be misreported or implemented inconsistently.",
+      "engineering_impact": "M3 must infer the exact boundary behavior.",
+      "exact_recommended_fix": "Label unknown-rate numerators/denominators and EOD inclusion; record the boundary document, cumulative count, consumed prefix length, and stop rule in the corrected handoff.",
+      "requires_expensive_rerun": false,
+      "must_fix_before_m2_m3": true,
+      "must_fix_before_final_paper": true
+    },
+    {
+      "id": "AUD-008",
+      "severity": "P3",
+      "area": "Audit completeness",
+      "description": "Resumed normalization transformation counters remain unknown_resumed, and near-band/large CSV evidence is not independently hash-frozen in the handoff.",
+      "evidence": "Preparation summary and handoff review.",
+      "scientific_impact": "Removal accounting is intact, but some transformation-frequency and intermediate provenance details cannot be reconstructed cheaply.",
+      "engineering_impact": "Intermediate-state validation is weaker than final-artifact validation.",
+      "exact_recommended_fix": "Disclose unavailable counters rather than rescan raw data; hash retained bands and key intermediate evidence before the focused near-dedup rerun.",
+      "requires_expensive_rerun": false,
+      "must_fix_before_m2_m3": false,
+      "must_fix_before_final_paper": true
+    },
+    {
+      "id": "AUD-009",
+      "severity": "P4",
+      "area": "Maintainability",
+      "description": "Several report and handoff entry points contain long main functions and repeated artifact-assembly logic.",
+      "evidence": "Static review; the largest report main is over 300 lines.",
+      "scientific_impact": "None demonstrated.",
+      "engineering_impact": "Future edits are harder to review and test.",
+      "exact_recommended_fix": "Extract small pure builders when those scripts next require substantive changes; avoid an aesthetics-only rewrite now.",
+      "requires_expensive_rerun": false,
+      "must_fix_before_m2_m3": false,
+      "must_fix_before_final_paper": false
+    }
+  ],
+  "blockers": [],
+  "critical_findings": ["AUD-001"],
+  "major_findings": ["AUD-002", "AUD-003", "AUD-004"],
+  "warnings": ["AUD-005", "AUD-006", "AUD-007", "AUD-008"],
+  "portability": {
+    "safe_to_move_now": "CONDITIONAL",
+    "absolute_path_occurrences": 183,
+    "absolute_and_breaking": ["processed_file columns in train/validation/test manifests", "processed_file columns in train_50m.parquet", "absolute artifact paths in handoff and tokenizer metadata"],
+    "runtime_resolved": ["repository root in scripts"],
+    "absolute_but_harmless": ["historical provenance paths if no loader consumes them"],
+    "migration_procedure": [
+      "Complete the near-dedup correction and downstream refreeze first.",
+      "Convert processed references to repository-relative paths or add one documented relocation-aware resolver.",
+      "Set the DOLLMA root explicitly or preserve the expected sibling layout.",
+      "Regenerate affected hashes, handoff, reports, and DoD once.",
+      "Run full hash, leakage, tokenizer-load, subset, and pytest gates before M2/M3."
+    ]
+  },
+  "scientific_confidence": [
+    {"question": "Is M1 scientifically valid for the intended PE comparison?", "answer": "PARTIAL", "evidence": "The controlled-data contract is sound, but the demonstrated near-leakage defect must be corrected."},
+    {"question": "Could data leakage bias future PE results?", "answer": "YES", "evidence": "The sample contains 237 retained cross-split representative pairs meeting the frozen near criterion."},
+    {"question": "Could tokenizer construction bias one PE variant over another?", "answer": "NO", "evidence": "All PE variants are assigned the same frozen tokenizer and candidate selection does not depend on PE condition."},
+    {"question": "Is the same data and order guaranteed for all PE variants?", "answer": "YES", "evidence": "The subset order is hash-frozen and model seeds do not enter selection, subject to refreezing after the near-dedup fix."},
+    {"question": "Are low-data conditions reproducible?", "answer": "PARTIAL", "evidence": "The 50M sequence replays exactly, but absolute paths and the required data refreeze remain."},
+    {"question": "Is translated data correctly excluded?", "answer": "YES", "evidence": "translated-enwiki is absent from core inventory, processed sources, tokenizer input, and subset."},
+    {"question": "Is dedup aggressive enough?", "answer": "NO", "evidence": "Large-bucket candidate generation misses many true near pairs."},
+    {"question": "Is dedup too aggressive?", "answer": "PARTIAL", "evidence": "Connected components remove endpoint pairs below 0.95, though total near removal is only about 0.244% of exact-unique documents."},
+    {"question": "Could the short-text filter distort source/domain distribution?", "answer": "YES", "evidence": "1,873,780 mediocore-books rows are removed by the 50-letter threshold; the effect is documented but substantial."},
+    {"question": "Is the 16K tokenizer choice defensible?", "answer": "YES", "evidence": "It satisfies the preregistered default, has no technical coverage failure, and candidate metrics were independently reproduced."},
+    {"question": "Is the 50M training corpus defensible?", "answer": "PARTIAL", "evidence": "Selection logic and exact boundary replay, but the corpus must be refrozen after leakage correction."},
+    {"question": "Can another teammate start M2/M3 without rerunning M1?", "answer": "NO", "evidence": "The P1 near-leakage issue requires a focused near-dedup and downstream rerun."},
+    {"question": "Can the repository be safely moved out of OneDrive now?", "answer": "NO", "evidence": "Absolute processed_file paths and sibling-relative DOLLMA configuration would break without migration work."},
+    {"question": "Are there absolute-path portability risks?", "answer": "YES", "evidence": "At least 183 occurrences, including data-consuming manifest fields, were found."},
+    {"question": "Could anything invalidate the final paper later?", "answer": "YES", "evidence": "Using the current split after the demonstrated near-leakage finding without correction and disclosure would undermine evaluation integrity."}
+  ],
+  "code_quality": {
+    "correctness_score": 72,
+    "human_written_quality_score": 86,
+    "readability_score": 84,
+    "maintainability_score": 72,
+    "performance_quality_score": 80,
+    "cleanest_files": ["src/data/hashing.py", "src/data/normalize.py", "src/data/split.py", "src/tokenizer/corpus.py", "src/tokenizer/counts.py"],
+    "weakest_files": ["src/data/near.py", "scripts/generate_m1_report.py", "scripts/generate_m1_handoff.py", "scripts/finalize_m1_audit.py"],
+    "ai_style_comment_spam_found": false
+  },
+  "performance": {
+    "already_optimal_enough": ["bounded Parquet scanning", "batched SQLite state", "memory-mapped band files", "parallel token counting", "deterministic single-thread SentencePiece training"],
+    "worth_fixing": [{"item": "replace large-bucket star shortcut with recall-preserving expansion", "value": "HIGH", "priority": "CRITICAL"}],
+    "potential_optimization": [{"item": "reduce repeated artifact/report scans", "value": "LOW", "priority": "LOW"}],
+    "not_worth_touching_before_experiments": ["aesthetic refactors", "GPU conversion", "micro-optimizing small metadata writers"],
+    "benchmarks": "No new performance benchmarks were run; classifications derive from algorithm and persisted workload sizes."
+  },
+  "strongest_areas": [
+    "Raw and critical-artifact hashes independently verify with zero mismatches.",
+    "Corpus accounting is exact and mutually reconcilable.",
+    "Tokenizer training provenance is train-only, shared, deterministic, and hash-frozen.",
+    "The final 16K tokenizer and full token counts independently validate.",
+    "The 50M selection and ordering replay exactly, including shortage redistribution and cutoff."
+  ],
+  "weakest_areas": [
+    "Large-bucket LSH candidate recall and resulting true-near split leakage.",
+    "Accepted-edge-only leakage checks create false confidence.",
+    "Absolute-path coupling blocks safe relocation.",
+    "Tests omit the critical large-bucket branch and true-near leakage property.",
+    "Completion documentation, resume safety, and some provenance details are stale or incomplete."
+  ],
+  "requires_expensive_rerun": true,
+  "required_rerun_scope": "Focused near-candidate verification/clustering and every downstream frozen artifact; do not repeat raw normalization, exact deduplication, fingerprints, or band construction if their hashes and config binding pass.",
+  "final_recommendation": "Do not begin M2/M3 on the current split. Correct large-bucket candidate generation, add regression tests, refreeze downstream artifacts, make paths relocatable, and then repeat the independent leakage and handoff gates."
+}

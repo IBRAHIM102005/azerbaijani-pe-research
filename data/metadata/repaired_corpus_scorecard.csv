@@ -1,0 +1,21 @@
+category,weight,score,weighted_score,status,confidence
+Research design compliance,8,97.0,7.3905,PASS,HIGH
+Source/provenance,5,88.0,4.1905,WARNING,HIGH
+Cleaning/normalization,5,90.0,4.2857,WARNING,HIGH
+Exact dedup,5,97.0,4.619,PASS,HIGH
+Near dedup,8,96.0,7.3143,PASS,HIGH
+Accounting,4,100.0,3.8095,PASS,HIGH
+Split correctness,5,98.0,4.6667,PASS,HIGH
+Leakage prevention,8,99.0,7.5429,PASS,HIGH
+Tokenizer training correctness,7,99.0,6.6,PASS,HIGH
+Tokenizer quality,5,97.0,4.619,PASS,HIGH
+Final tokenizer freeze,4,99.0,3.7714,PASS,HIGH
+Token counting,5,99.0,4.7143,PASS,HIGH
+50M subset correctness,8,99.0,7.5429,PASS,HIGH
+Reproducibility,7,94.0,6.2667,PASS,HIGH
+Code correctness,5,92.0,4.381,PASS,HIGH
+Code cleanliness/humanization,3,89.0,2.5429,PASS,MEDIUM
+Performance/optimality,3,88.0,2.5143,PASS,MEDIUM
+Test quality,3,90.0,2.5714,PASS,HIGH
+Artifact consistency,4,99.0,3.7714,PASS,HIGH
+Report/defense readiness,3,95.0,2.7143,PASS,HIGH

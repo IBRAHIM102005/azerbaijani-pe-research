@@ -1,0 +1,57 @@
+{
+  "actual_group_proportions": {
+    "Blogs": 0.028089310018964753,
+    "Books": 0.3216622484278124,
+    "Laws": 0.16765986167608993,
+    "Native Wikipedia": 0.21445976015366092,
+    "News": 0.268128819723472
+  },
+  "actual_group_tokens": {
+    "Blogs": 1406424,
+    "Books": 16105540,
+    "Laws": 8394683,
+    "Native Wikipedia": 10737941,
+    "News": 13425136
+  },
+  "actual_source_tokens": {
+    "anl-news": 13425136,
+    "azwiki": 10737941,
+    "elite-blogs": 1406424,
+    "elite-books": 7077127,
+    "eqanun": 8394683,
+    "mediocore-books": 9028413
+  },
+  "boundary_policy": "Select full documents; downstream training stops at the exact 50M model-token boundary without changing canonical documents.",
+  "data_seed": 2026,
+  "exhausted_groups": [
+    "Blogs"
+  ],
+  "manifest_sha256": "248b4462beb043e592993e69e858f02d102d955dbab638f5509c112927e3de8d",
+  "model_seed_affects_order": false,
+  "overshoot_tokens": 69724,
+  "processed_reference_policy": "Each selected document records its frozen processed parquet path and zero-based row number.",
+  "quota_phase_group_tokens": {
+    "Blogs": 1406424,
+    "Books": 15000025,
+    "Laws": 7773173,
+    "Native Wikipedia": 10000481,
+    "News": 12503464
+  },
+  "quota_shortages": {
+    "Blogs": 3593576,
+    "Books": 0,
+    "Laws": 0,
+    "Native Wikipedia": 0,
+    "News": 0
+  },
+  "requested_group_tokens": {
+    "Blogs": 5000000,
+    "Books": 15000000,
+    "Laws": 7500000,
+    "Native Wikipedia": 10000000,
+    "News": 12500000
+  },
+  "selected_documents": 276565,
+  "selected_unique_tokens": 50069724,
+  "target_tokens": 50000000
+}
