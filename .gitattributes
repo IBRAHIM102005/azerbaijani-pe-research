@@ -5,3 +5,4 @@
 *.parquet binary
 *.png binary
 *.sqlite binary
+*.vocab binary
