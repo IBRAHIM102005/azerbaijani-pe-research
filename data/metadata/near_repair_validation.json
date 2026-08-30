@@ -1,0 +1,340 @@
+{
+  "cross_split": {
+    "canonical_text_hash": {
+      "intersections": {
+        "train_test": 0,
+        "train_validation": 0,
+        "validation_test": 0
+      },
+      "train_rows_checked": 5574885
+    },
+    "document_id": {
+      "intersections": {
+        "train_test": 0,
+        "train_validation": 0,
+        "validation_test": 0
+      },
+      "train_rows_checked": 5574885
+    },
+    "duplicate_cluster_id": {
+      "intersections": {
+        "train_test": 0,
+        "train_validation": 0,
+        "validation_test": 0
+      },
+      "train_rows_checked": 5574885
+    }
+  },
+  "database": "corpus_index_repair.sqlite",
+  "hard_gate_passed": true,
+  "manifest": {
+    "counts": {
+      "test": 309369,
+      "train": 5574885,
+      "validation": 309677
+    },
+    "processed_references": {
+      "test": {
+        "is_relative": true,
+        "resolved": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\processed\\corpus\\test.parquet",
+        "stored": "data/processed/corpus/test.parquet"
+      },
+      "train": {
+        "is_relative": true,
+        "resolved": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\processed\\corpus\\train.parquet",
+        "stored": "data/processed/corpus/train.parquet"
+      },
+      "validation": {
+        "is_relative": true,
+        "resolved": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\processed\\corpus\\validation.parquet",
+        "stored": "data/processed/corpus/validation.parquet"
+      }
+    }
+  },
+  "manifest_directory": "manifests_repair",
+  "near_graph": {
+    "accepted_edges": 86697,
+    "accepted_edges_below_threshold": 0,
+    "candidate_pairs": 6444499,
+    "clustered_documents": 28461,
+    "clusters": 13208,
+    "clusters_without_exactly_one_representative": 0,
+    "edges_crossing_components": 0,
+    "removed_documents": 15253
+  },
+  "prerepair_237_pair_regression": {
+    "outcomes": {
+      "resolved_by_removal": 237
+    },
+    "prerepair_pairs_checked": 237,
+    "unresolved_cross_split": 0,
+    "unresolved_pairs": []
+  },
+  "retained_documents": 6193931,
+  "status": "pass",
+  "transitivity": {
+    "cluster_distribution": {
+      "maximum_size": 445,
+      "size_2": 12507,
+      "size_gt_2": 701
+    },
+    "clusters": [
+      {
+        "arbitrary_pairs_evaluated": 5000,
+        "cluster_id": "5d2c028fba46987bcf30a3aae9b82404223550de90946a633db6eaef4aab3288",
+        "contains_sampled_pair_below_threshold": true,
+        "minimum_arbitrary_pair_similarity": 0.9280965531349085,
+        "minimum_representative_member_similarity": 0.9306655693858656,
+        "representative_member_pairs": 444,
+        "representative_rowid": 389348,
+        "size": 445
+      },
+      {
+        "arbitrary_pairs_evaluated": 5000,
+        "cluster_id": "dbfb085a137fb377c4d2571e3198904315a1a372c5155a9d3629ba8da328fb59",
+        "contains_sampled_pair_below_threshold": true,
+        "minimum_arbitrary_pair_similarity": 0.915494774867759,
+        "minimum_representative_member_similarity": 0.9334814427600627,
+        "representative_member_pairs": 162,
+        "representative_rowid": 393615,
+        "size": 163
+      },
+      {
+        "arbitrary_pairs_evaluated": 5000,
+        "cluster_id": "f8c569753af8f7336732ed86f82d7dd217c3b8ff74f6e7a12f279197b8d46ea3",
+        "contains_sampled_pair_below_threshold": true,
+        "minimum_arbitrary_pair_similarity": 0.9310344827586207,
+        "minimum_representative_member_similarity": 0.9481605351170569,
+        "representative_member_pairs": 107,
+        "representative_rowid": 299626,
+        "size": 108
+      },
+      {
+        "arbitrary_pairs_evaluated": 1431,
+        "cluster_id": "0c062f902aba5c12030806c53ce96298efd1a99b7c3fdfced056f67980345530",
+        "contains_sampled_pair_below_threshold": true,
+        "minimum_arbitrary_pair_similarity": 0.9226119805720453,
+        "minimum_representative_member_similarity": 0.9337546306384833,
+        "representative_member_pairs": 53,
+        "representative_rowid": 356365,
+        "size": 54
+      },
+      {
+        "arbitrary_pairs_evaluated": 325,
+        "cluster_id": "06a6a6ed6c727c04e0b7a35cf1ba823df72c7336ef76078169485f48bb335214",
+        "contains_sampled_pair_below_threshold": true,
+        "minimum_arbitrary_pair_similarity": 0.8716577540106952,
+        "minimum_representative_member_similarity": 0.8945945945945946,
+        "representative_member_pairs": 25,
+        "representative_rowid": 2470062,
+        "size": 26
+      },
+      {
+        "arbitrary_pairs_evaluated": 325,
+        "cluster_id": "89f6760e94fcd8f171e588bd0ec3e87e81d0b89e773cf5935392c365748d449b",
+        "contains_sampled_pair_below_threshold": true,
+        "minimum_arbitrary_pair_similarity": 0.939797428018664,
+        "minimum_representative_member_similarity": 0.9482442047280238,
+        "representative_member_pairs": 25,
+        "representative_rowid": 382944,
+        "size": 26
+      },
+      {
+        "arbitrary_pairs_evaluated": 231,
+        "cluster_id": "f756fdb4b81fab8d4954088f1b76416ff54648f8d5ac6ae663a6cb6a36eab6d5",
+        "contains_sampled_pair_below_threshold": true,
+        "minimum_arbitrary_pair_similarity": 0.9221411192214112,
+        "minimum_representative_member_similarity": 0.9266503667481663,
+        "representative_member_pairs": 21,
+        "representative_rowid": 2069548,
+        "size": 22
+      },
+      {
+        "arbitrary_pairs_evaluated": 210,
+        "cluster_id": "de88b28cdce4afdd6582b3c5e54cbe53426be72590c29eecc23bea7cc3c2b02f",
+        "contains_sampled_pair_below_threshold": true,
+        "minimum_arbitrary_pair_similarity": 0.925601750547046,
+        "minimum_representative_member_similarity": 0.9296703296703297,
+        "representative_member_pairs": 20,
+        "representative_rowid": 2542607,
+        "size": 21
+      },
+      {
+        "arbitrary_pairs_evaluated": 190,
+        "cluster_id": "f36265cb49f3ae06f17161f1368e263dfebc303afda3c94593584f79f0ff718e",
+        "contains_sampled_pair_below_threshold": true,
+        "minimum_arbitrary_pair_similarity": 0.9014492753623189,
+        "minimum_representative_member_similarity": 0.9014492753623189,
+        "representative_member_pairs": 19,
+        "representative_rowid": 1057836,
+        "size": 20
+      },
+      {
+        "arbitrary_pairs_evaluated": 153,
+        "cluster_id": "8bd310ac4e8ac965763f6a784536b64804be62c9b1b693642e6f111267ceb2c3",
+        "contains_sampled_pair_below_threshold": true,
+        "minimum_arbitrary_pair_similarity": 0.8672086720867209,
+        "minimum_representative_member_similarity": 0.8672086720867209,
+        "representative_member_pairs": 17,
+        "representative_rowid": 83469,
+        "size": 18
+      },
+      {
+        "arbitrary_pairs_evaluated": 136,
+        "cluster_id": "06b56425aadcd74cfce6e7658d5302c851c2bb7dfac8930e5edffc39008dbd59",
+        "contains_sampled_pair_below_threshold": true,
+        "minimum_arbitrary_pair_similarity": 0.8199233716475096,
+        "minimum_representative_member_similarity": 0.8582677165354331,
+        "representative_member_pairs": 16,
+        "representative_rowid": 445642,
+        "size": 17
+      },
+      {
+        "arbitrary_pairs_evaluated": 105,
+        "cluster_id": "88ec009a57900114041f21e155dd16c4c77d8ef3e58056236562f95cd5f1578e",
+        "contains_sampled_pair_below_threshold": true,
+        "minimum_arbitrary_pair_similarity": 0.8706563706563707,
+        "minimum_representative_member_similarity": 0.908183632734531,
+        "representative_member_pairs": 14,
+        "representative_rowid": 87243,
+        "size": 15
+      },
+      {
+        "arbitrary_pairs_evaluated": 105,
+        "cluster_id": "94d13800e500d9f00ebd7b876920556bddbc21fe94f74c8f7752e9810d479262",
+        "contains_sampled_pair_below_threshold": true,
+        "minimum_arbitrary_pair_similarity": 0.9317269076305221,
+        "minimum_representative_member_similarity": 0.9456692913385827,
+        "representative_member_pairs": 14,
+        "representative_rowid": 20263,
+        "size": 15
+      },
+      {
+        "arbitrary_pairs_evaluated": 105,
+        "cluster_id": "ee433301fbb58736e0fb2b0e775e2b519db9acd906fb2782d3deb2e2276ffd77",
+        "contains_sampled_pair_below_threshold": true,
+        "minimum_arbitrary_pair_similarity": 0.883629191321499,
+        "minimum_representative_member_similarity": 0.8930693069306931,
+        "representative_member_pairs": 14,
+        "representative_rowid": 87561,
+        "size": 15
+      },
+      {
+        "arbitrary_pairs_evaluated": 91,
+        "cluster_id": "324130b19c569bd2dc2ca2fed6acc5cbe10cc4754a1ab7e3ebda5f446942d7c7",
+        "contains_sampled_pair_below_threshold": true,
+        "minimum_arbitrary_pair_similarity": 0.9319727891156463,
+        "minimum_representative_member_similarity": 0.949740034662045,
+        "representative_member_pairs": 13,
+        "representative_rowid": 316289,
+        "size": 14
+      },
+      {
+        "arbitrary_pairs_evaluated": 91,
+        "cluster_id": "4d273dc22488b5cfa553777760d123758189a0655daf02f97c52481b084d63e0",
+        "contains_sampled_pair_below_threshold": true,
+        "minimum_arbitrary_pair_similarity": 0.8854166666666666,
+        "minimum_representative_member_similarity": 0.8943661971830986,
+        "representative_member_pairs": 13,
+        "representative_rowid": 1739867,
+        "size": 14
+      },
+      {
+        "arbitrary_pairs_evaluated": 78,
+        "cluster_id": "47a3a266f3687faf5ca97cd4fb20205bb8546ba3f7222b56b62ec4ddc7486769",
+        "contains_sampled_pair_below_threshold": true,
+        "minimum_arbitrary_pair_similarity": 0.8991696322657177,
+        "minimum_representative_member_similarity": 0.9256594724220624,
+        "representative_member_pairs": 12,
+        "representative_rowid": 402082,
+        "size": 13
+      },
+      {
+        "arbitrary_pairs_evaluated": 78,
+        "cluster_id": "52500da74571fb55221fe0ad4ae752290a65cb46f5017d52e1367f16678d1899",
+        "contains_sampled_pair_below_threshold": false,
+        "minimum_arbitrary_pair_similarity": 0.9529411764705882,
+        "minimum_representative_member_similarity": 0.9529411764705882,
+        "representative_member_pairs": 12,
+        "representative_rowid": 4648196,
+        "size": 13
+      },
+      {
+        "arbitrary_pairs_evaluated": 66,
+        "cluster_id": "0dfc6cbe67472c179d2c803f760a84113feb37501387f33b16c6fc8a98f99971",
+        "contains_sampled_pair_below_threshold": true,
+        "minimum_arbitrary_pair_similarity": 0.8927536231884058,
+        "minimum_representative_member_similarity": 0.9067055393586005,
+        "representative_member_pairs": 11,
+        "representative_rowid": 4753253,
+        "size": 12
+      },
+      {
+        "arbitrary_pairs_evaluated": 66,
+        "cluster_id": "3c6b1fb29399d1b12b8f6159051340ba4cca21fa8255e8ee6cf1658bf976edd9",
+        "contains_sampled_pair_below_threshold": true,
+        "minimum_arbitrary_pair_similarity": 0.8934010152284264,
+        "minimum_representative_member_similarity": 0.9081632653061225,
+        "representative_member_pairs": 11,
+        "representative_rowid": 2728847,
+        "size": 12
+      },
+      {
+        "arbitrary_pairs_evaluated": 66,
+        "cluster_id": "ac93db94c3fe347ffc271060eca1b0f89757aa5556f919e8e2f4c73ce45c9a95",
+        "contains_sampled_pair_below_threshold": true,
+        "minimum_arbitrary_pair_similarity": 0.8626609442060086,
+        "minimum_representative_member_similarity": 0.9070796460176991,
+        "representative_member_pairs": 11,
+        "representative_rowid": 420440,
+        "size": 12
+      },
+      {
+        "arbitrary_pairs_evaluated": 66,
+        "cluster_id": "df0fa4b1835aa785689a0788b69111287c28dd1b4ba80e32c3918eede45ff267",
+        "contains_sampled_pair_below_threshold": true,
+        "minimum_arbitrary_pair_similarity": 0.9176470588235294,
+        "minimum_representative_member_similarity": 0.9285714285714286,
+        "representative_member_pairs": 11,
+        "representative_rowid": 3798141,
+        "size": 12
+      },
+      {
+        "arbitrary_pairs_evaluated": 55,
+        "cluster_id": "55f4b22b11949d2897b17b761b98d07e0dded082f92333dd546ae1d6239bbff9",
+        "contains_sampled_pair_below_threshold": true,
+        "minimum_arbitrary_pair_similarity": 0.8813953488372093,
+        "minimum_representative_member_similarity": 0.9097387173396675,
+        "representative_member_pairs": 10,
+        "representative_rowid": 410024,
+        "size": 11
+      },
+      {
+        "arbitrary_pairs_evaluated": 55,
+        "cluster_id": "7995806fa2432bffe77a1c7620dd3940afce51d2e3439c7f747c6c145a4a13c5",
+        "contains_sampled_pair_below_threshold": true,
+        "minimum_arbitrary_pair_similarity": 0.861003861003861,
+        "minimum_representative_member_similarity": 0.861003861003861,
+        "representative_member_pairs": 10,
+        "representative_rowid": 5179313,
+        "size": 11
+      },
+      {
+        "arbitrary_pairs_evaluated": 36,
+        "cluster_id": "433bec981d94e6c49b5a64e4aadc61614a81596b00a9e8d55969c1891f13711c",
+        "contains_sampled_pair_below_threshold": true,
+        "minimum_arbitrary_pair_similarity": 0.9415584415584416,
+        "minimum_representative_member_similarity": 0.9415584415584416,
+        "representative_member_pairs": 8,
+        "representative_rowid": 294328,
+        "size": 9
+      }
+    ],
+    "minimum_arbitrary_endpoint_similarity": 0.8199233716475096,
+    "minimum_representative_member_similarity": 0.8582677165354331,
+    "sample_policy": "The 25 largest clusters above size two; all representative-member pairs and up to 5,000 rowid-ordered endpoint pairs per cluster.",
+    "sampled_clusters": 25,
+    "sampled_clusters_with_endpoint_below_threshold": 24,
+    "semantics": "Every accepted graph edge is direct Jaccard >= 0.95. Clusters are connected components, so transitive members are not required to be pairwise >= 0.95."
+  }
+}

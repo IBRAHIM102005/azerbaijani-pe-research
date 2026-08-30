@@ -1,0 +1,195 @@
+{
+  "candidate_generation": {
+    "band_hashes": {
+      "band-00.bin": "71fae35ec475452f86ca618273fef55fe8e0f4a79147a94c05947db9a934b4e0",
+      "band-01.bin": "0fee9629bee7312c76f9a1a049fab231419dc061aaa0ebe8b4c1efcc19e0595a",
+      "band-02.bin": "109e5a356f15d6eed0155b8913728418340dc859a6d06a2a20a136b70558eace",
+      "band-03.bin": "b38c45d6a6fd13d819f508911586b4b04bd64decee86884c577e3e58225aeb67",
+      "band-04.bin": "875a3cd3d72e7766a86a6fa21865ae92ea8e646955e4e0ad9ac92b14a0fab513",
+      "band-05.bin": "32ac7b500014bd9d8fba20b638e8ebb8d9ba558e34bc1134dbffbf673e9f6cb8",
+      "band-06.bin": "35141b40d85a19cf3b94cd5f08036799f5f9f4f7bfe82a78a8f92016cc86ae78",
+      "band-07.bin": "7e4768347f5992a817d5d63d1cf233f332174c6b77db30c7d799153f513907af"
+    },
+    "complete": 728772,
+    "maximum_observed_bucket_size": 940,
+    "maximum_supported_bucket_size": 10000,
+    "pair_insert_attempts": 8792441,
+    "skipped": 0,
+    "star": 0,
+    "strategy": "complete_bucket_pairs",
+    "strategy_hash": "c61e97a10bbd556689a1f205c4f684b965925d10146bcaad10d154484df59c85",
+    "strategy_version": 2,
+    "total_colliding": 728772,
+    "unique_candidate_pairs": 6444499
+  },
+  "config_canonical_sha256": "22ddc7efb636811327ad236dbc94dec64af296eb4abcd84131c211eec4ef8378",
+  "manifest_hashes": {
+    "data/manifests_repair/test.parquet": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+    "data/manifests_repair/train.parquet": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+    "data/manifests_repair/validation.parquet": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+  },
+  "near_duplicates": {
+    "accepted_edges": 86697,
+    "candidate_pairs_checked": 6444499,
+    "clustered_documents": 28461,
+    "clusters": 13208,
+    "removed_documents": 15253,
+    "resumed": true,
+    "verification_hash": "0e33974ddb442c6e2d312df60a6b474caa8edd6dcac4aaed6e0b427665383457"
+  },
+  "promotion_status": "not_promoted_pending_independent_validation",
+  "repair_version": "near-repair-v2",
+  "runtime_seconds": 1161.436,
+  "split_summary": {
+    "splits": {
+      "test": {
+        "approximate_words": 18047574,
+        "characters": 141985288,
+        "documents": 309369,
+        "sources": {
+          "anl-news": {
+            "approximate_words": 7284134,
+            "characters": 58521670,
+            "documents": 11081
+          },
+          "azwiki": {
+            "approximate_words": 2221423,
+            "characters": 16910383,
+            "documents": 6632
+          },
+          "elite-blogs": {
+            "approximate_words": 36472,
+            "characters": 270280,
+            "documents": 37
+          },
+          "elite-books": {
+            "approximate_words": 112347,
+            "characters": 838056,
+            "documents": 5
+          },
+          "eqanun": {
+            "approximate_words": 2416949,
+            "characters": 18732132,
+            "documents": 2548
+          },
+          "mediocore-books": {
+            "approximate_words": 5976249,
+            "characters": 46712767,
+            "documents": 289066
+          }
+        }
+      },
+      "train": {
+        "approximate_words": 320699217,
+        "characters": 2527044291,
+        "documents": 5574885,
+        "sources": {
+          "anl-news": {
+            "approximate_words": 134831944,
+            "characters": 1083256257,
+            "documents": 199587
+          },
+          "azwiki": {
+            "approximate_words": 36564575,
+            "characters": 278401834,
+            "documents": 116025
+          },
+          "elite-blogs": {
+            "approximate_words": 803170,
+            "characters": 5763161,
+            "documents": 665
+          },
+          "elite-books": {
+            "approximate_words": 3855669,
+            "characters": 27565978,
+            "documents": 85
+          },
+          "eqanun": {
+            "approximate_words": 36807409,
+            "characters": 289186960,
+            "documents": 44789
+          },
+          "mediocore-books": {
+            "approximate_words": 107836450,
+            "characters": 842870101,
+            "documents": 5213734
+          }
+        }
+      },
+      "validation": {
+        "approximate_words": 17837407,
+        "characters": 140394492,
+        "documents": 309677,
+        "sources": {
+          "anl-news": {
+            "approximate_words": 7581202,
+            "characters": 60876324,
+            "documents": 11217
+          },
+          "azwiki": {
+            "approximate_words": 2078046,
+            "characters": 15827868,
+            "documents": 6506
+          },
+          "elite-blogs": {
+            "approximate_words": 33702,
+            "characters": 234205,
+            "documents": 33
+          },
+          "elite-books": {
+            "approximate_words": 367496,
+            "characters": 2512198,
+            "documents": 7
+          },
+          "eqanun": {
+            "approximate_words": 1802026,
+            "characters": 14253205,
+            "documents": 2471
+          },
+          "mediocore-books": {
+            "approximate_words": 5974935,
+            "characters": 46690692,
+            "documents": 289443
+          }
+        }
+      }
+    }
+  },
+  "stage_states": {
+    "near_candidates": {
+      "config_hash": "c61e97a10bbd556689a1f205c4f684b965925d10146bcaad10d154484df59c85",
+      "status": "complete",
+      "version": "2"
+    },
+    "near_clusters": {
+      "config_hash": "connected-components-v1",
+      "status": "complete",
+      "version": "2"
+    },
+    "near_verification": {
+      "config_hash": "0e33974ddb442c6e2d312df60a6b474caa8edd6dcac4aaed6e0b427665383457",
+      "status": "complete",
+      "version": "2"
+    }
+  },
+  "staging_database": "corpus_index_repair.sqlite",
+  "upstream": {
+    "band_hashes": {
+      "band-00.bin": "71fae35ec475452f86ca618273fef55fe8e0f4a79147a94c05947db9a934b4e0",
+      "band-01.bin": "0fee9629bee7312c76f9a1a049fab231419dc061aaa0ebe8b4c1efcc19e0595a",
+      "band-02.bin": "109e5a356f15d6eed0155b8913728418340dc859a6d06a2a20a136b70558eace",
+      "band-03.bin": "b38c45d6a6fd13d819f508911586b4b04bd64decee86884c577e3e58225aeb67",
+      "band-04.bin": "875a3cd3d72e7766a86a6fa21865ae92ea8e646955e4e0ad9ac92b14a0fab513",
+      "band-05.bin": "32ac7b500014bd9d8fba20b638e8ebb8d9ba558e34bc1134dbffbf673e9f6cb8",
+      "band-06.bin": "35141b40d85a19cf3b94cd5f08036799f5f9f4f7bfe82a78a8f92016cc86ae78",
+      "band-07.bin": "7e4768347f5992a817d5d63d1cf233f332174c6b77db30c7d799153f513907af"
+    },
+    "database_quick_check": "ok",
+    "expected_band_bytes": 149020416,
+    "table_counts": {
+      "documents": 6209184,
+      "exact_removed": 144480,
+      "removals": 1873990
+    }
+  }
+}

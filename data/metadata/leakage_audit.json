@@ -1,0 +1,1034 @@
+{
+  "created_at_utc": "2026-08-28T09:51:29.049384+00:00",
+  "final_status": "pass",
+  "former_237_pairs_unresolved": 0,
+  "layers": {
+    "downstream_train_only_and_sequence_replay": {
+      "portability": {
+        "sampled_subset_references": 100,
+        "simulated_repository_root": "C:/Research/azerbaijani-positional-encoding",
+        "status": "pass"
+      },
+      "status": "pass",
+      "token_counts": {
+        "documents": 6193931,
+        "sha256": "b3e2bbb324caef8d608cabb3dc8445387c8268e9fb3ea49f7d3ffee397482d8c"
+      },
+      "tokenizer_training": {
+        "candidate_checks": {
+          "16000": {
+            "model_sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+            "training_corpus_sha256": "da0ff4b8209ab40e98afc96c71584a15defbd962d2f50e9b4f5ebc4e0a65a1d1",
+            "unknown_rate_denominator_token_count": 9701653,
+            "unknown_token_count": 1,
+            "vocab_size": 16000
+          },
+          "32000": {
+            "model_sha256": "6cb625cdbb620ebc5e851da793edac26eea12c433a34c765616a22d5857a82fc",
+            "training_corpus_sha256": "da0ff4b8209ab40e98afc96c71584a15defbd962d2f50e9b4f5ebc4e0a65a1d1",
+            "unknown_rate_denominator_token_count": 8741364,
+            "unknown_token_count": 1,
+            "vocab_size": 32000
+          },
+          "8000": {
+            "model_sha256": "52b4dd1fc9c0ae017bba13fd41aa020b05409356a397d840ca699b47428e4bbe",
+            "training_corpus_sha256": "da0ff4b8209ab40e98afc96c71584a15defbd962d2f50e9b4f5ebc4e0a65a1d1",
+            "unknown_rate_denominator_token_count": 11132227,
+            "unknown_token_count": 1,
+            "vocab_size": 8000
+          }
+        },
+        "documents": 1000000,
+        "matches_first_repaired_train_documents": true,
+        "split": "train",
+        "training_corpus_sha256": "da0ff4b8209ab40e98afc96c71584a15defbd962d2f50e9b4f5ebc4e0a65a1d1",
+        "training_sample_manifest_sha256": "937db7d8af5a744e55187d693129f5acc322f48066a432e1b6d887d97a525122"
+      },
+      "training_subset": {
+        "documents": 277027,
+        "duplicates": 0,
+        "exact_boundary_replayed": {
+          "cumulative_tokens_before_document": 49995815,
+          "document_id": "db05beef4e2c5dec4bf978a78afd788f579429852afea925852f7122b7608c36",
+          "eod_consumed": false,
+          "full_document_tokens_including_eod": 6799,
+          "sampling_order_zero_based": 276625,
+          "tokens_consumed_from_document": 4185
+        },
+        "ids_and_order_match_independent_replay": true,
+        "manifest_sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48",
+        "tokens": 50062887,
+        "train_only": true
+      }
+    },
+    "independent_all_large_bucket_audit": {
+      "audit": {
+        "accepted_edge_pairs": 321263,
+        "bucket_results": [
+          {
+            "band": 0,
+            "candidates": 7,
+            "edges": 7,
+            "eligible": 7,
+            "key": "184e2dc43b387785d238beecc47533ad",
+            "pairs": 52003,
+            "size": 323,
+            "true": 7
+          },
+          {
+            "band": 0,
+            "candidates": 6,
+            "edges": 6,
+            "eligible": 6,
+            "key": "2b8bba57b6baadb4ff16d7205dc16476",
+            "pairs": 43365,
+            "size": 295,
+            "true": 6
+          },
+          {
+            "band": 0,
+            "candidates": 2,
+            "edges": 2,
+            "eligible": 2,
+            "key": "2ef9eb75ecb83bdaa3b56c746370ef9c",
+            "pairs": 34191,
+            "size": 262,
+            "true": 2
+          },
+          {
+            "band": 0,
+            "candidates": 0,
+            "edges": 0,
+            "eligible": 0,
+            "key": "561924d6807315d268750db19531fa85",
+            "pairs": 27028,
+            "size": 233,
+            "true": 0
+          },
+          {
+            "band": 0,
+            "candidates": 24,
+            "edges": 24,
+            "eligible": 24,
+            "key": "5b1c101ffdb71e4ff74ef52f6ae562e7",
+            "pairs": 22791,
+            "size": 214,
+            "true": 24
+          },
+          {
+            "band": 0,
+            "candidates": 3,
+            "edges": 3,
+            "eligible": 3,
+            "key": "741ba4b0a7832a342a1f42301818c663",
+            "pairs": 27495,
+            "size": 235,
+            "true": 3
+          },
+          {
+            "band": 0,
+            "candidates": 1,
+            "edges": 1,
+            "eligible": 1,
+            "key": "7ee379e2c3f455347e2a7c8143f832b5",
+            "pairs": 25651,
+            "size": 227,
+            "true": 1
+          },
+          {
+            "band": 0,
+            "candidates": 2,
+            "edges": 2,
+            "eligible": 2,
+            "key": "992f94d47d783905c3884e2bb1525c86",
+            "pairs": 42195,
+            "size": 291,
+            "true": 2
+          },
+          {
+            "band": 0,
+            "candidates": 32,
+            "edges": 32,
+            "eligible": 32,
+            "key": "9a1c9e1d24c53102e6dc8ab1e1e17562",
+            "pairs": 30381,
+            "size": 247,
+            "true": 32
+          },
+          {
+            "band": 0,
+            "candidates": 1,
+            "edges": 1,
+            "eligible": 1,
+            "key": "b81ad4566fa80038d493b8c59b359e77",
+            "pairs": 23871,
+            "size": 219,
+            "true": 1
+          },
+          {
+            "band": 0,
+            "candidates": 10,
+            "edges": 10,
+            "eligible": 10,
+            "key": "da258959696a9d7ae4f6f71a42d8e073",
+            "pairs": 441330,
+            "size": 940,
+            "true": 10
+          },
+          {
+            "band": 0,
+            "candidates": 0,
+            "edges": 0,
+            "eligible": 0,
+            "key": "e890475787e89b7cf852dfd71780864e",
+            "pairs": 78606,
+            "size": 397,
+            "true": 0
+          },
+          {
+            "band": 0,
+            "candidates": 54813,
+            "edges": 54813,
+            "eligible": 54813,
+            "key": "e949fc2dab3504e39c192606227322e3",
+            "pairs": 152076,
+            "size": 552,
+            "true": 54813
+          },
+          {
+            "band": 0,
+            "candidates": 60,
+            "edges": 60,
+            "eligible": 60,
+            "key": "e9f928c4cab68032c38ba74b30d00598",
+            "pairs": 318801,
+            "size": 799,
+            "true": 60
+          },
+          {
+            "band": 1,
+            "candidates": 31,
+            "edges": 31,
+            "eligible": 31,
+            "key": "4a8d519eac36897ced0df8843db6d424",
+            "pairs": 193753,
+            "size": 623,
+            "true": 32
+          },
+          {
+            "band": 1,
+            "candidates": 48250,
+            "edges": 48250,
+            "eligible": 48250,
+            "key": "8178a6b3fcefda4cb0bd90577aa54ae0",
+            "pairs": 115921,
+            "size": 482,
+            "true": 48250
+          },
+          {
+            "band": 1,
+            "candidates": 0,
+            "edges": 0,
+            "eligible": 0,
+            "key": "84211846ae40dea2aeb0e7ec721c1270",
+            "pairs": 79003,
+            "size": 398,
+            "true": 0
+          },
+          {
+            "band": 1,
+            "candidates": 79,
+            "edges": 79,
+            "eligible": 79,
+            "key": "8441f4daac29fe74da35b5f30d4c32f5",
+            "pairs": 52975,
+            "size": 326,
+            "true": 80
+          },
+          {
+            "band": 1,
+            "candidates": 0,
+            "edges": 0,
+            "eligible": 0,
+            "key": "a0abce129ade06cef525a2a849b49528",
+            "pairs": 27028,
+            "size": 233,
+            "true": 0
+          },
+          {
+            "band": 1,
+            "candidates": 1,
+            "edges": 1,
+            "eligible": 1,
+            "key": "cc869c363ce8dfeb4ffe4666581b490b",
+            "pairs": 52650,
+            "size": 325,
+            "true": 1
+          },
+          {
+            "band": 1,
+            "candidates": 1,
+            "edges": 1,
+            "eligible": 1,
+            "key": "d7d71dc6cbdd3643946e40c7bda35e84",
+            "pairs": 21945,
+            "size": 210,
+            "true": 1
+          },
+          {
+            "band": 1,
+            "candidates": 1,
+            "edges": 1,
+            "eligible": 1,
+            "key": "ea83c4e028f9d13d985a54fc1c9caab4",
+            "pairs": 26335,
+            "size": 230,
+            "true": 1
+          },
+          {
+            "band": 1,
+            "candidates": 54,
+            "edges": 54,
+            "eligible": 54,
+            "key": "f50ce12d7eda943ef1e4b584d5f10ef7",
+            "pairs": 77028,
+            "size": 393,
+            "true": 54
+          },
+          {
+            "band": 2,
+            "candidates": 47693,
+            "edges": 47693,
+            "eligible": 47693,
+            "key": "16ff81de41dfd91144f8a80549f5c0b0",
+            "pairs": 90525,
+            "size": 426,
+            "true": 47693
+          },
+          {
+            "band": 2,
+            "candidates": 0,
+            "edges": 0,
+            "eligible": 0,
+            "key": "1dd063503a954ecfbda6c646d4bcb943",
+            "pairs": 20503,
+            "size": 203,
+            "true": 0
+          },
+          {
+            "band": 2,
+            "candidates": 1,
+            "edges": 1,
+            "eligible": 1,
+            "key": "28d1727636e2de0f52b81ab45b71567a",
+            "pairs": 27028,
+            "size": 233,
+            "true": 1
+          },
+          {
+            "band": 2,
+            "candidates": 11,
+            "edges": 11,
+            "eligible": 11,
+            "key": "4a8d519eac36897ced0df8843db6d424",
+            "pairs": 82621,
+            "size": 407,
+            "true": 11
+          },
+          {
+            "band": 2,
+            "candidates": 18,
+            "edges": 18,
+            "eligible": 18,
+            "key": "7feb7305c101a56a542a798d624d592b",
+            "pairs": 29161,
+            "size": 242,
+            "true": 18
+          },
+          {
+            "band": 2,
+            "candidates": 0,
+            "edges": 0,
+            "eligible": 0,
+            "key": "80d86feef55a5618676fe20ef944afa0",
+            "pairs": 29646,
+            "size": 244,
+            "true": 0
+          },
+          {
+            "band": 2,
+            "candidates": 2,
+            "edges": 2,
+            "eligible": 2,
+            "key": "94f50db1a347d6b696b167de99d3f217",
+            "pairs": 33153,
+            "size": 258,
+            "true": 2
+          },
+          {
+            "band": 2,
+            "candidates": 46,
+            "edges": 46,
+            "eligible": 46,
+            "key": "9665bcfb07f3d437b907c26f72776137",
+            "pairs": 71253,
+            "size": 378,
+            "true": 46
+          },
+          {
+            "band": 2,
+            "candidates": 0,
+            "edges": 0,
+            "eligible": 0,
+            "key": "9bb1120d39fc12533a37b8403e1a6888",
+            "pairs": 20100,
+            "size": 201,
+            "true": 0
+          },
+          {
+            "band": 2,
+            "candidates": 3,
+            "edges": 3,
+            "eligible": 3,
+            "key": "cc869c363ce8dfeb4ffe4666581b490b",
+            "pairs": 38226,
+            "size": 277,
+            "true": 3
+          },
+          {
+            "band": 2,
+            "candidates": 17,
+            "edges": 17,
+            "eligible": 17,
+            "key": "fb93196941b31918057bd9cc6533a20e",
+            "pairs": 35778,
+            "size": 268,
+            "true": 17
+          },
+          {
+            "band": 3,
+            "candidates": 1,
+            "edges": 1,
+            "eligible": 1,
+            "key": "526c5ba3c63b2fd8446bea480bf9b9db",
+            "pairs": 25651,
+            "size": 227,
+            "true": 1
+          },
+          {
+            "band": 3,
+            "candidates": 41018,
+            "edges": 41018,
+            "eligible": 41018,
+            "key": "c89a1d920258bbab5049db4e9bb91eb4",
+            "pairs": 78210,
+            "size": 396,
+            "true": 41018
+          },
+          {
+            "band": 3,
+            "candidates": 26,
+            "edges": 26,
+            "eligible": 26,
+            "key": "de16495c872e92fa27a215a05da671d5",
+            "pairs": 44551,
+            "size": 299,
+            "true": 26
+          },
+          {
+            "band": 3,
+            "candidates": 8,
+            "edges": 8,
+            "eligible": 8,
+            "key": "e9c0e3b254bec5650b54d1e74fe4ef8d",
+            "pairs": 24976,
+            "size": 224,
+            "true": 8
+          },
+          {
+            "band": 4,
+            "candidates": 12,
+            "edges": 12,
+            "eligible": 12,
+            "key": "935d8883e5e064cedd2f0323ed488d6e",
+            "pairs": 21321,
+            "size": 207,
+            "true": 13
+          },
+          {
+            "band": 4,
+            "candidates": 12,
+            "edges": 12,
+            "eligible": 12,
+            "key": "ad5b74b4d811eb021419dbe386a7d285",
+            "pairs": 28680,
+            "size": 240,
+            "true": 12
+          },
+          {
+            "band": 4,
+            "candidates": 37616,
+            "edges": 37616,
+            "eligible": 37616,
+            "key": "d678754d133db5692d80dc579314e1e4",
+            "pairs": 72390,
+            "size": 381,
+            "true": 37616
+          },
+          {
+            "band": 5,
+            "candidates": 28,
+            "edges": 28,
+            "eligible": 28,
+            "key": "5ed32f88a5eb4caf9568d42235060170",
+            "pairs": 42486,
+            "size": 292,
+            "true": 28
+          },
+          {
+            "band": 5,
+            "candidates": 16,
+            "edges": 16,
+            "eligible": 16,
+            "key": "7572c393f2a7b8b8247990ba36b4db92",
+            "pairs": 24753,
+            "size": 223,
+            "true": 16
+          },
+          {
+            "band": 5,
+            "candidates": 33662,
+            "edges": 33662,
+            "eligible": 33662,
+            "key": "7bf3e8d7033e3a7adcfd65f4e5ade9c3",
+            "pairs": 65341,
+            "size": 362,
+            "true": 33662
+          },
+          {
+            "band": 5,
+            "candidates": 15,
+            "edges": 15,
+            "eligible": 15,
+            "key": "935d8883e5e064cedd2f0323ed488d6e",
+            "pairs": 58653,
+            "size": 343,
+            "true": 15
+          },
+          {
+            "band": 5,
+            "candidates": 19,
+            "edges": 19,
+            "eligible": 19,
+            "key": "a7093008bfb95f23741c7e69dd4aa027",
+            "pairs": 42486,
+            "size": 292,
+            "true": 19
+          },
+          {
+            "band": 5,
+            "candidates": 37,
+            "edges": 37,
+            "eligible": 37,
+            "key": "fa6edccecd257987d0d4adbe94bfdd2d",
+            "pairs": 55945,
+            "size": 335,
+            "true": 37
+          },
+          {
+            "band": 6,
+            "candidates": 9,
+            "edges": 9,
+            "eligible": 9,
+            "key": "5ed32f88a5eb4caf9568d42235060170",
+            "pairs": 51040,
+            "size": 320,
+            "true": 9
+          },
+          {
+            "band": 6,
+            "candidates": 22,
+            "edges": 22,
+            "eligible": 22,
+            "key": "6970bcbd6ad26a5a258e39455a2ae661",
+            "pairs": 29890,
+            "size": 245,
+            "true": 22
+          },
+          {
+            "band": 6,
+            "candidates": 28703,
+            "edges": 28703,
+            "eligible": 28703,
+            "key": "d84dd398a56081a44db2e0c859e7b829",
+            "pairs": 61776,
+            "size": 352,
+            "true": 28703
+          },
+          {
+            "band": 6,
+            "candidates": 31,
+            "edges": 31,
+            "eligible": 31,
+            "key": "dea751712317a265ce904a66b9709bdc",
+            "pairs": 27966,
+            "size": 237,
+            "true": 31
+          },
+          {
+            "band": 6,
+            "candidates": 23,
+            "edges": 23,
+            "eligible": 23,
+            "key": "e7c509a43631d3d1b81a6adc660f0aeb",
+            "pairs": 49455,
+            "size": 315,
+            "true": 23
+          },
+          {
+            "band": 6,
+            "candidates": 30,
+            "edges": 30,
+            "eligible": 30,
+            "key": "fa6edccecd257987d0d4adbe94bfdd2d",
+            "pairs": 48205,
+            "size": 311,
+            "true": 30
+          },
+          {
+            "band": 7,
+            "candidates": 10,
+            "edges": 10,
+            "eligible": 10,
+            "key": "03dc785cc11226665693ab64982b1ef0",
+            "pairs": 20301,
+            "size": 202,
+            "true": 11
+          },
+          {
+            "band": 7,
+            "candidates": 49,
+            "edges": 49,
+            "eligible": 49,
+            "key": "184527a8765c3e2ae26049a87e3fe1e7",
+            "pairs": 23220,
+            "size": 216,
+            "true": 49
+          },
+          {
+            "band": 7,
+            "candidates": 13,
+            "edges": 13,
+            "eligible": 13,
+            "key": "3489df90a0424ba294edb98308408d93",
+            "pairs": 36046,
+            "size": 269,
+            "true": 13
+          },
+          {
+            "band": 7,
+            "candidates": 21,
+            "edges": 21,
+            "eligible": 21,
+            "key": "dea751712317a265ce904a66b9709bdc",
+            "pairs": 29890,
+            "size": 245,
+            "true": 21
+          },
+          {
+            "band": 7,
+            "candidates": 28707,
+            "edges": 28707,
+            "eligible": 28707,
+            "key": "ee60fa1948ea8892b2d2926f64e83f04",
+            "pairs": 61776,
+            "size": 352,
+            "true": 28707
+          },
+          {
+            "band": 7,
+            "candidates": 6,
+            "edges": 6,
+            "eligible": 6,
+            "key": "fe8721d4e3d364703338a52ac4912f8a",
+            "pairs": 33930,
+            "size": 261,
+            "true": 6
+          }
+        ],
+        "candidate_true_pairs": 321263,
+        "confirmed_pair_preview": [],
+        "cross_split_retained_representative_pairs": 0,
+        "elapsed_seconds": 4104.349,
+        "eligible_true_pairs": 321263,
+        "measured_candidate_recall": 1.0,
+        "pair_opportunities": 3503354,
+        "true_jaccard_pairs": 321267
+      },
+      "bucket_scan": {
+        "bucket_distribution": {
+          "11-50": 6713,
+          "2-10": 721417,
+          "201-400": 52,
+          "401-700": 5,
+          "51-200": 583,
+          "701-1000": 2
+        },
+        "colliding_bucket_events": 728772,
+        "large_bucket_events": 59,
+        "maximum_bucket_size": 940
+      },
+      "database": "corpus_index_repair.sqlite",
+      "scope": "all-large",
+      "shingle_size": 5,
+      "threshold": 0.95
+    },
+    "internal_manifest_and_graph": {
+      "cross_split": {
+        "canonical_text_hash": {
+          "intersections": {
+            "train_test": 0,
+            "train_validation": 0,
+            "validation_test": 0
+          },
+          "train_rows_checked": 5574885
+        },
+        "document_id": {
+          "intersections": {
+            "train_test": 0,
+            "train_validation": 0,
+            "validation_test": 0
+          },
+          "train_rows_checked": 5574885
+        },
+        "duplicate_cluster_id": {
+          "intersections": {
+            "train_test": 0,
+            "train_validation": 0,
+            "validation_test": 0
+          },
+          "train_rows_checked": 5574885
+        }
+      },
+      "database": "corpus_index_repair.sqlite",
+      "hard_gate_passed": true,
+      "manifest": {
+        "counts": {
+          "test": 309369,
+          "train": 5574885,
+          "validation": 309677
+        },
+        "processed_references": {
+          "test": {
+            "is_relative": true,
+            "resolved": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\processed\\corpus\\test.parquet",
+            "stored": "data/processed/corpus/test.parquet"
+          },
+          "train": {
+            "is_relative": true,
+            "resolved": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\processed\\corpus\\train.parquet",
+            "stored": "data/processed/corpus/train.parquet"
+          },
+          "validation": {
+            "is_relative": true,
+            "resolved": "C:\\Users\\User\\OneDrive\\Desktop\\azerbaijani-positional-encoding\\data\\processed\\corpus\\validation.parquet",
+            "stored": "data/processed/corpus/validation.parquet"
+          }
+        }
+      },
+      "manifest_directory": "manifests_repair",
+      "near_graph": {
+        "accepted_edges": 86697,
+        "accepted_edges_below_threshold": 0,
+        "candidate_pairs": 6444499,
+        "clustered_documents": 28461,
+        "clusters": 13208,
+        "clusters_without_exactly_one_representative": 0,
+        "edges_crossing_components": 0,
+        "removed_documents": 15253
+      },
+      "prerepair_237_pair_regression": {
+        "outcomes": {
+          "resolved_by_removal": 237
+        },
+        "prerepair_pairs_checked": 237,
+        "unresolved_cross_split": 0,
+        "unresolved_pairs": []
+      },
+      "retained_documents": 6193931,
+      "status": "pass",
+      "transitivity": {
+        "cluster_distribution": {
+          "maximum_size": 445,
+          "size_2": 12507,
+          "size_gt_2": 701
+        },
+        "clusters": [
+          {
+            "arbitrary_pairs_evaluated": 5000,
+            "cluster_id": "5d2c028fba46987bcf30a3aae9b82404223550de90946a633db6eaef4aab3288",
+            "contains_sampled_pair_below_threshold": true,
+            "minimum_arbitrary_pair_similarity": 0.9280965531349085,
+            "minimum_representative_member_similarity": 0.9306655693858656,
+            "representative_member_pairs": 444,
+            "representative_rowid": 389348,
+            "size": 445
+          },
+          {
+            "arbitrary_pairs_evaluated": 5000,
+            "cluster_id": "dbfb085a137fb377c4d2571e3198904315a1a372c5155a9d3629ba8da328fb59",
+            "contains_sampled_pair_below_threshold": true,
+            "minimum_arbitrary_pair_similarity": 0.915494774867759,
+            "minimum_representative_member_similarity": 0.9334814427600627,
+            "representative_member_pairs": 162,
+            "representative_rowid": 393615,
+            "size": 163
+          },
+          {
+            "arbitrary_pairs_evaluated": 5000,
+            "cluster_id": "f8c569753af8f7336732ed86f82d7dd217c3b8ff74f6e7a12f279197b8d46ea3",
+            "contains_sampled_pair_below_threshold": true,
+            "minimum_arbitrary_pair_similarity": 0.9310344827586207,
+            "minimum_representative_member_similarity": 0.9481605351170569,
+            "representative_member_pairs": 107,
+            "representative_rowid": 299626,
+            "size": 108
+          },
+          {
+            "arbitrary_pairs_evaluated": 1431,
+            "cluster_id": "0c062f902aba5c12030806c53ce96298efd1a99b7c3fdfced056f67980345530",
+            "contains_sampled_pair_below_threshold": true,
+            "minimum_arbitrary_pair_similarity": 0.9226119805720453,
+            "minimum_representative_member_similarity": 0.9337546306384833,
+            "representative_member_pairs": 53,
+            "representative_rowid": 356365,
+            "size": 54
+          },
+          {
+            "arbitrary_pairs_evaluated": 325,
+            "cluster_id": "06a6a6ed6c727c04e0b7a35cf1ba823df72c7336ef76078169485f48bb335214",
+            "contains_sampled_pair_below_threshold": true,
+            "minimum_arbitrary_pair_similarity": 0.8716577540106952,
+            "minimum_representative_member_similarity": 0.8945945945945946,
+            "representative_member_pairs": 25,
+            "representative_rowid": 2470062,
+            "size": 26
+          },
+          {
+            "arbitrary_pairs_evaluated": 325,
+            "cluster_id": "89f6760e94fcd8f171e588bd0ec3e87e81d0b89e773cf5935392c365748d449b",
+            "contains_sampled_pair_below_threshold": true,
+            "minimum_arbitrary_pair_similarity": 0.939797428018664,
+            "minimum_representative_member_similarity": 0.9482442047280238,
+            "representative_member_pairs": 25,
+            "representative_rowid": 382944,
+            "size": 26
+          },
+          {
+            "arbitrary_pairs_evaluated": 231,
+            "cluster_id": "f756fdb4b81fab8d4954088f1b76416ff54648f8d5ac6ae663a6cb6a36eab6d5",
+            "contains_sampled_pair_below_threshold": true,
+            "minimum_arbitrary_pair_similarity": 0.9221411192214112,
+            "minimum_representative_member_similarity": 0.9266503667481663,
+            "representative_member_pairs": 21,
+            "representative_rowid": 2069548,
+            "size": 22
+          },
+          {
+            "arbitrary_pairs_evaluated": 210,
+            "cluster_id": "de88b28cdce4afdd6582b3c5e54cbe53426be72590c29eecc23bea7cc3c2b02f",
+            "contains_sampled_pair_below_threshold": true,
+            "minimum_arbitrary_pair_similarity": 0.925601750547046,
+            "minimum_representative_member_similarity": 0.9296703296703297,
+            "representative_member_pairs": 20,
+            "representative_rowid": 2542607,
+            "size": 21
+          },
+          {
+            "arbitrary_pairs_evaluated": 190,
+            "cluster_id": "f36265cb49f3ae06f17161f1368e263dfebc303afda3c94593584f79f0ff718e",
+            "contains_sampled_pair_below_threshold": true,
+            "minimum_arbitrary_pair_similarity": 0.9014492753623189,
+            "minimum_representative_member_similarity": 0.9014492753623189,
+            "representative_member_pairs": 19,
+            "representative_rowid": 1057836,
+            "size": 20
+          },
+          {
+            "arbitrary_pairs_evaluated": 153,
+            "cluster_id": "8bd310ac4e8ac965763f6a784536b64804be62c9b1b693642e6f111267ceb2c3",
+            "contains_sampled_pair_below_threshold": true,
+            "minimum_arbitrary_pair_similarity": 0.8672086720867209,
+            "minimum_representative_member_similarity": 0.8672086720867209,
+            "representative_member_pairs": 17,
+            "representative_rowid": 83469,
+            "size": 18
+          },
+          {
+            "arbitrary_pairs_evaluated": 136,
+            "cluster_id": "06b56425aadcd74cfce6e7658d5302c851c2bb7dfac8930e5edffc39008dbd59",
+            "contains_sampled_pair_below_threshold": true,
+            "minimum_arbitrary_pair_similarity": 0.8199233716475096,
+            "minimum_representative_member_similarity": 0.8582677165354331,
+            "representative_member_pairs": 16,
+            "representative_rowid": 445642,
+            "size": 17
+          },
+          {
+            "arbitrary_pairs_evaluated": 105,
+            "cluster_id": "88ec009a57900114041f21e155dd16c4c77d8ef3e58056236562f95cd5f1578e",
+            "contains_sampled_pair_below_threshold": true,
+            "minimum_arbitrary_pair_similarity": 0.8706563706563707,
+            "minimum_representative_member_similarity": 0.908183632734531,
+            "representative_member_pairs": 14,
+            "representative_rowid": 87243,
+            "size": 15
+          },
+          {
+            "arbitrary_pairs_evaluated": 105,
+            "cluster_id": "94d13800e500d9f00ebd7b876920556bddbc21fe94f74c8f7752e9810d479262",
+            "contains_sampled_pair_below_threshold": true,
+            "minimum_arbitrary_pair_similarity": 0.9317269076305221,
+            "minimum_representative_member_similarity": 0.9456692913385827,
+            "representative_member_pairs": 14,
+            "representative_rowid": 20263,
+            "size": 15
+          },
+          {
+            "arbitrary_pairs_evaluated": 105,
+            "cluster_id": "ee433301fbb58736e0fb2b0e775e2b519db9acd906fb2782d3deb2e2276ffd77",
+            "contains_sampled_pair_below_threshold": true,
+            "minimum_arbitrary_pair_similarity": 0.883629191321499,
+            "minimum_representative_member_similarity": 0.8930693069306931,
+            "representative_member_pairs": 14,
+            "representative_rowid": 87561,
+            "size": 15
+          },
+          {
+            "arbitrary_pairs_evaluated": 91,
+            "cluster_id": "324130b19c569bd2dc2ca2fed6acc5cbe10cc4754a1ab7e3ebda5f446942d7c7",
+            "contains_sampled_pair_below_threshold": true,
+            "minimum_arbitrary_pair_similarity": 0.9319727891156463,
+            "minimum_representative_member_similarity": 0.949740034662045,
+            "representative_member_pairs": 13,
+            "representative_rowid": 316289,
+            "size": 14
+          },
+          {
+            "arbitrary_pairs_evaluated": 91,
+            "cluster_id": "4d273dc22488b5cfa553777760d123758189a0655daf02f97c52481b084d63e0",
+            "contains_sampled_pair_below_threshold": true,
+            "minimum_arbitrary_pair_similarity": 0.8854166666666666,
+            "minimum_representative_member_similarity": 0.8943661971830986,
+            "representative_member_pairs": 13,
+            "representative_rowid": 1739867,
+            "size": 14
+          },
+          {
+            "arbitrary_pairs_evaluated": 78,
+            "cluster_id": "47a3a266f3687faf5ca97cd4fb20205bb8546ba3f7222b56b62ec4ddc7486769",
+            "contains_sampled_pair_below_threshold": true,
+            "minimum_arbitrary_pair_similarity": 0.8991696322657177,
+            "minimum_representative_member_similarity": 0.9256594724220624,
+            "representative_member_pairs": 12,
+            "representative_rowid": 402082,
+            "size": 13
+          },
+          {
+            "arbitrary_pairs_evaluated": 78,
+            "cluster_id": "52500da74571fb55221fe0ad4ae752290a65cb46f5017d52e1367f16678d1899",
+            "contains_sampled_pair_below_threshold": false,
+            "minimum_arbitrary_pair_similarity": 0.9529411764705882,
+            "minimum_representative_member_similarity": 0.9529411764705882,
+            "representative_member_pairs": 12,
+            "representative_rowid": 4648196,
+            "size": 13
+          },
+          {
+            "arbitrary_pairs_evaluated": 66,
+            "cluster_id": "0dfc6cbe67472c179d2c803f760a84113feb37501387f33b16c6fc8a98f99971",
+            "contains_sampled_pair_below_threshold": true,
+            "minimum_arbitrary_pair_similarity": 0.8927536231884058,
+            "minimum_representative_member_similarity": 0.9067055393586005,
+            "representative_member_pairs": 11,
+            "representative_rowid": 4753253,
+            "size": 12
+          },
+          {
+            "arbitrary_pairs_evaluated": 66,
+            "cluster_id": "3c6b1fb29399d1b12b8f6159051340ba4cca21fa8255e8ee6cf1658bf976edd9",
+            "contains_sampled_pair_below_threshold": true,
+            "minimum_arbitrary_pair_similarity": 0.8934010152284264,
+            "minimum_representative_member_similarity": 0.9081632653061225,
+            "representative_member_pairs": 11,
+            "representative_rowid": 2728847,
+            "size": 12
+          },
+          {
+            "arbitrary_pairs_evaluated": 66,
+            "cluster_id": "ac93db94c3fe347ffc271060eca1b0f89757aa5556f919e8e2f4c73ce45c9a95",
+            "contains_sampled_pair_below_threshold": true,
+            "minimum_arbitrary_pair_similarity": 0.8626609442060086,
+            "minimum_representative_member_similarity": 0.9070796460176991,
+            "representative_member_pairs": 11,
+            "representative_rowid": 420440,
+            "size": 12
+          },
+          {
+            "arbitrary_pairs_evaluated": 66,
+            "cluster_id": "df0fa4b1835aa785689a0788b69111287c28dd1b4ba80e32c3918eede45ff267",
+            "contains_sampled_pair_below_threshold": true,
+            "minimum_arbitrary_pair_similarity": 0.9176470588235294,
+            "minimum_representative_member_similarity": 0.9285714285714286,
+            "representative_member_pairs": 11,
+            "representative_rowid": 3798141,
+            "size": 12
+          },
+          {
+            "arbitrary_pairs_evaluated": 55,
+            "cluster_id": "55f4b22b11949d2897b17b761b98d07e0dded082f92333dd546ae1d6239bbff9",
+            "contains_sampled_pair_below_threshold": true,
+            "minimum_arbitrary_pair_similarity": 0.8813953488372093,
+            "minimum_representative_member_similarity": 0.9097387173396675,
+            "representative_member_pairs": 10,
+            "representative_rowid": 410024,
+            "size": 11
+          },
+          {
+            "arbitrary_pairs_evaluated": 55,
+            "cluster_id": "7995806fa2432bffe77a1c7620dd3940afce51d2e3439c7f747c6c145a4a13c5",
+            "contains_sampled_pair_below_threshold": true,
+            "minimum_arbitrary_pair_similarity": 0.861003861003861,
+            "minimum_representative_member_similarity": 0.861003861003861,
+            "representative_member_pairs": 10,
+            "representative_rowid": 5179313,
+            "size": 11
+          },
+          {
+            "arbitrary_pairs_evaluated": 36,
+            "cluster_id": "433bec981d94e6c49b5a64e4aadc61614a81596b00a9e8d55969c1891f13711c",
+            "contains_sampled_pair_below_threshold": true,
+            "minimum_arbitrary_pair_similarity": 0.9415584415584416,
+            "minimum_representative_member_similarity": 0.9415584415584416,
+            "representative_member_pairs": 8,
+            "representative_rowid": 294328,
+            "size": 9
+          }
+        ],
+        "minimum_arbitrary_endpoint_similarity": 0.8199233716475096,
+        "minimum_representative_member_similarity": 0.8582677165354331,
+        "sample_policy": "The 25 largest clusters above size two; all representative-member pairs and up to 5,000 rowid-ordered endpoint pairs per cluster.",
+        "sampled_clusters": 25,
+        "sampled_clusters_with_endpoint_below_threshold": 24,
+        "semantics": "Every accepted graph edge is direct Jaccard >= 0.95. Clusters are connected components, so transitive members are not required to be pairwise >= 0.95."
+      }
+    }
+  },
+  "manifest_hashes": {
+    "data/manifests/test.parquet": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+    "data/manifests/train.parquet": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+    "data/manifests/validation.parquet": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+  },
+  "raw_immutability_status": "pass",
+  "status": "pass"
+}
