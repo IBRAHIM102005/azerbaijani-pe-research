@@ -1,0 +1,143 @@
+dataset: DOLLMA
+dataset_declared_license: cc-by-nc-sa-4.0
+local_access_date: '2026-08-28'
+access_date_basis: Date the local source inventory and SHA-256 snapshot were revalidated.
+license_evidence: C:\Users\User\OneDrive\Desktop\DOLLMA\README.md
+license_evidence_path_role: external provenance display path; runtime root is config-resolved
+license_evidence_sha256: e302b9f54f6447f0a12db909149fd6a194bc961d08d2737473214aa6985498ce
+dataset_revision: null
+revision_note: Not available from the local README; Git metadata was not inspected
+  in this no-Git task.
+components:
+  anl-news:
+    raw_folder: anl-news
+    group: News
+    component_label: null
+    included_in_core: true
+    status: included_core
+    evidence: DOLLMA README config name and published news component
+    text_column: text
+    source_level_license: null
+    source_level_revision: null
+    raw_shards:
+    - filename: train-00000-of-00004.parquet
+      sha256: 4f6819820e4b67a124d34bdfa272d0d6939491b9de0e45839093f916da75f63f
+    - filename: train-00001-of-00004.parquet
+      sha256: a8cdfc5769d8b55f7e43ca303875446db2d4848bbc38c3cf87d1d06647a26b28
+    - filename: train-00002-of-00004.parquet
+      sha256: f2c06f2ad9a85791253b5d5e504c89c0fe1d5827ddec97895486ff40fbd612eb
+    - filename: train-00003-of-00004.parquet
+      sha256: 15098a9f56deae922c96a5c9e69e6f7f431f6dae8f1b615bb49953f48a761e9f
+  azwiki:
+    raw_folder: azwiki
+    group: Native Wikipedia
+    component_label: null
+    included_in_core: true
+    status: included_core
+    evidence: DOLLMA README config name and native Azerbaijani Wikipedia label in
+      the master plan
+    text_column: text
+    source_level_license: null
+    source_level_revision: null
+    raw_shards:
+    - filename: train-00000-of-00001.parquet
+      sha256: ad18fbc3eb577060df69abdea5f8e052d7f729deafdb72902f0fefbb6ddd2d58
+  elite-blogs:
+    raw_folder: elite-blogs
+    group: Blogs
+    component_label: null
+    included_in_core: true
+    status: included_core
+    evidence: DOLLMA README config name and blogs component
+    text_column: text
+    source_level_license: null
+    source_level_revision: null
+    raw_shards:
+    - filename: train-00000-of-00001.parquet
+      sha256: 952ab2086ac64f1134052b125e6a367599f3b440df9186e1224fd8282b38ef92
+  elite-books:
+    raw_folder: elite-books
+    group: Books
+    component_label: Books I
+    included_in_core: true
+    status: included_core
+    evidence: Inferred from the small published Books I size and the matching local
+      component size; component identity is retained
+    text_column: text
+    source_level_license: null
+    source_level_revision: null
+    raw_shards:
+    - filename: train-00000-of-00001.parquet
+      sha256: 650b018377e33885412ad95ebbcf57575685a037e9274cbe44f8887ea81078ff
+  eqanun:
+    raw_folder: eqanun
+    group: Laws
+    component_label: null
+    included_in_core: true
+    status: included_core
+    evidence: DOLLMA README config name and Azerbaijani laws component
+    text_column: text
+    source_level_license: null
+    source_level_revision: null
+    raw_shards:
+    - filename: train-00000-of-00001.parquet
+      sha256: 610987763a4af34af6355bb222e7a8a34e4dea8a5e0ec3621e788839a1ccf381
+  mediocore-books:
+    raw_folder: mediocore-books
+    group: Books
+    component_label: Books II
+    included_in_core: true
+    status: included_core
+    evidence: Inferred from the large published Books II size and the matching local
+      component size; component identity is retained
+    text_column: text
+    source_level_license: null
+    source_level_revision: null
+    raw_shards:
+    - filename: train-00000-of-00006.parquet
+      sha256: 185e871a268931d802db59f78b550e0fc723c57fbc10f383b830b7abf42838e7
+    - filename: train-00001-of-00006.parquet
+      sha256: b86e1fc473ee4433904c9a73d71e290057cec5da63f11044510254242fb78852
+    - filename: train-00002-of-00006.parquet
+      sha256: c01200d5b9b2ae2cc07265068355347e787d3ac0349454fe6e618e8f9b7f5d9d
+    - filename: train-00003-of-00006.parquet
+      sha256: bf8749b8220fd12baa42406b08bf21b726630aaf8234c24d24394c1eefdbfb6b
+    - filename: train-00004-of-00006.parquet
+      sha256: 0aafeafda33f539915f22c568ed4076560d1f47511ef788324d881b9f658ee49
+    - filename: train-00005-of-00006.parquet
+      sha256: aabd5268d5e1a90761543d2fab8ed6d7095df3dc52ef61dcb28730f36cd72774
+  bhos:
+    raw_folder: bhos
+    group: unknown
+    component_label: null
+    included_in_core: false
+    status: requires_source_decision
+    evidence: DOLLMA README lists the component and dataset-level language only; native
+      source provenance is not explicit
+    text_column: text
+    source_level_license: null
+    source_level_revision: null
+    raw_shards:
+    - filename: train-00000-of-00002.parquet
+      sha256: b8ce2999ac1ead98ded68050bdafa4b76de90999c0e87c616c3fa699e2b309aa
+    - filename: train-00001-of-00002.parquet
+      sha256: 706428082aa6679a1b1df9153fb42e868425700e7fa290cb7f72ce43627d7956
+  translated-enwiki:
+    raw_folder: translated-enwiki
+    group: Translated Wikipedia
+    component_label: null
+    included_in_core: false
+    status: excluded_translated_source
+    evidence: Explicitly identified as translated English Wikipedia
+    text_column: text
+    source_level_license: null
+    source_level_revision: null
+    raw_shards:
+    - filename: train-00000-of-00004.parquet
+      sha256: 5f0d916bf2951f0ed95a199aa52434e8a55d42d013b0314694b2482877b86325
+    - filename: train-00001-of-00004.parquet
+      sha256: 8ed53cc5cf1783b7f3f7ce7d5a77120124a8b0d18885b17a8f7a5978b46e9f48
+    - filename: train-00002-of-00004.parquet
+      sha256: 3bf2abd67eeff231e622fac41054e8bfb1fc610e5cf35237fa30616efc85ff92
+    - filename: train-00003-of-00004.parquet
+      sha256: 4bf23a406b95a2d6597ca09f9a18be098696a09da18a82b6414f5fae93d4094a

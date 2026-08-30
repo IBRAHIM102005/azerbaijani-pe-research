@@ -1,0 +1,1375 @@
+{
+  "global": {
+    "approximate_whitespace_words": 381337980,
+    "documents": 8227654,
+    "empty_documents": 0,
+    "null_documents": 0,
+    "runtime_seconds": 752.154,
+    "total_characters": 3012376236,
+    "whitespace_only_documents": 0
+  },
+  "sources": {
+    "anl-news": {
+      "approximate_whitespace_words": 159223309,
+      "character_quantiles": {
+        "p01": 286,
+        "p05": 534,
+        "p25": 1542,
+        "p50": 3873,
+        "p75": 7880,
+        "p95": 15110,
+        "p99": 24698
+      },
+      "deterministic_sample": {
+        "azerbaijani_specific_letter_occurrences": {
+          "Ç": 3620,
+          "Ö": 3166,
+          "Ü": 2758,
+          "ç": 95032,
+          "ö": 112927,
+          "ü": 250797,
+          "Ğ": 116,
+          "ğ": 71993,
+          "İ": 22043,
+          "ı": 529355,
+          "Ş": 9333,
+          "ş": 205723,
+          "Ə": 20808,
+          "ə": 1401696
+        },
+        "documents": 3000,
+        "estimated_fraction_below_50_letters": 0.001,
+        "letter_quantiles": {
+          "p01": 268,
+          "p05": 436,
+          "p25": 1340,
+          "p50": 3443,
+          "p75": 6747,
+          "p95": 13000,
+          "p99": 20840
+        },
+        "mean_alphabetic_character_ratio": 0.8455939724450702,
+        "mean_latin_script_ratio_among_letters": 0.9034333129785779
+      },
+      "documents": 236443,
+      "empty_documents": 0,
+      "flag_samples": {
+        "control_character": [
+          {
+            "excerpt": "Kitabda<= /span> şəkil çəkməyi bacarmayan balaca qız Vaşti haqqında söhbət açılır. Rəsm dərsində kağıza=  sadəcə nöqtə qoyur. Lak= in qızın müəlliməsi ondan çəkdiyi nöqtənin altına imzasını qoymasını xahiş edir və həmin kağızı gözəl çər&cc=",
+            "raw_record_id": "c3850408a7a3184b6b9969e84ede14d1478285f0fa86c9d733dc17c870f77234",
+            "row_index": 49613,
+            "shard": "train-00002-of-00004.parquet",
+            "source": "anl-news"
+          },
+          {
+            "excerpt": "Kitabda<= /span> şəkil çəkməyi bacarmayan balaca qız Vaşti haqqında söhbət açılır. Rəsm dərsində kağıza=  sadəcə nöqtə qoyur. Lak= in qızın müəlliməsi ondan çəkdiyi nöqtənin altına imzasını qoymasını xahiş edir və həmin kağızı gözəl çər&cc=",
+            "raw_record_id": "02d249d39b79c5e41d903bba57b2e1981d70a8c84e91e11531499212f198db29",
+            "row_index": 49616,
+            "shard": "train-00002-of-00004.parquet",
+            "source": "anl-news"
+          }
+        ],
+        "extremely_long": [
+          {
+            "excerpt": "Buraxılışın elmi redaktoru:  Professor Əlizadə Əsgərli. Siracəddin Hacı: Nizami Gəncəvinin iki məktubu: Dünya siyasət və  diplomatiya tarixinin iki şah əsəri. Azərbaycan  türk ədəbiyyatının, dünya mədəniyyətinin  dahi şairi, böyük alim Niza",
+            "raw_record_id": "bfad580a81eded41615e9783407192b043ac22eb3a0a86afa607615b30fe7470",
+            "row_index": 20880,
+            "shard": "train-00000-of-00004.parquet",
+            "source": "anl-news"
+          },
+          {
+            "excerpt": "Torpaqların dövlət ehtiyacları üçün alınması haqqında Azərbaycan Respublikasının Qanunu. Bu Qanun Azərbaycan Respublikasında torpaqların dövlət ehtiyacları üçün alınması, bununla bağlı kompensasiyanın məbləğinin hesablanması və ödənilməsi q",
+            "raw_record_id": "7ea9cb8978d1a8cc0f15a5362d11fe51c00802fed06132591cfe8b16f04a1dd5",
+            "row_index": 44521,
+            "shard": "train-00000-of-00004.parquet",
+            "source": "anl-news"
+          },
+          {
+            "excerpt": "XXI əsrdə Azərbaycan ideyası kreativ millət kontekstində. XX yüzilliyin sonunda Azərbaycan ikinci dəfə dövlət müstəqilliyi qazanmışdır. Azərbaycan xalqı öz taleyini müstəqil müəyyən etmək, dövlətçilik ideyalarını həyata keçirmək, müstəqil g",
+            "raw_record_id": "41b0169672bdff1e7c373fc3b39a2fc9de009491da8e53f09e52c0d0157742ce",
+            "row_index": 56592,
+            "shard": "train-00000-of-00004.parquet",
+            "source": "anl-news"
+          },
+          {
+            "excerpt": "Tarixi idrakın elmiliyi problemlərinə dair. Ramiz MEHDİYEV, Azərbaycan Respublikası Prezidenti Administrasiyasının rəhbəri, Azərbaycan Milli Elmlər Akademiyasının akademiki. Mənim 2012-ci il noyabrın 29-da \"Bakinski raboçi\" qəzetində, sonra",
+            "raw_record_id": "57b9c91cd2fd1fd0cc695b6a503af3194076b0afc8867e45a8501c022b77b747",
+            "row_index": 1741,
+            "shard": "train-00001-of-00004.parquet",
+            "source": "anl-news"
+          },
+          {
+            "excerpt": "Qiymətli kağızlar bazarı haqqında. Azərbaycan Respublikasının Qanunu. Bu qanun, Azərbaycan Respublikası Konstitusiyasının 94-cü maddəsinin I hissəsinin 11-ci və 15-ci bəndlərinə uyğun olaraq, Azərbaycan Respublikasında investisiya qiymətli ",
+            "raw_record_id": "cd2f2cc127354a69ea5fcfaffeeb039363ba15a8741566a74a8274b5cd7b055c",
+            "row_index": 17458,
+            "shard": "train-00001-of-00004.parquet",
+            "source": "anl-news"
+          }
+        ],
+        "html_xml_like_markup": [
+          {
+            "excerpt": "Bizim və hamının Çingiz Abdullayevi. Dünən xalq yazıçısı Çingiz Avdullayevin Azərbaycan Yazıçılar Birliyinin Natəvan klubunda gənclərlə görüşü keçirildi. Çingiz Abdullayevlə görüş məncə, Azərbaycan Yazıçılar Birliyinin qarşısından başladı. ",
+            "raw_record_id": "980c2631bc42f6766e39b2a843e6f22517243900646e1d642f1320a8440da1dd",
+            "row_index": 740,
+            "shard": "train-00000-of-00004.parquet",
+            "source": "anl-news"
+          },
+          {
+            "excerpt": "“İntellektual olmaq dəbdədir” – Bakıda X Bakı Kitab Bayramı bu deviz altında gerçəkləşib. Ötən gün M.F.Axundov adına Milli Kitabxanada Azərbaycan Xalq Cümhuriyyətinin yaranmasının 92, xalq şairi Rəsul Rzanın 100 illiyinə həsr olunan X Bakı ",
+            "raw_record_id": "ca6dcf5166403578f810a52cebe40b71a8cd11d38ff9d8b8516e204f6b458611",
+            "row_index": 2079,
+            "shard": "train-00000-of-00004.parquet",
+            "source": "anl-news"
+          },
+          {
+            "excerpt": "“İnternet, medianın əvvəlki formalarının hamısını öz qanadı altına yığır”. RASİM ƏLİQULİYEV: “İNTERNETİN İMKANLARINA ƏSASLANAN YENİ MEDİA VƏTƏNDAŞ CƏMİYYƏTİNİN ATRİBUTLARINDAN BİRİDİR”. İnformasiya Kommunikasiya Texnologiyalarının (İKT) ink",
+            "raw_record_id": "e0a62c81ec4c6833ae61358c47a939f5841fab32a3b9535acebb7fd3b13f1a02",
+            "row_index": 3116,
+            "shard": "train-00000-of-00004.parquet",
+            "source": "anl-news"
+          },
+          {
+            "excerpt": "Təhsil Nazirliyində növbəti hesabat iclasları keçirilib. Dünən Təhsil Nazirliyində Tərbiyə və məktəbdənkənar müəssisələrlə iş şöbəsi ilə Akkreditasiya şöbəsinin 2010-cu il ərzində görülən işlərə dair hesabat iclası keçirilib. İclasda təhsil",
+            "raw_record_id": "55f861bdbd7e9ee95bf8e1dacd2f2bae7d54f458605fa873107d84643330d033",
+            "row_index": 3988,
+            "shard": "train-00000-of-00004.parquet",
+            "source": "anl-news"
+          },
+          {
+            "excerpt": "“Naxçıvan Dövlət Universitetinin media ilə əlaqələrini daha da möhkəmləndirməyə çalışırıq”. MEHRİBAN SULTAN: “MAARİFLƏNDİRMƏK FUNKSİYASINI, DƏQİQLİYİ ƏSAS GÖTÜRÜB, ŞABLON XƏBƏRÇİLİKDƏN QAÇIR, ORİJİNAL SƏRLÖVHƏLƏRƏ, ELMİ ŞƏRHLƏRƏ ÜSTÜNLÜK VE",
+            "raw_record_id": "abacc398b636daf7f259a0d099225c7ddd7395f4a8ea15f0e16c3be54334b7dd",
+            "row_index": 4464,
+            "shard": "train-00000-of-00004.parquet",
+            "source": "anl-news"
+          }
+        ],
+        "repeated_character": [
+          {
+            "excerpt": "Ya da məsələni belə qoyum – yəqin çoxumuz öz bioqrafiyasını yazmaq istəyər . Kimi bəzəyib-düzəyər – böyük bir şəcərə düzəldər (indi əksəriyyət bəy oğlu bəy keçmişiylə öyündüyü kimi), kimi öz faciəli günləri üçün hamıdan göz yaşı payı umar..",
+            "raw_record_id": "2430491d1fd4920dd39bccdd1e6ce91d3e1895e9b00a25d499477000cd4249d9",
+            "row_index": 8123,
+            "shard": "train-00000-of-00004.parquet",
+            "source": "anl-news"
+          },
+          {
+            "excerpt": "İlk dəfə onunla Təbrizdə görüşmüşdüm. Oxuduğu şeirlərindən kəşf eləmişdim Məhəmməd Rza Çalğını. Söhbət elədik. \"Dərd indi dəbdir\" adlı müsahibəm Səlim Babullaoğlunun \"Kitabçı\" jurnalında dərc olundu. Bu günlərdə 5 iyun Şairlər günü üçün Çal",
+            "raw_record_id": "c07641677350d1d4170dd3086e19e238d047ff533f002237dcac1c0df8ca8ebc",
+            "row_index": 9638,
+            "shard": "train-00000-of-00004.parquet",
+            "source": "anl-news"
+          },
+          {
+            "excerpt": "Qayğanaq, və yaxud sarı sarsıntı. Sarsıntının təbiətində kədər var. Mən bunu uşaq vaxtı daha çox anlayırdım. Yaşa dolduqca, kitablarla, insanlarla təmasım sıxlaşdıqca yavaş-yavaş başa düşdüm ki, sarsıntı emosiyalarla bağlı olduğu üçün bəzən",
+            "raw_record_id": "1984ac971665cf9c4b08ac781d9137eb3272bcc5efdf19d7c2464376e01ede47",
+            "row_index": 13304,
+            "shard": "train-00000-of-00004.parquet",
+            "source": "anl-news"
+          },
+          {
+            "excerpt": "VƏ  YA ZEYNAL CABBARZADƏNİN KİNO MUSİQİMİZDƏ  ƏBƏDİLƏŞƏN ŞEİRLƏRİ. Təbii ki, pandemiya ili  olmasaydı, Vətən öz sənətkarının  yubileyini təntənəli şəkildə bayram etmək  haqqını reallaşdıracaqdı. Öz dövrünün məşhur  şair və bəstəkarlarıyla y",
+            "raw_record_id": "83d397d3772f111e7997bc7947b7b9ca8f21890e8e04ccb98919bc2c832a549c",
+            "row_index": 21230,
+            "shard": "train-00000-of-00004.parquet",
+            "source": "anl-news"
+          },
+          {
+            "excerpt": "Gənclər və İdman Nazirliyinin qarşısındayam. Jurnalistlərdən yalnız \"1news.az\" agentliyinin müxbiri Elşən Rüstəmov gəlib. ... Söhbətləşirik... Gəzə-gəzə ofisi nazirliyin lap yaxınlığında yerləşən Azərbaycan Respublikası Gənclər Təşkilatları",
+            "raw_record_id": "88a4da160614a12c1adf6ca177f7943ef3f2ab93a1af23e71bcd8d3aeb785344",
+            "row_index": 27509,
+            "shard": "train-00000-of-00004.parquet",
+            "source": "anl-news"
+          }
+        ],
+        "unicode_replacement": [
+          {
+            "excerpt": "QAX ÖZÜNÜN ƏN YÜKSƏK İNKİŞAF MƏRHƏLƏSİNƏ QƏDƏM QOYMUŞDUR. MİLLİ KÖKLƏRİ ÜZƏRİNDƏ YENİDƏN QURULAN ŞƏHƏR. Ötən il ölkəmizin təmsilçilərinin \"Eurovision\" yarışmalarında 1-ci yerə çıxması, bu il bu yarışmalara çox böyük qonaqpərvərliklə ev sahi",
+            "raw_record_id": "886ab61dfe09072b4028d8573c68011e52fd823ea5ca9fb629f30b6eab3dd141",
+            "row_index": 29049,
+            "shard": "train-00000-of-00004.parquet",
+            "source": "anl-news"
+          },
+          {
+            "excerpt": "SEÇİLMİŞ. İradə TUNCAY. Əslində bizim hamımızın dəqiq bildiyimiz bir həqiqət var ki, nə qədər öyrənməyə çalışsaq da, elmi ixtiralardan bəhrələnsək də, Aya uçsaq da, okeanların dibinə enməyə cəhd eləsək də, biz həyatın yaranması, insan övlad",
+            "raw_record_id": "8c42e48b92d9cbf327c8ce6fed65e9447c0ce19b3ef9a173d0577f333da06e94",
+            "row_index": 29997,
+            "shard": "train-00000-of-00004.parquet",
+            "source": "anl-news"
+          },
+          {
+            "excerpt": "Binəqədi rayonunun sosial-iqtisadi inkişafı: real vəziyyət və perspektivlər. Cəmi bir neçə il öncəyə kimi Bakının Binəqədi rayonunun adı çəkiləndə göz önündə ərazicə böyük, lakin elə özü boyda da problemlərlə dolu bir inzibati ərazi canlanı",
+            "raw_record_id": "33d979e43547bd6185bcccd5d76f43f57746912641ff7e6a05978ae10c2a67e3",
+            "row_index": 7887,
+            "shard": "train-00002-of-00004.parquet",
+            "source": "anl-news"
+          }
+        ],
+        "unusual_whitespace": [
+          {
+            "excerpt": "AMEA Naxçıvan Bölməsində silsilə  tədbirlər keçiriləcək. İclası  bölmənin sədri, akademik İsmayıl Hacıyev  açaraq ölkəmizdə mədəniyyətin,  ədəbiyyatın, incəsənətin inkişafında  mühüm xidmətləri olan şəxslərin  yubileylərinin keçirilməsinə g",
+            "raw_record_id": "f81660db1b9643518df91b4777d3d9e9653918836ddf2a55ff2641a27d5b914a",
+            "row_index": 34771,
+            "shard": "train-00000-of-00004.parquet",
+            "source": "anl-news"
+          },
+          {
+            "excerpt": "“Azərbaycanın regionları. inkişaf dövrü” üçcildliyi çapdan çıxmışdır. “Azərbaycanın regionları. Yeni İnkişaf dövrü” adlı üçcildlik nəşr bu günlərdə işıq üzü görmüşdür. Nəfis şəkildə çap olunmuş, yüksək zövqlü bədii tərtibata və poliqrafik k",
+            "raw_record_id": "d44b6c1dbc83cb25babf6978e74e35371084f108b848d7a2f6d9053a00ed03d1",
+            "row_index": 11680,
+            "shard": "train-00001-of-00004.parquet",
+            "source": "anl-news"
+          },
+          {
+            "excerpt": "Konstitusiya Məhkəməsi Palatasının növbəti iclası olmuşdur. Azərbaycan Respublikası Konstitusiya Məhkəməsi Palatasının növbəti iclası keçirilmişdir. Konstitusiya Məhkəməsinin mətbuat xidmətindən AzərTAc-a bildirmişlər ki, iclasda  Azərbayca",
+            "raw_record_id": "b008cdce1ad853f8e3624a9cfa11a0bc28150ca1e620b7a68e518494174fce60",
+            "row_index": 12750,
+            "shard": "train-00001-of-00004.parquet",
+            "source": "anl-news"
+          },
+          {
+            "excerpt": "Qafqaz Müsəlmanları İdarəsində Xocalı  soyqırımının 30-cu ildönümü  ilə bağlı anım tədbiri keçirilib. AZƏRTAC xəbər verir ki, tədbirdə  çıxış edən QMİ-nin sədri  şeyxülislam Allahşükür  Paşazadə Xocalı soyqırımının Azərbaycan  tarixinə ən d",
+            "raw_record_id": "a33b131bcb914d25151a8e0724fa8d99fd32372a00bd637bd376466ec46c5797",
+            "row_index": 55541,
+            "shard": "train-00001-of-00004.parquet",
+            "source": "anl-news"
+          },
+          {
+            "excerpt": "Azərbaycanın və Rusiyanın Baş  prokurorluqları arasında ikitərəfli münasibətlər  uğurla davam etdirilir. Rusiya Federasiyasının Baş Prokurorluğu Azərbaycan  Respublikası Baş Prokurorluğunun  vəsatəti əsasında “Mülki,  ailə və cinayət işləri",
+            "raw_record_id": "79770ef4e0c1a476ce5dda0e524d2f49a6352d5271a0546e2a71f0e41693a571",
+            "row_index": 56547,
+            "shard": "train-00001-of-00004.parquet",
+            "source": "anl-news"
+          }
+        ]
+      },
+      "flags": {
+        "control_character": 2,
+        "extremely_long": 12,
+        "html_xml_like_markup": 21,
+        "repeated_character": 22,
+        "unicode_replacement": 3,
+        "unusual_whitespace": 16
+      },
+      "null_documents": 0,
+      "source": "anl-news",
+      "total_characters": 1286065173,
+      "whitespace_only_documents": 0,
+      "word_quantiles": {
+        "p01": 31,
+        "p05": 62,
+        "p25": 182,
+        "p50": 478,
+        "p75": 986,
+        "p95": 1882,
+        "p99": 3030
+      }
+    },
+    "azwiki": {
+      "approximate_whitespace_words": 40901937,
+      "character_quantiles": {
+        "p01": 262,
+        "p05": 315,
+        "p25": 625,
+        "p50": 1244,
+        "p75": 2453,
+        "p95": 7834,
+        "p99": 20384
+      },
+      "deterministic_sample": {
+        "azerbaijani_specific_letter_occurrences": {
+          "Ç": 2497,
+          "Ö": 950,
+          "Ü": 1010,
+          "ç": 36732,
+          "ö": 34427,
+          "ü": 88784,
+          "Ğ": 12,
+          "ğ": 25580,
+          "İ": 10961,
+          "ı": 194868,
+          "Ş": 5412,
+          "ş": 84830,
+          "Ə": 6653,
+          "ə": 476893
+        },
+        "documents": 3000,
+        "estimated_fraction_below_50_letters": 0.0,
+        "letter_quantiles": {
+          "p01": 211,
+          "p05": 258,
+          "p25": 501,
+          "p50": 955,
+          "p75": 1981,
+          "p95": 5721,
+          "p99": 14090
+        },
+        "mean_alphabetic_character_ratio": 0.8098487673571062,
+        "mean_latin_script_ratio_among_letters": 0.9189538540266677
+      },
+      "documents": 129433,
+      "empty_documents": 0,
+      "flag_samples": {
+        "extremely_long": [
+          {
+            "excerpt": "Quba xanlığı 16801810-cu illərdə Azərbaycanın şimal-şərqində mövcud olmuş ən güclükhanates of Sheki, Karabagh, and Kuba became the most powerful Russian Azerbaijan, 19051920 The Shaping of a National Identity in a Muslim Community, p. 17. C",
+            "raw_record_id": "9f889db28ba4c815182c4918ba2488fc58e8254c3064fbc9e6129d95e77f7636",
+            "row_index": 318,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "azwiki"
+          },
+          {
+            "excerpt": "Qarabağ döyüşlərinin xronologiyası 27 sentyabr 2020-ci ildə başlayan Qarabağ döyüşlərinin günlük hadisələri.     Ermənistan Silahlı Qüvvələri tərəfindən Tərtər rayonunun Qapanlı, Ağdam rayonunun Çıraqlı və Orta Qərvənd, Füzuli rayonunun Mir",
+            "raw_record_id": "55dd9259b164314e6da35665b48765990185ce8ee7a9468337594518b1715ce1",
+            "row_index": 2164,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "azwiki"
+          },
+          {
+            "excerpt": "Səid Əli oğlu Rüstəmov Azərbaycan-sovet bəstəkarı, dirijoru və pedaqoqu, Azərbaycan SSR xalq artisti , Stalin mükafatı laureatı . O, 1945-ci ildən Sovet İttifaqı Kommunist Partiyasının üzvü, Azərbaycan SSR Bəstəkarlar İttifaqının sədri , Az",
+            "raw_record_id": "d22a841c4c0b3e4f200d3cb60ac18cd4f8b5f821647480bdf973bf6f5a09af9c",
+            "row_index": 3438,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "azwiki"
+          },
+          {
+            "excerpt": "Bakı döyüşü 1918-ci ildə Nuru paşanın rəhbərlik etdiyi Osmanlı və Azərbaycan Xalq Cümhuriyyəti qüvvələrindən ibarət Qafqaz İslam Ordusu ilə Daşnak-Sentrokaspi qüvvələri arasında olmuş döyüş. Sonradan döyüşə Böyük Britaniya, Ermənistan qüvvə",
+            "raw_record_id": "632690e59cdcbd8e2bf7f4b4a4ef0f42d81f0cd18a05ef0f33e03fcd176832d5",
+            "row_index": 7588,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "azwiki"
+          },
+          {
+            "excerpt": "1948-ci il Ərəb-İsrail müharibəsi, Birinci Ərəb-İsrail müharibəsi və ya 1948-ci il müharibəsi 1948-ci ilin may ayının 15-dən 1949-cu ilin mart ayının 10-a qədər davam etmiş və yeni yaradılmış İsrail dövləti ilə ərəb dövlətlərinin hərbi itti",
+            "raw_record_id": "607e4bfbe160c237d431065e0a53f1ea52c051be67fd200d416945f8561dac33",
+            "row_index": 15003,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "azwiki"
+          }
+        ],
+        "high_line_break_density": [
+          {
+            "excerpt": "Nikolas Hülkenberq Almaniyalı yarış sürücüsü, Formula-1 pilotu, 24 saat Le Man yarışının qalibi, GP2 və Formula 3 avroseriyasının çempionudur.           Vilyams     Force India     Sauber     Force India     Renault     Kateqoriya:Formula 1",
+            "raw_record_id": "a79234ae734887adf8e5ef6bf6e61b4935668f14bafba9789d932927dfcb1de2",
+            "row_index": 2140,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "azwiki"
+          },
+          {
+            "excerpt": "Bu məqalədə Azərbaycan şəhərləri haqqında mahnıların siyahısı qeyd olunub. İnstrumental parçalar ilə qeyd olunmuşdur. Siyahıya daxildir: : Azərbaycan şəhəri və ya Azərbaycan şəhərinin hər hansı bir yeri və ya məkanı haqqında mahnılar. : Söz",
+            "raw_record_id": "812e185d2781045edc99e488bd42baff8831a43a4bf022a822e979e423352aae",
+            "row_index": 13503,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "azwiki"
+          },
+          {
+            "excerpt": "Bu siyahıda 2014-cü ildə keçirilən Şotlandiyanın müstəqilliyi haqqında referendumda ictimaiyyətə açıq bir fikir bildirən şəxslər və təşkilatlar sıralanmışdır. Siyahıya daxil olan şəxslərin hamısı referendumda səs veməyib.           Qəzetlər",
+            "raw_record_id": "fffdfbb853efb8b96f7650bb610f191d03d424f9a6a90dd6301f94da84c5b8e5",
+            "row_index": 39897,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "azwiki"
+          },
+          {
+            "excerpt": "Darya Domraçeva   Darya Domraçeva 1986-cı il avqustun 3-də memarlar ailəsində anadan olub.       2006-2007-ci illər mövsümü     2007-2008-ci illər mövsümü     2008-2009-cu illər mövsümü     2009-2010-cu illər mövsümü     2010 Vanquver Olimp",
+            "raw_record_id": "78f670ee935fcd2f4707ea5f75bef45f391059134b66d8298783c64051077373",
+            "row_index": 48308,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "azwiki"
+          },
+          {
+            "excerpt": "Bu məqalə proqramlaşdırma dillərinin siyahısıdır. Siyahıya BASIC dilinin dialektləri, ezoterik proqramlaşdırma dilləri və işarələmə dilləri daxil deyildir. Həmçinin HTML və ya XML kimi dillər də daxil deyildir. SQL və onun dialektləri kimi ",
+            "raw_record_id": "ff00c111675bc201cec239c0000e50d61c3c06d623e4fd6c7a24c882057eccc7",
+            "row_index": 64805,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "azwiki"
+          }
+        ],
+        "repeated_character": [
+          {
+            "excerpt": "thumbright400px styleborder:1px solid CCCCCC; background- color:transparent; aligncenter width100 - colspan5Təbii zonaların bitki örtüyünə uyğun təsnifatı - styleborder:1px solid CCCCCC; styleborder:1px solid CCCCCC; - styleborder:1px solid",
+            "raw_record_id": "983216a53c609e6194c88d51fe017159c1984ba967fcba2d363c9ee5ff9541fc",
+            "row_index": 375,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "azwiki"
+          },
+          {
+            "excerpt": "Ağqoyunlular və ya Bayandurlular 13781503-ci illərdə şərqi Anadolunu, Azərbaycanı və İranı idarə etmiş türk oğuz boylarından ibarət Bayandur tayfasının rəhbərliyi altındakı tarixi dövlət. Ağqoyunlular Azərbaycan xalqının təşəkkülündə mühüm ",
+            "raw_record_id": "cd770ae2317de38dd0f9f98c26f30a780ccaae5de9b9ba68da4691db6e17ccf5",
+            "row_index": 4047,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "azwiki"
+          },
+          {
+            "excerpt": "Yanıq termiki, kimyəvi, elektrik, günəş, şüa agentlərinin təsirindən orqanizmin dəri və toxumaların zədələnməsi. Zədələnmənin kütləvi xarakter aldığı fövqəladə vəziyyətlərdə yanıqlar xüsusi diqqət tələb edir. Ümumdünya Səhiyyə Təşkilatının ",
+            "raw_record_id": "9bb716a5ba248e6bafe30b280839d24366f68f4ad46e4aaf729cc2f6384f4f84",
+            "row_index": 9579,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "azwiki"
+          },
+          {
+            "excerpt": "Elton Arzuman oğlu Məmmədov Azərbaycan Milli Məclisinin II, III və IV çağırış deputatı, AzTU-nun strateji inkişaf üzrə sabiq prorektoru, Azərbaycan Milli Elmlər Akademiyası Yüksək Texnologiyalar Parkının sabiq direktoru, AMEA İşlər İdarəsin",
+            "raw_record_id": "ce83ecc1f79f7fbbf95ea7a7b0879682efba00ac8f3b3763facc075b743ae707",
+            "row_index": 10225,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "azwiki"
+          },
+          {
+            "excerpt": "Suxoy Su-24 1970 və 1980-ci illərdə Sovetlər Birliyinin hər cür hava şəraitində istifadə edilə bilən ən inkişaf etmiş havadan hücum təyyarəsi. İki kreslolu, iki motorlu təyyarə Rusiyanın ilk inteqrasiya edilmiş rəqəmsal naviqasiyahücum sist",
+            "raw_record_id": "6d95fc70e7f13194665e4b9f787a97caa0c6a9f2b1fde37d22b8ee8f5df47c64",
+            "row_index": 13171,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "azwiki"
+          }
+        ]
+      },
+      "flags": {
+        "extremely_long": 22,
+        "high_line_break_density": 11,
+        "repeated_character": 35
+      },
+      "null_documents": 0,
+      "source": "azwiki",
+      "total_characters": 312205937,
+      "whitespace_only_documents": 0,
+      "word_quantiles": {
+        "p01": 32,
+        "p05": 40,
+        "p25": 81,
+        "p50": 161,
+        "p75": 320,
+        "p95": 1033,
+        "p99": 2673
+      }
+    },
+    "elite-blogs": {
+      "approximate_whitespace_words": 874811,
+      "character_quantiles": {
+        "p01": 31,
+        "p05": 1227,
+        "p25": 2288,
+        "p50": 3446,
+        "p75": 9138,
+        "p95": 38455,
+        "p99": 60346
+      },
+      "deterministic_sample": {
+        "azerbaijani_specific_letter_occurrences": {
+          "Ç": 580,
+          "Ö": 178,
+          "Ü": 248,
+          "ç": 13342,
+          "ö": 14001,
+          "ü": 33834,
+          "Ğ": 1,
+          "ğ": 10258,
+          "İ": 2702,
+          "ı": 218594,
+          "Ş": 788,
+          "ş": 27131,
+          "Ə": 4376,
+          "ə": 489238
+        },
+        "documents": 755,
+        "estimated_fraction_below_50_letters": 0.02119205298013245,
+        "letter_quantiles": {
+          "p01": 24,
+          "p05": 942,
+          "p25": 1780,
+          "p50": 2683,
+          "p75": 6953,
+          "p95": 29576,
+          "p99": 49800
+        },
+        "mean_alphabetic_character_ratio": 0.7788270976981426,
+        "mean_latin_script_ratio_among_letters": 0.9004044246832622
+      },
+      "documents": 755,
+      "empty_documents": 0,
+      "flag_samples": {
+        "high_line_break_density": [
+          {
+            "excerpt": "Mənim otağım ",
+            "raw_record_id": "1d8e013494a3f7bc48314bc124ca324aa6b6dcf8cc8fa5f5083c7fa8cb085469",
+            "row_index": 252,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "elite-blogs"
+          },
+          {
+            "excerpt": "Ana dilim ",
+            "raw_record_id": "fcd798aab243d675d2d465c6e7ac9f7fb96abf448631816c2ced937bdce8230e",
+            "row_index": 375,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "elite-blogs"
+          },
+          {
+            "excerpt": "Nəçi olmaq? ",
+            "raw_record_id": "1e8effa20f6bef63808617530257ebf71a84a2f9c19ad0cdf66cec9367293f27",
+            "row_index": 596,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "elite-blogs"
+          },
+          {
+            "excerpt": "Vətənin xilaskarı ",
+            "raw_record_id": "b178810a3884bd2e9227f9884c14742cacfae7d0370bb15d31263b2906e84075",
+            "row_index": 613,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "elite-blogs"
+          }
+        ],
+        "unicode_replacement": [
+          {
+            "excerpt": "Soltan İbrahim (\"Xan-xanı-çin oğlu soltan İbrahimin nağılı\") Biri varıdı, biri yoxudu, Ənuşiravan adında bir padşah varıdı. Günlərin bir günündə padşah öz taxtı-səltənətində oturmuşdu. Birdən gözü aynaya sataşdı. Gördü ki, saqq",
+            "raw_record_id": "d215ac8bce24a01be84fb479f57ee394e3d2ffc0b5e8b7f751b891274d12a0e5",
+            "row_index": 208,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "elite-blogs"
+          }
+        ],
+        "unusual_whitespace": [
+          {
+            "excerpt": "Fərid Zülfüqarlı                                 hazırda Almaniyanın Trier Universitetində İqtisadiyyat üzrə magistr təhsili alır. Əvvəlki, maliyyə üzrə magistr təhsilini isə Litvanın Vitautas Maqnus Universiteti və Finlandiyanın Vaasa Univ",
+            "raw_record_id": "d814b710145c2925e97e34a187dd3c8e8ee4d1cf715ea03c7976e519f691f997",
+            "row_index": 0,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "elite-blogs"
+          },
+          {
+            "excerpt": "Lalə Mahmudova                                 2015-2017 Fulbright təqaüdçüsüdür. O, Çikaqo şəhərində yerləşən Loyola Universitetində Qadın və Gender Araşdırmaları Programında magistr təhsilini almışdır. Təhsilini başa vurduqdan sonra isə Ç",
+            "raw_record_id": "d4982eacc51eb870485127991873364cc78495e7e100609785cf9395bdd83c7a",
+            "row_index": 1,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "elite-blogs"
+          },
+          {
+            "excerpt": "Nurlana Cəlil                                 Yaxşı İdarəetmə üzrə Carl Friedrich Goerdeler Kolleg məzunudur. O, Almaniyanın Marburq Universitetində feminist siyasətşünaslıq üzrə doktorantura təhsili alır.  Bu məqalə feminizm haqqında təməl",
+            "raw_record_id": "1560392ae2b04b8d15e14f6998f9aea3496f8f5d016fa8691add73b9d2ec7ddb",
+            "row_index": 2,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "elite-blogs"
+          },
+          {
+            "excerpt": "Elman Fəttah                                     Bakı Avrasiya Universitetinin beynəlxalq münasibətlər fakultəsini bitirib. \"Yeni Avtoritarizm və Azərbaycan\" kitabının, beynəlxalq məsələlərə dair bir neçə məqalənin müəllifidir.  Rəsmi Bakın",
+            "raw_record_id": "6c46a603f05a8bdbbc856fa7eb17709c1c2f09599e69eb4690f7f9813c1fe8e5",
+            "row_index": 3,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "elite-blogs"
+          },
+          {
+            "excerpt": "Şəlalə Məmmədova                                     Tarix elmləri doktoru və BDU-nun sabiq prorektorudur. Hazırda ABŞ-da Vudro Vilson Mərkəzinin Kennan İnstitutunun tədqiqatçısıdır.  Son dövrdə İsrail-Fələstin qarşıdurması bütün dünyanın d",
+            "raw_record_id": "8830f233d8265bc5ab1df41336ed3aaf3f35c972d854bc33ba85c027a3d73df7",
+            "row_index": 4,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "elite-blogs"
+          }
+        ]
+      },
+      "flags": {
+        "high_line_break_density": 4,
+        "unicode_replacement": 1,
+        "unusual_whitespace": 72
+      },
+      "null_documents": 0,
+      "source": "elite-blogs",
+      "total_characters": 6534325,
+      "whitespace_only_documents": 0,
+      "word_quantiles": {
+        "p01": 3,
+        "p05": 158,
+        "p25": 289,
+        "p50": 423,
+        "p75": 1312,
+        "p95": 5273,
+        "p99": 8052
+      }
+    },
+    "elite-books": {
+      "approximate_whitespace_words": 4636374,
+      "character_quantiles": {
+        "p01": 13777,
+        "p05": 27902,
+        "p25": 156250,
+        "p50": 267352,
+        "p75": 420437,
+        "p95": 662826,
+        "p99": 1190403
+      },
+      "deterministic_sample": {
+        "azerbaijani_specific_letter_occurrences": {
+          "Ç": 8816,
+          "Ö": 6776,
+          "Ü": 4831,
+          "ç": 237770,
+          "ö": 239609,
+          "ü": 559438,
+          "Ğ": 122,
+          "ğ": 182839,
+          "İ": 28667,
+          "ı": 1148072,
+          "Ş": 11167,
+          "ş": 476862,
+          "Ə": 27361,
+          "ə": 2588267
+        },
+        "documents": 104,
+        "estimated_fraction_below_50_letters": 0.0,
+        "letter_quantiles": {
+          "p01": 10962,
+          "p05": 22516,
+          "p25": 124340,
+          "p50": 218728,
+          "p75": 343997,
+          "p95": 550283,
+          "p99": 954575
+        },
+        "mean_alphabetic_character_ratio": 0.8188693769004112,
+        "mean_latin_script_ratio_among_letters": 0.9035903560280276
+      },
+      "documents": 104,
+      "empty_documents": 0,
+      "flag_samples": {
+        "extremely_long": [
+          {
+            "excerpt": "Dodaqlarındakı gülüşlə, gözlərindəki sevinc əkiz yaranmışdır. Ömründən keçən on səkkiz ildə ata-ana həmişə bu yeganə qızcığazın nazını çəkmiş, üstündə əsmiş, onu ehtiyacın üzünü görməyə, xiffətin nə olduğunu bilməyə qoymamışdır. Baharda açı",
+            "raw_record_id": "6c7eea1e3b6e2cd028943edca763750c3fceda0eea68fe59ea2dae44700ea2a3",
+            "row_index": 0,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "elite-books"
+          },
+          {
+            "excerpt": "Dərs saatı bitmək bilmirdi.Ya da mən elə hiss edirdim. Sanki zaman yerində donmuşdu. Evə getməyə həmişəkindən çox tələsirdim. Çünki mənim üçün çox özəl bir gün idi. Bu özəl gündən bir il əvvəl ana olmuşdum və övladımın ilk doğum günü idi. H",
+            "raw_record_id": "acb240d6aa28da2bd06c1d0ca0e8fba87841bbb3785b5c3679a6aec7a4f4cd7c",
+            "row_index": 1,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "elite-books"
+          },
+          {
+            "excerpt": "İntiqam Әli (Әliyev) 1962­ci ildә anadan olub. İxtisasca hüquqşünasdır. Hüquq sahәsindә yüzlәrlә araşdırma vә elmi mәqalәnin, onlarla kitabın müәlliﬁdir. “Әclafın ölümü” müәlliﬁn bәdii yaradıcılıq sahәsindә ikinci işidir. Yazarın “Meydan” a",
+            "raw_record_id": "b6e44c5af3002bcb772d88fa7cda358ab01dbb95401f9d3edbce9bbf993b598f",
+            "row_index": 2,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "elite-books"
+          },
+          {
+            "excerpt": "Həyatdan beş kadr – beş fərqli taleyin acı formada həyatlarını sürməsi. Bir-birindən xəbərsiz olan bu kadr- ları birləşdirən əslində nədir? Uşaqlıqdan gələcəyə doğru beş fərqli taleh. Bir-bir gözün önünə gələn kadrlar. Peş- manlıq? Acı həya",
+            "raw_record_id": "019b1585e47f797df5f273d2f8c71b134922f61e206f42da307c34a27e463211",
+            "row_index": 3,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "elite-books"
+          },
+          {
+            "excerpt": "Canavar qışı keçirər, ancaq soyuğunu heç vaxt unutmaz. Atalar sözü. 1974-cü ilin sonuna beş gün qalmış qar yağdı. Bozdağ kəndinin yolları, demək olar ki, bağlandı. Həmin il qış o qədər sərt keçdi ki, ən gur bulaqların suyu da dondu. Fevral ",
+            "raw_record_id": "74dff46bf943863b000fe83d3c003fa6bab62e3d9f46609d0004617c013677ee",
+            "row_index": 4,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "elite-books"
+          }
+        ],
+        "html_xml_like_markup": [
+          {
+            "excerpt": "Göytəpə kəndinin yastı qazma daxmaları Kürün sahilinə qədər səpələnmişdi. Bu il yağarlıq olduğundan, otlar vaxtından əvvəl göyərmiş, yazın ilıq nəfəsini duyandan sonra isə püskürüb qalxmışdı. Hələ aprel sona çatmamış bu çal-çəpərsiz kəndin ",
+            "raw_record_id": "ccad91a4d44366bdf379c79da7b0b37469d5dda89fc0823b9e1379cccf9e6945",
+            "row_index": 30,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "elite-books"
+          },
+          {
+            "excerpt": "Ali məktəblər üçün dərs vəsaiti Dərs vəsaiti Azərbaycan Respublikası Təhsil Nazirliyinin 28.04.2008-ci il tarixli 497 saylı qərarı ilə təsdiq edilmişdir Azərbaycan Respublikası Prezidentinin İşlər İdarəsi Elmi redaktoru: Fizika-riyaziyyat e",
+            "raw_record_id": "eebe91e8f76ce62154381a3fde96b48f9d2ba7170b1b44a1c4676b6e6db055a2",
+            "row_index": 95,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "elite-books"
+          },
+          {
+            "excerpt": "JavaScript The Definitive Guide Firth Edition David Flanagan JavaScript Ətraflı izah Beşinci buraxılış Abbas Məcidov (tərcüməçi və təşkilatçı) akı – Gəncə 2015 - 2016 Mündəricat Fəsil 1. JavaScript-ə giriş 1.1. JavaScript nədir 1.2. JavaScr",
+            "raw_record_id": "6d870a6ec8aea8a5811925f112a94533f4955a4434ffff3728cf094f0498ac79",
+            "row_index": 101,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "elite-books"
+          }
+        ],
+        "repeated_character": [
+          {
+            "excerpt": "Həyatdan beş kadr – beş fərqli taleyin acı formada həyatlarını sürməsi. Bir-birindən xəbərsiz olan bu kadr- ları birləşdirən əslində nədir? Uşaqlıqdan gələcəyə doğru beş fərqli taleh. Bir-bir gözün önünə gələn kadrlar. Peş- manlıq? Acı həya",
+            "raw_record_id": "019b1585e47f797df5f273d2f8c71b134922f61e206f42da307c34a27e463211",
+            "row_index": 3,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "elite-books"
+          },
+          {
+            "excerpt": "Bir qadın var hardasa, Kibrit çöpündən tez sönür gülüşü… Qismət Bir qadın üçün bu qədər zülmə tab gətirmək kimə lazım idi, Rəcəb?! Bütün təhqirlərə canında yer tapıldı, heysiyyətinin alçalmağından havalanmadın. Özünə haqq qazandırma, bədbəx",
+            "raw_record_id": "6082ff3d0a59f2d74cce7032c868aaee6cafd9a6cf14382b958ec73847ff3043",
+            "row_index": 13,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "elite-books"
+          },
+          {
+            "excerpt": "Xəyallarla yaşayanlar üçün gerçəklər bəzən çox şirin olur Saat gecənin yarısını çoxdan ötmüşdü. Samir bir yandan yazı masasının başında, noutbukda bir neçə gündür baş verənlər haqqında yazılan məqalələri oxuyur, bir yandan da əlində tutduğu",
+            "raw_record_id": "bd22f5a60c78692912ad11dcaaa71421704dbc99c2fe03fa97e7aed64e5e95cc",
+            "row_index": 16,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "elite-books"
+          },
+          {
+            "excerpt": "Salam, bu yazını oxuyan, möhtərəm oxucu! Bil ki, bu yazını yazarkən bir xeyli düşünmüş, çox xəyaldan sonra yazmağa qərar vermişəm. Mən deyim bir ay, sən anla iki ay. Ancaq il olmaz, buna tam əmin ol! Xəyalımdan nə keçmişsə, onu da sənə danı",
+            "raw_record_id": "e1d88e821ef2cfbbe64cab142011779567b69aed3184a7e7ee4527cdedab1dc2",
+            "row_index": 18,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "elite-books"
+          },
+          {
+            "excerpt": "Los Anceles şəhərində ard-arda müəmmalı qətillər baş verir. İki polis detektivi cinayətlərin üstünü açmaq tapşırığı alır. Dəlillər şəhərin istedadlı gənc detektivlərini bənzəri görülməmiş bir fanatizmlə üz üzə qoyur. Yaxud da ideal bir plan",
+            "raw_record_id": "c06d7a8dd86b98f330be1efc6b93b43d62d492eb8281183d5c377c350a286789",
+            "row_index": 20,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "elite-books"
+          }
+        ],
+        "unusual_whitespace": [
+          {
+            "excerpt": "Los Anceles şəhərində ard-arda müəmmalı qətillər baş verir. İki polis detektivi cinayətlərin üstünü açmaq tapşırığı alır. Dəlillər şəhərin istedadlı gənc detektivlərini bənzəri görülməmiş bir fanatizmlə üz üzə qoyur. Yaxud da ideal bir plan",
+            "raw_record_id": "c06d7a8dd86b98f330be1efc6b93b43d62d492eb8281183d5c377c350a286789",
+            "row_index": 20,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "elite-books"
+          }
+        ]
+      },
+      "flags": {
+        "extremely_long": 88,
+        "html_xml_like_markup": 3,
+        "repeated_character": 10,
+        "unusual_whitespace": 1
+      },
+      "null_documents": 0,
+      "source": "elite-books",
+      "total_characters": 33074624,
+      "whitespace_only_documents": 0,
+      "word_quantiles": {
+        "p01": 2102,
+        "p05": 4060,
+        "p25": 22006,
+        "p50": 38153,
+        "p75": 61186,
+        "p95": 92817,
+        "p99": 170674
+      }
+    },
+    "eqanun": {
+      "approximate_whitespace_words": 43994658,
+      "character_quantiles": {
+        "p01": 320,
+        "p05": 435,
+        "p25": 895,
+        "p50": 1763,
+        "p75": 4071,
+        "p95": 26069,
+        "p99": 65443
+      },
+      "deterministic_sample": {
+        "azerbaijani_specific_letter_occurrences": {
+          "Ç": 1552,
+          "Ö": 2326,
+          "Ü": 2867,
+          "ç": 71286,
+          "ö": 95231,
+          "ü": 220036,
+          "Ğ": 116,
+          "ğ": 69097,
+          "İ": 38646,
+          "ı": 524853,
+          "Ş": 6551,
+          "ş": 183637,
+          "Ə": 28387,
+          "ə": 1542879
+        },
+        "documents": 3000,
+        "estimated_fraction_below_50_letters": 0.0003333333333333333,
+        "letter_quantiles": {
+          "p01": 257,
+          "p05": 359,
+          "p25": 744,
+          "p50": 1395,
+          "p75": 3389,
+          "p95": 22776,
+          "p99": 47492
+        },
+        "mean_alphabetic_character_ratio": 0.8015685830413689,
+        "mean_latin_script_ratio_among_letters": 0.9073103722479374
+      },
+      "documents": 53656,
+      "empty_documents": 0,
+      "flag_samples": {
+        "control_character": [
+          {
+            "excerpt": "яю<\u0000h\u0000t\u0000m\u0000l\u0000 \u0000x\u0000m\u0000l\u0000n\u0000s\u0000:\u0000v\u0000=\u0000\"\u0000u\u0000r\u0000n\u0000:\u0000s\u0000c\u0000h\u0000e\u0000m\u0000a\u0000s\u0000-\u0000m\u0000i\u0000c\u0000r\u0000o\u0000s\u0000o\u0000f\u0000t\u0000-\u0000c\u0000o\u0000m\u0000:\u0000v\u0000m\u0000l\u0000\"\u0000 \u0000 \u0000x\u0000m\u0000l\u0000n\u0000s\u0000:\u0000o\u0000=\u0000\"\u0000u\u0000r\u0000n\u0000:\u0000s\u0000c\u0000h\u0000e\u0000m\u0000a\u0000s\u0000-\u0000m\u0000i\u0000c\u0000r\u0000o\u0000s\u0000o\u0000f\u0000t\u0000-\u0000c\u0000o\u0000m\u0000:\u0000o\u0000f\u0000f\u0000i\u0000c\u0000e\u0000:\u0000o\u0000f\u0000f\u0000i\u0000c\u0000e\u0000\"\u0000 \u0000 \u0000x\u0000m\u0000l\u0000n\u0000s\u0000:\u0000w\u0000=\u0000\"\u0000u\u0000r\u0000n\u0000:\u0000s\u0000c\u0000h\u0000e\u0000m\u0000a\u0000s\u0000-\u0000",
+            "raw_record_id": "282b2ae51c71637f66b2cdc5bf8da20722f078bb843c0afcb62c34c8326a0579",
+            "row_index": 47,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          },
+          {
+            "excerpt": "�� ࡱ � > �� ;= ���� : ��������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������",
+            "raw_record_id": "ef0995b94d06cdafbb59971e9c2ae73d5c9eb3faccb794961af02738f6fb7ade",
+            "row_index": 909,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          },
+          {
+            "excerpt": "AZƏRBAYCAN RESPUBLİKASININ ƏDLİYYƏ NAZİRLİYİ KOLLEGİYA QƏRARI 15 fevral 2013-cü il № 1-N Azərbaycan Respublikasının Ədliyyə Nazirliyi Kollegiyasının 2011-ci il 29 noyabr tarixli 3-N nömrəli Qərarı ilə təsdiq edilmiş “Azərbaycan Respublikası",
+            "raw_record_id": "bb216ad8a187c56a04fcc6954c0adee3ef6299c589eaa51749101f38dc2b6ffb",
+            "row_index": 1408,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          },
+          {
+            "excerpt": "яю<\u0000h\u0000t\u0000m\u0000l\u0000 \u0000x\u0000m\u0000l\u0000n\u0000s\u0000:\u0000v\u0000=\u0000\"\u0000u\u0000r\u0000n\u0000:\u0000s\u0000c\u0000h\u0000e\u0000m\u0000a\u0000s\u0000-\u0000m\u0000i\u0000c\u0000r\u0000o\u0000s\u0000o\u0000f\u0000t\u0000-\u0000c\u0000o\u0000m\u0000:\u0000v\u0000m\u0000l\u0000\"\u0000 \u0000 \u0000x\u0000m\u0000l\u0000n\u0000s\u0000:\u0000o\u0000=\u0000\"\u0000u\u0000r\u0000n\u0000:\u0000s\u0000c\u0000h\u0000e\u0000m\u0000a\u0000s\u0000-\u0000m\u0000i\u0000c\u0000r\u0000o\u0000s\u0000o\u0000f\u0000t\u0000-\u0000c\u0000o\u0000m\u0000:\u0000o\u0000f\u0000f\u0000i\u0000c\u0000e\u0000:\u0000o\u0000f\u0000f\u0000i\u0000c\u0000e\u0000\"\u0000 \u0000 \u0000x\u0000m\u0000l\u0000n\u0000s\u0000:\u0000w\u0000=\u0000\"\u0000u\u0000r\u0000n\u0000:\u0000s\u0000c\u0000h\u0000e\u0000m\u0000a\u0000s\u0000-\u0000",
+            "raw_record_id": "b100fc2cdf478430a8f8dceb37b34b316e46408763a1643810c7280e95916e54",
+            "row_index": 2253,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          },
+          {
+            "excerpt": "AZƏRBAYCAN RESPUBLİKASI ƏMƏK VƏ ƏHALİNİN SOSİAL MÜDAFİƏSİ NAZİRLİYİNİN KOLLEGİYASI Q Ə R A R № 1905000017 Bakı şəhəri “ 05 “ aprel 2019-cu il İşaxtaran kimi qeydiyyata alınmaq üçün elektron ə riz ə nin formasının t ə sdiq edilm ə si bar ə d",
+            "raw_record_id": "ffc3eddafb7bd89dbd0291df5429dd47cd9454bbbd86fc9faf989bd616d43786",
+            "row_index": 2806,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          }
+        ],
+        "extremely_long": [
+          {
+            "excerpt": "AZƏRBAYCAN RESPUBLİKASININ CƏZALARIN İCRASI MƏCƏLLƏSİ [1] Ümumi hissə I bölmə Cəzaların İcrası qanunvericiliyinin əsas müddəaları [2] I fəsil Ümumi müddəalar Maddə 1. Cəzaların icrası qanunvericiliyi Məhkəmə tərəfindən təyin edilən cəzaları",
+            "raw_record_id": "6e24dc00ba8a2c2a25002ba3c05e6973d647208f60e857938cec0ab51ed992ed",
+            "row_index": 61,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          },
+          {
+            "excerpt": "“Elektrik qurğularının quraşdırılması Qaydası”nın təsdiq edilməsi haqqında AZƏRBAYCAN RESPUBLİKASI NAZİRLƏR KABİNETİNİN QƏRARI “Elektrik və istilik enerjisi, habelə qaz təchizatı sahəsində nəzarətin həyata keçirilməsi Qaydası”nın təsdiq edi",
+            "raw_record_id": "d1a7ede5010c29d8794d051745d074821bdd0f739255701ee3e88299e028e2d2",
+            "row_index": 598,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          },
+          {
+            "excerpt": "AZƏRBAYCAN RESPUBLİKASI DÖVLƏT ŞƏHƏRSALMA VƏ ARXİTEKTURA KOMİTƏSİNİN KOLLEGİYASI QƏRAR № MİHO/2.1-3.2-2022-9 Bakı şəhəri “21” dekabr 2022-ci il “Hidrotexniki qurğuların beton və dəmir-beton konstruksiyaları . Layihələndirmə normaları ” nın ",
+            "raw_record_id": "628a89f8b8ee4e1ae2d8c3ec83f59b481694080cda297ce6793f9453fb6ede79",
+            "row_index": 603,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          },
+          {
+            "excerpt": "“Dövlət qeydiyyatına alınmışdır ” Azərbaycan Respublikasının Ədliyyə Nazirliyi Qeydiyyat № 3447 15 may 2009-cu il Nazir ____________ Fikrət Məmmədov Azərbaycan   Respublikası ədliyyə nazirinin 29 mart 2009-cu il tarixli 11-T nömrəli əmri il",
+            "raw_record_id": "0ce4abe8c52fbbd85336ba7371af4c17c573ca3b06000893b26446c5e16efb4e",
+            "row_index": 750,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          },
+          {
+            "excerpt": "\"Azərbaycan Respublikası və Kənd Təsərrüfatının İnkişafı üzrə Beynəlxalq Fond arasında Borc Sazi şi\"nin (Şimal-Şərq İnkişaf Layihəsinin) təsdiq edilməsi haqqında AZƏRBAYCAN RESPUBLİKASININ QANUNU Azərbaycan Respublikasının Milli Məclisi qər",
+            "raw_record_id": "c489c0f2649b4d8dcac1a0cd4cfa85432dd317c002a832b74fb396ada7150ca8",
+            "row_index": 901,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          }
+        ],
+        "high_line_break_density": [
+          {
+            "excerpt": "Azərbaycan Respublikası Nazirlər Kabinetinin 2008-ci il 27 noyabr tarixli 261 nömrəli qərarı ilə təsdiq edilmiş “2007-2015-ci illərdə Azərbaycan gənclərinin xarici ölkələrdə təhsili üzrə Dövlət Proqramı”na əsasən Azərbaycan gənclərinin xari",
+            "raw_record_id": "5d3cb8ee8b4f2255404b5d0d153b6ad6a47cc3b402af9fc23e7007e9aac25cb4",
+            "row_index": 12,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          },
+          {
+            "excerpt": "Azərbaycan Respublikası Silahlı Qüvvələrinin hərbi qulluqçularının təltif edilməsi haqqında AZƏRBAYCAN RESPUBLİKASI PREZİDENTİNİN SƏRƏNCAMI Azərbaycan Respublikası Silahlı Qüvvələrinin 90 illik yubileyi münasibətilə Azərbaycan Respublikasın",
+            "raw_record_id": "4fb6e01700822ff180ddc882490b31bd930b37236ebce3c3bfda2f2fbcbaa2ff",
+            "row_index": 25,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          },
+          {
+            "excerpt": "AZƏRBAYCAN RESPUBLİKASININ DAXİLİ İŞLƏR NAZİRLİYİ QƏRAR № Q18-001-20 Bakı şəhəri 17 iyul 2020-ci il Az ə rbaycan Respublikası Daxili İşl ə r Nazirliyinin 2011-ci il 3 noyabr tarixli 680 nömr ə li Q ə rarı il ə t ə sdiq edilmiş “Tör ə dilmiş",
+            "raw_record_id": "7e5d4b4e6a18733531ecb44c1f114dd6146d64d0e96ae5640928af566300eaab",
+            "row_index": 90,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          },
+          {
+            "excerpt": "Bəzi dairə seçki (referendum) komissiyalarinin tərkibində dəyişiklik edilməsi barədə AZƏRBAYCAN RESPUBLİKASI MƏRKƏZİ SEÇKİ (REFERENDUM) KOMİSSİYASININ QƏRARI Azərbaycan Respublikasının Mərkəzi Seçki (Referendum) Komissiyası Azərbaycan Respu",
+            "raw_record_id": "313ec7f9bacd0e3d72d038b88ae38bf5f8c461f90dab25158d37251a995ce055",
+            "row_index": 138,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          },
+          {
+            "excerpt": "1 saylı Şərur-Sədərək seçki dairəsi dairə seçki (referendum) komissiyasının tərkibində dəyişiklik edilməsi barədə AZƏRBAYCAN RESPUBLİKASI MƏRKƏZİ SEÇKİ (REFERENDUM) KOMİSSİYASININ QƏRARI Azərbaycan Respublikasının Mərkəzi Seçki (Referendum)",
+            "raw_record_id": "4fc108ee53807068e6781c85d090c6fec883a9d5d4d3e2159a40cdfb84d3913f",
+            "row_index": 140,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          }
+        ],
+        "html_xml_like_markup": [
+          {
+            "excerpt": "“Azərbaycan Respublikası Hökuməti və Belarus Respublikası Hökuməti arasında pensiya təminatı sahəsində əməkdaşlıq haqqında 21 noyabr 2013-cü il tarixli Sazişin tətbiqinə dair Azərbaycan Respublikasının Əmək və Əhalinin Sosial Müdafiəsi Nazi",
+            "raw_record_id": "8e3e5d8450fab9a4f1510e42edd4fc80d598421e65b7b1f5b8f3668fa217962f",
+            "row_index": 3529,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          },
+          {
+            "excerpt": "Azərbaycan Respublikasında qidalanmanı yaxşılaşdırılması, əhalinin insan orqanizmində çatışmayan mikroelement və vitaminlərlə zənginləşdirilmiş yeyinti məhsulları ilə təmin edilməsi, bu sahədə icra hakimiyyəti orqanları, beynəlxalq təşkilat",
+            "raw_record_id": "0cd1d890004f931d8c112e36497968c85d3a0498f40e3280188a20cea504227e",
+            "row_index": 6088,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          },
+          {
+            "excerpt": "AZƏRBAYCAN RESPUBLİKASININ STANDARTLAŞDIRMA, METROLOGİYA VƏ PATENT ÜZRƏ DÖVLƏT KOMİTƏSİ QƏRAR № 010 Bakı şəhəri “ 26” dekabr 2014-cü il Dövlət standartlarının təsdiq edilməsi haqqında Azərbaycan Respublikası Prezidentinin 22 noyabr 1998-ci ",
+            "raw_record_id": "ba71c9a0ce938594e93f34162cc3917f7674f1e5ec496a4f9f7d87379d64fbde",
+            "row_index": 6553,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          },
+          {
+            "excerpt": "“İnformasiya sistemlərinin “www.azexport.az” internet portalına inteqrasiyası üçün Texniki Tələblər”in təsdiq edilməsi haqqında AZƏRBAYCAN RESPUBLİKASI NAZİRLƏR KABİNETİNİN QƏRARI “Azərbaycan Respublikasının diplomatik nümayəndəlikləri və k",
+            "raw_record_id": "3e79514fb971fe7abe7e0d2558a0f204236819fa684bc32619d780bb4bb403e7",
+            "row_index": 7637,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          },
+          {
+            "excerpt": "�� ࡱ � > �� MO ���� L ��������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������",
+            "raw_record_id": "79de829af44ebf0243c657d583b52cf5bf5183176671f77c700f2d3c18fd27ab",
+            "row_index": 12246,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          }
+        ],
+        "null_byte": [
+          {
+            "excerpt": "яю<\u0000h\u0000t\u0000m\u0000l\u0000 \u0000x\u0000m\u0000l\u0000n\u0000s\u0000:\u0000v\u0000=\u0000\"\u0000u\u0000r\u0000n\u0000:\u0000s\u0000c\u0000h\u0000e\u0000m\u0000a\u0000s\u0000-\u0000m\u0000i\u0000c\u0000r\u0000o\u0000s\u0000o\u0000f\u0000t\u0000-\u0000c\u0000o\u0000m\u0000:\u0000v\u0000m\u0000l\u0000\"\u0000 \u0000 \u0000x\u0000m\u0000l\u0000n\u0000s\u0000:\u0000o\u0000=\u0000\"\u0000u\u0000r\u0000n\u0000:\u0000s\u0000c\u0000h\u0000e\u0000m\u0000a\u0000s\u0000-\u0000m\u0000i\u0000c\u0000r\u0000o\u0000s\u0000o\u0000f\u0000t\u0000-\u0000c\u0000o\u0000m\u0000:\u0000o\u0000f\u0000f\u0000i\u0000c\u0000e\u0000:\u0000o\u0000f\u0000f\u0000i\u0000c\u0000e\u0000\"\u0000 \u0000 \u0000x\u0000m\u0000l\u0000n\u0000s\u0000:\u0000w\u0000=\u0000\"\u0000u\u0000r\u0000n\u0000:\u0000s\u0000c\u0000h\u0000e\u0000m\u0000a\u0000s\u0000-\u0000",
+            "raw_record_id": "282b2ae51c71637f66b2cdc5bf8da20722f078bb843c0afcb62c34c8326a0579",
+            "row_index": 47,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          },
+          {
+            "excerpt": "яю<\u0000h\u0000t\u0000m\u0000l\u0000 \u0000x\u0000m\u0000l\u0000n\u0000s\u0000:\u0000v\u0000=\u0000\"\u0000u\u0000r\u0000n\u0000:\u0000s\u0000c\u0000h\u0000e\u0000m\u0000a\u0000s\u0000-\u0000m\u0000i\u0000c\u0000r\u0000o\u0000s\u0000o\u0000f\u0000t\u0000-\u0000c\u0000o\u0000m\u0000:\u0000v\u0000m\u0000l\u0000\"\u0000 \u0000 \u0000x\u0000m\u0000l\u0000n\u0000s\u0000:\u0000o\u0000=\u0000\"\u0000u\u0000r\u0000n\u0000:\u0000s\u0000c\u0000h\u0000e\u0000m\u0000a\u0000s\u0000-\u0000m\u0000i\u0000c\u0000r\u0000o\u0000s\u0000o\u0000f\u0000t\u0000-\u0000c\u0000o\u0000m\u0000:\u0000o\u0000f\u0000f\u0000i\u0000c\u0000e\u0000:\u0000o\u0000f\u0000f\u0000i\u0000c\u0000e\u0000\"\u0000 \u0000 \u0000x\u0000m\u0000l\u0000n\u0000s\u0000:\u0000w\u0000=\u0000\"\u0000u\u0000r\u0000n\u0000:\u0000s\u0000c\u0000h\u0000e\u0000m\u0000a\u0000s\u0000-\u0000",
+            "raw_record_id": "b100fc2cdf478430a8f8dceb37b34b316e46408763a1643810c7280e95916e54",
+            "row_index": 2253,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          },
+          {
+            "excerpt": "яю<\u0000h\u0000t\u0000m\u0000l\u0000 \u0000x\u0000m\u0000l\u0000n\u0000s\u0000:\u0000v\u0000=\u0000\"\u0000u\u0000r\u0000n\u0000:\u0000s\u0000c\u0000h\u0000e\u0000m\u0000a\u0000s\u0000-\u0000m\u0000i\u0000c\u0000r\u0000o\u0000s\u0000o\u0000f\u0000t\u0000-\u0000c\u0000o\u0000m\u0000:\u0000v\u0000m\u0000l\u0000\"\u0000 \u0000 \u0000x\u0000m\u0000l\u0000n\u0000s\u0000:\u0000o\u0000=\u0000\"\u0000u\u0000r\u0000n\u0000:\u0000s\u0000c\u0000h\u0000e\u0000m\u0000a\u0000s\u0000-\u0000m\u0000i\u0000c\u0000r\u0000o\u0000s\u0000o\u0000f\u0000t\u0000-\u0000c\u0000o\u0000m\u0000:\u0000o\u0000f\u0000f\u0000i\u0000c\u0000e\u0000:\u0000o\u0000f\u0000f\u0000i\u0000c\u0000e\u0000\"\u0000 \u0000 \u0000x\u0000m\u0000l\u0000n\u0000s\u0000:\u0000w\u0000=\u0000\"\u0000u\u0000r\u0000n\u0000:\u0000s\u0000c\u0000h\u0000e\u0000m\u0000a\u0000s\u0000-\u0000",
+            "raw_record_id": "8dcdb21fd31bc16b8ead79502b9f1797dc444d5606c9c0243ad7e30058df49bc",
+            "row_index": 2808,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          },
+          {
+            "excerpt": "яю<\u0000h\u0000t\u0000m\u0000l\u0000 \u0000x\u0000m\u0000l\u0000n\u0000s\u0000:\u0000v\u0000=\u0000\"\u0000u\u0000r\u0000n\u0000:\u0000s\u0000c\u0000h\u0000e\u0000m\u0000a\u0000s\u0000-\u0000m\u0000i\u0000c\u0000r\u0000o\u0000s\u0000o\u0000f\u0000t\u0000-\u0000c\u0000o\u0000m\u0000:\u0000v\u0000m\u0000l\u0000\"\u0000 \u0000 \u0000x\u0000m\u0000l\u0000n\u0000s\u0000:\u0000o\u0000=\u0000\"\u0000u\u0000r\u0000n\u0000:\u0000s\u0000c\u0000h\u0000e\u0000m\u0000a\u0000s\u0000-\u0000m\u0000i\u0000c\u0000r\u0000o\u0000s\u0000o\u0000f\u0000t\u0000-\u0000c\u0000o\u0000m\u0000:\u0000o\u0000f\u0000f\u0000i\u0000c\u0000e\u0000:\u0000o\u0000f\u0000f\u0000i\u0000c\u0000e\u0000\"\u0000 \u0000 \u0000x\u0000m\u0000l\u0000n\u0000s\u0000:\u0000w\u0000=\u0000\"\u0000u\u0000r\u0000n\u0000:\u0000s\u0000c\u0000h\u0000e\u0000m\u0000a\u0000s\u0000-\u0000",
+            "raw_record_id": "1fc34671dfdae2395922c1d91edb696c81e4065758fc54360e39fa8c5f7aa8ff",
+            "row_index": 3536,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          },
+          {
+            "excerpt": "яю<\u0000h\u0000t\u0000m\u0000l\u0000 \u0000x\u0000m\u0000l\u0000n\u0000s\u0000:\u0000v\u0000=\u0000\"\u0000u\u0000r\u0000n\u0000:\u0000s\u0000c\u0000h\u0000e\u0000m\u0000a\u0000s\u0000-\u0000m\u0000i\u0000c\u0000r\u0000o\u0000s\u0000o\u0000f\u0000t\u0000-\u0000c\u0000o\u0000m\u0000:\u0000v\u0000m\u0000l\u0000\"\u0000 \u0000 \u0000x\u0000m\u0000l\u0000n\u0000s\u0000:\u0000o\u0000=\u0000\"\u0000u\u0000r\u0000n\u0000:\u0000s\u0000c\u0000h\u0000e\u0000m\u0000a\u0000s\u0000-\u0000m\u0000i\u0000c\u0000r\u0000o\u0000s\u0000o\u0000f\u0000t\u0000-\u0000c\u0000o\u0000m\u0000:\u0000o\u0000f\u0000f\u0000i\u0000c\u0000e\u0000:\u0000o\u0000f\u0000f\u0000i\u0000c\u0000e\u0000\"\u0000 \u0000 \u0000x\u0000m\u0000l\u0000n\u0000s\u0000:\u0000w\u0000=\u0000\"\u0000u\u0000r\u0000n\u0000:\u0000s\u0000c\u0000h\u0000e\u0000m\u0000a\u0000s\u0000-\u0000",
+            "raw_record_id": "61b48c5d874c0ff53d1c8f5e757a09932079b8298ee1339d4a75edbf847e1150",
+            "row_index": 4143,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          }
+        ],
+        "repeated_character": [
+          {
+            "excerpt": "�� ࡱ � > �� ,. ���� + ��������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������",
+            "raw_record_id": "f20c86be9414308379cc8b265407efd6f2f4f0f0255e97f5055e0382694cb2f9",
+            "row_index": 2968,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          },
+          {
+            "excerpt": "AZƏRBAYCAN RESPUBLİKASI ƏMƏK VƏ ƏHALİNİN SOSİAL MÜDAFİƏSİ NAZİRLİYİNİN KOLLEGİYASI QƏRARI № 13-1 Bakı şəhəri “ 26” sentyabr 2017-ci il “Sosial sığorta ehtiyatından istifadə Qaydası”nın və “Sığortaolunanlar üzrə xüsusi hesaba əlavə vəsaitlər",
+            "raw_record_id": "b4eb560d3a98131688c0be703c49587f6ffe812aaad683bdf7dbe69e01bcccbb",
+            "row_index": 5044,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          },
+          {
+            "excerpt": "Azərbaycan Respublikası Mərkəzi Bankının İdarə Heyətinin QƏRARI № 29/2 Bakı şəhəri “ 03” dekabr 2012-ci il Azərbaycan Respublikası Mərkəzi Bankının “ Banklarda hesabların açılması, aparılması və bağlanması Qaydaları ”nın təsdiq edilməsi bar",
+            "raw_record_id": "820303a50cfebbad92f832bb3f265d9857126d7d5bca34c0ec936baba4985f74",
+            "row_index": 9349,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          },
+          {
+            "excerpt": "AZƏRBAYCAN RESPUBLİKASININ NAZİRLƏR KABİNETİ SƏRƏNCAM № 203s Bakı şəhəri, 27 iyul 2011-ci il “Dövlət zəmanəti ilə alınan kreditlərə dair sazişlərin bağlanması qaydaları haqqında” Azərbaycan Respublikası Prezidentinin 2006-cı il 13 fevral ta",
+            "raw_record_id": "9d4b77a9b6241e8579f0bbcf616034b8932cac16eb760a3fe7771861885c467c",
+            "row_index": 9772,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          },
+          {
+            "excerpt": "Azərbaycan Respublikasının ərazisində müvəqqəti və daimi yaşamaq üçün icazə vəsiqələrinin, habelə əcnəbilərin və vətəndaşlığı olmayan şəxslərin Azərbaycan Respublikasında müvəqqəti olma müddətinin uzadılması barədə qərarın təsvir, spesifika",
+            "raw_record_id": "32440053cf2317cba14b4510298b4d1bb1afa0571758f8d545e1370c34efb017",
+            "row_index": 12154,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          }
+        ],
+        "unicode_replacement": [
+          {
+            "excerpt": "�� ࡱ � > �� ;= ���� : ��������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������",
+            "raw_record_id": "ef0995b94d06cdafbb59971e9c2ae73d5c9eb3faccb794961af02738f6fb7ade",
+            "row_index": 909,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          },
+          {
+            "excerpt": "�� ࡱ � > �� ,. ���� + ��������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������",
+            "raw_record_id": "f20c86be9414308379cc8b265407efd6f2f4f0f0255e97f5055e0382694cb2f9",
+            "row_index": 2968,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          },
+          {
+            "excerpt": "�� ࡱ � > �� .0 ���� - ��������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������",
+            "raw_record_id": "5fb8b144c1844c02968e8d5f270b77f68d2cb557f14fa6d66d121e7ea9102dc7",
+            "row_index": 4862,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          },
+          {
+            "excerpt": "�� ࡱ � > �� MO ���� L ��������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������",
+            "raw_record_id": "79de829af44ebf0243c657d583b52cf5bf5183176671f77c700f2d3c18fd27ab",
+            "row_index": 12246,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          },
+          {
+            "excerpt": "�� ࡱ � > �� .0 ���� - ��������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������",
+            "raw_record_id": "6d0d6ba01c9654d849ff0226e4e885e5add5d2223662f78739e525217175d1cc",
+            "row_index": 12314,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          }
+        ],
+        "unusual_whitespace": [
+          {
+            "excerpt": "«Azərbaycan Respublikası Hökuməti və təşkilatçı və agent qismində çıxış edən BNP Paribas, Fransa və əsas borcverənlər qismində çıxış edən BNP Paribas, Fransa, Bank Leumi Le-İsrael B.M., Bank Hapoalim B.M. arasında Bakı-Şamaxı-Yevlax avtomob",
+            "raw_record_id": "47c0d01bb8119449fa9cc72515f02a57643925f6b4765f9aa7884fd33f7c429c",
+            "row_index": 16,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          },
+          {
+            "excerpt": "Azərbaycan Respublikası Silahlı Qüvvələrinin hərbi qulluqçularının təltif edilməsi haqqında AZƏRBAYCAN RESPUBLİKASI PREZİDENTİNİN SƏRƏNCAMI Azərbaycan Respublikası Silahlı Qüvvələrinin 90 illik yubileyi münasibətilə Azərbaycan Respublikasın",
+            "raw_record_id": "4fb6e01700822ff180ddc882490b31bd930b37236ebce3c3bfda2f2fbcbaa2ff",
+            "row_index": 25,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          },
+          {
+            "excerpt": "Azərbaycan Respublikası adından Azərbaycan Respublikası Mülki Məcəlləsinin 337, 339.6, 346.1 və 354-cü maddələrinin əlaqəli şəkildə şərh edilməsinə dair AZƏRBAYCAN RESPUBLİKASI KONSTİTUSİYA MƏHKƏMƏSİ PLENUMUNUN QƏRARI Azərbaycan Respublikas",
+            "raw_record_id": "db8b8887555af03c9b334ee47a61473ec04a19eb18a0f6e43c9287be78c406e1",
+            "row_index": 30,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          },
+          {
+            "excerpt": "яю<\u0000h\u0000t\u0000m\u0000l\u0000 \u0000x\u0000m\u0000l\u0000n\u0000s\u0000:\u0000v\u0000=\u0000\"\u0000u\u0000r\u0000n\u0000:\u0000s\u0000c\u0000h\u0000e\u0000m\u0000a\u0000s\u0000-\u0000m\u0000i\u0000c\u0000r\u0000o\u0000s\u0000o\u0000f\u0000t\u0000-\u0000c\u0000o\u0000m\u0000:\u0000v\u0000m\u0000l\u0000\"\u0000 \u0000 \u0000x\u0000m\u0000l\u0000n\u0000s\u0000:\u0000o\u0000=\u0000\"\u0000u\u0000r\u0000n\u0000:\u0000s\u0000c\u0000h\u0000e\u0000m\u0000a\u0000s\u0000-\u0000m\u0000i\u0000c\u0000r\u0000o\u0000s\u0000o\u0000f\u0000t\u0000-\u0000c\u0000o\u0000m\u0000:\u0000o\u0000f\u0000f\u0000i\u0000c\u0000e\u0000:\u0000o\u0000f\u0000f\u0000i\u0000c\u0000e\u0000\"\u0000 \u0000 \u0000x\u0000m\u0000l\u0000n\u0000s\u0000:\u0000w\u0000=\u0000\"\u0000u\u0000r\u0000n\u0000:\u0000s\u0000c\u0000h\u0000e\u0000m\u0000a\u0000s\u0000-\u0000",
+            "raw_record_id": "282b2ae51c71637f66b2cdc5bf8da20722f078bb843c0afcb62c34c8326a0579",
+            "row_index": 47,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          },
+          {
+            "excerpt": "AZƏRBAYCAN RESPUBLİKASININ RƏQƏMSAL İNKİŞAF VƏ NƏQLİYYAT NAZİRLİYİNİN KOLLEGİYASI QƏRAR № KQ-11/22 Bakı   şəhəri 20   sentyabr 2022-ci il “ Dövlət poçt ödənişi nişanlarının hazırlanması, nominal dəyərinin və tirajının təsdiq edilməsi, onlar",
+            "raw_record_id": "42be9a4ae39b48ca5e8faf70da305116fd8ed6f8f47a04a5c1563a9a42e6cb90",
+            "row_index": 70,
+            "shard": "train-00000-of-00001.parquet",
+            "source": "eqanun"
+          }
+        ]
+      },
+      "flags": {
+        "control_character": 67,
+        "extremely_long": 302,
+        "high_line_break_density": 1511,
+        "html_xml_like_markup": 15,
+        "null_byte": 44,
+        "repeated_character": 18,
+        "unicode_replacement": 16,
+        "unusual_whitespace": 1378
+      },
+      "null_documents": 0,
+      "source": "eqanun",
+      "total_characters": 348973113,
+      "whitespace_only_documents": 0,
+      "word_quantiles": {
+        "p01": 39,
+        "p05": 51,
+        "p25": 106,
+        "p50": 211,
+        "p75": 512,
+        "p95": 3237,
+        "p99": 8603
+      }
+    },
+    "mediocore-books": {
+      "approximate_whitespace_words": 131706891,
+      "character_quantiles": {
+        "p01": 13,
+        "p05": 26,
+        "p25": 60,
+        "p50": 103,
+        "p75": 169,
+        "p95": 326,
+        "p99": 520
+      },
+      "deterministic_sample": {
+        "azerbaijani_specific_letter_occurrences": {
+          "Ç": 85,
+          "Ö": 65,
+          "Ü": 81,
+          "ç": 2075,
+          "ö": 2405,
+          "ü": 5580,
+          "Ğ": 6,
+          "ğ": 1543,
+          "İ": 761,
+          "ı": 11271,
+          "Ş": 293,
+          "ş": 4328,
+          "Ə": 607,
+          "ə": 30588
+        },
+        "documents": 3000,
+        "estimated_fraction_below_50_letters": 0.25033333333333335,
+        "letter_quantiles": {
+          "p01": 12,
+          "p05": 23,
+          "p25": 49,
+          "p50": 85,
+          "p75": 142,
+          "p95": 282,
+          "p99": 403
+        },
+        "mean_alphabetic_character_ratio": 0.8490773504453684,
+        "mean_latin_script_ratio_among_letters": 0.9054744472269746
+      },
+      "documents": 7807263,
+      "empty_documents": 0,
+      "flag_samples": {
+        "control_character": [
+          {
+            "excerpt": "YTK aşağıdakı funksiyaları yerinə yetirir:  yarışın reqlamentinin hazırlanması;  yarışın keçirilməsi və nəticələrin hesablanmasının bu Məcəlləyə uyğun olaraq təmin edilməsi;  oyun qaydalarına riayət olunmasına nəzarət edilməsi;  digər o",
+            "raw_record_id": "97ae82d565e3ccbf9f5b01ff603f8e2c62097b7e80ca9cdb425cff2b8ee60344",
+            "row_index": 1152502,
+            "shard": "train-00000-of-00006.parquet",
+            "source": "mediocore-books"
+          },
+          {
+            "excerpt": "Oyunun jürisinin (OJ) funksiyalarına aşağıdakılar daxildir:  komandaların verdikləri cavabların sayılması ilə bağlı qərarların qəbul edilməsi;  turun (yarışın) ilkin nəticələrinin hesablanması və texniki səhvlər aşkar edildiyi təqdirdə on",
+            "raw_record_id": "c747644dcdcce743142686af5529ef4eb985f7562db6105ba2f7d64c028d90f6",
+            "row_index": 1152508,
+            "shard": "train-00000-of-00006.parquet",
+            "source": "mediocore-books"
+          },
+          {
+            "excerpt": "Aparıcı aşağıdakı əsas funksiyaları yerinə yetirir:  sualların mətninin, müəllif cavablarının və sualların digər komponentlərinin oxunması;  sekundantların fəaliyyətinə operativ rəhbərlik;  oyunun gedişi zamanı bu Məcəllənin və reqlament",
+            "raw_record_id": "839066783f72a08464c79f0dd565b26aab468028ef50606aa9d4a1a8e207a436",
+            "row_index": 1152549,
+            "shard": "train-00000-of-00006.parquet",
+            "source": "mediocore-books"
+          },
+          {
+            "excerpt": "Aparıcı:  yaxşı tələffüz qabiliyyətinə malik olmalı və oyunun keçirildiyi danışıq dilini sərbəst bilməli;  oyun materialları ilə əvvəlcədən tanış olmalı;  sualları dəqiq və aydın oxumalıdır.",
+            "raw_record_id": "0f86762c9284dea42398640f40e45c1bb97cf965209b8f9be4f50a88b7c3bf1a",
+            "row_index": 1152550,
+            "shard": "train-00000-of-00006.parquet",
+            "source": "mediocore-books"
+          },
+          {
+            "excerpt": "Nə zaman?” MƏCƏLLƏSİ  hazırkı Məcəllə və ya reqlament normalarının ayr-ayrı oyunçular yaxud komandalar tərəfindən pozulması hallarını qeydə alsın, OJ və ya YTKnı bu barədə məlumatlandırsın, bu Məcəllə və ya reqlamentdə nəzərdə tutulduğu ha",
+            "raw_record_id": "a2094d20e119f2fca36a4d3dd09412c6261ad565ba6b45e76ca07aebf0d919be",
+            "row_index": 1152551,
+            "shard": "train-00000-of-00006.parquet",
+            "source": "mediocore-books"
+          }
+        ],
+        "html_xml_like_markup": [
+          {
+            "excerpt": "Q<Kurdan Tiflisi görondo Bahadırm ün>yi qısıldı; çünki gct- niyyot vacib söylodi.",
+            "raw_record_id": "00447b7b323b250673e093b6d755195a828d809eab5ad6c8c60f08e3a7c5e26a",
+            "row_index": 11668,
+            "shard": "train-00000-of-00006.parquet",
+            "source": "mediocore-books"
+          },
+          {
+            "excerpt": "Badkubo omtrlt>rindon birisi ö/ korimoii ılo fozıhotli fclo mürtokıb abadanlığt qodumi-mübarək bərəkotindondir... Amma hcyif ki, bu olnuq ıslo<Jikdo mtskin sobyo atasının bclo nabokarlıgtndan ıhiı/aro goltb homın /tkr olunan bürcdon özüıtü ",
+            "raw_record_id": "74a3d5b301e5ffd7b99ba8e8bbd77dbf604fe9d5b057fdb6e14a47356da739e2",
+            "row_index": 12400,
+            "shard": "train-00000-of-00006.parquet",
+            "source": "mediocore-books"
+          },
+          {
+            "excerpt": "Fonda oxucu auditoriyası olan www.toutelaculture.com<http://www.toutelaculture.com/> saytında Azərbaycanın birinci xanımı Mehriban Əliyeva rəhbərlik edir.",
+            "raw_record_id": "d2c5876f2fdc6929df4a65703887318cfa683d50fac578616442960ca6e5fd51",
+            "row_index": 76261,
+            "shard": "train-00000-of-00006.parquet",
+            "source": "mediocore-books"
+          },
+          {
+            "excerpt": "<r=>**bir şagird götürdüyü bileti bir dəfə dəyişmək hüququna malik idi. Mən tələsə-tələsə evə gəldim və evdəkilər tərəfındən iranlılar Amma belə halda о, yalnız yüksək qiymət iddia etmək imkamndan üzərində qələbə çalmış Makedoniyalı İskəndə",
+            "raw_record_id": "8ff295390a1e0ded02093ecd6e6421f0932af0002887e218dbd33512bfb232e9",
+            "row_index": 80060,
+            "shard": "train-00000-of-00006.parquet",
+            "source": "mediocore-books"
+          },
+          {
+            "excerpt": "u axını Biz neft sektoruna sərmayələrin cəlb edilməsi mərhələsini keçəndə o qədər çətinliklə­ Azərbaycanda biz fərəh hissi ilə deyə bilərik ki, bir neçə il bun an əvvə ası at s<ma> c 154Azərbaycan Respublikası Xarici İşlər Nazirliyi AZƏRBAY",
+            "raw_record_id": "0132d3786e48d2ec68b8a6d8278627f3a2b7d22cee9ee7d532f8b6fd25713b8a",
+            "row_index": 243023,
+            "shard": "train-00000-of-00006.parquet",
+            "source": "mediocore-books"
+          }
+        ],
+        "repeated_character": [
+          {
+            "excerpt": "Q eyri-su həlledicilərin elektrolitlərin xassələrinə təsirindən analitik m əqsədlər üçün istifadə edilm əsi llllSlliiiiiiiiiiiilJJllilJlllillliiillllllilliillliliillilliilliill ^ 6.",
+            "raw_record_id": "094b85ea8b1f1e00261b3ab53e3aede27e4892380e0b9ecf7591c20a5160c713",
+            "row_index": 8246,
+            "shard": "train-00000-of-00006.parquet",
+            "source": "mediocore-books"
+          },
+          {
+            "excerpt": "Uzvi tursu duzlarının təvini 110 w İİİİİİİİİİİİİİİİİİİİİİİİİİİİİİ4.",
+            "raw_record_id": "94135a782c3d29980fbe4b1a13d3cb976222dae975df05804f4beb79fb6d3141",
+            "row_index": 8252,
+            "shard": "train-00000-of-00006.parquet",
+            "source": "mediocore-books"
+          },
+          {
+            "excerpt": "Toxumları aprel ayında 15 ıııııı dərinliyində birviyyatların tərkibinə də əlavə edilir.",
+            "raw_record_id": "b9a0f65fc5e8cd6064cfaee09c3ea996ebec8c06f19d1d2ac10134b874d251d4",
+            "row_index": 129788,
+            "shard": "train-00000-of-00006.parquet",
+            "source": "mediocore-books"
+          },
+          {
+            "excerpt": "lətinıi/iıı ətrafında daha sıx birləşməli, oıııııı azad, firavan, daha <b Azərbaycan Rcspulikasıııııı prezidenti kiıııi mən bu əziz bayram güclü və qüdrətli olması üçün əllərindən gələni etməlidirlər.",
+            "raw_record_id": "2ee0cf908a569672ddda64c1f8217af834f3c7c0d319053a6eb116ae8fa6ebaa",
+            "row_index": 200891,
+            "shard": "train-00000-of-00006.parquet",
+            "source": "mediocore-books"
+          },
+          {
+            "excerpt": "İndiki halda, bp, — 406 ШШНННННННВВННВМНШ 407Azərbaycan Respublikası Xarici İşlər Nazirliyi AZƏRBAYCANIN XARİCİ SİYASƏTİ / Sənədlər məcmuəsi - 2006 olması faktının Özü, zənnimcə, iştirakçı ölkələrə öz məsələlərini həll etməyə, fəal Mən indi",
+            "raw_record_id": "46d664b1d2c6ce93875dfe24005e3942fdff6526b46ddc1020b85d8e3dcd3889",
+            "row_index": 248031,
+            "shard": "train-00000-of-00006.parquet",
+            "source": "mediocore-books"
+          }
+        ],
+        "unicode_replacement": [
+          {
+            "excerpt": "�əxri fərmanla təltif olunaraq həmin hərbi hissədə saxlanılıb.",
+            "raw_record_id": "05a2412bc1cc5f186f9e3e118d7ef18f39d3d0fb18f18dc06993e0f6cddf343a",
+            "row_index": 937523,
+            "shard": "train-00000-of-00006.parquet",
+            "source": "mediocore-books"
+          },
+          {
+            "excerpt": "F.İ�brahiminin oxuculara təqdim olunan bu kitabı Azərbaycanın diplomatiya tarixini, milli ideologiyamız olan azərbaycançılığın formalaşması və inkişafını izləmək və öyrənmək baxımından çox faydalıdır.",
+            "raw_record_id": "ccae6d22569e81d5536a90e052fd6b120ba241ba39ac7e38a9f37ca8d5a1ce8f",
+            "row_index": 45916,
+            "shard": "train-00001-of-00006.parquet",
+            "source": "mediocore-books"
+          },
+          {
+            "excerpt": "“Sülh uğrunda” başlıqlı kitabın tərtibçisi F.İ�brahiminin yazı üslubuna toxunmadan onun oxuculara təqdim olunan qeydlərinin müasir Azərbaycan ədəbi dilinə uyğunlaşdırılmasına və səslənməsinə çalışmış, bir sıra ərəb-fars ifadələrinin azərbay",
+            "raw_record_id": "f08612f428f77e23527806ee7fc45e0ef44fe18392d0620f92a5f68d009c4f84",
+            "row_index": 45918,
+            "shard": "train-00001-of-00006.parquet",
+            "source": "mediocore-books"
+          },
+          {
+            "excerpt": "Azərbaycanlı kəndlərinə ərzaq köməyi göstərən ermənilər döyülürdülər”.� Vartanlı və Kuybışev kəndlərində ermənilərin törətdikləri qırğınları örtbasdır edən rəsmi orqanlar yalnız “atışma olmuşdur, tələfat var” ifadələrini işlətməklə kifayətl",
+            "raw_record_id": "0f6e694e7b402511597d076d1e17bb208f4ee3be7d028edb00b4684731a5bf8d",
+            "row_index": 872242,
+            "shard": "train-00001-of-00006.parquet",
+            "source": "mediocore-books"
+          },
+          {
+            "excerpt": "Ü�mumiyyətlə, bu priyom zənnimcə çox maraqlıdır, əsərdə xüsusi bir atmosfer yaradır.",
+            "raw_record_id": "9b14dd0e838a95305724cdc9fb4ebe33445b46364af2cea8abdf8c33d929e5ce",
+            "row_index": 1023705,
+            "shard": "train-00001-of-00006.parquet",
+            "source": "mediocore-books"
+          }
+        ],
+        "url_heavy": [
+          {
+            "excerpt": "Azərbaycan - Rumıniya münasibətləri http://www.",
+            "raw_record_id": "23a25828ea0dacb77cb5d744b109850ea594138a1cb52ba5f47b78c266ce4ce0",
+            "row_index": 1245266,
+            "shard": "train-00000-of-00006.parquet",
+            "source": "mediocore-books"
+          },
+          {
+            "excerpt": "İslam Konfransı Təşkilatının rəsmi saytı (http://www.",
+            "raw_record_id": "97ac8dda9a590ac5f46bdaec21dce9e062003148aa9e21bb1a2e0d9a0413b1cd",
+            "row_index": 608090,
+            "shard": "train-00002-of-00006.parquet",
+            "source": "mediocore-books"
+          },
+          {
+            "excerpt": "fi Belçika www.fed-parl.be Fransa www.elysee.fr Birləşmiş Ərəb Əmirliyi www.assamblee-nat.fr www.almajles.gov.ae www.senat.fr Böyük Britaniya Haiti www.parliament.uk www.palaisnational.info www.haitifocus.com Danimarka www.folketinget.dk Li",
+            "raw_record_id": "f0b10abafec9c141877630772c316014cb99a22e1adcafafb831c65c05215df9",
+            "row_index": 441337,
+            "shard": "train-00003-of-00006.parquet",
+            "source": "mediocore-books"
+          },
+          {
+            "excerpt": "İnternet səhifəsi www.",
+            "raw_record_id": "8f21a04566e0031b3eb1f969dd309c077f6cc946b6c6418ee67b15daf379ec11",
+            "row_index": 765441,
+            "shard": "train-00003-of-00006.parquet",
+            "source": "mediocore-books"
+          },
+          {
+            "excerpt": "Güney http://www.nzerbaijan.az Azərbaycan.",
+            "raw_record_id": "1c3fcb6f44e24abd4ffbd7e54be3929601950898ba9d12d479c7ba0f8d377f4a",
+            "row_index": 589331,
+            "shard": "train-00005-of-00006.parquet",
+            "source": "mediocore-books"
+          }
+        ]
+      },
+      "flags": {
+        "control_character": 164,
+        "html_xml_like_markup": 590,
+        "repeated_character": 535,
+        "unicode_replacement": 274,
+        "url_heavy": 28
+      },
+      "null_documents": 0,
+      "source": "mediocore-books",
+      "total_characters": 1025523064,
+      "whitespace_only_documents": 0,
+      "word_quantiles": {
+        "p01": 2,
+        "p05": 3,
+        "p25": 8,
+        "p50": 13,
+        "p75": 22,
+        "p95": 41,
+        "p99": 65
+      }
+    }
+  }
+}
