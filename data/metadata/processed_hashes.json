@@ -1,0 +1,14 @@
+{
+  "data/processed/corpus/test.parquet": {
+    "bytes": 111670499,
+    "sha256": "8e3f0289c531a59108a3c131473b7270d8b93a5f172cbd351f3ab86a03e5a4fd"
+  },
+  "data/processed/corpus/train.parquet": {
+    "bytes": 2007771511,
+    "sha256": "1ee6f4579a49823aab4d817bc1e27cad0175d8e4ffd01a6e7757af34eaff200d"
+  },
+  "data/processed/corpus/validation.parquet": {
+    "bytes": 112211437,
+    "sha256": "b54c7c42aeabe4c6df87cdcd42d7170ccedf4e07d9d5fb67184af06f79e38502"
+  }
+}

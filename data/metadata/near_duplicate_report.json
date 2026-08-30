@@ -1,0 +1,35 @@
+{
+  "accepted_edges": 86697,
+  "candidate_generation": {
+    "band_hashes": {
+      "band-00.bin": "71fae35ec475452f86ca618273fef55fe8e0f4a79147a94c05947db9a934b4e0",
+      "band-01.bin": "0fee9629bee7312c76f9a1a049fab231419dc061aaa0ebe8b4c1efcc19e0595a",
+      "band-02.bin": "109e5a356f15d6eed0155b8913728418340dc859a6d06a2a20a136b70558eace",
+      "band-03.bin": "b38c45d6a6fd13d819f508911586b4b04bd64decee86884c577e3e58225aeb67",
+      "band-04.bin": "875a3cd3d72e7766a86a6fa21865ae92ea8e646955e4e0ad9ac92b14a0fab513",
+      "band-05.bin": "32ac7b500014bd9d8fba20b638e8ebb8d9ba558e34bc1134dbffbf673e9f6cb8",
+      "band-06.bin": "35141b40d85a19cf3b94cd5f08036799f5f9f4f7bfe82a78a8f92016cc86ae78",
+      "band-07.bin": "7e4768347f5992a817d5d63d1cf233f332174c6b77db30c7d799153f513907af"
+    },
+    "complete": 728772,
+    "maximum_observed_bucket_size": 940,
+    "maximum_supported_bucket_size": 10000,
+    "pair_insert_attempts": 8792441,
+    "skipped": 0,
+    "star": 0,
+    "strategy": "complete_bucket_pairs",
+    "strategy_hash": "c61e97a10bbd556689a1f205c4f684b965925d10146bcaad10d154484df59c85",
+    "strategy_version": 2,
+    "total_colliding": 728772,
+    "unique_candidate_pairs": 6444499
+  },
+  "candidate_pairs_checked": 6444499,
+  "clustered_documents": 28461,
+  "clusters": 13208,
+  "connected_component_semantics": "Every accepted edge has direct character-5-gram Jaccard >= 0.95. Clusters are connected components and are not necessarily pairwise >= 0.95.",
+  "fingerprinted_documents": 6209184,
+  "removed_documents": 15253,
+  "resumed": true,
+  "supersedes_prerepair_report": "data/metadata/prerepair/near_duplicate_report.json",
+  "verification_hash": "0e33974ddb442c6e2d312df60a6b474caa8edd6dcac4aaed6e0b427665383457"
+}

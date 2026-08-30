@@ -1,0 +1,11 @@
+{
+  "cross_source_groups": 0,
+  "group_report": "data/metadata/exact_duplicate_groups.csv",
+  "group_report_bytes": 15922610,
+  "group_report_sha256": "6372bb12d3cd14373dbd7c86f7c3787a0ed61d9875a2812bf5d8441303f1834a",
+  "groups": 107267,
+  "member_report": "data/metadata/exact_duplicate_members.csv",
+  "member_report_bytes": 47320758,
+  "member_report_sha256": "622ce7a41bda19d2914ac88720c9249a15d50cd4d25059c6443f4e1526f359b6",
+  "removed_documents": 144480
+}
