@@ -1,0 +1,75 @@
+{
+  "actual_group_proportions": {
+    "Blogs": 0.02808995014610324,
+    "Books": 0.322026314623046,
+    "Laws": 0.1667360893509797,
+    "Native Wikipedia": 0.2147032790977476,
+    "News": 0.26844436678212347
+  },
+  "actual_group_tokens": {
+    "Blogs": 1406264,
+    "Books": 16121567,
+    "Laws": 8347290,
+    "Native Wikipedia": 10748666,
+    "News": 13439100
+  },
+  "actual_source_tokens": {
+    "anl-news": 13439100,
+    "azwiki": 10748666,
+    "elite-blogs": 1406264,
+    "elite-books": 7077178,
+    "eqanun": 8347290,
+    "mediocore-books": 9044389
+  },
+  "available_group_tokens": {
+    "Blogs": 1406264,
+    "Books": 204596831,
+    "Laws": 57785971,
+    "Native Wikipedia": 66755158,
+    "News": 213954688
+  },
+  "boundary_policy": "Select full documents; downstream training stops at the exact 50M model-token boundary without changing canonical documents.",
+  "data_seed": 2026,
+  "exact_consumption_boundary": {
+    "cumulative_tokens_before_document": 49995815,
+    "document_id": "db05beef4e2c5dec4bf978a78afd788f579429852afea925852f7122b7608c36",
+    "eod_consumed": false,
+    "full_document_tokens_including_eod": 6799,
+    "sampling_order_zero_based": 276625,
+    "sequence_position_one_based": 276626,
+    "stop_semantics": "Read documents in frozen sampling order, append one <eod> after each document, and stop after exactly the target number of token IDs.",
+    "tokens_consumed_from_document": 4185,
+    "unconsumed_document_tokens": 2614
+  },
+  "exhausted_groups": [
+    "Blogs"
+  ],
+  "manifest_sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48",
+  "model_seed_affects_order": false,
+  "overshoot_tokens": 62887,
+  "processed_reference_policy": "Each selected document records its frozen processed parquet path and zero-based row number.",
+  "quota_phase_group_tokens": {
+    "Blogs": 1406264,
+    "Books": 15000039,
+    "Laws": 7725606,
+    "Native Wikipedia": 10000175,
+    "News": 12503436
+  },
+  "quota_shortages": {
+    "Blogs": 3593736,
+    "Books": 0,
+    "Laws": 0,
+    "Native Wikipedia": 0,
+    "News": 0
+  },
+  "requested_group_tokens": {
+    "Blogs": 5000000,
+    "Books": 15000000,
+    "Laws": 7500000,
+    "Native Wikipedia": 10000000,
+    "News": 12500000
+  },
+  "selected_documents": 277027,
+  "selected_unique_tokens": 50062887,
+  "target_tokens": 50000000
+}
