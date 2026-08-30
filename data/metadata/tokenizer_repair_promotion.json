@@ -1,0 +1,13 @@
+{
+  "artifact_hashes": {
+    "special_tokens.json": "21d6ed125762219c944b7ba31f1d59d057d5766300671319a6083a2cac5863ce",
+    "tokenizer.model": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+    "tokenizer.vocab": "e7e0a932054e4917442fc960469c864de75a05eb7dd0e6234b17f0b09f9c9905",
+    "tokenizer_config.json": "7c29f3ea655583cb3e7d12db97a622685f5756ac1c32f2957c7e272e74c06d4f"
+  },
+  "final_vocab_size": 16000,
+  "status": "complete",
+  "training_corpus_sha256": "da0ff4b8209ab40e98afc96c71584a15defbd962d2f50e9b4f5ebc4e0a65a1d1",
+  "training_documents": 1000000,
+  "training_sample_manifest_sha256": "937db7d8af5a744e55187d693129f5acc322f48066a432e1b6d887d97a525122"
+}

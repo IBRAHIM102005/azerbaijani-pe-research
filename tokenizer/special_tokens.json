@@ -1,0 +1,21 @@
+{
+  "bos": {
+    "enabled": false,
+    "id": -1,
+    "piece": null
+  },
+  "document_boundary_policy": "Append one <eod> token after each document in downstream token counts and exports.",
+  "eod": {
+    "id": 1,
+    "piece": "<eod>"
+  },
+  "pad": {
+    "enabled": false,
+    "id": -1,
+    "piece": null
+  },
+  "unk": {
+    "id": 0,
+    "piece": "<unk>"
+  }
+}
