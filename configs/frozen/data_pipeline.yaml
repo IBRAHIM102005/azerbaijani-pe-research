@@ -1,0 +1,120 @@
+pipeline_version: m1.1
+
+paths:
+  raw_core: data/raw/DOLLMA
+  original_dollma: ../DOLLMA
+  interim: data/interim/corpus
+  processed: data/processed/corpus
+  manifests: data/manifests
+  metadata: data/metadata
+  tokenizer: tokenizer
+
+sources:
+  anl-news:
+    group: News
+    text_column: text
+    included_in_core: true
+    evidence: DOLLMA README config name and published news component
+  azwiki:
+    group: Native Wikipedia
+    text_column: text
+    included_in_core: true
+    evidence: DOLLMA README config name and native Azerbaijani Wikipedia label in the master plan
+  elite-blogs:
+    group: Blogs
+    text_column: text
+    included_in_core: true
+    evidence: DOLLMA README config name and blogs component
+  elite-books:
+    group: Books
+    component_label: Books I
+    text_column: text
+    included_in_core: true
+    evidence: Inferred from the small published Books I size and the matching local component size; component identity is retained
+  eqanun:
+    group: Laws
+    text_column: text
+    included_in_core: true
+    evidence: DOLLMA README config name and Azerbaijani laws component
+  mediocore-books:
+    group: Books
+    component_label: Books II
+    text_column: text
+    included_in_core: true
+    evidence: Inferred from the large published Books II size and the matching local component size; component identity is retained
+  bhos:
+    group: unknown
+    text_column: text
+    included_in_core: false
+    status: requires_source_decision
+    evidence: DOLLMA README lists the component and dataset-level language only; native source provenance is not explicit
+  translated-enwiki:
+    group: Translated Wikipedia
+    text_column: text
+    included_in_core: false
+    status: excluded_translated_source
+    evidence: Explicitly identified as translated English Wikipedia
+
+seeds:
+  data: 2026
+  split: 2026
+
+normalization:
+  unicode_form: NFC
+  minimum_unicode_letters: 50
+  preserve_newlines: true
+
+near_duplicate:
+  shingle_size: 5
+  fingerprint_size: 32
+  bands: 8
+  pilot_documents_per_source: 3000
+  candidate_thresholds: [0.85, 0.90, 0.92, 0.95]
+  selected_threshold: 0.95
+  selection_rationale: Conservative pilot choice; lower thresholds added many boilerplate/template pairs, while 0.95 retained clear near-copies and reduced false-positive risk
+  candidate_strategy: complete_bucket_pairs
+  candidate_strategy_version: 2
+  max_complete_band_bucket: 10000
+  max_star_band_bucket: 10000
+
+split:
+  train_upper: 900
+  validation_upper: 950
+  modulus: 1000
+
+tokenizer:
+  type: sentencepiece_bpe
+  candidate_vocab_sizes: [8000, 16000, 32000]
+  final_vocab_size: 16000
+  max_training_documents: 1000000
+  audit_documents: 100000
+  character_coverage: 1.0
+  normalization_rule_name: identity
+  unk_id: 0
+  unk_piece: <unk>
+  eos_id: 1
+  eos_piece: <eod>
+  bos_id: -1
+  pad_id: -1
+  num_threads: 1
+
+training_subset:
+  target_tokens: 50000000
+  preserve_full_documents: true
+  requested_group_weights:
+    News: 0.25
+    Native Wikipedia: 0.20
+    Books: 0.30
+    Laws: 0.15
+    Blogs: 0.10
+  shortage_redistribution_weights:
+    News: 0.25
+    Native Wikipedia: 0.20
+    Books: 0.30
+    Laws: 0.15
+  group_source_order:
+    News: [anl-news]
+    Native Wikipedia: [azwiki]
+    Books: [elite-books, mediocore-books]
+    Laws: [eqanun]
+    Blogs: [elite-blogs]

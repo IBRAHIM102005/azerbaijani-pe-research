@@ -4,9 +4,14 @@
 data/raw/**/*
 data/interim/**/*
 data/processed/**/*
+data/metadata/exact_duplicate_groups.csv
+data/metadata/exact_duplicate_members.csv
 !data/raw/.gitkeep
 !data/interim/.gitkeep
 !data/processed/.gitkeep
+
+# Large reproducible tokenizer fitting inputs
+tokenizer/training_corpus.txt
 
 # Model checkpoints and temporary model artifacts
 checkpoints/**/*
@@ -39,6 +44,8 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+.coverage
+htmlcov/
 
 # Virtual environments
 .venv/
@@ -65,5 +72,13 @@ desktop.ini
 # Temporary files
 *.tmp
 *.temp
+*.partial
 *.bak
+*.old
+*.orig
+*.log
 *~
+
+# Local staging and generated execution output
+quarantine/
+outputs/
