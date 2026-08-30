@@ -1,0 +1,76 @@
+{
+  "artifact_hashes": {
+    "downstream_repair_validation": {
+      "bytes": 2313,
+      "path": "data/metadata/downstream_repair_validation.json",
+      "sha256": "e9ceaf0e6486bb270bc2ba85daca2dd7911167a02829271245bcfe13a5d6913c"
+    },
+    "leakage_audit": {
+      "bytes": 34853,
+      "path": "data/metadata/leakage_audit.json",
+      "sha256": "5fc6d5134253b692dfa113796b501dfcd52937f2c3e50ee61243d0904b72abee"
+    },
+    "m1_validation": {
+      "bytes": 3630,
+      "path": "data/metadata/frozen_corpus_validation.json",
+      "sha256": "7cb9681c636cd58a534a38e83353dd3aa5baac461aea0bcb324d0caa4a3a52a6"
+    },
+    "near_repair_all_large_bucket_audit": {
+      "bytes": 13881,
+      "path": "data/metadata/near_repair_large_bucket_leakage.json",
+      "sha256": "19659a3e3a42a20008ae9900dd75cdd042d52cde66098ef6b48823ed9b34f040"
+    },
+    "near_repair_candidate_recall": {
+      "bytes": 7245,
+      "path": "data/metadata/near_repair_candidate_recall.json",
+      "sha256": "4fd135ad7af7ce9c196f75934c2c842f8f8af1f3d916afd4eb084e98b5ff9568"
+    },
+    "near_repair_validation": {
+      "bytes": 13923,
+      "path": "data/metadata/near_repair_validation.json",
+      "sha256": "99aec4ab18cb88457f4b9122907762451d5ff8a3f25c6f69d1b4328b57ca80e2"
+    },
+    "pytest_junit": {
+      "bytes": 4653,
+      "path": "data/metadata/pytest_data_pipeline.xml",
+      "sha256": "0862c2bc9c3c420bfc737292957140dc9611254b23341c62699f8309b94df212"
+    },
+    "raw_immutability": {
+      "bytes": 19702,
+      "path": "data/metadata/raw_immutability.json",
+      "sha256": "0c4d2ba908e1b968504bbda3d2974530591802a919c48c03ba00127cccee7f80"
+    },
+    "token_counts": {
+      "bytes": 217940976,
+      "path": "data/metadata/document_token_counts.parquet",
+      "sha256": "b3e2bbb324caef8d608cabb3dc8445387c8268e9fb3ea49f7d3ffee397482d8c"
+    },
+    "tokenizer_audit": {
+      "bytes": 59290,
+      "path": "data/metadata/tokenizer_audit.json",
+      "sha256": "0cf4e6122680eb524308284042124ecbbec46a313cdd68c1988f9d2cda1fbe85"
+    },
+    "training_subset": {
+      "bytes": 22361997,
+      "path": "data/manifests/train_50m.parquet",
+      "sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48"
+    }
+  },
+  "created_at_utc": "2026-08-30T16:34:48.681074+00:00",
+  "portability_policy": "Repository-internal operational paths are POSIX-style paths relative to the repository root.",
+  "processed_hashes": {
+    "data/processed/corpus/test.parquet": {
+      "bytes": 111670499,
+      "sha256": "8e3f0289c531a59108a3c131473b7270d8b93a5f172cbd351f3ab86a03e5a4fd"
+    },
+    "data/processed/corpus/train.parquet": {
+      "bytes": 2007771511,
+      "sha256": "1ee6f4579a49823aab4d817bc1e27cad0175d8e4ffd01a6e7757af34eaff200d"
+    },
+    "data/processed/corpus/validation.parquet": {
+      "bytes": 112211437,
+      "sha256": "b54c7c42aeabe4c6df87cdcd42d7170ccedf4e07d9d5fb67184af06f79e38502"
+    }
+  },
+  "status": "pass"
+}

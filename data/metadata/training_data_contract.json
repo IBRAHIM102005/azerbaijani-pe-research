@@ -1,0 +1,1215 @@
+{
+  "artifacts": {
+    "analysis_note": {
+      "bytes": 15278,
+      "path": "docs/notes/corpus_data_analysis.md",
+      "sha256": "d3640807548ea8b028b01c7348e51fe27fe6342e8f84dfe9888cc980ab06c4f6"
+    },
+    "data_card": {
+      "bytes": 4217,
+      "path": "docs/notes/corpus_data_card.md",
+      "sha256": "fd0a46ad877797316a29dbb1e3bec7e895761a0e29a186e1bce698899b703897"
+    },
+    "document_token_counts": {
+      "bytes": 217940976,
+      "path": "data/metadata/document_token_counts.parquet",
+      "sha256": "b3e2bbb324caef8d608cabb3dc8445387c8268e9fb3ea49f7d3ffee397482d8c"
+    },
+    "exact_duplicate_report": {
+      "bytes": 208,
+      "path": "data/metadata/exact_duplicate_report.json",
+      "sha256": "36c3f956899fe96801f1c08715f3c5913bf6b177399f2c958e8663588f9f2281"
+    },
+    "leakage_audit": {
+      "bytes": 34853,
+      "path": "data/metadata/leakage_audit.json",
+      "sha256": "5fc6d5134253b692dfa113796b501dfcd52937f2c3e50ee61243d0904b72abee"
+    },
+    "m1_config": {
+      "bytes": 3280,
+      "path": "configs/frozen/data_pipeline.yaml",
+      "sha256": "6283c7502ddbd346c908f2744edbcb80ebbb6b7a381f9e945e1ae1ceed60290a"
+    },
+    "m1_validation": {
+      "bytes": 3630,
+      "path": "data/metadata/frozen_corpus_validation.json",
+      "sha256": "7cb9681c636cd58a534a38e83353dd3aa5baac461aea0bcb324d0caa4a3a52a6"
+    },
+    "manifests": {
+      "test": {
+        "bytes": 45845276,
+        "path": "data/manifests/test.parquet",
+        "sha256": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def"
+      },
+      "train": {
+        "bytes": 821125548,
+        "path": "data/manifests/train.parquet",
+        "sha256": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1"
+      },
+      "validation": {
+        "bytes": 45886774,
+        "path": "data/manifests/validation.parquet",
+        "sha256": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+      }
+    },
+    "near_duplicate_report": {
+      "bytes": 1742,
+      "path": "data/metadata/near_duplicate_report.json",
+      "sha256": "35468c94e5a4534e952ea1163ee1ac5fdcdf673e00bcddc5adb6396e41976b6d"
+    },
+    "preparation_summary": {
+      "bytes": 8792,
+      "path": "data/metadata/preparation_summary.json",
+      "sha256": "da1c3169a63592eb4873c4051ec57ef7a381bda4a132cd8e52e80584789fcb5c"
+    },
+    "prerepair_failure_evidence": {
+      "bytes": 118555,
+      "path": "data/metadata/near_repair_prerepair_evidence.json",
+      "sha256": "80ecae23d6f2d2593d0c0e518232638fc69b84d6972ce2d1df42a5c8116226cb"
+    },
+    "processed_corpus": {
+      "test": {
+        "bytes": 111670499,
+        "path": "data/processed/corpus/test.parquet",
+        "sha256": "8e3f0289c531a59108a3c131473b7270d8b93a5f172cbd351f3ab86a03e5a4fd"
+      },
+      "train": {
+        "bytes": 2007771511,
+        "path": "data/processed/corpus/train.parquet",
+        "sha256": "1ee6f4579a49823aab4d817bc1e27cad0175d8e4ffd01a6e7757af34eaff200d"
+      },
+      "validation": {
+        "bytes": 112211437,
+        "path": "data/processed/corpus/validation.parquet",
+        "sha256": "b54c7c42aeabe4c6df87cdcd42d7170ccedf4e07d9d5fb67184af06f79e38502"
+      }
+    },
+    "processed_hashes": {
+      "bytes": 467,
+      "path": "data/metadata/processed_hashes.json",
+      "sha256": "7271182b30b22a91fa20f4ff79deef218ff54d56139937af23e0021d0c086fc5"
+    },
+    "raw_immutability": {
+      "bytes": 19702,
+      "path": "data/metadata/raw_immutability.json",
+      "sha256": "0c4d2ba908e1b968504bbda3d2974530591802a919c48c03ba00127cccee7f80"
+    },
+    "raw_inventory": {
+      "bytes": 18306,
+      "path": "data/metadata/raw_inventory.json",
+      "sha256": "332a3edd4adaf06e9134f0d5a1aa46cb57abf92862251a4c45acedb85db0f5f1"
+    },
+    "repair_final_metadata": {
+      "bytes": 2936,
+      "path": "data/metadata/repair_final_metadata.json",
+      "sha256": "4e0e6a73606eda90c73810ccd98c79a161b6a30cf5ea355faa82828a48eb0442"
+    },
+    "repaired_all_large_bucket_audit": {
+      "bytes": 13881,
+      "path": "data/metadata/near_repair_large_bucket_leakage.json",
+      "sha256": "19659a3e3a42a20008ae9900dd75cdd042d52cde66098ef6b48823ed9b34f040"
+    },
+    "repaired_candidate_recall": {
+      "bytes": 7245,
+      "path": "data/metadata/near_repair_candidate_recall.json",
+      "sha256": "4fd135ad7af7ce9c196f75934c2c842f8f8af1f3d916afd4eb084e98b5ff9568"
+    },
+    "repaired_downstream_validation": {
+      "bytes": 2313,
+      "path": "data/metadata/downstream_repair_validation.json",
+      "sha256": "e9ceaf0e6486bb270bc2ba85daca2dd7911167a02829271245bcfe13a5d6913c"
+    },
+    "repaired_near_validation": {
+      "bytes": 13923,
+      "path": "data/metadata/near_repair_validation.json",
+      "sha256": "99aec4ab18cb88457f4b9122907762451d5ff8a3f25c6f69d1b4328b57ca80e2"
+    },
+    "source_registry": {
+      "bytes": 5785,
+      "path": "data/metadata/source_registry.yaml",
+      "sha256": "bf038a1868cf51fef4ab852f808666a42c42931b8e111b2df413ccbff035136d"
+    },
+    "test_results": {
+      "bytes": 4653,
+      "path": "data/metadata/pytest_data_pipeline.xml",
+      "sha256": "0862c2bc9c3c420bfc737292957140dc9611254b23341c62699f8309b94df212"
+    },
+    "token_count_report": {
+      "bytes": 6559,
+      "path": "data/metadata/token_counts_by_source_split.json",
+      "sha256": "d905662361da42699b420747f41e0350a61db07499526fa85f5a8c891510486b"
+    },
+    "tokenizer": {
+      "special_tokens.json": {
+        "bytes": 359,
+        "path": "tokenizer/special_tokens.json",
+        "sha256": "21d6ed125762219c944b7ba31f1d59d057d5766300671319a6083a2cac5863ce"
+      },
+      "tokenizer.model": {
+        "bytes": 277746,
+        "path": "tokenizer/tokenizer.model",
+        "sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534"
+      },
+      "tokenizer.vocab": {
+        "bytes": 266309,
+        "path": "tokenizer/tokenizer.vocab",
+        "sha256": "e7e0a932054e4917442fc960469c864de75a05eb7dd0e6234b17f0b09f9c9905"
+      },
+      "tokenizer_config.json": {
+        "bytes": 1240,
+        "path": "tokenizer/tokenizer_config.json",
+        "sha256": "595adb4626a3f38148543ad055dc5796d3550a9255a8f9b5327fedbe7cb8fbda"
+      },
+      "tokenizer_hashes.json": {
+        "bytes": 369,
+        "path": "tokenizer/tokenizer_hashes.json",
+        "sha256": "4bd221d7253dcdc7bf83bfac14dedcaf4e2ba7c86d4a0d6e5fd5e53b2dcf7238"
+      }
+    },
+    "tokenizer_audit": {
+      "bytes": 59290,
+      "path": "data/metadata/tokenizer_audit.json",
+      "sha256": "0cf4e6122680eb524308284042124ecbbec46a313cdd68c1988f9d2cda1fbe85"
+    },
+    "tokenizer_training_sample": {
+      "bytes": 36428521,
+      "path": "tokenizer/training_sample_manifest.parquet",
+      "sha256": "937db7d8af5a744e55187d693129f5acc322f48066a432e1b6d887d97a525122"
+    },
+    "training_subset_manifest": {
+      "bytes": 22361997,
+      "path": "data/manifests/train_50m.parquet",
+      "sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48"
+    },
+    "training_subset_summary": {
+      "bytes": 2324,
+      "path": "data/metadata/training_subset_summary.json",
+      "sha256": "ff231d99443f3d6311248998b111173a0c02d1729e335133d01939f7d0a8975e"
+    }
+  },
+  "cleaning": {
+    "minimum_unicode_letters": 50,
+    "preserve_newlines": true,
+    "source_accounting": {
+      "anl-news": {
+        "changed_horizontal_space": "unknown_resumed",
+        "changed_newlines": "unknown_resumed",
+        "changed_nfc": "unknown_resumed",
+        "exact_duplicate": 11845,
+        "normalized": 236443,
+        "parsed": 236443,
+        "raw": 236443,
+        "removed_control_characters": "unknown_resumed",
+        "removed_empty": 0,
+        "removed_short": 189
+      },
+      "azwiki": {
+        "changed_horizontal_space": "unknown_resumed",
+        "changed_newlines": "unknown_resumed",
+        "changed_nfc": "unknown_resumed",
+        "exact_duplicate": 53,
+        "normalized": 129433,
+        "parsed": 129433,
+        "raw": 129433,
+        "removed_control_characters": "unknown_resumed",
+        "removed_empty": 0,
+        "removed_short": 0
+      },
+      "elite-blogs": {
+        "changed_horizontal_space": "unknown_resumed",
+        "changed_newlines": "unknown_resumed",
+        "changed_nfc": "unknown_resumed",
+        "exact_duplicate": 0,
+        "normalized": 755,
+        "parsed": 755,
+        "raw": 755,
+        "removed_control_characters": "unknown_resumed",
+        "removed_empty": 0,
+        "removed_short": 16
+      },
+      "elite-books": {
+        "changed_horizontal_space": "unknown_resumed",
+        "changed_newlines": "unknown_resumed",
+        "changed_nfc": "unknown_resumed",
+        "exact_duplicate": 1,
+        "normalized": 104,
+        "parsed": 104,
+        "raw": 104,
+        "removed_control_characters": "unknown_resumed",
+        "removed_empty": 0,
+        "removed_short": 0
+      },
+      "eqanun": {
+        "changed_horizontal_space": "unknown_resumed",
+        "changed_newlines": "unknown_resumed",
+        "changed_nfc": "unknown_resumed",
+        "exact_duplicate": 2756,
+        "normalized": 53656,
+        "parsed": 53656,
+        "raw": 53656,
+        "removed_control_characters": "unknown_resumed",
+        "removed_empty": 0,
+        "removed_short": 5
+      },
+      "mediocore-books": {
+        "changed_horizontal_space": "unknown_resumed",
+        "changed_newlines": "unknown_resumed",
+        "changed_nfc": "unknown_resumed",
+        "exact_duplicate": 129825,
+        "normalized": 7807263,
+        "parsed": 7807263,
+        "raw": 7807263,
+        "removed_control_characters": "unknown_resumed",
+        "removed_empty": 0,
+        "removed_short": 1873780
+      }
+    },
+    "unicode_form": "NFC"
+  },
+  "corpus_provenance": {
+    "access_date_basis": "Date the local source inventory and SHA-256 snapshot were revalidated.",
+    "bhos_status": "requires_source_decision",
+    "core_raw_bytes": 1849066393,
+    "core_raw_documents": 8227654,
+    "core_shards": 14,
+    "dataset": "DOLLMA",
+    "dataset_declared_license": "CC BY-NC-SA 4.0",
+    "dataset_revision": null,
+    "excluded_sources": [
+      "bhos",
+      "translated-enwiki"
+    ],
+    "included_sources": [
+      "anl-news",
+      "azwiki",
+      "elite-blogs",
+      "elite-books",
+      "eqanun",
+      "mediocore-books"
+    ],
+    "inventory_sha256": "9c9ff30f00c3ef836f820a58be6379773ca9263a5a68957cd9fa3ce55257d6e0",
+    "local_access_date": "2026-08-28",
+    "original_shards": 20,
+    "raw_immutability": {
+      "local_core_shards_checked": 14,
+      "mismatches": 0,
+      "original_shards_checked": 20,
+      "status": "pass"
+    },
+    "schemas": {
+      "anl-news": {
+        "schemas": [
+          [
+            {
+              "name": "text",
+              "type": "string"
+            }
+          ]
+        ],
+        "text_column": "text"
+      },
+      "azwiki": {
+        "schemas": [
+          [
+            {
+              "name": "id",
+              "type": "int64"
+            },
+            {
+              "name": "text",
+              "type": "string"
+            },
+            {
+              "name": "title",
+              "type": "string"
+            }
+          ]
+        ],
+        "text_column": "text"
+      },
+      "elite-blogs": {
+        "schemas": [
+          [
+            {
+              "name": "id",
+              "type": "int64"
+            },
+            {
+              "name": "source",
+              "type": "string"
+            },
+            {
+              "name": "text",
+              "type": "string"
+            }
+          ]
+        ],
+        "text_column": "text"
+      },
+      "elite-books": {
+        "schemas": [
+          [
+            {
+              "name": "text",
+              "type": "string"
+            },
+            {
+              "name": "id",
+              "type": "int64"
+            }
+          ]
+        ],
+        "text_column": "text"
+      },
+      "eqanun": {
+        "schemas": [
+          [
+            {
+              "name": "text",
+              "type": "string"
+            },
+            {
+              "name": "title",
+              "type": "string"
+            },
+            {
+              "name": "id",
+              "type": "int64"
+            }
+          ]
+        ],
+        "text_column": "text"
+      },
+      "mediocore-books": {
+        "schemas": [
+          [
+            {
+              "name": "ID",
+              "type": "string"
+            },
+            {
+              "name": " Metadata",
+              "type": "string"
+            },
+            {
+              "name": "text",
+              "type": "string"
+            }
+          ]
+        ],
+        "text_column": "text"
+      }
+    },
+    "source_level_license_status": "unknown where not stated by local metadata",
+    "translated_enwiki_status": "excluded_translated_source"
+  },
+  "created_at_utc": "2026-08-30T16:34:49.463931+00:00",
+  "deduplication": {
+    "exact": {
+      "cross_source_groups": 0,
+      "group_report": "data/metadata/exact_duplicate_groups.csv",
+      "groups": 107267,
+      "member_report": "data/metadata/exact_duplicate_members.csv",
+      "removed_documents": 144480
+    },
+    "near": {
+      "accepted_edges": 86697,
+      "candidate_generation": {
+        "band_hashes": {
+          "band-00.bin": "71fae35ec475452f86ca618273fef55fe8e0f4a79147a94c05947db9a934b4e0",
+          "band-01.bin": "0fee9629bee7312c76f9a1a049fab231419dc061aaa0ebe8b4c1efcc19e0595a",
+          "band-02.bin": "109e5a356f15d6eed0155b8913728418340dc859a6d06a2a20a136b70558eace",
+          "band-03.bin": "b38c45d6a6fd13d819f508911586b4b04bd64decee86884c577e3e58225aeb67",
+          "band-04.bin": "875a3cd3d72e7766a86a6fa21865ae92ea8e646955e4e0ad9ac92b14a0fab513",
+          "band-05.bin": "32ac7b500014bd9d8fba20b638e8ebb8d9ba558e34bc1134dbffbf673e9f6cb8",
+          "band-06.bin": "35141b40d85a19cf3b94cd5f08036799f5f9f4f7bfe82a78a8f92016cc86ae78",
+          "band-07.bin": "7e4768347f5992a817d5d63d1cf233f332174c6b77db30c7d799153f513907af"
+        },
+        "complete": 728772,
+        "maximum_observed_bucket_size": 940,
+        "maximum_supported_bucket_size": 10000,
+        "pair_insert_attempts": 8792441,
+        "skipped": 0,
+        "star": 0,
+        "strategy": "complete_bucket_pairs",
+        "strategy_hash": "c61e97a10bbd556689a1f205c4f684b965925d10146bcaad10d154484df59c85",
+        "strategy_version": 2,
+        "total_colliding": 728772,
+        "unique_candidate_pairs": 6444499
+      },
+      "candidate_pairs_checked": 6444499,
+      "clustered_documents": 28461,
+      "clusters": 13208,
+      "connected_component_semantics": "Every accepted edge has direct character-5-gram Jaccard >= 0.95. Clusters are connected components and are not necessarily pairwise >= 0.95.",
+      "fingerprinted_documents": 6209184,
+      "removed_documents": 15253,
+      "resumed": true,
+      "supersedes_prerepair_report": "data/metadata/prerepair/near_duplicate_report.json",
+      "verification_hash": "0e33974ddb442c6e2d312df60a6b474caa8edd6dcac4aaed6e0b427665383457"
+    },
+    "near_parameters": {
+      "bands": 8,
+      "fingerprint_size": 32,
+      "shingle_size": 5
+    },
+    "near_threshold": 0.95,
+    "repair_evidence": {
+      "all_large_bucket_captured_true_pairs": 321263,
+      "all_large_bucket_eligible_true_pairs": 321263,
+      "all_large_bucket_events": 59,
+      "all_large_bucket_missed_true_pairs": 0,
+      "all_large_bucket_pair_opportunities": 3503354,
+      "all_large_bucket_recall": 1.0,
+      "former_237_pairs_unresolved": 0,
+      "prerepair_sample_recall": 0.018267530936947555,
+      "repaired_sample_recall": 1.0,
+      "transitivity_sample": {
+        "cluster_distribution": {
+          "maximum_size": 445,
+          "size_2": 12507,
+          "size_gt_2": 701
+        },
+        "minimum_arbitrary_endpoint_similarity": 0.8199233716475096,
+        "minimum_representative_member_similarity": 0.8582677165354331,
+        "sample_policy": "The 25 largest clusters above size two; all representative-member pairs and up to 5,000 rowid-ordered endpoint pairs per cluster.",
+        "sampled_clusters": 25,
+        "sampled_clusters_with_endpoint_below_threshold": 24,
+        "semantics": "Every accepted graph edge is direct Jaccard >= 0.95. Clusters are connected components, so transitive members are not required to be pairwise >= 0.95."
+      }
+    }
+  },
+  "definition_of_done": {
+    "path": "data/metadata/corpus_release_status.json",
+    "sha256": "49bfd23956d798c978358ec55a4f6f0db3b83c9041a04d9ccc0215fbd1304272",
+    "status": "complete"
+  },
+  "dollma_access_path_recorded": "C:\\Users\\User\\OneDrive\\Desktop\\DOLLMA",
+  "dollma_runtime_resolution": "Use AZ_PE_DOLLMA_ROOT when the external DOLLMA clone is not at the config-relative path.",
+  "environment": {
+    "packages": {
+      "PyYAML": "6.0.3",
+      "datasketch": "2.0.0",
+      "matplotlib": "3.10.8",
+      "numpy": "2.4.0",
+      "pyarrow": "25.0.1",
+      "pytest": "8.4.2",
+      "sentencepiece": "0.2.1"
+    },
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.13.14"
+  },
+  "known_limitations": [
+    "bhos remains excluded pending a source-level decision.",
+    "Source-level licenses and revisions are unknown where local metadata does not state them.",
+    "Books I/Books II mapping is inferred from published size descriptions; component identity is retained.",
+    "The 50-letter filter disproportionately removes short mediocore-books fragments.",
+    "Language, OCR, and suspicious-text indicators are heuristic audit flags.",
+    "Near-duplicate clusters are connected components; transitive members are not guaranteed to be pairwise Jaccard >= 0.95."
+  ],
+  "m1_status": "complete",
+  "pipeline_version": "m1.1",
+  "portability_validation": {
+    "sampled_subset_references": 100,
+    "simulated_repository_root": "C:/Research/azerbaijani-positional-encoding",
+    "status": "pass"
+  },
+  "preparation": {
+    "accounting": {
+      "exact_duplicate_removals": 144480,
+      "exact_unique_documents": 6209184,
+      "final_retained_documents": 6193931,
+      "near_accepted_edges": 86697,
+      "near_candidate_pairs": 6444499,
+      "near_clustered_documents": 28461,
+      "near_clusters": 13208,
+      "near_duplicate_removals": 15253,
+      "raw_core_documents": 8227654,
+      "reconciliation": "raw = empty + short + exact removals + exact unique; retained = exact unique - near removals",
+      "removed_empty": 0,
+      "removed_invalid_or_too_short": 1873990,
+      "removed_short": 1873990
+    },
+    "completion_evidence_local_time": "2026-08-28T09:35:29.842441+04:00",
+    "config_canonical_values_sha256": "2578cc993491dc9d5e4997534699d0c8b24102c89eecad4fd12e9654cbadd481",
+    "config_file_sha256": "6283c7502ddbd346c908f2744edbcb80ebbb6b7a381f9e945e1ae1ceed60290a",
+    "config_path": "configs/frozen/data_pipeline.yaml",
+    "near_band_bytes_each": 149020416,
+    "near_band_files": 8,
+    "state": "prepare_complete"
+  },
+  "reports": {
+    "analysis_note": {
+      "bytes": 15278,
+      "path": "docs/notes/corpus_data_analysis.md",
+      "sha256": "d3640807548ea8b028b01c7348e51fe27fe6342e8f84dfe9888cc980ab06c4f6"
+    },
+    "data_card": {
+      "bytes": 4217,
+      "path": "docs/notes/corpus_data_card.md",
+      "sha256": "fd0a46ad877797316a29dbb1e3bec7e895761a0e29a186e1bce698899b703897"
+    },
+    "figures": {
+      "corpus_source_documents.png": "9c02c5fa225ed65632499913d3d3b92b752bb75ef06d55a2fe086dfc559622da",
+      "corpus_source_group_tokens.png": "9abf929ad36b9953dacc99bd5a4941806a6ee889c62f5eff438c8c924e5f48e4",
+      "tokenizer_fertility.png": "b6926ebd88dc081c71bb79f545c49dd937e5c4a11ab549f8c84d18a7874eb015",
+      "training_sequence_source_mixture.png": "c5a667f4764ef1d2b47b5de3214c955757f3226a81f8f4e54b70b663b549286e"
+    }
+  },
+  "repository_path": ".",
+  "repository_path_policy": "All operational artifact paths are relative to the repository root.",
+  "splits": {
+    "counts": {
+      "test": 309369,
+      "train": 5574885,
+      "validation": 309677
+    },
+    "cross_split_intersections": {
+      "canonical_text_hash": {
+        "intersections": {
+          "train_test": 0,
+          "train_validation": 0,
+          "validation_test": 0
+        },
+        "train_rows_checked": 5574885
+      },
+      "document_id": {
+        "intersections": {
+          "train_test": 0,
+          "train_validation": 0,
+          "validation_test": 0
+        },
+        "train_rows_checked": 5574885
+      },
+      "duplicate_cluster_id": {
+        "intersections": {
+          "train_test": 0,
+          "train_validation": 0,
+          "validation_test": 0
+        },
+        "train_rows_checked": 5574885
+      }
+    },
+    "downstream_train_only_and_sequence_replay": {
+      "status": "pass",
+      "tokenizer_training": {
+        "candidate_checks": {
+          "16000": {
+            "model_sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+            "training_corpus_sha256": "da0ff4b8209ab40e98afc96c71584a15defbd962d2f50e9b4f5ebc4e0a65a1d1",
+            "unknown_rate_denominator_token_count": 9701653,
+            "unknown_token_count": 1,
+            "vocab_size": 16000
+          },
+          "32000": {
+            "model_sha256": "6cb625cdbb620ebc5e851da793edac26eea12c433a34c765616a22d5857a82fc",
+            "training_corpus_sha256": "da0ff4b8209ab40e98afc96c71584a15defbd962d2f50e9b4f5ebc4e0a65a1d1",
+            "unknown_rate_denominator_token_count": 8741364,
+            "unknown_token_count": 1,
+            "vocab_size": 32000
+          },
+          "8000": {
+            "model_sha256": "52b4dd1fc9c0ae017bba13fd41aa020b05409356a397d840ca699b47428e4bbe",
+            "training_corpus_sha256": "da0ff4b8209ab40e98afc96c71584a15defbd962d2f50e9b4f5ebc4e0a65a1d1",
+            "unknown_rate_denominator_token_count": 11132227,
+            "unknown_token_count": 1,
+            "vocab_size": 8000
+          }
+        },
+        "documents": 1000000,
+        "matches_first_repaired_train_documents": true,
+        "split": "train",
+        "training_corpus_sha256": "da0ff4b8209ab40e98afc96c71584a15defbd962d2f50e9b4f5ebc4e0a65a1d1",
+        "training_sample_manifest_sha256": "937db7d8af5a744e55187d693129f5acc322f48066a432e1b6d887d97a525122"
+      },
+      "training_subset": {
+        "documents": 277027,
+        "duplicates": 0,
+        "exact_boundary_replayed": {
+          "cumulative_tokens_before_document": 49995815,
+          "document_id": "db05beef4e2c5dec4bf978a78afd788f579429852afea925852f7122b7608c36",
+          "eod_consumed": false,
+          "full_document_tokens_including_eod": 6799,
+          "sampling_order_zero_based": 276625,
+          "tokens_consumed_from_document": 4185
+        },
+        "ids_and_order_match_independent_replay": true,
+        "manifest_sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48",
+        "tokens": 50062887,
+        "train_only": true
+      }
+    },
+    "independent_large_bucket_audit": {
+      "bucket_events": 59,
+      "candidate_recall": 1.0,
+      "retained_cross_split_pairs": 0,
+      "true_pairs": 321263
+    },
+    "leakage_audit_path": "data/metadata/leakage_audit.json",
+    "leakage_status": "pass",
+    "manifests": {
+      "test": {
+        "bytes": 45845276,
+        "path": "data/manifests/test.parquet",
+        "sha256": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def"
+      },
+      "train": {
+        "bytes": 821125548,
+        "path": "data/manifests/train.parquet",
+        "sha256": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1"
+      },
+      "validation": {
+        "bytes": 45886774,
+        "path": "data/manifests/validation.parquet",
+        "sha256": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+      }
+    },
+    "near_edges_crossing_splits": 0,
+    "per_source": {
+      "test": {
+        "anl-news": {
+          "approximate_words": 7284134,
+          "characters": 58521670,
+          "documents": 11081
+        },
+        "azwiki": {
+          "approximate_words": 2221423,
+          "characters": 16910383,
+          "documents": 6632
+        },
+        "elite-blogs": {
+          "approximate_words": 36472,
+          "characters": 270280,
+          "documents": 37
+        },
+        "elite-books": {
+          "approximate_words": 112347,
+          "characters": 838056,
+          "documents": 5
+        },
+        "eqanun": {
+          "approximate_words": 2416949,
+          "characters": 18732132,
+          "documents": 2548
+        },
+        "mediocore-books": {
+          "approximate_words": 5976249,
+          "characters": 46712767,
+          "documents": 289066
+        }
+      },
+      "train": {
+        "anl-news": {
+          "approximate_words": 134831944,
+          "characters": 1083256257,
+          "documents": 199587
+        },
+        "azwiki": {
+          "approximate_words": 36564575,
+          "characters": 278401834,
+          "documents": 116025
+        },
+        "elite-blogs": {
+          "approximate_words": 803170,
+          "characters": 5763161,
+          "documents": 665
+        },
+        "elite-books": {
+          "approximate_words": 3855669,
+          "characters": 27565978,
+          "documents": 85
+        },
+        "eqanun": {
+          "approximate_words": 36807409,
+          "characters": 289186960,
+          "documents": 44789
+        },
+        "mediocore-books": {
+          "approximate_words": 107836450,
+          "characters": 842870101,
+          "documents": 5213734
+        }
+      },
+      "validation": {
+        "anl-news": {
+          "approximate_words": 7581202,
+          "characters": 60876324,
+          "documents": 11217
+        },
+        "azwiki": {
+          "approximate_words": 2078046,
+          "characters": 15827868,
+          "documents": 6506
+        },
+        "elite-blogs": {
+          "approximate_words": 33702,
+          "characters": 234205,
+          "documents": 33
+        },
+        "elite-books": {
+          "approximate_words": 367496,
+          "characters": 2512198,
+          "documents": 7
+        },
+        "eqanun": {
+          "approximate_words": 1802026,
+          "characters": 14253205,
+          "documents": 2471
+        },
+        "mediocore-books": {
+          "approximate_words": 5974935,
+          "characters": 46690692,
+          "documents": 289443
+        }
+      }
+    },
+    "policy": "cluster-aware SHA-256 hash ranges: 0-899 train, 900-949 validation, 950-999 test",
+    "prerepair_confirmed_pairs_unresolved": 0,
+    "seed": 2026
+  },
+  "tests": {
+    "errors": 0,
+    "failures": 0,
+    "integration_tests": 5,
+    "junit_path": "data/metadata/pytest_data_pipeline.xml",
+    "junit_sha256": "0862c2bc9c3c420bfc737292957140dc9611254b23341c62699f8309b94df212",
+    "skipped": 0,
+    "tests": 35,
+    "time_seconds": 4.426,
+    "unit_tests": 30
+  },
+  "token_counts": {
+    "artifact": {
+      "bytes": 217940976,
+      "path": "data/metadata/document_token_counts.parquet",
+      "sha256": "b3e2bbb324caef8d608cabb3dc8445387c8268e9fb3ea49f7d3ffee397482d8c"
+    },
+    "by_group_all_splits": {
+      "Blogs": 1528244,
+      "Books": 227377701,
+      "Laws": 64643900,
+      "Native Wikipedia": 74610988,
+      "News": 237559904
+    },
+    "by_source_all_splits": {
+      "anl-news": 237559904,
+      "azwiki": 74610988,
+      "elite-blogs": 1528244,
+      "elite-books": 7950165,
+      "eqanun": 64643900,
+      "mediocore-books": 219427536
+    },
+    "by_split_and_source": {
+      "test": {
+        "anl-news": {
+          "documents": 11081,
+          "documents_with_unknown_tokens": 3,
+          "sentencepiece_tokens_excluding_eod": 11544478,
+          "tokens": 11555559,
+          "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+          "unknown_token_rate": 5.197289994402519e-07,
+          "unknown_tokens": 6
+        },
+        "azwiki": {
+          "documents": 6632,
+          "documents_with_unknown_tokens": 0,
+          "sentencepiece_tokens_excluding_eod": 4036975,
+          "tokens": 4043607,
+          "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+          "unknown_token_rate": 0.0,
+          "unknown_tokens": 0
+        },
+        "elite-blogs": {
+          "documents": 37,
+          "documents_with_unknown_tokens": 1,
+          "sentencepiece_tokens_excluding_eod": 61835,
+          "tokens": 61872,
+          "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+          "unknown_token_rate": 1.6172070833670252e-05,
+          "unknown_tokens": 1
+        },
+        "elite-books": {
+          "documents": 5,
+          "documents_with_unknown_tokens": 0,
+          "sentencepiece_tokens_excluding_eod": 200902,
+          "tokens": 200907,
+          "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+          "unknown_token_rate": 0.0,
+          "unknown_tokens": 0
+        },
+        "eqanun": {
+          "documents": 2548,
+          "documents_with_unknown_tokens": 5,
+          "sentencepiece_tokens_excluding_eod": 4078579,
+          "tokens": 4081127,
+          "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+          "unknown_token_rate": 9.316970444853464e-06,
+          "unknown_tokens": 38
+        },
+        "mediocore-books": {
+          "documents": 289066,
+          "documents_with_unknown_tokens": 53,
+          "sentencepiece_tokens_excluding_eod": 10660604,
+          "tokens": 10949670,
+          "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+          "unknown_token_rate": 6.566232082159698e-06,
+          "unknown_tokens": 70
+        }
+      },
+      "train": {
+        "anl-news": {
+          "documents": 199587,
+          "documents_with_unknown_tokens": 31,
+          "sentencepiece_tokens_excluding_eod": 213755101,
+          "tokens": 213954688,
+          "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+          "unknown_token_rate": 4.818598457680783e-07,
+          "unknown_tokens": 103
+        },
+        "azwiki": {
+          "documents": 116025,
+          "documents_with_unknown_tokens": 0,
+          "sentencepiece_tokens_excluding_eod": 66639133,
+          "tokens": 66755158,
+          "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+          "unknown_token_rate": 0.0,
+          "unknown_tokens": 0
+        },
+        "elite-blogs": {
+          "documents": 665,
+          "documents_with_unknown_tokens": 9,
+          "sentencepiece_tokens_excluding_eod": 1405599,
+          "tokens": 1406264,
+          "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+          "unknown_token_rate": 2.1343213818450354e-05,
+          "unknown_tokens": 30
+        },
+        "elite-books": {
+          "documents": 85,
+          "documents_with_unknown_tokens": 2,
+          "sentencepiece_tokens_excluding_eod": 7077093,
+          "tokens": 7077178,
+          "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+          "unknown_token_rate": 4.239028652018562e-07,
+          "unknown_tokens": 3
+        },
+        "eqanun": {
+          "documents": 44789,
+          "documents_with_unknown_tokens": 65,
+          "sentencepiece_tokens_excluding_eod": 57741182,
+          "tokens": 57785971,
+          "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+          "unknown_token_rate": 2.3691929271555265e-05,
+          "unknown_tokens": 1368
+        },
+        "mediocore-books": {
+          "documents": 5213734,
+          "documents_with_unknown_tokens": 676,
+          "sentencepiece_tokens_excluding_eod": 192305919,
+          "tokens": 197519653,
+          "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+          "unknown_token_rate": 6.281657924424052e-06,
+          "unknown_tokens": 1208
+        }
+      },
+      "validation": {
+        "anl-news": {
+          "documents": 11217,
+          "documents_with_unknown_tokens": 1,
+          "sentencepiece_tokens_excluding_eod": 12038440,
+          "tokens": 12049657,
+          "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+          "unknown_token_rate": 8.306724127046361e-08,
+          "unknown_tokens": 1
+        },
+        "azwiki": {
+          "documents": 6506,
+          "documents_with_unknown_tokens": 0,
+          "sentencepiece_tokens_excluding_eod": 3805717,
+          "tokens": 3812223,
+          "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+          "unknown_token_rate": 0.0,
+          "unknown_tokens": 0
+        },
+        "elite-blogs": {
+          "documents": 33,
+          "documents_with_unknown_tokens": 1,
+          "sentencepiece_tokens_excluding_eod": 60075,
+          "tokens": 60108,
+          "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+          "unknown_token_rate": 1.6645859342488557e-05,
+          "unknown_tokens": 1
+        },
+        "elite-books": {
+          "documents": 7,
+          "documents_with_unknown_tokens": 0,
+          "sentencepiece_tokens_excluding_eod": 672073,
+          "tokens": 672080,
+          "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+          "unknown_token_rate": 0.0,
+          "unknown_tokens": 0
+        },
+        "eqanun": {
+          "documents": 2471,
+          "documents_with_unknown_tokens": 3,
+          "sentencepiece_tokens_excluding_eod": 2774331,
+          "tokens": 2776802,
+          "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+          "unknown_token_rate": 2.883578058998728e-06,
+          "unknown_tokens": 8
+        },
+        "mediocore-books": {
+          "documents": 289443,
+          "documents_with_unknown_tokens": 27,
+          "sentencepiece_tokens_excluding_eod": 10668770,
+          "tokens": 10958213,
+          "unknown_rate_denominator_policy": "SentencePiece tokens excluding the one appended EOD token per document.",
+          "unknown_token_rate": 3.37433462339145e-06,
+          "unknown_tokens": 36
+        }
+      }
+    },
+    "includes_one_eod_per_document": true,
+    "split_totals": {
+      "test": 30892742,
+      "train": 544498912,
+      "validation": 30329083
+    },
+    "total_retained_tokens": 605720737
+  },
+  "tokenizer": {
+    "artifact_hashes": {
+      "special_tokens.json": "21d6ed125762219c944b7ba31f1d59d057d5766300671319a6083a2cac5863ce",
+      "tokenizer.model": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+      "tokenizer.vocab": "e7e0a932054e4917442fc960469c864de75a05eb7dd0e6234b17f0b09f9c9905",
+      "tokenizer_config.json": "595adb4626a3f38148543ad055dc5796d3550a9255a8f9b5327fedbe7cb8fbda"
+    },
+    "byte_fallback": false,
+    "candidate_audit_path": "data/metadata/tokenizer_audit.json",
+    "candidate_comparison": {
+      "16000": {
+        "characters_per_token": 4.688761801725954,
+        "fertility": 1.6743012148350949,
+        "model_sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+        "unknown_rate_denominator_policy": "SentencePiece tokens on the shared train-only audit sample; EOD is not appended.",
+        "unknown_rate_denominator_token_count": 9701653,
+        "unknown_token_count": 1,
+        "unknown_token_rate": 1.0307521821281384e-07,
+        "vocab_sha256": "e7e0a932054e4917442fc960469c864de75a05eb7dd0e6234b17f0b09f9c9905",
+        "vocab_size": 16000
+      },
+      "32000": {
+        "characters_per_token": 5.203849193329553,
+        "fertility": 1.5085755349645842,
+        "model_sha256": "6cb625cdbb620ebc5e851da793edac26eea12c433a34c765616a22d5857a82fc",
+        "unknown_rate_denominator_policy": "SentencePiece tokens on the shared train-only audit sample; EOD is not appended.",
+        "unknown_rate_denominator_token_count": 8741364,
+        "unknown_token_count": 1,
+        "unknown_token_rate": 1.1439862245754782e-07,
+        "vocab_sha256": "56ee80c131fdb7a279b70d6c664a0f1b872fe0e851b2701730b7c0b520648c3e",
+        "vocab_size": 32000
+      },
+      "8000": {
+        "characters_per_token": 4.086221022981296,
+        "fertility": 1.9211881923544414,
+        "model_sha256": "52b4dd1fc9c0ae017bba13fd41aa020b05409356a397d840ca699b47428e4bbe",
+        "unknown_rate_denominator_policy": "SentencePiece tokens on the shared train-only audit sample; EOD is not appended.",
+        "unknown_rate_denominator_token_count": 11132227,
+        "unknown_token_count": 1,
+        "unknown_token_rate": 8.982928573051915e-08,
+        "vocab_sha256": "226c02c67b99381beb2237e86b9200c03afd834923b8472e2dad067b0e8bbeae",
+        "vocab_size": 8000
+      }
+    },
+    "character_coverage": 1.0,
+    "normalization_rule_name": "identity",
+    "selection_reason": "Protocol default retained; no technical or coverage failure was observed on the train-only audit.",
+    "sentencepiece_version": "0.2.1",
+    "special_tokens": {
+      "bos": {
+        "enabled": false,
+        "id": -1,
+        "piece": null
+      },
+      "document_boundary_policy": "Append one <eod> token after each document in downstream token counts and exports.",
+      "eod": {
+        "id": 1,
+        "piece": "<eod>"
+      },
+      "pad": {
+        "enabled": false,
+        "id": -1,
+        "piece": null
+      },
+      "unk": {
+        "id": 0,
+        "piece": "<unk>"
+      }
+    },
+    "text_projection": "Replace document-internal line breaks with spaces before SentencePiece encoding; canonical processed text is unchanged.",
+    "training_provenance": {
+      "characters": 460725954,
+      "documents": 1000000,
+      "newline_policy": "Internal line breaks are replaced with spaces only in the SentencePiece trainer input.",
+      "sample_manifest_path": "tokenizer/training_sample_manifest.parquet",
+      "selection_rule": "First documents in the processed train parquet, which is sorted by SHA-256 document_id.",
+      "source_processed_train": "data/processed/corpus/train.parquet",
+      "training_corpus_path": "tokenizer/training_corpus.txt",
+      "training_corpus_sha256": "da0ff4b8209ab40e98afc96c71584a15defbd962d2f50e9b4f5ebc4e0a65a1d1",
+      "training_sample_manifest_sha256": "937db7d8af5a744e55187d693129f5acc322f48066a432e1b6d887d97a525122"
+    },
+    "type": "SentencePiece BPE",
+    "vocab_size": 16000
+  },
+  "training_subset": {
+    "actual_group_proportions": {
+      "Blogs": 0.02808995014610324,
+      "Books": 0.322026314623046,
+      "Laws": 0.1667360893509797,
+      "Native Wikipedia": 0.2147032790977476,
+      "News": 0.26844436678212347
+    },
+    "actual_group_tokens": {
+      "Blogs": 1406264,
+      "Books": 16121567,
+      "Laws": 8347290,
+      "Native Wikipedia": 10748666,
+      "News": 13439100
+    },
+    "actual_source_tokens": {
+      "anl-news": 13439100,
+      "azwiki": 10748666,
+      "elite-blogs": 1406264,
+      "elite-books": 7077178,
+      "eqanun": 8347290,
+      "mediocore-books": 9044389
+    },
+    "available_group_tokens": {
+      "Blogs": 1406264,
+      "Books": 204596831,
+      "Laws": 57785971,
+      "Native Wikipedia": 66755158,
+      "News": 213954688
+    },
+    "boundary_policy": "Select full documents; downstream training stops at the exact 50M model-token boundary without changing canonical documents.",
+    "data_seed": 2026,
+    "exact_consumption_boundary": {
+      "cumulative_tokens_before_document": 49995815,
+      "document_id": "db05beef4e2c5dec4bf978a78afd788f579429852afea925852f7122b7608c36",
+      "eod_consumed": false,
+      "full_document_tokens_including_eod": 6799,
+      "sampling_order_zero_based": 276625,
+      "sequence_position_one_based": 276626,
+      "stop_semantics": "Read documents in frozen sampling order, append one <eod> after each document, and stop after exactly the target number of token IDs.",
+      "tokens_consumed_from_document": 4185,
+      "unconsumed_document_tokens": 2614
+    },
+    "exhausted_groups": [
+      "Blogs"
+    ],
+    "future_consumption_policy": "Select full documents; downstream training stops at the exact 50M model-token boundary without changing canonical documents.",
+    "future_model_seed_affects_subset_or_order": false,
+    "manifest_path": "data/manifests/train_50m.parquet",
+    "manifest_sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48",
+    "model_seed_affects_order": false,
+    "order_policy": "ascending SHA-256 of ('order', data_seed, document_id), then document_id",
+    "overshoot_tokens": 62887,
+    "processed_reference_policy": "Each selected document records its frozen processed parquet path and zero-based row number.",
+    "quota_phase_group_tokens": {
+      "Blogs": 1406264,
+      "Books": 15000039,
+      "Laws": 7725606,
+      "Native Wikipedia": 10000175,
+      "News": 12503436
+    },
+    "quota_shortages": {
+      "Blogs": 3593736,
+      "Books": 0,
+      "Laws": 0,
+      "Native Wikipedia": 0,
+      "News": 0
+    },
+    "requested_group_tokens": {
+      "Blogs": 5000000,
+      "Books": 15000000,
+      "Laws": 7500000,
+      "Native Wikipedia": 10000000,
+      "News": 12500000
+    },
+    "requested_group_weights": {
+      "Blogs": 0.1,
+      "Books": 0.3,
+      "Laws": 0.15,
+      "Native Wikipedia": 0.2,
+      "News": 0.25
+    },
+    "sampling_without_replacement": true,
+    "selected_documents": 277027,
+    "selected_unique_tokens": 50062887,
+    "split": "train",
+    "target_tokens": 50000000
+  },
+  "validation": {
+    "matched_subset_processed_references": 277027,
+    "matched_subset_token_records": 277027,
+    "path": "data/metadata/frozen_corpus_validation.json",
+    "repair_evidence_hashes": {
+      "downstream_repair_validation": {
+        "bytes": 2313,
+        "path": "data/metadata/downstream_repair_validation.json",
+        "sha256": "e9ceaf0e6486bb270bc2ba85daca2dd7911167a02829271245bcfe13a5d6913c"
+      },
+      "leakage_audit": {
+        "bytes": 34853,
+        "path": "data/metadata/leakage_audit.json",
+        "sha256": "5fc6d5134253b692dfa113796b501dfcd52937f2c3e50ee61243d0904b72abee"
+      },
+      "m1_validation": {
+        "bytes": 3630,
+        "path": "data/metadata/frozen_corpus_validation.json",
+        "sha256": "7cb9681c636cd58a534a38e83353dd3aa5baac461aea0bcb324d0caa4a3a52a6"
+      },
+      "near_repair_all_large_bucket_audit": {
+        "bytes": 13881,
+        "path": "data/metadata/near_repair_large_bucket_leakage.json",
+        "sha256": "19659a3e3a42a20008ae9900dd75cdd042d52cde66098ef6b48823ed9b34f040"
+      },
+      "near_repair_candidate_recall": {
+        "bytes": 7245,
+        "path": "data/metadata/near_repair_candidate_recall.json",
+        "sha256": "4fd135ad7af7ce9c196f75934c2c842f8f8af1f3d916afd4eb084e98b5ff9568"
+      },
+      "near_repair_validation": {
+        "bytes": 13923,
+        "path": "data/metadata/near_repair_validation.json",
+        "sha256": "99aec4ab18cb88457f4b9122907762451d5ff8a3f25c6f69d1b4328b57ca80e2"
+      },
+      "pytest_junit": {
+        "bytes": 4653,
+        "path": "data/metadata/pytest_data_pipeline.xml",
+        "sha256": "0862c2bc9c3c420bfc737292957140dc9611254b23341c62699f8309b94df212"
+      },
+      "raw_immutability": {
+        "bytes": 19702,
+        "path": "data/metadata/raw_immutability.json",
+        "sha256": "0c4d2ba908e1b968504bbda3d2974530591802a919c48c03ba00127cccee7f80"
+      },
+      "token_counts": {
+        "bytes": 217940976,
+        "path": "data/metadata/document_token_counts.parquet",
+        "sha256": "b3e2bbb324caef8d608cabb3dc8445387c8268e9fb3ea49f7d3ffee397482d8c"
+      },
+      "tokenizer_audit": {
+        "bytes": 59290,
+        "path": "data/metadata/tokenizer_audit.json",
+        "sha256": "0cf4e6122680eb524308284042124ecbbec46a313cdd68c1988f9d2cda1fbe85"
+      },
+      "training_subset": {
+        "bytes": 22361997,
+        "path": "data/manifests/train_50m.parquet",
+        "sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48"
+      }
+    },
+    "sha256": "7cb9681c636cd58a534a38e83353dd3aa5baac461aea0bcb324d0caa4a3a52a6",
+    "status": "pass"
+  }
+}

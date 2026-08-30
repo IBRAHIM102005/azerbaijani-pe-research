@@ -1,0 +1,50 @@
+{
+  "complete": true,
+  "created_at_utc": "2026-08-30T16:34:49.463931+00:00",
+  "data_preparation": {
+    "accounting_reconciled": true,
+    "all_59_large_buckets_exhaustively_validated": true,
+    "completed_preparation_verified": true,
+    "former_237_cross_split_pairs_resolved": true,
+    "leakage_gate_passed": true,
+    "split_manifests_hash_frozen": true
+  },
+  "out_of_scope_model_work_created": false,
+  "repair_hard_gates": {
+    "all_large_bucket_candidate_recall": 1.0,
+    "all_large_bucket_missed_true_pairs": 0,
+    "former_237_pairs_unresolved": 0,
+    "full_artifact_validation": "pass",
+    "known_cross_split_true_near_pairs": 0,
+    "raw_immutability": "pass",
+    "sample_candidate_recall": 1.0
+  },
+  "reproducibility": {
+    "all_tests_passed": true,
+    "candidate_and_verification_checkpoints_config_bound": true,
+    "processed_manifest_tokenizer_and_subset_hashes_recorded": true,
+    "raw_immutability_passed": true,
+    "real_artifact_validation_passed": true,
+    "reports_and_handoff_generated": true,
+    "repository_relative_operational_paths_validated": true
+  },
+  "status": "complete",
+  "token_counts_and_subset": {
+    "fixed_order_and_exact_consumption_policy_recorded": true,
+    "no_replacement_or_split_leakage": true,
+    "real_16k_counts_complete": true,
+    "source_shortage_and_redistribution_recorded": true,
+    "train_only_50m_selection_complete": true
+  },
+  "tokenizer": {
+    "candidate_audit_complete": true,
+    "candidates_8k_16k_32k_trained_on_same_train_only_input": true,
+    "final_16k_frozen": true,
+    "special_tokens_and_hashes_valid": true
+  },
+  "warnings": [
+    "Connected-component members are not guaranteed to be pairwise Jaccard >= 0.95.",
+    "Per-source license and revision metadata are unavailable upstream.",
+    "The 50-letter filter disproportionately affects mediocore-books fragments."
+  ]
+}
