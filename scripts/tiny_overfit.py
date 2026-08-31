@@ -25,8 +25,8 @@ import torch
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from src.model.config import PE_TYPES, ModelConfig  # noqa: E402
-from src.model.transformer import PELanguageModel  # noqa: E402
+from src.models.config import PE_TYPES, ModelConfig 
+from src.models.transformer import PELanguageModel
 
 VOCAB = 32
 SEQ_LEN = 24

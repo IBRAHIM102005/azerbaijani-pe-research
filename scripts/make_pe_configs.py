@@ -21,7 +21,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from src.model.config import PE_TYPES, ModelConfig  # noqa: E402
+from src.models.config import PE_TYPES, ModelConfig 
 
 BASE_PATH = ROOT / "configs" / "model_base.json"
 ARM_DIR = ROOT / "configs" / "pe"
