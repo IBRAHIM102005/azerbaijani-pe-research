@@ -1,0 +1,38 @@
+{
+  "alibi_max_slope_exponent": 3.0,
+  "d_ff": 1024,
+  "d_model": 256,
+  "data_seed": 2026,
+  "dropout": 0.0,
+  "init_scheme": "pythia",
+  "init_seed": -1,
+  "layer_norm_eps": 1e-05,
+  "max_seq_len": 512,
+  "meta": {
+    "data_contract": "data/metadata/training_data_contract.json",
+    "eod_token_id": 1,
+    "manifest_sha256": {
+      "test": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+      "train": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+      "validation": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+    },
+    "milestone": "M2",
+    "seed_policy": "init_seed is a template here; production seeds come from configs/run_matrix.json. data_seed is fixed by M1 and is independent of the model seed.",
+    "selected_tokens": 50062887,
+    "token_budget": 50000000,
+    "tokenizer": "tokenizer/tokenizer.model",
+    "tokenizer_sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+    "training_subset_manifest": "data/manifests/train_50m.parquet",
+    "training_subset_sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48"
+  },
+  "n_head": 8,
+  "n_layer": 6,
+  "pe_type": "learned",
+  "reset_attention_mask": false,
+  "reset_position_ids": false,
+  "rope_theta": 10000.0,
+  "rotary_pct": 0.25,
+  "sinusoidal_theta": 10000.0,
+  "tie_embeddings": false,
+  "vocab_size": 16000
+}
