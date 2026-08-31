@@ -1,0 +1,23 @@
+{
+  "alibi_max_slope_exponent": 3.0,
+  "d_ff": 1024,
+  "d_model": 256,
+  "dropout": 0.0,
+  "init_seed": 2026,
+  "init_std": 0.02,
+  "layer_norm_eps": 1e-05,
+  "max_seq_len": 512,
+  "meta": {
+    "data_contract": "data/metadata/training_data_contract.json",
+    "milestone": "M2",
+    "token_budget": 50000000,
+    "tokenizer": "tokenizer/az_bpe_16000"
+  },
+  "n_head": 8,
+  "n_layer": 6,
+  "pe_type": "rope",
+  "rope_theta": 10000.0,
+  "sinusoidal_theta": 10000.0,
+  "tie_embeddings": true,
+  "vocab_size": 16000
+}
