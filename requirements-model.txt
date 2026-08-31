@@ -1,6 +1,0 @@
-# M2 (model / positional encodings) and M3 (training).
-# The data pipeline has its own file: requirements-data-pipeline.txt
-#
-# Kaggle notebooks already ship torch; pin here only for local runs and CI.
-torch>=2.1
-pytest>=7.4
