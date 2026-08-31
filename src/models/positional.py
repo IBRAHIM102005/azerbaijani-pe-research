@@ -52,6 +52,18 @@ class PositionalScheme(nn.Module):
     #: whether the scheme can be evaluated beyond ``max_seq_len`` unchanged
     extrapolates: bool = True
 
+    def supports_length(self, seq_len: int) -> bool:
+        """Whether this arm can be *evaluated* at ``seq_len`` at all.
+
+        The length-generalisation protocol calls this before every evaluation
+        context.  Learned absolute encodings return ``False`` beyond their
+        trained table, and the result table must record ``n/a`` for that cell
+        rather than a number obtained by resizing or interpolating the table --
+        interpolation would silently turn the learned arm into a different
+        method and make the comparison meaningless.
+        """
+        return True
+
     def additive_embedding(
         self, seq_len: int, device: torch.device, dtype: torch.dtype
     ) -> Optional[torch.Tensor]:
@@ -101,6 +113,9 @@ class LearnedPositionalEncoding(PositionalScheme):
         self.max_seq_len = max_seq_len
         self.d_model = d_model
         self.table = nn.Parameter(torch.zeros(max_seq_len, d_model))
+
+    def supports_length(self, seq_len: int) -> bool:
+        return seq_len <= self.max_seq_len
 
     def additive_embedding(
         self, seq_len: int, device: torch.device, dtype: torch.dtype
@@ -258,8 +273,13 @@ class AlibiPositionalEncoding(PositionalScheme):
         dtype: torch.dtype,
         offset: int = 0,
     ) -> torch.Tensor:
+        # Both axes are shifted by ``offset``, so the returned tensor is
+        # always ``(1, n_head, seq_len, seq_len)`` as documented, and the bias
+        # -- like RoPE -- depends only on the relative distance.  A KV-cache
+        # decode step, where keys span 0..offset+seq_len, is out of scope for
+        # this study and is rejected rather than silently mis-shaped.
         q_pos = torch.arange(offset, offset + seq_len, device=device).unsqueeze(1)
-        k_pos = torch.arange(offset + seq_len, device=device).unsqueeze(0)
+        k_pos = torch.arange(offset, offset + seq_len, device=device).unsqueeze(0)
         distance = (q_pos - k_pos).clamp(min=0).to(torch.float32)     # (T, T_k)
         bias = -distance.unsqueeze(0) * self.slopes.to(device).view(-1, 1, 1)
         return bias.unsqueeze(0).to(dtype)                            # (1, H, T, T_k)

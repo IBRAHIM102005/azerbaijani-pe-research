@@ -41,7 +41,8 @@ class ModelConfig:
         (read only when ``pe_type='alibi'``).
     tie_embeddings:
         Whether the output projection shares weights with the token embedding.
-        Fixed across arms; tying keeps the parameter budget comparable.
+        The frozen spec requires untied embeddings (``False``), so the model
+        carries a separate output head.  Fixed across arms either way.
     init_seed:
         Seed for the deterministic per-parameter initialisation scheme.  Using
         the same seed for all arms guarantees that every *shared* parameter
@@ -61,7 +62,7 @@ class ModelConfig:
     max_seq_len: int = 512
     dropout: float = 0.0
     layer_norm_eps: float = 1e-5
-    tie_embeddings: bool = True
+    tie_embeddings: bool = False
 
     # --- PE-specific hyper-parameters ------------------------------------
     rope_theta: float = 10000.0

@@ -34,25 +34,31 @@ def _is_positional(name: str) -> bool:
     return name.startswith("pe.")
 
 
-def _is_token_embedding(name: str) -> bool:
-    return name in ("wte.weight", "lm_head.weight")
+def _is_input_embedding(name: str) -> bool:
+    return name == "wte.weight"
+
+
+def _is_output_head(name: str) -> bool:
+    return name == "lm_head.weight"
 
 
 def parameter_report(model: PELanguageModel) -> Dict[str, object]:
     """Break the parameter count down into comparable buckets."""
-    total = positional = token_embedding = core = 0
+    total = positional = input_embedding = output_head = core = 0
     seen: set[int] = set()
 
     for name, param in model.named_parameters():
-        if id(param) in seen:      # tied lm_head/wte counted once
+        if id(param) in seen:      # if tied, lm_head/wte are counted once
             continue
         seen.add(id(param))
         n = param.numel()
         total += n
         if _is_positional(name):
             positional += n
-        elif _is_token_embedding(name):
-            token_embedding += n
+        elif _is_input_embedding(name):
+            input_embedding += n
+        elif _is_output_head(name):
+            output_head += n
         else:
             core += n
 
@@ -61,9 +67,11 @@ def parameter_report(model: PELanguageModel) -> Dict[str, object]:
         "pe_type": cfg.pe_type,
         "total": total,
         "core": core,                        # blocks + final layer norm
-        "token_embedding": token_embedding,
+        "input_embedding": input_embedding,
+        "output_head": output_head,
+        "token_embedding": input_embedding + output_head,
         "positional": positional,
-        "non_embedding": total - token_embedding,
+        "non_embedding": total - input_embedding - output_head,
         "tied_embeddings": cfg.tie_embeddings,
         "d_model": cfg.d_model,
         "n_layer": cfg.n_layer,
@@ -105,6 +113,7 @@ def fairness_report(
 
     core_counts = {r["core"] for r in rows}
     emb_counts = {r["token_embedding"] for r in rows}
+    head_counts = {r["output_head"] for r in rows}
     fp_values = set(fingerprints.values())
 
     violations: List[str] = []
@@ -112,6 +121,8 @@ def fairness_report(
         violations.append(f"transformer core parameter counts differ: {core_counts}")
     if len(emb_counts) != 1:
         violations.append(f"token embedding parameter counts differ: {emb_counts}")
+    if len(head_counts) != 1:
+        violations.append(f"output head parameter counts differ: {head_counts}")
     if len(fp_values) != 1:
         violations.append(
             "shared-parameter initialisation differs between arms: " f"{fingerprints}"
@@ -130,15 +141,19 @@ def fairness_report(
 
 def format_fairness_table(report: Dict[str, object]) -> str:
     """Render the report as a fixed-width table for the paper / defence."""
-    header = f"{'PE':<12}{'total':>14}{'core':>14}{'tok-emb':>14}{'pos':>12}{'init':>18}"
+    header = (
+        f"{'PE':<12}{'total':>14}{'core':>13}{'in-emb':>12}{'out-head':>12}"
+        f"{'pos':>10}{'init':>18}"
+    )
     lines = [header, "-" * len(header)]
     for row in report["rows"]:                                   # type: ignore[index]
         lines.append(
             f"{row['pe_type']:<12}"
             f"{row['total']:>14,}"
-            f"{row['core']:>14,}"
-            f"{row['token_embedding']:>14,}"
-            f"{row['positional']:>12,}"
+            f"{row['core']:>13,}"
+            f"{row['input_embedding']:>12,}"
+            f"{row['output_head']:>12,}"
+            f"{row['positional']:>10,}"
             f"{row['init_fingerprint']:>18}"
         )
     lines.append("")

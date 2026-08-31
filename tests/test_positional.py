@@ -215,3 +215,39 @@ def test_factory_builds_every_arm(pe_type):
 def test_config_rejects_unknown_pe_type():
     with pytest.raises(ValueError, match="unknown pe_type"):
         ModelConfig(pe_type="relative_bias")
+
+
+# ---------------------------------------------------------------------------
+# length-generalisation protocol
+# ---------------------------------------------------------------------------
+@pytest.mark.parametrize("eval_len", [512, 1024, 2048])
+def test_length_generalisation_contract(eval_len):
+    """Which arms may be evaluated at which context length.
+
+    The evaluation protocol is fixed here so it cannot be decided ad hoc once
+    results are in: the four length-agnostic arms are evaluated at every
+    context, and the learned arm is reported as n/a beyond 512.
+    """
+    trained_len = 512
+    for pe_type in PE_TYPES:
+        cfg = ModelConfig(pe_type=pe_type, max_seq_len=trained_len)
+        pe = build_positional_scheme(cfg)
+        expected = pe_type != "learned" or eval_len <= trained_len
+        assert pe.supports_length(eval_len) is expected, pe_type
+
+
+def test_learned_arm_refuses_rather_than_interpolating():
+    """Silently resizing the table would change the method under study."""
+    pe = LearnedPositionalEncoding(max_seq_len=512, d_model=64)
+    assert pe.supports_length(512) is True
+    assert pe.supports_length(1024) is False
+    with pytest.raises(ValueError):
+        pe.additive_embedding(1024, torch.device("cpu"), torch.float32)
+
+
+def test_relative_arms_extrapolate_without_new_parameters():
+    for pe_type in ("sinusoidal", "rope", "alibi", "nope"):
+        cfg = ModelConfig(pe_type=pe_type, max_seq_len=512)
+        pe = build_positional_scheme(cfg)
+        assert pe.supports_length(2048) is True
+        assert sum(p.numel() for p in pe.parameters()) == 0

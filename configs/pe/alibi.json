@@ -18,6 +18,6 @@
   "pe_type": "alibi",
   "rope_theta": 10000.0,
   "sinusoidal_theta": 10000.0,
-  "tie_embeddings": true,
+  "tie_embeddings": false,
   "vocab_size": 16000
 }

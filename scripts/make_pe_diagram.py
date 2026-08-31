@@ -100,7 +100,7 @@ def build() -> str:
     s += box(cx, 24, bw, 34, "input token ids", rx=17)
     s += arrow(mid, 58, mid, 78)
 
-    s += box(cx, 78, bw, 44, "token embedding", "wte, tied with LM head")
+    s += box(cx, 78, bw, 44, "token embedding", "wte, untied output head")
     s += tag(cx + bw + 40, 100, "A")
     s += arrow(mid, 122, mid, 148)
 
@@ -111,7 +111,7 @@ def build() -> str:
     )
     s.append(
         f'<text x="{cx - 20}" y="{168}" font-size="11.5" fill="{MUTED}">'
-        f'transformer block  \u00d7 6  (pre-LayerNorm)</text>'
+        f'transformer block  \u00d7 6  (pre-LN, parallel residual)</text>'
     )
 
     s += box(cx, 178, bw, 34, "LayerNorm")
@@ -134,7 +134,7 @@ def build() -> str:
 
     s += box(cx, 452, bw, 0, "")   # spacer removed
     s = [e for e in s if 'height="0"' not in e]
-    s += box(cx, 446, bw, 30, "softmax \u2192 attn out \u2192 MLP")
+    s += box(cx, 446, bw, 30, "softmax \u2192 attn branch")
 
     s += arrow(mid, 480, mid, 500)
     s += box(cx, 500, bw, 34, "final LayerNorm")
@@ -156,7 +156,7 @@ def build() -> str:
     )
     s.append(
         f'<text x="{lx + 14}" y="{97}" font-size="11.5" fill="{INK}">'
-        f'learned: trainable table (L x d), 131,072 params</text>'
+        f'learned: trainable table (512 x 256), 131,072 params</text>'
     )
     s.append(
         f'<text x="{lx + 14}" y="{114}" font-size="11.5" fill="{INK}">'

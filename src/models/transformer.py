@@ -1,7 +1,7 @@
 """The shared base model.
 
 Every positional-encoding arm uses *this* module, unmodified.  The scheme is
-injected as a :class:`~src.model.positional.PositionalScheme` and touched only
+injected as a :class:`~src.models.positional.PositionalScheme` and touched only
 through its three hooks, so no arm gets a different attention implementation,
 a different residual layout, or a different initialisation rule.
 """
@@ -91,7 +91,13 @@ class MLP(nn.Module):
 
 
 class TransformerBlock(nn.Module):
-    """Pre-LayerNorm block: ``x + attn(ln1(x))`` then ``x + mlp(ln2(x))``."""
+    """Pre-LayerNorm block with a **parallel** residual:
+
+    ``x + attn(ln1(x)) + mlp(ln2(x))``
+
+    Both branches are computed from the block input, not chained.  This is
+    fixed by the frozen spec and is identical in all five arms.
+    """
 
     def __init__(self, config: ModelConfig, pe: PositionalScheme) -> None:
         super().__init__()
@@ -101,9 +107,12 @@ class TransformerBlock(nn.Module):
         self.mlp = MLP(config)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        x = x + self.attn(self.ln1(x))
-        x = x + self.mlp(self.ln2(x))
-        return x
+        # Parallel residual: attention and MLP both read the *same* block
+        # input, so the MLP does not see the attention output.  Each branch
+        # keeps its own LayerNorm (this is the layout the frozen spec's
+        # parameter budget corresponds to; a shared-LN variant would be
+        # 3,072 parameters smaller).
+        return x + self.attn(self.ln1(x)) + self.mlp(self.ln2(x))
 
 
 class PELanguageModel(nn.Module):

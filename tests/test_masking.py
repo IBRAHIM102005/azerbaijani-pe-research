@@ -120,3 +120,76 @@ def test_loss_is_computed_on_shifted_targets(pe_type):
     assert torch.isfinite(loss)
     # an untrained, uniform-ish model should sit near ln(vocab_size)
     assert 2.0 < loss.item() < 6.0
+
+
+# ---------------------------------------------------------------------------
+# parallel residual (frozen spec)
+# ---------------------------------------------------------------------------
+def test_block_uses_a_parallel_residual_not_a_sequential_one():
+    """The MLP must read the block input, never the attention output.
+
+    Sequential:  x -> x + attn(ln1(x)) -> that + mlp(ln2(x + attn(...)))
+    Parallel:    x -> x + attn(ln1(x)) + mlp(ln2(x))          <- required
+
+    The two differ only in what the MLP is fed, so that is what is asserted.
+    """
+    torch.manual_seed(4)
+    model = PELanguageModel(tiny_config("rope")).eval()
+    block = model.blocks[0]
+
+    captured = {}
+    handle = block.mlp.register_forward_pre_hook(
+        lambda _mod, args: captured.__setitem__("mlp_in", args[0].detach().clone())
+    )
+    x = torch.randn(1, SEQ_LEN, 32)
+    with torch.no_grad():
+        out = block(x)
+    handle.remove()
+
+    expected_parallel = block.ln2(x)
+    assert torch.allclose(captured["mlp_in"], expected_parallel, atol=1e-6), (
+        "the MLP is not reading the block input -- this is a sequential residual"
+    )
+
+    with torch.no_grad():
+        attn_out = block.attn(block.ln1(x))
+        mlp_out = block.mlp(block.ln2(x))
+    assert torch.allclose(out, x + attn_out + mlp_out, atol=1e-6)
+
+
+def test_parallel_residual_differs_from_sequential():
+    """Guards the test above against being vacuously true."""
+    torch.manual_seed(5)
+    model = PELanguageModel(tiny_config("nope")).eval()
+    block = model.blocks[0]
+    x = torch.randn(1, SEQ_LEN, 32)
+
+    # at initialisation the residual branches are deliberately small, so
+    # amplify the attention branch to make the two layouts clearly distinct
+    with torch.no_grad():
+        block.attn.proj.weight.mul_(50.0)
+
+    with torch.no_grad():
+        parallel = block(x)
+        h = x + block.attn(block.ln1(x))
+        sequential = h + block.mlp(block.ln2(h))
+    assert not torch.allclose(parallel, sequential, atol=1e-4)
+
+
+# ---------------------------------------------------------------------------
+# ALiBi offset contract
+# ---------------------------------------------------------------------------
+def test_alibi_bias_shape_is_square_for_any_offset():
+    pe = AlibiPositionalEncoding(4)
+    for offset in (0, 5, 128):
+        bias = pe.attention_bias(8, torch.device("cpu"), torch.float32, offset=offset)
+        assert bias.shape == (1, 4, 8, 8), f"offset={offset} gave {tuple(bias.shape)}"
+
+
+def test_alibi_bias_is_offset_invariant_like_rope():
+    """ALiBi depends on (m - n) only, so shifting both axes changes nothing."""
+    pe = AlibiPositionalEncoding(8)
+    base = pe.attention_bias(12, torch.device("cpu"), torch.float32, offset=0)
+    for offset in (1, 7, 64):
+        shifted = pe.attention_bias(12, torch.device("cpu"), torch.float32, offset=offset)
+        assert torch.equal(base, shifted), f"offset={offset} changed the bias"
