@@ -33,6 +33,19 @@ An independent pre-experiment audit found that the first near-duplicate implemen
 
 ## Validate the frozen handoff
 
+The data-pipeline dependency set is tested on CPython 3.13 and 3.14. Set up a clean environment with:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate  # Windows PowerShell: .venv\Scripts\Activate.ps1
+python -m pip install -r requirements-data-pipeline.txt
+python -m pip check
+python -m pytest --collect-only -q
+python -m pytest -q
+```
+
+A source-only clone intentionally omits the large local manifests used by `tests/integration/test_frozen_data_artifacts.py`. Without the frozen artifact bundle, run the portable suite with `python -m pytest -q --ignore=tests/integration/test_frozen_data_artifacts.py`; the full command above applies when those local artifacts are present.
+
 Run `python scripts/validate_frozen_corpus.py` from the repository root for a full read-only scan of the frozen manifests, tokenizer, token counts, processed-row references, and 50M sequence. The command refreshes only `data/metadata/frozen_corpus_validation.json` after all checks pass; it does not rebuild the data pipeline.
 
 M2/M3 should read `data/metadata/training_data_contract.json`. Repository-internal paths resolve relative to the current project root. If the external DOLLMA clone is not at the configured relative location, set `AZ_PE_DOLLMA_ROOT`; a missing root produces an actionable error rather than a filesystem-wide search.

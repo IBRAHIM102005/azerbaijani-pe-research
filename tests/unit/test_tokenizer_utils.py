@@ -8,6 +8,14 @@ def test_tokenizer_text_projects_line_breaks_without_changing_letters():
     assert tokenizer_text("Azərbaycan\r\nşəhərləri\n\nGəncə") == "Azərbaycan şəhərləri  Gəncə"
 
 
+def test_sentencepiece_protobuf_binding_is_available():
+    import google.protobuf
+    import sentencepiece.sentencepiece_model_pb2 as model_pb2
+
+    assert google.protobuf.__version__
+    assert model_pb2.ModelProto.DESCRIPTOR.full_name == "sentencepiece.ModelProto"
+
+
 def test_sentencepiece_candidate_has_stable_special_tokens(tmp_path):
     corpus = tmp_path / "train.txt"
     corpus.write_text(
