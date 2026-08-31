@@ -3,6 +3,7 @@
   "d_ff": 1024,
   "d_model": 256,
   "dropout": 0.0,
+  "init_scheme": "pythia",
   "init_seed": 2026,
   "init_std": 0.02,
   "layer_norm_eps": 1e-05,
@@ -17,6 +18,7 @@
   "n_layer": 6,
   "pe_type": "learned",
   "rope_theta": 10000.0,
+  "rotary_pct": 0.25,
   "sinusoidal_theta": 10000.0,
   "tie_embeddings": false,
   "vocab_size": 16000

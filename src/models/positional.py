@@ -187,22 +187,47 @@ class RotaryPositionalEncoding(PositionalScheme):
     Rotates query and key vectors so that the attention logit between
     positions ``m`` and ``n`` depends on ``m - n`` only.  That invariance is
     asserted directly in ``tests/test_positional.py``.
+
+    ``rotary_pct`` controls how much of each head is rotated, following
+    GPT-NeoX: the first ``int(head_dim * rotary_pct)`` channels are rotated
+    and the rest are passed through unchanged.  Pythia uses ``0.25``; the
+    original RoFormer formulation is ``1.0``.  The pass-through channels
+    contribute a position-independent term to the logit, so the
+    relative-offset invariance holds for any value.
     """
 
     is_parametric = False
     extrapolates = True
 
-    def __init__(self, head_dim: int, theta: float = 10000.0) -> None:
+    def __init__(
+        self, head_dim: int, theta: float = 10000.0, rotary_pct: float = 1.0
+    ) -> None:
         super().__init__()
         if head_dim % 2 != 0:
             raise ValueError("RoPE requires an even head_dim")
+        if not 0.0 < rotary_pct <= 1.0:
+            raise ValueError(f"rotary_pct must be in (0, 1], got {rotary_pct}")
         self.head_dim = head_dim
         self.theta = theta
+        self.rotary_pct = rotary_pct
+        self.rotary_dim = int(head_dim * rotary_pct)
+        if self.rotary_dim == 0 or self.rotary_dim % 2 != 0:
+            raise ValueError(
+                f"rotary_pct={rotary_pct} on head_dim={head_dim} gives "
+                f"{self.rotary_dim} rotated channels; it must be even and non-zero"
+            )
         inv_freq = theta ** (
-            -torch.arange(0, head_dim, 2, dtype=torch.float32) / head_dim
+            -torch.arange(0, self.rotary_dim, 2, dtype=torch.float32)
+            / self.rotary_dim
         )
         self.register_buffer("inv_freq", inv_freq, persistent=False)
         self._cached_len = 0
+
+    def extra_repr(self) -> str:  # pragma: no cover - cosmetic
+        return (
+            f"head_dim={self.head_dim}, rotary_dim={self.rotary_dim} "
+            f"({self.rotary_pct:.0%}), theta={self.theta}"
+        )
 
     def _cos_sin(
         self, seq_len: int, device: torch.device, offset: int = 0
@@ -210,8 +235,8 @@ class RotaryPositionalEncoding(PositionalScheme):
         pos = torch.arange(
             offset, offset + seq_len, device=device, dtype=torch.float32
         )
-        angles = torch.outer(pos, self.inv_freq.to(device))          # (T, D/2)
-        angles = torch.cat((angles, angles), dim=-1)                  # (T, D)
+        angles = torch.outer(pos, self.inv_freq.to(device))          # (T, R/2)
+        angles = torch.cat((angles, angles), dim=-1)                  # (T, R)
         return angles.cos()[None, None], angles.sin()[None, None]
 
     def rotate_qk(
@@ -221,8 +246,19 @@ class RotaryPositionalEncoding(PositionalScheme):
         cos, sin = self._cos_sin(seq_len, q.device, offset)
         cos = cos.to(q.dtype)
         sin = sin.to(q.dtype)
-        q_out = q * cos + _rotate_half(q) * sin
-        k_out = k * cos + _rotate_half(k) * sin
+
+        if self.rotary_dim == self.head_dim:
+            return (
+                q * cos + _rotate_half(q) * sin,
+                k * cos + _rotate_half(k) * sin,
+            )
+
+        # partial rotation: rotate the leading channels, pass the rest through
+        r = self.rotary_dim
+        q_rot, q_pass = q[..., :r], q[..., r:]
+        k_rot, k_pass = k[..., :r], k[..., r:]
+        q_out = torch.cat((q_rot * cos + _rotate_half(q_rot) * sin, q_pass), dim=-1)
+        k_out = torch.cat((k_rot * cos + _rotate_half(k_rot) * sin, k_pass), dim=-1)
         return q_out, k_out
 
 
@@ -299,7 +335,9 @@ def build_positional_scheme(config: ModelConfig) -> PositionalScheme:
             config.max_seq_len, config.d_model, config.sinusoidal_theta
         )
     if config.pe_type == "rope":
-        return RotaryPositionalEncoding(config.head_dim, config.rope_theta)
+        return RotaryPositionalEncoding(
+            config.head_dim, config.rope_theta, config.rotary_pct
+        )
     if config.pe_type == "alibi":
         return AlibiPositionalEncoding(
             config.n_head, config.alibi_max_slope_exponent

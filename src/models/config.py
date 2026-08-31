@@ -9,11 +9,13 @@ remains the only manipulated variable.
 from __future__ import annotations
 
 import json
+import math
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Any, Dict
 
 PE_TYPES = ("learned", "sinusoidal", "rope", "alibi", "nope")
+INIT_SCHEMES = ("pythia", "normal")
 
 
 @dataclass
@@ -35,6 +37,12 @@ class ModelConfig:
         this length; RoPE/ALiBi/NoPE are length-agnostic at construction time.
     rope_theta:
         Base of the RoPE frequency schedule (read only when ``pe_type='rope'``).
+    rotary_pct:
+        Fraction of each head's channels that RoPE rotates; the remainder is
+        passed through untouched.  GPT-NeoX/Pythia use ``0.25``.  ``1.0`` is
+        full rotation as in the original RoFormer paper.  Read only when
+        ``pe_type='rope'``, but recorded in every config so the value is
+        never implicit.
     alibi_max_slope_exponent:
         Exponent controlling the ALiBi slope geometric series; the default of
         ``3.0`` reproduces the ratio ``2**(-8i/n)`` of the original paper
@@ -48,6 +56,18 @@ class ModelConfig:
         the same seed for all arms guarantees that every *shared* parameter
         receives bit-identical initial values regardless of whether the arm
         also owns a learned positional table.
+    init_scheme:
+        ``"pythia"`` (the frozen spec) applies **small_init** to embeddings and
+        input projections and **wang_init** to the two residual output
+        projections, matching GPT-NeoX/Pythia's ``init_method`` and
+        ``output_layer_init_method``:
+
+        ``small_init std = sqrt(2 / (5 * d_model))``
+        ``wang_init  std = 2 / (n_layer * sqrt(d_model))``
+
+        ``"normal"`` is the legacy fixed-sigma fallback and uses ``init_std``.
+        It exists so the two can be compared, not because it is an option for
+        the study: the frozen spec is ``"pythia"``.
     """
 
     # --- experimental variable -------------------------------------------
@@ -66,12 +86,14 @@ class ModelConfig:
 
     # --- PE-specific hyper-parameters ------------------------------------
     rope_theta: float = 10000.0
+    rotary_pct: float = 0.25
     sinusoidal_theta: float = 10000.0
     alibi_max_slope_exponent: float = 3.0
 
     # --- reproducibility --------------------------------------------------
     init_seed: int = 2026
-    init_std: float = 0.02
+    init_scheme: str = "pythia"
+    init_std: float = 0.02   # only used when init_scheme == "normal"
 
     # --- free-form provenance --------------------------------------------
     meta: Dict[str, Any] = field(default_factory=dict)
@@ -85,14 +107,45 @@ class ModelConfig:
             raise ValueError(
                 f"d_model ({self.d_model}) must be divisible by n_head ({self.n_head})"
             )
-        if self.pe_type == "rope" and self.head_dim % 2 != 0:
+        if self.init_scheme not in INIT_SCHEMES:
             raise ValueError(
-                f"RoPE requires an even head_dim, got {self.head_dim}"
+                f"unknown init_scheme {self.init_scheme!r}; "
+                f"expected one of {INIT_SCHEMES}"
             )
+        if self.pe_type == "rope":
+            if self.head_dim % 2 != 0:
+                raise ValueError(
+                    f"RoPE requires an even head_dim, got {self.head_dim}"
+                )
+            if not 0.0 < self.rotary_pct <= 1.0:
+                raise ValueError(
+                    f"rotary_pct must be in (0, 1], got {self.rotary_pct}"
+                )
+            if self.rotary_dim % 2 != 0 or self.rotary_dim == 0:
+                raise ValueError(
+                    f"rotary_pct={self.rotary_pct} on head_dim={self.head_dim} "
+                    f"gives {self.rotary_dim} rotated channels; it must be even "
+                    f"and non-zero"
+                )
 
     @property
     def head_dim(self) -> int:
         return self.d_model // self.n_head
+
+    @property
+    def rotary_dim(self) -> int:
+        """Number of channels per head that RoPE actually rotates."""
+        return int(self.head_dim * self.rotary_pct)
+
+    @property
+    def small_init_std(self) -> float:
+        """GPT-NeoX ``init_method``: Nguyen & Salazar (2019) small init."""
+        return math.sqrt(2.0 / (5.0 * self.d_model))
+
+    @property
+    def wang_init_std(self) -> float:
+        """GPT-NeoX ``output_layer_init_method``: Wang / GPT-J init."""
+        return 2.0 / (self.n_layer * math.sqrt(self.d_model))
 
     # --- serialisation ----------------------------------------------------
     def to_dict(self) -> Dict[str, Any]:

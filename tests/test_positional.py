@@ -5,7 +5,9 @@ against a stored output of our own code.  A silent bug in RoPE or ALiBi would
 otherwise still produce a plausible-looking results table.
 """
 
+import json
 import math
+from pathlib import Path
 
 import pytest
 import torch
@@ -251,3 +253,158 @@ def test_relative_arms_extrapolate_without_new_parameters():
         pe = build_positional_scheme(cfg)
         assert pe.supports_length(2048) is True
         assert sum(p.numel() for p in pe.parameters()) == 0
+
+
+# ---------------------------------------------------------------------------
+# rotary_pct (GPT-NeoX partial rotation)
+# ---------------------------------------------------------------------------
+def test_rotary_dim_follows_rotary_pct():
+    for pct, expected in ((0.25, 8), (0.5, 16), (1.0, 32)):
+        pe = RotaryPositionalEncoding(32, rotary_pct=pct)
+        assert pe.rotary_dim == expected
+
+
+def test_partial_rotation_leaves_the_pass_through_channels_untouched():
+    torch.manual_seed(10)
+    pe = RotaryPositionalEncoding(32, rotary_pct=0.25)
+    q = torch.randn(1, 1, 12, 32)
+    q_out, _ = pe.rotate_qk(q, q)
+    assert torch.allclose(q_out[..., 8:], q[..., 8:], atol=1e-6)
+    assert not torch.allclose(q_out[..., :8], q[..., :8], atol=1e-3)
+
+
+@pytest.mark.parametrize("pct", [0.25, 0.5, 1.0])
+def test_relative_offset_invariance_holds_for_any_rotary_pct(pct):
+    """The pass-through channels add a position-independent term, so the
+    logit still depends only on (m - n)."""
+    torch.manual_seed(11)
+    pe = RotaryPositionalEncoding(32, rotary_pct=pct)
+    pe.inv_freq = pe.inv_freq.double()
+    q = torch.randn(1, 1, 16, 32, dtype=torch.float64)
+    k = torch.randn(1, 1, 16, 32, dtype=torch.float64)
+
+    base_q, base_k = pe.rotate_qk(q, k)
+    base = base_q @ base_k.transpose(-1, -2)
+    for shift in (1, 5, 9):
+        sq, sk = pe.rotate_qk(q, k, offset=shift)
+        assert torch.allclose(base, sq @ sk.transpose(-1, -2), atol=1e-9)
+
+
+@pytest.mark.parametrize("pct", [0.25, 0.5, 1.0])
+def test_partial_rotation_preserves_norm(pct):
+    torch.manual_seed(12)
+    pe = RotaryPositionalEncoding(32, rotary_pct=pct)
+    q = torch.randn(2, 4, 10, 32)
+    q_out, _ = pe.rotate_qk(q, q)
+    assert torch.allclose(q.norm(dim=-1), q_out.norm(dim=-1), atol=1e-5)
+
+
+def test_rotary_pct_values_that_cannot_work_are_rejected():
+    with pytest.raises(ValueError, match="rotary_pct must be in"):
+        RotaryPositionalEncoding(32, rotary_pct=0.0)
+    with pytest.raises(ValueError, match="rotary_pct must be in"):
+        RotaryPositionalEncoding(32, rotary_pct=1.5)
+    with pytest.raises(ValueError, match="must be even"):
+        RotaryPositionalEncoding(32, rotary_pct=0.1)   # -> 3 channels
+
+
+def test_shipped_rope_config_records_rotary_pct_explicitly():
+    """The value must be in the config file, never implicit in the code."""
+    path = Path(__file__).resolve().parents[1] / "configs" / "pe" / "rope.json"
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    assert "rotary_pct" in payload
+    cfg = ModelConfig.from_dict(payload)
+    pe = build_positional_scheme(cfg)
+    assert pe.rotary_dim == int(cfg.head_dim * payload["rotary_pct"])
+
+
+# ---------------------------------------------------------------------------
+# rotary_pct matrix
+# ---------------------------------------------------------------------------
+#: the frozen spec value
+SPEC_ROTARY_PCT = 0.25
+
+#: (head_dim, rotary_pct, expected rotated channels)
+ROTARY_MATRIX = [
+    (32, 0.25, 8),      # the frozen spec geometry: d_model 256 / 8 heads
+    (32, 0.50, 16),
+    (32, 1.00, 32),
+    (16, 0.25, 4),
+    (64, 0.25, 16),
+    (64, 0.75, 48),
+    (128, 0.25, 32),
+]
+
+#: (head_dim, rotary_pct, expected error fragment)
+INVALID_ROTARY_MATRIX = [
+    (32, 0.0, "rotary_pct must be in"),
+    (32, -0.25, "rotary_pct must be in"),
+    (32, 1.50, "rotary_pct must be in"),
+    (32, 0.10, "must be even"),      # -> 3 channels
+    (16, 0.10, "must be even"),      # -> 1 channel
+    (8, 0.20, "must be even"),       # -> 1 channel
+]
+
+
+def check_rotary_pct(head_dim, rotary_pct, expected_rotary_dim):
+    """Assert one (head_dim, rotary_pct) cell behaves as GPT-NeoX specifies.
+
+    Checks the arithmetic, the frequency table size, that exactly the leading
+    ``expected_rotary_dim`` channels are rotated, and that the rest are passed
+    through untouched.
+    """
+    pe = RotaryPositionalEncoding(head_dim, rotary_pct=rotary_pct)
+
+    assert pe.rotary_pct == rotary_pct
+    assert pe.rotary_dim == expected_rotary_dim == int(head_dim * rotary_pct)
+    assert pe.rotary_dim % 2 == 0 and pe.rotary_dim > 0
+    assert pe.inv_freq.shape == (expected_rotary_dim // 2,)
+
+    torch.manual_seed(20)
+    q = torch.randn(1, 1, 8, head_dim)
+    out, _ = pe.rotate_qk(q, q)
+
+    assert out.shape == q.shape
+    rotated, passed = out[..., :expected_rotary_dim], out[..., expected_rotary_dim:]
+    assert not torch.allclose(rotated, q[..., :expected_rotary_dim], atol=1e-3)
+    assert torch.allclose(passed, q[..., expected_rotary_dim:], atol=1e-6)
+    assert torch.allclose(q.norm(dim=-1), out.norm(dim=-1), atol=1e-5)
+    return pe
+
+
+@pytest.mark.parametrize("head_dim,rotary_pct,expected", ROTARY_MATRIX)
+def test_rotary_pct_matrix(head_dim, rotary_pct, expected):
+    check_rotary_pct(head_dim, rotary_pct, expected)
+
+
+@pytest.mark.parametrize("head_dim,rotary_pct,message", INVALID_ROTARY_MATRIX)
+def test_invalid_rotary_pct_matrix(head_dim, rotary_pct, message):
+    with pytest.raises(ValueError, match=message):
+        RotaryPositionalEncoding(head_dim, rotary_pct=rotary_pct)
+
+
+@pytest.mark.parametrize("pe_type", PE_TYPES)
+def test_every_shipped_config_pins_rotary_pct_to_the_spec(pe_type):
+    """0.25 must be written in every config file, not defaulted in code."""
+    path = Path(__file__).resolve().parents[1] / "configs" / "pe" / f"{pe_type}.json"
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    assert payload["rotary_pct"] == SPEC_ROTARY_PCT, (
+        f"{pe_type}.json has rotary_pct={payload.get('rotary_pct')}, "
+        f"expected {SPEC_ROTARY_PCT}"
+    )
+
+
+def test_base_config_pins_rotary_pct_to_the_spec():
+    path = Path(__file__).resolve().parents[1] / "configs" / "model_base.json"
+    assert json.loads(path.read_text(encoding="utf-8"))["rotary_pct"] == SPEC_ROTARY_PCT
+
+
+def test_spec_rotary_pct_applied_to_the_real_geometry():
+    """End to end: shipped rope config -> built scheme -> 8 rotated channels."""
+    path = Path(__file__).resolve().parents[1] / "configs" / "pe" / "rope.json"
+    cfg = ModelConfig.from_json(path)
+    assert cfg.rotary_pct == SPEC_ROTARY_PCT
+    assert cfg.head_dim == 32
+    pe = build_positional_scheme(cfg)
+    check_rotary_pct(cfg.head_dim, SPEC_ROTARY_PCT, 8)
+    assert pe.rotary_dim == 8

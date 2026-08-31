@@ -1,5 +1,6 @@
 """Tests for parameter accounting and the cross-arm fairness guarantees."""
 
+import math
 from pathlib import Path
 
 import pytest
@@ -146,3 +147,78 @@ def test_shipped_config_is_untied_and_matches_the_spec_geometry():
     assert cfg.tie_embeddings is False
     assert (cfg.n_layer, cfg.n_head, cfg.d_model, cfg.d_ff) == (6, 8, 256, 1024)
     assert (cfg.vocab_size, cfg.max_seq_len) == (16000, 512)
+
+
+# ---------------------------------------------------------------------------
+# frozen initialisation scheme: Pythia small_init + wang_init
+# ---------------------------------------------------------------------------
+SMALL_INIT_PARAMS = (
+    "wte.weight",
+    "lm_head.weight",
+    "blocks.0.attn.qkv.weight",
+    "blocks.0.mlp.fc.weight",
+)
+WANG_INIT_PARAMS = (
+    "blocks.0.attn.proj.weight",
+    "blocks.3.attn.proj.weight",
+    "blocks.0.mlp.proj.weight",
+    "blocks.5.mlp.proj.weight",
+)
+
+
+def test_init_constants_match_the_published_formulas():
+    """small_init = sqrt(2/(5d)); wang_init = 2/(L*sqrt(d))."""
+    cfg = production_config()
+    assert cfg.init_scheme == "pythia"
+    assert cfg.small_init_std == pytest.approx(math.sqrt(2 / (5 * cfg.d_model)))
+    assert cfg.wang_init_std == pytest.approx(2 / (cfg.n_layer * math.sqrt(cfg.d_model)))
+    # for the frozen geometry these are concrete numbers
+    assert cfg.small_init_std == pytest.approx(0.0395285, abs=1e-6)
+    assert cfg.wang_init_std == pytest.approx(0.0208333, abs=1e-6)
+
+
+@pytest.mark.parametrize("name", SMALL_INIT_PARAMS)
+def test_small_init_is_applied_to_embeddings_and_input_projections(name):
+    cfg = production_config()
+    params = dict(PELanguageModel(cfg).named_parameters())
+    observed = params[name].std().item()
+    assert observed == pytest.approx(cfg.small_init_std, rel=0.02), name
+
+
+@pytest.mark.parametrize("name", WANG_INIT_PARAMS)
+def test_wang_init_is_applied_to_residual_output_projections(name):
+    cfg = production_config()
+    params = dict(PELanguageModel(cfg).named_parameters())
+    observed = params[name].std().item()
+    assert observed == pytest.approx(cfg.wang_init_std, rel=0.02), name
+
+
+def test_the_two_init_scales_are_actually_different():
+    """Guards against both branches silently collapsing to one sigma."""
+    cfg = production_config()
+    assert cfg.small_init_std > cfg.wang_init_std * 1.5
+
+
+def test_learned_positional_table_uses_small_init():
+    cfg = production_config("learned")
+    model = PELanguageModel(cfg)
+    assert model.pe.table.std().item() == pytest.approx(cfg.small_init_std, rel=0.03)
+
+
+def test_layernorms_are_ones_and_all_biases_are_zero():
+    model = PELanguageModel(production_config())
+    for name, param in model.named_parameters():
+        if name.endswith("bias"):
+            assert torch.all(param == 0), name
+        elif ".ln" in name or name.startswith("ln_f"):
+            assert torch.all(param == 1), name
+
+
+def test_init_scheme_is_recorded_in_every_shipped_config():
+    for pe_type in PE_TYPES:
+        assert production_config(pe_type).init_scheme == "pythia"
+
+
+def test_unknown_init_scheme_is_rejected():
+    with pytest.raises(ValueError, match="unknown init_scheme"):
+        ModelConfig(init_scheme="xavier")

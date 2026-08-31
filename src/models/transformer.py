@@ -193,15 +193,39 @@ def _param_seed(name: str, base_seed: int) -> int:
 
 @torch.no_grad()
 def init_deterministic(model: nn.Module, config: ModelConfig) -> None:
-    """Seed every parameter independently, by name.
+    """Seed every parameter independently, by name, using the frozen scheme.
 
-    This is what makes the five arms comparable.  With a single global RNG
-    stream, adding a learned positional table would consume random numbers and
-    shift the initial values of *every subsequent layer*, so the arms would
-    differ in more than their positional encoding.  Seeding per parameter name
-    means each shared weight gets bit-identical values across all five arms.
+    Two things are happening here.
+
+    **Which distribution.**  The frozen spec is GPT-NeoX/Pythia's pairing:
+
+    * ``small_init`` -- ``std = sqrt(2 / (5 * d_model))`` -- for the token
+      embedding, the output head, the learned positional table and the input
+      projections (``qkv``, ``mlp.fc``).  From Nguyen & Salazar (2019).
+    * ``wang_init`` -- ``std = 2 / (n_layer * sqrt(d_model))`` -- for the two
+      projections that write into the residual stream (``attn.proj``,
+      ``mlp.proj``).  From Ben Wang's GPT-J.  This is what keeps the residual
+      variance from growing with depth; it replaces the ad-hoc
+      ``1/sqrt(2*n_layer)`` rescaling of a fixed sigma.
+
+    LayerNorm weights are ones, every bias is zero.
+
+    **Which random numbers.**  Each parameter is seeded from its own name
+    (CRC32 of the name mixed with ``init_seed``) rather than from one global
+    RNG stream.  With a single stream, allocating the learned arm's positional
+    table would consume random numbers and shift the initial values of every
+    later layer, so the arms would differ in more than their positional
+    encoding.  Per-name seeding makes every shared weight bit-identical across
+    all five arms.
     """
-    residual_scale = 1.0 / math.sqrt(2 * config.n_layer)
+    if config.init_scheme == "pythia":
+        small_std = config.small_init_std
+        wang_std = config.wang_init_std
+    elif config.init_scheme == "normal":
+        small_std = config.init_std
+        wang_std = config.init_std / math.sqrt(2 * config.n_layer)
+    else:                                    # guarded in ModelConfig, belt-and-braces
+        raise ValueError(f"unknown init_scheme {config.init_scheme!r}")
 
     for name, param in model.named_parameters():
         gen = torch.Generator(device="cpu").manual_seed(_param_seed(name, config.init_seed))
@@ -210,20 +234,13 @@ def init_deterministic(model: nn.Module, config: ModelConfig) -> None:
             param.zero_()
         elif ".ln" in name or name.startswith("ln_f"):
             param.fill_(1.0)
-        elif name == "wte.weight" or name.endswith("pe.table"):
-            param.copy_(
-                torch.normal(0.0, config.init_std, param.shape, generator=gen)
-            )
-        elif name.endswith("proj.weight"):      # residual-path projections
-            param.copy_(
-                torch.normal(
-                    0.0, config.init_std * residual_scale, param.shape, generator=gen
-                )
-            )
+        elif name.endswith("attn.proj.weight") or name.endswith("mlp.proj.weight"):
+            # residual-writing projections -> wang_init
+            param.copy_(torch.normal(0.0, wang_std, param.shape, generator=gen))
         else:
-            param.copy_(
-                torch.normal(0.0, config.init_std, param.shape, generator=gen)
-            )
+            # embeddings, output head, positional table, input projections
+            # -> small_init
+            param.copy_(torch.normal(0.0, small_std, param.shape, generator=gen))
 
     # LayerNorm weights are matched by the ".ln" branch above; make sure any
     # LayerNorm that slipped through is still unit-scaled.
