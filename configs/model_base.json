@@ -12,7 +12,7 @@
     "data_contract": "data/metadata/training_data_contract.json",
     "milestone": "M2",
     "token_budget": 50000000,
-    "tokenizer": "tokenizer/az_bpe_16000"
+    "tokenizer": "tokenizer/tokenizer.model"
   },
   "n_head": 8,
   "n_layer": 6,
