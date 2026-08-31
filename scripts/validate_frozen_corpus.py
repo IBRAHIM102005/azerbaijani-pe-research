@@ -260,7 +260,16 @@ def main() -> None:
             "platform": platform.platform(),
             "packages": {
                 name: version(name)
-                for name in ("pyarrow", "numpy", "sentencepiece", "datasketch", "PyYAML", "pytest", "matplotlib")
+                for name in (
+                    "pyarrow",
+                    "numpy",
+                    "sentencepiece",
+                    "protobuf",
+                    "datasketch",
+                    "PyYAML",
+                    "pytest",
+                    "matplotlib",
+                )
             },
         },
     }
