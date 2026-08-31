@@ -1,0 +1,79 @@
+{
+  "contract": "Within one run seed, all five arms share init_seed; only pe_type varies. Optimizer, schedule, token budget and data order are held fixed across arms. data_seed=2026 is fixed by M1 and is never derived from the model seed. Adding seeds requires an explicit protocol amendment.",
+  "data_seed": 2026,
+  "pe_types": [
+    "learned",
+    "sinusoidal",
+    "rope",
+    "alibi",
+    "nope"
+  ],
+  "run_id_template": "p31az-<pe>-s<seed>-t50m-c512-v16k-<conf8>",
+  "run_seeds": [
+    17,
+    42,
+    1234
+  ],
+  "runs": [
+    {
+      "init_seed": 17,
+      "pe_type": "learned"
+    },
+    {
+      "init_seed": 17,
+      "pe_type": "sinusoidal"
+    },
+    {
+      "init_seed": 17,
+      "pe_type": "rope"
+    },
+    {
+      "init_seed": 17,
+      "pe_type": "alibi"
+    },
+    {
+      "init_seed": 17,
+      "pe_type": "nope"
+    },
+    {
+      "init_seed": 42,
+      "pe_type": "learned"
+    },
+    {
+      "init_seed": 42,
+      "pe_type": "sinusoidal"
+    },
+    {
+      "init_seed": 42,
+      "pe_type": "rope"
+    },
+    {
+      "init_seed": 42,
+      "pe_type": "alibi"
+    },
+    {
+      "init_seed": 42,
+      "pe_type": "nope"
+    },
+    {
+      "init_seed": 1234,
+      "pe_type": "learned"
+    },
+    {
+      "init_seed": 1234,
+      "pe_type": "sinusoidal"
+    },
+    {
+      "init_seed": 1234,
+      "pe_type": "rope"
+    },
+    {
+      "init_seed": 1234,
+      "pe_type": "alibi"
+    },
+    {
+      "init_seed": 1234,
+      "pe_type": "nope"
+    }
+  ]
+}
