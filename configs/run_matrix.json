@@ -8,85 +8,85 @@
     "nope"
   ],
   "run_seeds": [
-    2026,
-    2027,
-    2028
+    17,
+    42,
+    1234
   ],
   "runs": [
     {
-      "init_seed": 2026,
+      "init_seed": 17,
       "pe_type": "learned",
-      "run_id": "learned-s2026"
+      "run_id": "learned-s17"
     },
     {
-      "init_seed": 2026,
+      "init_seed": 17,
       "pe_type": "sinusoidal",
-      "run_id": "sinusoidal-s2026"
+      "run_id": "sinusoidal-s17"
     },
     {
-      "init_seed": 2026,
+      "init_seed": 17,
       "pe_type": "rope",
-      "run_id": "rope-s2026"
+      "run_id": "rope-s17"
     },
     {
-      "init_seed": 2026,
+      "init_seed": 17,
       "pe_type": "alibi",
-      "run_id": "alibi-s2026"
+      "run_id": "alibi-s17"
     },
     {
-      "init_seed": 2026,
+      "init_seed": 17,
       "pe_type": "nope",
-      "run_id": "nope-s2026"
+      "run_id": "nope-s17"
     },
     {
-      "init_seed": 2027,
+      "init_seed": 42,
       "pe_type": "learned",
-      "run_id": "learned-s2027"
+      "run_id": "learned-s42"
     },
     {
-      "init_seed": 2027,
+      "init_seed": 42,
       "pe_type": "sinusoidal",
-      "run_id": "sinusoidal-s2027"
+      "run_id": "sinusoidal-s42"
     },
     {
-      "init_seed": 2027,
+      "init_seed": 42,
       "pe_type": "rope",
-      "run_id": "rope-s2027"
+      "run_id": "rope-s42"
     },
     {
-      "init_seed": 2027,
+      "init_seed": 42,
       "pe_type": "alibi",
-      "run_id": "alibi-s2027"
+      "run_id": "alibi-s42"
     },
     {
-      "init_seed": 2027,
+      "init_seed": 42,
       "pe_type": "nope",
-      "run_id": "nope-s2027"
+      "run_id": "nope-s42"
     },
     {
-      "init_seed": 2028,
+      "init_seed": 1234,
       "pe_type": "learned",
-      "run_id": "learned-s2028"
+      "run_id": "learned-s1234"
     },
     {
-      "init_seed": 2028,
+      "init_seed": 1234,
       "pe_type": "sinusoidal",
-      "run_id": "sinusoidal-s2028"
+      "run_id": "sinusoidal-s1234"
     },
     {
-      "init_seed": 2028,
+      "init_seed": 1234,
       "pe_type": "rope",
-      "run_id": "rope-s2028"
+      "run_id": "rope-s1234"
     },
     {
-      "init_seed": 2028,
+      "init_seed": 1234,
       "pe_type": "alibi",
-      "run_id": "alibi-s2028"
+      "run_id": "alibi-s1234"
     },
     {
-      "init_seed": 2028,
+      "init_seed": 1234,
       "pe_type": "nope",
-      "run_id": "nope-s2028"
+      "run_id": "nope-s1234"
     }
   ]
 }
