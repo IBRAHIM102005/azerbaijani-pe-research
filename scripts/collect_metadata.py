@@ -1,0 +1,121 @@
+#!/usr/bin/env python3
+"""
+Collect run metadata.
+
+Thin CLI around src.reproducibility.metadata.collect_metadata. Intended to be called at the
+end of a training.
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import sys
+from pathlib import Path
+
+
+from src.reproducibility.adapters import (  
+    MissingInterfaceError,
+    data_seed_from_contract,
+    load_training_data_contract,
+    manifest_hashes_from_contract,
+    tokenizer_hashes_from_contract,
+)
+from src.reproducibility.config_utils import combined_hash  
+from src.reproducibility.metadata import collect_metadata, write_metadata  
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--run-id", required=True)
+    parser.add_argument("--pe", required=True, choices=["learned", "sinusoidal", "rope", "alibi", "nope"])
+    parser.add_argument("--model-seed", type=int, required=True)
+    parser.add_argument("--data-seed", type=int, default=None, help="Required unless --from-contract is given")
+    parser.add_argument("--resolved-config-hash", required=True)
+    parser.add_argument("--tokenizer-hash", default=None)
+    parser.add_argument("--train-manifest-hash", default=None)
+    parser.add_argument("--validation-manifest-hash", default=None)
+    parser.add_argument("--test-manifest-hash", default=None)
+    parser.add_argument("--dataset-source-revision", default=None)
+    parser.add_argument("--precision", default=None)
+    parser.add_argument("--tokens-seen", type=int, default=None)
+    parser.add_argument(
+        "--checkpoint-hashes-json",
+        default=None,
+        help="JSON string or path to a JSON file mapping checkpoint tag -> hash",
+    )
+    parser.add_argument("--exit-code", type=int, default=None)
+    parser.add_argument("--metrics-path", default=None)
+    parser.add_argument("--repo-root", default=".")
+    parser.add_argument(
+        "--from-contract",
+        action="store_true",
+        help="Auto-fill tokenizer/manifest hashes and data seed from M1's "
+        "data/metadata/training_data_contract.json when the corresponding "
+        "--*-hash / --data-seed flags aren't explicitly given.",
+    )
+    parser.add_argument("--out", required=True, type=Path)
+    args = parser.parse_args()
+
+    checkpoint_hashes = None
+    if args.checkpoint_hashes_json:
+        raw = args.checkpoint_hashes_json
+        if Path(raw).is_file():
+            raw = Path(raw).read_text()
+        checkpoint_hashes = json.loads(raw)
+
+    tokenizer_hash = args.tokenizer_hash
+    train_hash = args.train_manifest_hash
+    val_hash = args.validation_manifest_hash
+    test_hash = args.test_manifest_hash
+    data_seed = args.data_seed
+
+    if args.from_contract:
+        try:
+            contract = load_training_data_contract(args.repo_root)
+            manifest_hashes = manifest_hashes_from_contract(contract)
+            tokenizer_hashes = tokenizer_hashes_from_contract(contract)
+            tokenizer_hash = tokenizer_hash or combined_hash(tokenizer_hashes)
+            train_hash = train_hash or manifest_hashes.get("train")
+            val_hash = val_hash or manifest_hashes.get("validation")
+            test_hash = test_hash or manifest_hashes.get("test")
+            if data_seed is None:
+                data_seed = data_seed_from_contract(contract)
+        except MissingInterfaceError as exc:
+            print(f"[collect_metadata] ERROR: --from-contract failed: {exc}", file=sys.stderr)
+            return 1
+
+    if data_seed is None:
+        print("[collect_metadata] ERROR: --data-seed is required (or pass --from-contract)", file=sys.stderr)
+        return 1
+
+    meta = collect_metadata(
+        run_id=args.run_id,
+        pe_method=args.pe,
+        model_seed=args.model_seed,
+        data_seed=data_seed,
+        resolved_config_hash=args.resolved_config_hash,
+        tokenizer_hash=tokenizer_hash,
+        train_manifest_hash=train_hash,
+        validation_manifest_hash=val_hash,
+        test_manifest_hash=test_hash,
+        dataset_source_revision=args.dataset_source_revision,
+        precision=args.precision,
+        tokens_seen=args.tokens_seen,
+        checkpoint_hashes=checkpoint_hashes,
+        exit_code=args.exit_code,
+        metrics_path=args.metrics_path,
+        repo_dir=args.repo_root,
+    )
+
+    try:
+        write_metadata(meta, args.out)
+    except Exception as exc:  # noqa: BLE001
+        print(f"[collect_metadata] ERROR: failed to write/validate metadata: {exc}", file=sys.stderr)
+        return 1
+
+    print(f"[collect_metadata] wrote {args.out}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
