@@ -1,6 +1,6 @@
 """Checkpoint integration tests.
 
-These do NOT reimplement other's checkpoint system -- they call it through the
+These do NOT reimplement Fidan's checkpoint system -- they call it through the
 adapter (see conftest.py::checkpoint_fns), and adapt to whatever function
 signatures the interface contract in docs/INTERFACE_CONTRACT.md defines.
 """
@@ -145,3 +145,57 @@ def test_resume_does_not_reset_or_repeat_tokens(tmp_path, checkpoint_fns):
     restored = load_checkpoint(ckpt_path, model2, optimizer2)
     assert restored["tokens_seen"] == tokens_seen
     assert restored["tokens_seen"] > 0
+
+
+# ---------------------------------------------------------------------------
+# 4. RNG state is restored bit-for-bit across save/load
+# ---------------------------------------------------------------------------
+def test_restore_rng_state_reproduces_subsequent_global_draws(tmp_path, checkpoint_fns):
+    """Exercises the global Python/NumPy/torch RNGs directly, so it would
+    fail if restore_rng_state() were a no-op or restored the wrong state."""
+    import random
+
+    import numpy as np
+
+    from src.reproducibility.reference_checkpoint import capture_rng_state, restore_rng_state
+
+    save_checkpoint, load_checkpoint = checkpoint_fns
+
+    set_seed(2026)
+    # Advance the global RNGs by an arbitrary amount before the point we'll
+    # actually checkpoint, so "restore" has real work to undo.
+    for _ in range(5):
+        random.random()
+        np.random.rand()
+        torch.rand(4)
+
+    rng_state = capture_rng_state()
+    model, optimizer = make_toy_model_and_optimizer(seed=1)  # unrelated seed, irrelevant here
+    ckpt_path = tmp_path / "rng_ckpt.pt"
+    save_checkpoint(ckpt_path, model, optimizer, rng_state, tokens_seen=0)
+
+    # Reference: what the global RNGs would produce next, from the exact
+    # state we just captured, if nothing else touched them in between.
+    restore_rng_state(rng_state)
+    expected_python = [random.random() for _ in range(3)]
+    expected_numpy = np.random.rand(3)
+    expected_torch = torch.rand(3)
+
+    # Advance the global RNGs again by a DIFFERENT amount, to prove the
+    # upcoming restore is doing real work, not coincidentally already
+    # matching because nothing moved.
+    for _ in range(11):
+        random.random()
+        np.random.rand()
+        torch.rand(4)
+
+    restored = load_checkpoint(ckpt_path, model, optimizer)
+    restore_rng_state(restored["rng_state"])
+
+    actual_python = [random.random() for _ in range(3)]
+    actual_numpy = np.random.rand(3)
+    actual_torch = torch.rand(3)
+
+    assert actual_python == expected_python, "Python random state was not restored bit-for-bit"
+    assert np.array_equal(actual_numpy, expected_numpy), "NumPy random state was not restored bit-for-bit"
+    assert torch.equal(actual_torch, expected_torch), "torch CPU random state was not restored bit-for-bit"
