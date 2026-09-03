@@ -1,0 +1,20 @@
+# Merged pinned dependencies across Ibrahim (data pipeline), Yasin (model/PE), and
+# this repo's integration/reproducibility tooling. Fidan/Nihat will extend this
+# further once their own training/eval stacks land (e.g. GPT-NeoX/DeepSpeed).
+#
+# Ibrahim's deps, copied from requirements-data-pipeline.txt (do not hand-edit
+# both files out of sync -- Ibrahim owns that file, this is the merged copy):
+datasketch==2.0.0
+matplotlib==3.10.8
+numpy==2.4.0
+pyarrow==25.0.1
+protobuf==7.35.1
+pytest==8.4.2
+PyYAML==6.0.3
+sentencepiece==0.2.1
+
+# Yasin's runtime dependency (no separate requirements file yet as of Yasin
+# landing; src/models/* only imports the standard library + torch):
+torch>=2.1
+
+# This tooling has no additional dependencies beyond the above.
