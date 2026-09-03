@@ -1,7 +1,14 @@
 """SYNTHETIC_FIXTURE reference checkpoint API.
 
-It exists only so tests/integration/test_checkpoint_integration.py can exercise the
-save/load/resume-equivalence 
+This is NOT Fidan's checkpoint system. It exists only so
+tests/integration/test_checkpoint_integration.py can exercise the
+save/load/resume-equivalence *test pattern* end-to-end before Fidan's real
+`training.checkpoint` module exists.
+
+Per the interface contract (docs/INTERFACE_CONTRACT.md), Fidan's real module
+must expose the same two functions with the same signatures; once it does,
+point `src/reproducibility/adapters.py::checkpoint_adapter()` at it and these tests will
+exercise the real thing with zero changes to the test bodies.
 """
 from __future__ import annotations
 
