@@ -1,3 +1,29 @@
+#!/usr/bin/env python3
+"""
+Configuration drift auditor -- thin wrapper around Yasin's real
+config contract, not a reimplementation of it.
+
+Yasin already owns the authoritative definition of "fair" here:
+`src.models.config.ARM_ALLOWLIST` / `PE_TYPES`, exhaustively tested in
+`tests/test_config_contract.py` (which also cross-checks every arm's
+`meta.manifest_sha256` / `meta.tokenizer_sha256` against Ibrahim's real
+`training_data_contract.json`). This script's job is to run that check as a
+standalone, CI/Makefile-friendly script with a clear exit code and a JSON
+report -- not to re-derive the allowlist itself.
+
+Usage:
+    python scripts/audit_configs.py --repo-root .
+    python scripts/audit_configs.py --repo-root . --json out.json
+    python scripts/audit_configs.py --repo-root . --full   # also runs
+        tests/test_config_contract.py via pytest for the full cross-stage
+        (Ibrahim<->Yasin) check, not just the fast in-process allowlist diff.
+
+Exit codes:
+    0  all arms differ only in allowlisted fields (and, with --full, every
+       Ibrahim<->Yasin cross-check in tests/test_config_contract.py also passed)
+    1  forbidden configuration drift (or a --full pytest check) detected
+    2  usage / input error (Yasin not importable, missing config file, etc.)
+"""
 from __future__ import annotations
 
 import argparse
@@ -20,7 +46,7 @@ def arm_payload(repo_root: Path, pe_type: str) -> dict:
 
 
 def run_audit(repo_root: Path) -> dict:
-    """Fast, in-process check using other's real ARM_ALLOWLIST/PE_TYPES: every
+    """Fast, in-process check using Yasin's real ARM_ALLOWLIST/PE_TYPES: every
     shipped arm config must have the same field set, and only allowlisted
     fields may differ in value."""
     try:
@@ -58,8 +84,8 @@ def run_audit(repo_root: Path) -> dict:
 
 
 def run_full_pytest_check(repo_root: Path) -> dict:
-    """Run other's own tests/test_config_contract.py, which additionally
-    cross-checks every arm against real training_data_contract.json
+    """Run Yasin's own tests/test_config_contract.py, which additionally
+    cross-checks every arm against Ibrahim's real training_data_contract.json
     (tokenizer/manifest hashes, vocab size, data seed, run-id template,
     etc.) -- checks this script's fast in-process diff does not attempt to
     duplicate."""
@@ -80,7 +106,7 @@ def run_full_pytest_check(repo_root: Path) -> dict:
 
 def print_report(report: dict, full_report: dict | None) -> None:
     print(f"[audit_configs] Compared PE variants: {report['compared']}")
-    print(f"[audit_configs] Allowlisted fields (from other's ARM_ALLOWLIST): {report['allowlist']}")
+    print(f"[audit_configs] Allowlisted fields (from Yasin's ARM_ALLOWLIST): {report['allowlist']}")
     if report["allowed_differences"]:
         print("  allowed differences:")
         for k, v in report["allowed_differences"].items():
@@ -99,7 +125,7 @@ def print_report(report: dict, full_report: dict | None) -> None:
         print()
         if full_report["pass"]:
             print("[audit_configs] PASS (--full): tests/test_config_contract.py passed, "
-                  "including other cross-checks.")
+                  "including Ibrahim<->Yasin cross-checks.")
         else:
             print("[audit_configs] FAIL (--full): tests/test_config_contract.py failed.")
             print(full_report["stdout_tail"])
@@ -113,7 +139,7 @@ def main() -> int:
     parser.add_argument(
         "--full",
         action="store_true",
-        help="Also run tests/test_config_contract.py (other cross-checks), "
+        help="Also run tests/test_config_contract.py (Ibrahim<->Yasin cross-checks), "
         "not just the fast in-process allowlist diff.",
     )
     args = parser.parse_args()

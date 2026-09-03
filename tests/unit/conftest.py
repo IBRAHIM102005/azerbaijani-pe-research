@@ -6,8 +6,17 @@ import pytest
 @pytest.fixture(autouse=True)
 def _isolate_sys_path_and_modules():
     """Tests in this directory monkeypatch `sys.modules["src.models"]`
-    (see tests/fake_m2.py) to install a fake M2 model package for testing
-    this suite's wrapper scripts in isolation.
+    (see tests/fake_m2.py) to install a fake Yasin model package for testing
+    this suite's wrapper scripts in isolation. A couple of tests also
+    delete `sys.modules["src"]` outright to simulate a repo where no
+    Ibrahim/Yasin/Fidan/Nihat's code exists at all.
+
+    Snapshot and restore the actual module objects (not just whether a
+    name happened to exist) around every test, so a fake installed by one
+    test can never leak into another, and the repo's real `src.models`
+    (and `src` itself) is always back in place afterward -- regardless of
+    whether it already existed before this test ran, which it does in
+    this repo, unlike in an isolated standalone checkout.
     """
     original_path = list(sys.path)
     original_src = sys.modules.get("src")
@@ -34,9 +43,7 @@ def _isolate_sys_path_and_modules():
         elif hasattr(original_src, "models"):
             del original_src.models
 
-    # Belt-and-suspenders: if a test deleted sys.modules["src"] and never
-    # re-imported it, or if it's missing for any other reason, make sure
-    # the real top-level package backs every other test in the session.
+    # Make sure the real top-level package backs every other test.
     if "src" not in sys.modules:
         import importlib
 

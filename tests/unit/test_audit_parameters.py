@@ -6,9 +6,9 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from fixtures import all_arm_payloads, mutate  
-from fake_m2 import install_fake_models_package, write_fake_configs  
-import audit_parameters  
+from fixtures import all_arm_payloads, mutate  # noqa: E402
+from fake_m2 import install_fake_models_package, write_fake_configs  # noqa: E402
+import audit_parameters  # noqa: E402
 
 
 def _setup(tmp_path: Path, payloads: dict, run_seeds=(17, 42, 1234)) -> Path:
@@ -53,6 +53,9 @@ def test_missing_config_file_errors_clearly(tmp_path):
 
 
 def test_m2_not_importable_errors_loudly(tmp_path):
+    # This repo has a real src.models (Yasin is done), so simply deleting
+    # cached modules isn't enough -- sys.path must also be restricted to
+    # the empty fake repo, or a fresh import would just find the real one.
     repo_root = tmp_path / "no_m2_repo"
     repo_root.mkdir()
     for name in list(sys.modules):

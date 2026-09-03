@@ -6,9 +6,9 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from fixtures import all_arm_payloads, mutate  
-from fake_m2 import install_fake_models_package, write_fake_configs  
-import audit_configs  
+from fixtures import all_arm_payloads, mutate  # noqa: E402
+from fake_m2 import install_fake_models_package, write_fake_configs  # noqa: E402
+import audit_configs  # noqa: E402
 
 
 def _setup(tmp_path: Path, payloads: dict) -> Path:
@@ -64,6 +64,11 @@ def test_missing_repo_root_errors(tmp_path):
 
 
 def test_m2_not_importable_errors_loudly(tmp_path):
+    # a repo_root with no src/models at all -- must fail with a clear
+    # MissingInterfaceError-derived SystemExit, not silently pass. This
+    # repo has a real src.models (Yasin is done), so simply deleting cached
+    # modules isn't enough -- sys.path must also be restricted to the
+    # empty fake repo, or a fresh import would just find the real one.
     repo_root = tmp_path / "no_m2_repo"
     (repo_root / "configs" / "pe").mkdir(parents=True)
     import sys as _sys

@@ -1,7 +1,7 @@
 """Config canonicalization + pairwise diffing.
 
-No dependency on internals: operates purely on already-resolved
-config dicts (however they were produced), so it works whether M1/M2/M3
+No dependency on Ibrahim/Yasin/Fidan/Nihat's internals: operates purely on already-resolved
+config dicts (however they were produced), so it works whether Yasin/Fidan/Nihat
 resolve configs via OmegaConf, plain YAML merge, or something else.
 """
 from __future__ import annotations

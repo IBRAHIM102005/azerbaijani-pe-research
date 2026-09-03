@@ -1,8 +1,14 @@
 """SYNTHETIC_FIXTURE reference model.
 
-It is a small, honest Pythia-style causal decoder
+This is NOT Yasin's model. It is a small, honest Pythia-style causal decoder
 implementing the same five PE injection points described in the project
-plan, used only so `scripts/audit_parameters.py`.
+plan, used only so `scripts/audit_parameters.py` and this suite's own
+tests have something real to compute `sum(p.numel() for p in model.parameters())`
+against before Yasin's real implementation exists.
+
+Replace by wiring `src/reproducibility/adapters.py::get_model_builder()` to
+Yasin's real `build_model` once it exists. Do not use this module's numbers as
+reported experimental results.
 """
 from __future__ import annotations
 

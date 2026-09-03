@@ -5,18 +5,26 @@ from pathlib import Path
 import pytest
 
 
-from src.reproducibility.adapters import (  
+from src.reproducibility.adapters import (  # noqa: E402
     MissingInterfaceError,
     data_seed_from_contract,
     load_training_data_contract,
     manifest_hashes_from_contract,
     tokenizer_hashes_from_contract,
     tokenizer_vocab_size_from_contract,
+    training_subset_hash_from_contract,
 )
-from src.reproducibility.config_utils import combined_hash  
+from src.reproducibility.config_utils import combined_hash  # noqa: E402
+
+# SYNTHETIC_FIXTURE: small stand-in for Ibrahim's real training_data_contract.json
 MINIMAL_CONTRACT = {
     "m1_status": "complete",
     "splits": {"seed": 2026},
+    "training_subset": {
+        "data_seed": 2026,
+        "manifest_path": "data/manifests/train_50m.parquet",
+        "manifest_sha256": "9" * 64,
+    },
     "tokenizer": {
         "vocab_size": 16000,
         "artifact_hashes": {
@@ -73,7 +81,34 @@ def test_tokenizer_hashes_from_contract():
 
 def test_tokenizer_vocab_size_and_data_seed_from_contract():
     assert tokenizer_vocab_size_from_contract(MINIMAL_CONTRACT) == 16000
+    # Must come from training_subset.data_seed, not splits.seed.
     assert data_seed_from_contract(MINIMAL_CONTRACT) == 2026
+
+
+def test_data_seed_reads_training_subset_field_not_splits_field():
+    # Diverge the two seeds so a wrong-field read would be caught.
+    diverged = json.loads(json.dumps(MINIMAL_CONTRACT))
+    diverged["splits"]["seed"] = 1111
+    diverged["training_subset"]["data_seed"] = 2222
+    assert data_seed_from_contract(diverged) == 2222
+
+
+def test_data_seed_missing_training_subset_raises():
+    broken = json.loads(json.dumps(MINIMAL_CONTRACT))
+    del broken["training_subset"]
+    with pytest.raises(MissingInterfaceError):
+        data_seed_from_contract(broken)
+
+
+def test_training_subset_hash_from_contract():
+    assert training_subset_hash_from_contract(MINIMAL_CONTRACT) == "9" * 64
+
+
+def test_training_subset_hash_missing_raises():
+    broken = json.loads(json.dumps(MINIMAL_CONTRACT))
+    del broken["training_subset"]["manifest_sha256"]
+    with pytest.raises(MissingInterfaceError):
+        training_subset_hash_from_contract(broken)
 
 
 def test_combined_hash_is_stable_and_order_independent():

@@ -1,4 +1,10 @@
 """Seed / determinism utilities.
+
+Sets and RECORDS every relevant seed source, and applies the strictest
+determinism settings PyTorch supports on the current build -- but never
+claims bitwise determinism across different GPUs, driver versions, or
+platforms, which PyTorch itself does not guarantee
+(https://docs.pytorch.org/docs/stable/notes/randomness.html).
 """
 from __future__ import annotations
 
@@ -8,6 +14,10 @@ from dataclasses import dataclass, field
 from typing import Any
 
 import numpy as np
+
+# Must be set before any CUDA op (cuBLAS reads it at handle creation), so
+# it's set here at module import time rather than inside set_seed().
+os.environ.setdefault("CUBLAS_WORKSPACE_CONFIG", ":4096:8")
 
 
 @dataclass
@@ -21,6 +31,7 @@ class SeedReport:
     deterministic_algorithms_requested: bool = False
     deterministic_algorithms_applied: bool = False
     cudnn_deterministic_set: "bool | str" = "unavailable"
+    cublas_workspace_config_set_before_cuda_init: "bool | str" = "unavailable"
     limitations: list[str] = field(default_factory=list)
 
     def as_dict(self) -> dict[str, Any]:
@@ -34,6 +45,7 @@ class SeedReport:
             "deterministic_algorithms_requested": self.deterministic_algorithms_requested,
             "deterministic_algorithms_applied": self.deterministic_algorithms_applied,
             "cudnn_deterministic_set": self.cudnn_deterministic_set,
+            "cublas_workspace_config_set_before_cuda_init": self.cublas_workspace_config_set_before_cuda_init,
             "limitations": self.limitations,
         }
 
@@ -58,6 +70,16 @@ def set_seed(seed: int, deterministic: bool = True) -> SeedReport:
     try:
         import torch  # noqa: PLC0415
 
+        # Check whether CUDA was already initialized before we could set
+        # CUBLAS_WORKSPACE_CONFIG, regardless of import order elsewhere.
+        if hasattr(torch.cuda, "is_initialized"):
+            report.cublas_workspace_config_set_before_cuda_init = not torch.cuda.is_initialized()
+        if report.cublas_workspace_config_set_before_cuda_init is False:
+            report.limitations.append(
+                "CUDA was already initialized before CUBLAS_WORKSPACE_CONFIG was set; "
+                "deterministic cuBLAS matmuls are not guaranteed for this run."
+            )
+
         torch.manual_seed(seed)
         report.torch_cpu_seeded = True
 
@@ -80,8 +102,6 @@ def set_seed(seed: int, deterministic: bool = True) -> SeedReport:
                 report.cudnn_deterministic_set = True
             else:
                 report.cudnn_deterministic_set = "unavailable"
-
-            os.environ.setdefault("CUBLAS_WORKSPACE_CONFIG", ":4096:8")
     except ModuleNotFoundError:
         report.limitations.append("torch not installed in this environment; only Python/NumPy seeded.")
 
