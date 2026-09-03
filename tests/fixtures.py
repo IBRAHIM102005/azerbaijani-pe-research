@@ -1,6 +1,6 @@
-""" shared test fixtures for exercising this suite's own tooling.
+"""SYNTHETIC_FIXTURE: shared test fixtures for exercising this suite's own tooling.
 
-Shaped exactly like other's real config schema (src.models.config.ModelConfig
+Shaped exactly like Yasin's real config schema (src.models.config.ModelConfig
 / ARM_ALLOWLIST), confirmed 2026-08-31 against the real configs/pe/*.json
 and configs/model_base.json in the shared repo. None of the numeric
 values here are real experimental results.
