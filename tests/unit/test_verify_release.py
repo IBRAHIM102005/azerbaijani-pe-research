@@ -5,9 +5,9 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from fixtures import all_arm_payloads  
-from fake_m2 import install_fake_models_package, write_fake_configs  
-import verify_release  
+from fixtures import all_arm_payloads  # noqa: E402
+from fake_m2 import install_fake_models_package, write_fake_configs  # noqa: E402
+import verify_release  # noqa: E402
 
 
 def _make_fake_repo(tmp_path: Path, complete: bool) -> Path:
@@ -31,6 +31,11 @@ def _make_fake_repo(tmp_path: Path, complete: bool) -> Path:
     contract = {
         "m1_status": "complete",
         "splits": {"seed": 2026},
+        "training_subset": {
+            "data_seed": 2026,
+            "manifest_path": "data/manifests/train_50m.parquet",
+            "manifest_sha256": "1" * 64,
+        },
         "tokenizer": {"vocab_size": 16000, "artifact_hashes": tokenizer_hashes},
         "artifacts": {
             "manifests": {
@@ -94,6 +99,7 @@ def test_report_contains_required_top_level_fields(tmp_path):
         "timestamp_utc",
         "git_commit",
         "artifact_verification",
+        "checkpoint_interface",
         "config_audit",
         "parameter_audit",
         "test_result",
@@ -110,20 +116,30 @@ def test_training_data_contract_check_passes_when_complete(tmp_path):
     assert tdc["m1_status"] == "complete"
     assert tdc["vocab_size"] == 16000
     assert tdc["data_seed"] == 2026
-    # manifest/tokenizer files aren't present on disk in this fixture repo
-    # (they're large and normally gitignored) -- must be reported as
-    # skipped, not silently ignored and not a false failure.
+    assert tdc["training_subset_hash"] == "1" * 64
+    # Files aren't present on disk in this fixture repo; must be skipped, not failed.
     assert set(tdc["skipped_not_present"]) >= {
         "data/manifests/train.parquet",
         "tokenizer/tokenizer.model",
+        "data/manifests/train_50m.parquet",
     }
     assert tdc["mismatched"] == []
 
 
+def test_training_data_contract_checks_50m_subset_hash_not_just_full_split(tmp_path):
+    root = _make_fake_repo(tmp_path, complete=True)
+    # Must be caught independently of the full train.parquet split.
+    (root / "data" / "manifests").mkdir(parents=True, exist_ok=True)
+    (root / "data" / "manifests" / "train_50m.parquet").write_bytes(b"wrong subset bytes")
+    result = verify_release.run_verification(root, seed=None, skip_tests=True)
+    tdc = result["training_data_contract"]
+    assert tdc["pass"] is False
+    assert any(m["path"] == "data/manifests/train_50m.parquet" for m in tdc["mismatched"])
+
+
 def test_training_data_contract_detects_on_disk_hash_mismatch(tmp_path):
     root = _make_fake_repo(tmp_path, complete=True)
-    # Actually create a tokenizer.model file whose real hash does NOT match
-    # the hash recorded in the contract -- this must be caught, not skipped.
+    # Hash mismatch must be caught, not skipped.
     (root / "tokenizer" / "tokenizer.model").write_bytes(b"not the real tokenizer bytes")
     result = verify_release.run_verification(root, seed=None, skip_tests=True)
     tdc = result["training_data_contract"]
@@ -151,6 +167,15 @@ def test_training_data_contract_verifies_matching_on_disk_hash(tmp_path):
     tdc = result["training_data_contract"]
     assert "tokenizer/tokenizer.model" in tdc["verified_on_disk"]
     assert tdc["mismatched"] == []
+
+
+def test_checkpoint_interface_reports_synthetic_fixture_honestly(tmp_path):
+    root = _make_fake_repo(tmp_path, complete=True)
+    result = verify_release.run_verification(root, seed=None, skip_tests=True)
+    ci = result["checkpoint_interface"]
+    # Fidan doesn't exist here; must say so, but not block the release.
+    assert ci["using_real_m3_checkpoint"] is False
+    assert "SYNTHETIC_FIXTURE" in ci["note"]
 
 
 def test_training_data_contract_missing_file_fails_clearly(tmp_path):
