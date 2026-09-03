@@ -1,3 +1,16 @@
+"""SYNTHETIC_FIXTURE: a minimal test double for Yasin's `src.models` package.
+
+Used ONLY to test that this suite's thin wrapper scripts (audit_configs.py,
+audit_parameters.py) correctly plumb through whatever `src.models`
+provides -- NOT to test Yasin's actual scientific logic (config-contract
+correctness, parameter fairness, initialization parity), which is Yasin's
+own responsibility and is covered by Yasin's own
+tests/test_config_contract.py and tests/test_params_fairness.py.
+
+This double intentionally implements the fairness/allowlist logic itself
+(so tests can plant deliberate violations), but it is never used outside
+this test file and never presented as a real fairness result.
+"""
 from __future__ import annotations
 
 import json
@@ -6,7 +19,7 @@ from pathlib import Path
 
 
 FAKE_MODELS_SOURCE = '''
-"""test double for src.models (see tests/fake_m2.py)."""
+"""SYNTHETIC_FIXTURE test double for src.models (see tests/fake_m2.py)."""
 import json
 from pathlib import Path
 
@@ -52,7 +65,7 @@ def fairness_report(base_config, pe_types=PE_TYPES):
         })
     # Test-only escape hatch: a planted config field lets tests exercise the
     # "violation detected" path without needing a real cross-arm mismatch,
-    # since (like the real  fairness_report) every arm here is derived
+    # since (like the real Yasin fairness_report) every arm here is derived
     # from the *same* base_config and so cannot organically disagree on
     # "core" except through this fixture's own injected fault.
     if base_config.to_dict().get("meta", {}).get("inject_violation"):
@@ -77,8 +90,8 @@ def install_fake_models_package(repo_root: Path) -> None:
     src.reproducibility, ...) is left completely untouched -- only the
     `models` submodule is replaced, and only in sys.modules / as an
     attribute of the real `src` package object, never on disk. This lets
-    these wrapper-plumbing tests run against a fake  without disturbing
-    every other test's real reproducibility imports.
+    these wrapper-plumbing tests run against a fake Yasin without disturbing
+    every other test's real src.data/src.models/src.reproducibility imports.
     tests/unit/conftest.py restores whatever was in `src.models` before
     (the real module, in this repo) after every test.
     """
@@ -88,7 +101,7 @@ def install_fake_models_package(repo_root: Path) -> None:
 
     fake_module = types.ModuleType("src.models")
     fake_module.__file__ = str(repo_root / "src" / "models" / "__init__.py")
-    exec(compile(FAKE_MODELS_SOURCE, fake_module.__file__, "exec"), fake_module.__dict__)  
+    exec(compile(FAKE_MODELS_SOURCE, fake_module.__file__, "exec"), fake_module.__dict__)  # noqa: S102
 
     sys.modules["src.models"] = fake_module
     src.models = fake_module
