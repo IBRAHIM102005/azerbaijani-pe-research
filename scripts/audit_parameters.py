@@ -1,3 +1,28 @@
+#!/usr/bin/env python3
+"""
+Parameter-count fairness auditor -- thin wrapper around Yasin's
+real fairness report, not a reimplementation of it.
+
+Yasin already builds all five arms and checks core/embedding parameter parity
+*and* bit-identical shared-weight initialization
+(`src.models.params.fairness_report`) -- more rigorous than an earlier
+placeholder, which only checked parameter counts. This script's job is to run it as
+a standalone, CI/Makefile-friendly script with a clear exit code -- not to
+re-derive what counts as "fair". (Yasin also ships its own equivalent script,
+`scripts/count_params.py`; this one exists so `make audit-params` has a
+stable, dedicated entry point and JSON report shape, and so verify_release.py
+has one thing to call regardless of which scripts Yasin happens to add later.)
+
+Usage:
+    python scripts/audit_parameters.py --repo-root .
+    python scripts/audit_parameters.py --repo-root . --seed 42
+    python scripts/audit_parameters.py --repo-root . --json out.json
+
+Exit codes:
+    0  all fairness checks passed (parameter parity + shared-init parity)
+    1  a fairness check failed
+    2  usage / interface error (Yasin not importable, config missing, bad seed)
+"""
 from __future__ import annotations
 
 import argparse
