@@ -32,7 +32,7 @@ from src.models.run_config import (
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG_DIR = ROOT / "configs"
-RUN_SEEDS = (17, 42, 1234)
+RUN_SEEDS = (17, 42, 1234,2027,5003)
 DATA_SEED = 2026
 
 
@@ -103,7 +103,7 @@ def test_run_matrix_uses_the_preregistered_seeds():
     matrix = load_run_matrix()
     assert tuple(matrix["run_seeds"]) == RUN_SEEDS
     assert matrix["data_seed"] == DATA_SEED
-    assert len(matrix["runs"]) == len(RUN_SEEDS) * len(PE_TYPES) == 15
+    assert len(matrix["runs"]) == len(RUN_SEEDS) * len(PE_TYPES) == 25
 
 
 def test_shipped_configs_carry_the_template_seed_not_a_production_seed():
@@ -162,7 +162,7 @@ def test_run_ids_follow_the_master_plan_template():
 
 def test_run_ids_are_unique_across_the_whole_matrix():
     ids = [run.run_id for run in iter_runs()]
-    assert len(ids) == len(set(ids)) == 15
+    assert len(ids) == len(set(ids)) == 25
 
 
 def test_config_hash_changes_with_the_seed_and_with_the_arm():

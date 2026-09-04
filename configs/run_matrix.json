@@ -12,7 +12,9 @@
   "run_seeds": [
     17,
     42,
-    1234
+    1234,
+    2027,
+    5003
   ],
   "runs": [
     {
@@ -73,6 +75,46 @@
     },
     {
       "init_seed": 1234,
+      "pe_type": "nope"
+    },
+    {
+      "init_seed": 2027,
+      "pe_type": "learned"
+    },
+    {
+      "init_seed": 2027,
+      "pe_type": "sinusoidal"
+    },
+    {
+      "init_seed": 2027,
+      "pe_type": "rope"
+    },
+    {
+      "init_seed": 2027,
+      "pe_type": "alibi"
+    },
+    {
+      "init_seed": 2027,
+      "pe_type": "nope"
+    },
+    {
+      "init_seed": 5003,
+      "pe_type": "learned"
+    },
+    {
+      "init_seed": 5003,
+      "pe_type": "sinusoidal"
+    },
+    {
+      "init_seed": 5003,
+      "pe_type": "rope"
+    },
+    {
+      "init_seed": 5003,
+      "pe_type": "alibi"
+    },
+    {
+      "init_seed": 5003,
       "pe_type": "nope"
     }
   ]
