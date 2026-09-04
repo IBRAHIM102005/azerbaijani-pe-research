@@ -100,7 +100,7 @@ def checkpoint_adapter():
     #   from training.checkpoint import save_checkpoint, load_checkpoint
     #   return save_checkpoint, load_checkpoint
     try:
-        mod = importlib.import_module("training.checkpoint")
+        mod = importlib.import_module("src.training.checkpoint")
         return mod.save_checkpoint, mod.load_checkpoint
     except ModuleNotFoundError as exc:
         raise MissingInterfaceError(
