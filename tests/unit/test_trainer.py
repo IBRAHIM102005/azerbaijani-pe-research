@@ -1,8 +1,11 @@
+import pytest
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from src.training.optimizer import build_optimizer
+from src.training.optimizer import (
+    build_optimizer,
+)
 from src.training.trainer import Trainer
 
 
@@ -31,8 +34,13 @@ class TinyLanguageModel(nn.Module):
         input_ids,
         labels=None,
     ):
-        x = self.embedding(input_ids)
-        logits = self.head(x)
+        x = self.embedding(
+            input_ids
+        )
+
+        logits = self.head(
+            x
+        )
 
         loss = None
 
@@ -42,7 +50,9 @@ class TinyLanguageModel(nn.Module):
                     -1,
                     logits.size(-1),
                 ),
-                labels[:, 1:].reshape(-1),
+                labels[:, 1:].reshape(
+                    -1
+                ),
             )
 
         return logits, loss
@@ -77,13 +87,21 @@ def test_single_microbatch_updates_model():
         peak_lr=1e-2,
     )
 
-    before = model.head.weight.detach().clone()
+    before = (
+        model.head.weight
+        .detach()
+        .clone()
+    )
 
     result = trainer.train_microbatch(
         make_batch()
     )
 
-    after = model.head.weight.detach().clone()
+    after = (
+        model.head.weight
+        .detach()
+        .clone()
+    )
 
     assert result.did_optimizer_step
     assert result.optimizer_step == 1
@@ -113,20 +131,27 @@ def test_gradient_accumulation_delays_optimizer_step():
         peak_lr=1e-2,
     )
 
-    before = model.head.weight.detach().clone()
+    before = (
+        model.head.weight
+        .detach()
+        .clone()
+    )
 
     first = trainer.train_microbatch(
         make_batch()
     )
 
     after_first = (
-        model.head.weight.detach().clone()
+        model.head.weight
+        .detach()
+        .clone()
     )
 
+    # First microbatch performs backward,
+    # but no optimizer update yet.
     assert not first.did_optimizer_step
     assert first.optimizer_step == 0
 
-    # backward happened, but weights must not change yet
     assert torch.equal(
         before,
         after_first,
@@ -137,9 +162,13 @@ def test_gradient_accumulation_delays_optimizer_step():
     )
 
     after_second = (
-        model.head.weight.detach().clone()
+        model.head.weight
+        .detach()
+        .clone()
     )
 
+    # Second microbatch completes
+    # the accumulation cycle.
     assert second.did_optimizer_step
     assert second.optimizer_step == 1
 
@@ -166,14 +195,22 @@ def test_tokens_seen_counts_consumed_tokens():
 
     batch = make_batch()
 
-    trainer.train_microbatch(batch)
-    result = trainer.train_microbatch(batch)
+    trainer.train_microbatch(
+        batch
+    )
+
+    result = trainer.train_microbatch(
+        batch
+    )
 
     expected = (
         batch.numel() * 2
     )
 
-    assert result.tokens_seen == expected
+    assert (
+        result.tokens_seen
+        == expected
+    )
 
 
 def test_gradients_are_cleared_after_optimizer_step():
@@ -197,5 +234,68 @@ def test_gradients_are_cleared_after_optimizer_step():
 
     assert all(
         parameter.grad is None
-        for parameter in model.parameters()
+        for parameter
+        in model.parameters()
     )
+
+
+def test_auto_precision_on_cpu_uses_fp32():
+    model = TinyLanguageModel()
+
+    optimizer = build_optimizer(
+        model,
+        weight_decay=0.0,
+    )
+
+    trainer = Trainer(
+        model,
+        optimizer,
+        total_steps=10,
+        device="cpu",
+        precision="auto",
+    )
+
+    assert trainer.precision == "fp32"
+    assert trainer.scaler is None
+
+
+def test_explicit_fp16_requires_cuda():
+    model = TinyLanguageModel()
+
+    optimizer = build_optimizer(
+        model,
+        weight_decay=0.0,
+    )
+
+    with pytest.raises(
+        ValueError,
+        match="requires CUDA",
+    ):
+        Trainer(
+            model,
+            optimizer,
+            total_steps=10,
+            device="cpu",
+            precision="fp16",
+        )
+
+
+def test_explicit_bf16_requires_cuda():
+    model = TinyLanguageModel()
+
+    optimizer = build_optimizer(
+        model,
+        weight_decay=0.0,
+    )
+
+    with pytest.raises(
+        ValueError,
+        match="requires CUDA",
+    ):
+        Trainer(
+            model,
+            optimizer,
+            total_steps=10,
+            device="cpu",
+            precision="bf16",
+        )

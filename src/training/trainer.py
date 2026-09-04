@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from contextlib import nullcontext
 from dataclasses import dataclass
 
 import torch
@@ -35,10 +36,22 @@ class StepResult:
 
 
 class Trainer:
-    """Single-device trainer with gradient accumulation.
+    """Single-device trainer with gradient accumulation and AMP.
 
-    AMP and distributed/parallel execution will be layered on top after
-    the basic training semantics are verified.
+    Precision modes:
+        auto:
+            CPU -> fp32
+            CUDA with bf16 support -> bf16
+            other CUDA -> fp16
+
+        fp32:
+            normal full-precision training
+
+        bf16:
+            CUDA autocast with bfloat16
+
+        fp16:
+            CUDA autocast with float16 + GradScaler
     """
 
     def __init__(
@@ -53,16 +66,23 @@ class Trainer:
         warmup_ratio: float = 0.01,
         min_lr_ratio: float = 0.10,
         device: str | torch.device = "cpu",
+        precision: str = "auto",
         state: TrainingState | None = None,
     ) -> None:
         if total_steps <= 0:
-            raise ValueError("total_steps must be positive")
+            raise ValueError(
+                "total_steps must be positive"
+            )
 
         if grad_accum_steps <= 0:
-            raise ValueError("grad_accum_steps must be positive")
+            raise ValueError(
+                "grad_accum_steps must be positive"
+            )
 
         if grad_clip <= 0:
-            raise ValueError("grad_clip must be positive")
+            raise ValueError(
+                "grad_clip must be positive"
+            )
 
         self.model = model
         self.optimizer = optimizer
@@ -76,14 +96,92 @@ class Trainer:
         self.min_lr_ratio = min_lr_ratio
 
         self.device = torch.device(device)
-        self.state = state or TrainingState()
+
+        self.precision = self._resolve_precision(
+            precision
+        )
+
+        self.state = (
+            state
+            if state is not None
+            else TrainingState()
+        )
 
         self.model.to(self.device)
 
-        # Start with an empty gradient buffer.
-        self.optimizer.zero_grad(set_to_none=True)
+        # GradScaler is only needed for CUDA fp16.
+        if self.precision == "fp16":
+            self.scaler: torch.amp.GradScaler | None = (
+                torch.amp.GradScaler("cuda")
+            )
+        else:
+            self.scaler = None
+
+        # Start with empty gradient buffers.
+        self.optimizer.zero_grad(
+            set_to_none=True
+        )
+
+    def _resolve_precision(
+        self,
+        precision: str,
+    ) -> str:
+        """Resolve requested precision mode."""
+
+        allowed = {
+            "auto",
+            "fp32",
+            "bf16",
+            "fp16",
+        }
+
+        if precision not in allowed:
+            raise ValueError(
+                "precision must be one of "
+                f"{sorted(allowed)}, "
+                f"got {precision!r}"
+            )
+
+        # Automatic selection.
+        if precision == "auto":
+            if self.device.type != "cuda":
+                return "fp32"
+
+            if torch.cuda.is_bf16_supported():
+                return "bf16"
+
+            return "fp16"
+
+        # Explicit low-precision modes currently
+        # require CUDA.
+        if precision in {"bf16", "fp16"}:
+            if self.device.type != "cuda":
+                raise ValueError(
+                    f"{precision} training "
+                    "currently requires CUDA."
+                )
+
+        return precision
+
+    def _autocast_context(self):
+        """Return the appropriate autocast context."""
+
+        if self.precision == "fp32":
+            return nullcontext()
+
+        if self.precision == "bf16":
+            dtype = torch.bfloat16
+        else:
+            dtype = torch.float16
+
+        return torch.autocast(
+            device_type="cuda",
+            dtype=dtype,
+        )
 
     def _current_lr(self) -> float:
+        """Compute LR for the current optimizer step."""
+
         return learning_rate_at_step(
             self.state.optimizer_step,
             self.total_steps,
@@ -99,29 +197,38 @@ class Trainer:
     ) -> StepResult:
         """Train on one microbatch.
 
-        An optimizer update occurs only after ``grad_accum_steps``
-        microbatches have accumulated.
+        Gradients accumulate across microbatches.
+
+        The optimizer updates only after
+        ``grad_accum_steps`` microbatches.
         """
 
         if input_ids.ndim != 2:
             raise ValueError(
-                "input_ids must have shape [batch, sequence_length]"
+                "input_ids must have shape "
+                "[batch, sequence_length]"
             )
 
-        if labels is not None and labels.shape != input_ids.shape:
+        if (
+            labels is not None
+            and labels.shape != input_ids.shape
+        ):
             raise ValueError(
-                "labels must have the same shape as input_ids"
+                "labels must have the same "
+                "shape as input_ids"
             )
 
         self.model.train()
 
+        # Transfer batch to CPU/GPU.
         input_ids = input_ids.to(
             self.device,
             non_blocking=True,
         )
 
         if labels is None:
-            # PELanguageModel shifts labels internally.
+            # PELanguageModel performs the
+            # next-token shift internally.
             labels = input_ids
         else:
             labels = labels.to(
@@ -129,58 +236,116 @@ class Trainer:
                 non_blocking=True,
             )
 
-        _, loss = self.model(
-            input_ids,
-            labels=labels,
-        )
+        # -------------------------------
+        # Forward pass with AMP
+        # -------------------------------
+
+        with self._autocast_context():
+            _, loss = self.model(
+                input_ids,
+                labels=labels,
+            )
 
         if loss is None:
             raise RuntimeError(
-                "Model returned loss=None during training."
+                "Model returned loss=None "
+                "during training."
             )
 
         if not torch.isfinite(loss):
-            self.optimizer.zero_grad(set_to_none=True)
-
-            raise FloatingPointError(
-                f"Non-finite training loss detected: "
-                f"{loss.detach().item()}"
+            self.optimizer.zero_grad(
+                set_to_none=True
             )
 
-        # Gradient accumulation:
-        #
-        # Instead of using the full global batch at once, split it into
-        # several microbatches. Dividing the loss makes the accumulated
-        # gradient equivalent to an average across those microbatches.
-        scaled_loss = loss / self.grad_accum_steps
-        scaled_loss.backward()
+            raise FloatingPointError(
+                "Non-finite training loss "
+                f"detected: {loss.detach().item()}"
+            )
+
+        # -------------------------------
+        # Gradient accumulation
+        # -------------------------------
+
+        scaled_loss = (
+            loss / self.grad_accum_steps
+        )
+
+        # FP16 needs dynamic loss scaling.
+        if self.precision == "fp16":
+            assert self.scaler is not None
+
+            self.scaler.scale(
+                scaled_loss
+            ).backward()
+
+        else:
+            scaled_loss.backward()
+
+        # -------------------------------
+        # Update bookkeeping
+        # -------------------------------
 
         self.state.micro_step += 1
-        self.state.tokens_seen += input_ids.numel()
+
+        self.state.tokens_seen += (
+            input_ids.numel()
+        )
 
         should_step = (
-            self.state.micro_step % self.grad_accum_steps == 0
+            self.state.micro_step
+            % self.grad_accum_steps
+            == 0
         )
 
         grad_norm: float | None = None
 
+        # Current LR even if this microbatch
+        # does not trigger an optimizer update.
+        lr = self._current_lr()
+
+        # -------------------------------
+        # Optimizer update
+        # -------------------------------
+
         if should_step:
-            grad_norm_tensor = torch.nn.utils.clip_grad_norm_(
-                self.model.parameters(),
-                max_norm=self.grad_clip,
-            )
 
-            grad_norm = float(grad_norm_tensor.detach().cpu())
+            # FP16 gradients are currently scaled.
+            # Unscale BEFORE gradient clipping.
+            if self.precision == "fp16":
+                assert self.scaler is not None
 
-            if not torch.isfinite(grad_norm_tensor):
-                self.optimizer.zero_grad(set_to_none=True)
-
-                raise FloatingPointError(
-                    "Non-finite gradient norm detected."
+                self.scaler.unscale_(
+                    self.optimizer
                 )
 
-            # LR changes once per optimizer update, not once per
-            # microbatch.
+            # Gradient clipping.
+            grad_norm_tensor = (
+                torch.nn.utils.clip_grad_norm_(
+                    self.model.parameters(),
+                    max_norm=self.grad_clip,
+                )
+            )
+
+            if not torch.isfinite(
+                grad_norm_tensor
+            ):
+                self.optimizer.zero_grad(
+                    set_to_none=True
+                )
+
+                raise FloatingPointError(
+                    "Non-finite gradient "
+                    "norm detected."
+                )
+
+            grad_norm = float(
+                grad_norm_tensor
+                .detach()
+                .cpu()
+            )
+
+            # LR changes once per optimizer step,
+            # NOT once per microbatch.
             lr = self._current_lr()
 
             set_optimizer_lr(
@@ -188,20 +353,36 @@ class Trainer:
                 lr,
             )
 
-            self.optimizer.step()
-            self.optimizer.zero_grad(set_to_none=True)
+            # Actual optimizer update.
+            if self.precision == "fp16":
+                assert self.scaler is not None
+
+                self.scaler.step(
+                    self.optimizer
+                )
+
+                self.scaler.update()
+
+            else:
+                self.optimizer.step()
+
+            # Clear gradients for next
+            # accumulation cycle.
+            self.optimizer.zero_grad(
+                set_to_none=True
+            )
 
             self.state.optimizer_step += 1
 
-        else:
-            # No optimizer update yet.
-            lr = self._current_lr()
-
         return StepResult(
-            loss=float(loss.detach().cpu()),
+            loss=float(
+                loss.detach().cpu()
+            ),
             did_optimizer_step=should_step,
             micro_step=self.state.micro_step,
-            optimizer_step=self.state.optimizer_step,
+            optimizer_step=(
+                self.state.optimizer_step
+            ),
             tokens_seen=self.state.tokens_seen,
             lr=lr,
             grad_norm=grad_norm,
