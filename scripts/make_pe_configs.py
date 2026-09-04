@@ -36,7 +36,7 @@ RUN_MATRIX_PATH = ROOT / "configs" / "run_matrix.json"
 #: Preregistered model initialisation seeds.  Adding or removing a seed is a
 #: protocol amendment, not an implementation detail: it changes how many runs
 #: the study reports and therefore what variance claims it can make.
-RUN_SEEDS = (17, 42,95,156, 1234)
+RUN_SEEDS = (17, 42, 1234,2027,5003)
 
 #: Fixed by M1 and independent of RUN_SEEDS.  Verified against the contract.
 DATA_SEED = 2026
