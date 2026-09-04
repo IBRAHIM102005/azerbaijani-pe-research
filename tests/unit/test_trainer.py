@@ -299,3 +299,120 @@ def test_explicit_bf16_requires_cuda():
             device="cpu",
             precision="bf16",
         )
+
+
+def test_real_tokens_excludes_padding_from_counter():
+    model = TinyLanguageModel()
+
+    optimizer = build_optimizer(
+        model,
+        weight_decay=0.0,
+    )
+
+    trainer = Trainer(
+        model,
+        optimizer,
+        total_steps=10,
+        grad_accum_steps=1,
+    )
+
+    input_ids = torch.tensor(
+        [
+            [1, 2, 3, 4],
+            [5, 6, 1, 1],
+        ],
+        dtype=torch.long,
+    )
+
+    labels = torch.tensor(
+        [
+            [1, 2, 3, 4],
+            [5, 6, -100, -100],
+        ],
+        dtype=torch.long,
+    )
+
+    result = trainer.train_microbatch(
+        input_ids,
+        labels,
+        real_tokens=6,
+    )
+
+    assert result.tokens_seen == 6
+
+
+def test_partial_accumulation_can_be_flushed():
+    model = TinyLanguageModel()
+
+    optimizer = build_optimizer(
+        model,
+        peak_lr=1e-2,
+        weight_decay=0.0,
+    )
+
+    trainer = Trainer(
+        model,
+        optimizer,
+        total_steps=10,
+        grad_accum_steps=4,
+        peak_lr=1e-2,
+    )
+
+    batch = make_batch()
+
+    trainer.train_microbatch(batch)
+    trainer.train_microbatch(batch)
+
+    assert (
+        trainer.state.optimizer_step
+        == 0
+    )
+
+    assert not (
+        trainer.at_accumulation_boundary
+    )
+
+    result = (
+        trainer.finalize_accumulation()
+    )
+
+    assert result is not None
+    assert result.did_optimizer_step
+
+    assert (
+        trainer.state.optimizer_step
+        == 1
+    )
+
+    assert (
+        trainer.at_accumulation_boundary
+    )
+
+
+def test_finalize_is_noop_when_no_gradients_pending():
+    model = TinyLanguageModel()
+
+    optimizer = build_optimizer(
+        model,
+        weight_decay=0.0,
+    )
+
+    trainer = Trainer(
+        model,
+        optimizer,
+        total_steps=10,
+        grad_accum_steps=1,
+    )
+
+    trainer.train_microbatch(
+        make_batch()
+    )
+
+    assert (
+        trainer.at_accumulation_boundary
+    )
+
+    assert (
+        trainer.finalize_accumulation()
+        is None
+    )
