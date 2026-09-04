@@ -714,13 +714,16 @@ def run_training_data_contract_check(
 
     if mismatched:
 
+        mismatched_paths = [
+            item["path"]
+            for item in mismatched
+        ]
+
         problems.append(
             "hash mismatch for: "
-            f"{[
-                item['path']
-                for item
-                in mismatched
-            ]}"
+            + str(
+                mismatched_paths
+            )
         )
 
     return {
