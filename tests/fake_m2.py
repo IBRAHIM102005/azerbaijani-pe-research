@@ -107,7 +107,7 @@ def install_fake_models_package(repo_root: Path) -> None:
     src.models = fake_module
 
 
-def write_fake_configs(repo_root: Path, payloads: dict[str, dict], run_seeds=(17, 42, 1234)) -> None:
+def write_fake_configs(repo_root: Path, payloads: dict[str, dict], run_seeds=(17, 42, 1234, 2027, 5003)) -> None:
     pe_dir = repo_root / "configs" / "pe"
     pe_dir.mkdir(parents=True, exist_ok=True)
     for pe, payload in payloads.items():

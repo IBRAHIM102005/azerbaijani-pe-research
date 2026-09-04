@@ -51,7 +51,7 @@ def mutate(payload: dict, key: str, value) -> dict:
     return out
 
 
-def write_run_matrix(config_dir, run_seeds=(17, 42, 1234)) -> None:
+def write_run_matrix(config_dir, run_seeds=(17, 42, 1234, 2027, 5003)) -> None:
     import json
 
     (config_dir / "run_matrix.json").write_text(

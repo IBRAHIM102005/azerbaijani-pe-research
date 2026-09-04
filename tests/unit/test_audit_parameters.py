@@ -11,7 +11,7 @@ from fake_m2 import install_fake_models_package, write_fake_configs  # noqa: E40
 import audit_parameters  # noqa: E402
 
 
-def _setup(tmp_path: Path, payloads: dict, run_seeds=(17, 42, 1234)) -> Path:
+def _setup(tmp_path: Path, payloads: dict, run_seeds=(17, 42, 1234, 2027, 5003)) -> Path:
     repo_root = tmp_path / "repo"
     repo_root.mkdir()
     install_fake_models_package(repo_root)
