@@ -1,0 +1,14 @@
+{
+  "captured_at_utc": "2026-09-05T19:38:23.826726+00:00",
+  "environment": {
+    "bf16_supported": true,
+    "cuda_version": "12.4",
+    "cudnn_version": "90100",
+    "device_name": "NVIDIA A100-SXM4-40GB MIG 3g.20gb",
+    "driver_version": "550.127.08",
+    "numpy_version": "2.4.0",
+    "python_version": "3.12.3",
+    "pytorch_version": "2.6.0+cu124"
+  },
+  "schema_version": 1
+}
