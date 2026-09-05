@@ -14,9 +14,10 @@ Checks:
     4. tokenizer artifact + hash
     5. train_50m manifest + hash
     6. processed train corpus + hash
-    7. cache presence/size if already built
-    8. filesystem free space
-    9. M3 run-plan presence and summary
+    7. cache presence/size/SHA-256 identity if already built
+    8. frozen runtime environment lock if available
+    9. filesystem free space
+    10. M3 run-plan presence and strict headline validation
 
 This script does not modify any scientific artifact.
 """
@@ -53,6 +54,15 @@ if str(REPO_ROOT) not in sys.path:
 
 from src.models.data_contract import (
     load_contract,
+)
+
+from src.reproducibility.metadata import (
+    environment_fingerprint,
+)
+
+from src.training.production_guards import (
+    validate_cache_artifact,
+    validate_headline_plan,
 )
 
 
@@ -103,6 +113,24 @@ def parse_args():
     )
 
     parser.add_argument(
+        "--cache-metadata",
+        type=Path,
+        default=Path(
+            "data/cache/"
+            "train_50m.uint16.json"
+        ),
+    )
+
+    parser.add_argument(
+        "--environment-lock",
+        type=Path,
+        default=Path(
+            "configs/hardware/"
+            "a100_environment.json"
+        ),
+    )
+
+    parser.add_argument(
         "--plan",
         type=Path,
         default=Path(
@@ -143,6 +171,33 @@ def parse_args():
         action="store_true",
         help=(
             "Fail if CUDA bf16 is unavailable."
+        ),
+    )
+
+    parser.add_argument(
+        "--require-cache",
+        action="store_true",
+        help=(
+            "Fail if the frozen cache or its "
+            "SHA-256 metadata is unavailable."
+        ),
+    )
+
+    parser.add_argument(
+        "--require-environment-lock",
+        action="store_true",
+        help=(
+            "Fail unless the current runtime exactly "
+            "matches the frozen A100 environment lock."
+        ),
+    )
+
+    parser.add_argument(
+        "--require-headline-plan",
+        action="store_true",
+        help=(
+            "Fail unless the run plan passes the "
+            "strict 25-run headline validator."
         ),
     )
 
@@ -384,6 +439,14 @@ def main():
         args.cache
     )
 
+    cache_metadata_path = resolve_path(
+        args.cache_metadata
+    )
+
+    environment_lock_path = resolve_path(
+        args.environment_lock
+    )
+
     plan_path = resolve_path(
         args.plan
     )
@@ -601,6 +664,112 @@ def main():
         )
 
     # ========================================================
+    # Frozen runtime environment
+    # ========================================================
+
+    if environment_lock_path.is_file():
+
+        try:
+            environment_lock = load_json(
+                environment_lock_path
+            )
+
+            expected_environment = (
+                environment_lock.get(
+                    "environment"
+                )
+            )
+
+            if not isinstance(
+                expected_environment,
+                dict,
+            ):
+                raise ValueError(
+                    "environment lock is missing "
+                    "an 'environment' object"
+                )
+
+            actual_environment = (
+                environment_fingerprint()
+            )
+
+            mismatches = {
+                key: {
+                    "expected": expected_environment.get(
+                        key
+                    ),
+                    "actual": actual_environment.get(
+                        key
+                    ),
+                }
+                for key in expected_environment
+                if (
+                    actual_environment.get(
+                        key
+                    )
+                    != expected_environment.get(
+                        key
+                    )
+                )
+            }
+
+            if mismatches:
+                add_result(
+                    results,
+                    CheckResult(
+                        name="A100 environment lock",
+                        status="FAIL",
+                        detail=(
+                            "runtime mismatch: "
+                            f"{json.dumps(mismatches, sort_keys=True)}"
+                        ),
+                    ),
+                )
+
+            else:
+                add_result(
+                    results,
+                    CheckResult(
+                        name="A100 environment lock",
+                        status="PASS",
+                        detail=(
+                            f"exact match — "
+                            f"{environment_lock_path}"
+                        ),
+                    ),
+                )
+
+        except Exception as exc:
+            add_result(
+                results,
+                CheckResult(
+                    name="A100 environment lock",
+                    status="FAIL",
+                    detail=(
+                        f"invalid lock: {exc}"
+                    ),
+                ),
+            )
+
+    else:
+
+        add_result(
+            results,
+            CheckResult(
+                name="A100 environment lock",
+                status=(
+                    "FAIL"
+                    if args.require_environment_lock
+                    else "WARN"
+                ),
+                detail=(
+                    f"not frozen yet: "
+                    f"{environment_lock_path}"
+                ),
+            ),
+        )
+
+    # ========================================================
     # Tokenizer
     # ========================================================
 
@@ -785,13 +954,50 @@ def main():
             ),
         )
 
+        try:
+            cache_sha256 = validate_cache_artifact(
+                cache_path,
+                cache_metadata_path,
+                expected_tokens=(
+                    contract.target_tokens
+                ),
+            )
+
+            add_result(
+                results,
+                CheckResult(
+                    name="50M cache SHA-256 identity",
+                    status="PASS",
+                    detail=(
+                        f"sha256={cache_sha256}; "
+                        f"metadata={cache_metadata_path}"
+                    ),
+                ),
+            )
+
+        except Exception as exc:
+            add_result(
+                results,
+                CheckResult(
+                    name="50M cache SHA-256 identity",
+                    status="FAIL",
+                    detail=str(
+                        exc
+                    ),
+                ),
+            )
+
     else:
 
         add_result(
             results,
             CheckResult(
                 name="50M uint16 cache",
-                status="WARN",
+                status=(
+                    "FAIL"
+                    if args.require_cache
+                    else "WARN"
+                ),
                 detail=(
                     "not built yet — expected "
                     f"{human_bytes(expected_cache_bytes)} "
@@ -799,6 +1005,22 @@ def main():
                 ),
             ),
         )
+
+        if (
+            args.require_cache
+            and not cache_metadata_path.is_file()
+        ):
+            add_result(
+                results,
+                CheckResult(
+                    name="50M cache SHA-256 identity",
+                    status="FAIL",
+                    detail=(
+                        "cache metadata missing: "
+                        f"{cache_metadata_path}"
+                    ),
+                ),
+            )
 
     # ========================================================
     # Disk space
@@ -848,66 +1070,75 @@ def main():
 
     if plan_path.is_file():
 
-        plan = load_json(
-            plan_path
-        )
-
-        num_runs = len(
-            plan.get(
-                "runs",
-                [],
+        try:
+            plan = load_json(
+                plan_path
             )
-        )
 
-        detail = (
-            f"runs={num_runs}, "
-            f"seq_len="
-            f"{plan.get('seq_len')}, "
-            f"microbatch="
-            f"{plan.get('micro_batch_sequences')}, "
-            f"GAS="
-            f"{plan.get('grad_accum_steps')}, "
-            f"global_batch="
-            f"{plan.get('global_batch_tokens')}, "
-            f"precision="
-            f"{plan.get('precision')}"
-        )
-
-        plan_status = (
-            "PASS"
-            if num_runs == 25
-            else "WARN"
-        )
-
-        add_result(
-            results,
-            CheckResult(
-                name="M3 run plan",
-                status=plan_status,
-                detail=detail,
-            ),
-        )
-
-        # Current local planner result may still
-        # be a placeholder before benchmark.
-        if (
-            plan.get(
-                "precision"
+            num_runs = len(
+                plan.get(
+                    "runs",
+                    [],
+                )
             )
-            == "auto"
-        ):
 
+            detail = (
+                f"runs={num_runs}, "
+                f"seq_len="
+                f"{plan.get('seq_len')}, "
+                f"microbatch="
+                f"{plan.get('micro_batch_sequences')}, "
+                f"GAS="
+                f"{plan.get('grad_accum_steps')}, "
+                f"global_batch="
+                f"{plan.get('global_batch_tokens')}, "
+                f"precision="
+                f"{plan.get('precision')}"
+            )
+
+            try:
+                validate_headline_plan(
+                    plan
+                )
+
+                add_result(
+                    results,
+                    CheckResult(
+                        name="M3 headline run plan",
+                        status="PASS",
+                        detail=detail,
+                    ),
+                )
+
+            except Exception as exc:
+                add_result(
+                    results,
+                    CheckResult(
+                        name="M3 headline run plan",
+                        status=(
+                            "FAIL"
+                            if args.require_headline_plan
+                            else "WARN"
+                        ),
+                        detail=(
+                            f"{detail}; "
+                            f"not frozen: {exc}"
+                        ),
+                    ),
+                )
+
+        except Exception as exc:
             add_result(
                 results,
                 CheckResult(
-                    name="run-plan freeze state",
-                    status="WARN",
+                    name="M3 headline run plan",
+                    status=(
+                        "FAIL"
+                        if args.require_headline_plan
+                        else "WARN"
+                    ),
                     detail=(
-                        "precision=auto; ensure "
-                        "A100 benchmark is complete "
-                        "and regenerate final plan "
-                        "with measured microbatch/GAS "
-                        "and bf16 before scientific runs"
+                        f"invalid plan: {exc}"
                     ),
                 ),
             )
@@ -917,8 +1148,12 @@ def main():
         add_result(
             results,
             CheckResult(
-                name="M3 run plan",
-                status="WARN",
+                name="M3 headline run plan",
+                status=(
+                    "FAIL"
+                    if args.require_headline_plan
+                    else "WARN"
+                ),
                 detail=(
                     f"not found: {plan_path}"
                 ),

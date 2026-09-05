@@ -1,9 +1,16 @@
-# Merged pinned dependencies across Ibrahim (data pipeline), Yasin (model/PE), and
-# this repo's integration/reproducibility tooling. Fidan/Nihat will extend this
-# further once their own training/eval stacks land (e.g. GPT-NeoX/DeepSpeed).
+# Reproducibility/runtime dependencies shared across data, model, training,
+# evaluation and integration tooling.
 #
-# Ibrahim's deps, copied from requirements-data-pipeline.txt (do not hand-edit
-# both files out of sync -- Ibrahim owns that file, this is the merged copy):
+# Python packages below are pinned where the repository already has a stable
+# cross-platform version. The A100-specific Python/PyTorch/CUDA/cuDNN/driver
+# runtime is frozen from the ACTUAL target server after benchmarking with:
+#
+#   python scripts/m3_freeze_environment.py --require-cuda --require-bf16
+#
+# The resulting configs/hardware/a100_environment.json is then enforced by
+# scripts/m3_server_preflight.py before headline training. This avoids guessing
+# a CUDA/PyTorch build that may not match the booked A100 image.
+
 datasketch==2.0.0
 matplotlib==3.10.8
 numpy==2.4.0
@@ -13,17 +20,7 @@ pytest==8.4.2
 PyYAML==6.0.3
 sentencepiece==0.2.1
 
-# Yasin's runtime dependency (no separate requirements file yet as of Yasin
-# landing; src/models/* only imports the standard library + torch):
+# Minimum import compatibility before the target A100 image is known.
+# The exact torch build is recorded and enforced by a100_environment.json
+# before the 25-run scientific matrix starts.
 torch>=2.1
-# NOTE (open item): this is a floor, not a frozen environment. The exact
-# torch/CUDA-toolkit/driver combination for the real A100 training runs
-# has not been decided yet (blocked on the same A100 benchmark that also
-# blocks `make reproduce-training`, see Makefile). Pin this to an exact
-# torch== version once that's chosen -- guessing a version here that
-# doesn't match the real training server would be worse than this
-# explicit gap. Per-run device_info() in src/reproducibility/metadata.py
-# records the ACTUAL torch/CUDA/Python/NumPy versions a given run used,
-# which is the real source of truth until this is frozen.
-
-# This tooling has no additional dependencies beyond the above.
