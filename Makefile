@@ -2,6 +2,9 @@
 
 SEED ?=
 RELEASE ?=
+MATRIX ?=
+MICRO_BATCH_SEQUENCES ?=
+GPUS ?=
 
 # --- test ---------------------------------------------------------------
 # Runs the full CPU-compatible unit + integration suite. Never runs the
@@ -45,22 +48,31 @@ reproduce-headline:
 	@echo "[reproduce-headline] TODO(Fidan/Nihat-integration): wire scripts/evaluate.py + "
 	@echo "  scripts/analyze.py + scripts/make_figures.py here once Fidan/Nihat land."
 
-# --- reproduce-training (separate, compute-warned, not wired by default) --
+# --- reproduce-training --------------------------------------------------
+# Explicitly separated from CI/smoke. MATRIX=smoke runs a real CUDA smoke.
+# MATRIX=core regenerates the strict 25-run plan from the measured A100
+# microbatch, performs the final production preflight, then launches M3.
 reproduce-training:
-	@echo "[reproduce-training] WARNING: this launches FULL pretraining runs."
-	@echo "[reproduce-training] This is compute-intensive (booked A100 slot"
-	@echo "[reproduce-training] required) and is intentionally NOT part of"
-	@echo "[reproduce-training] 'make test' / CI / 'make smoke'."
+	@echo "[reproduce-training] WARNING: this may launch GPU training."
+	@echo "[reproduce-training] This target is intentionally NOT part of CI."
 	@if [ -z "$(MATRIX)" ]; then \
 		echo "[reproduce-training] ERROR: MATRIX=<smoke|core> is required."; \
 		exit 1; \
 	fi
-	@echo "[reproduce-training] BLOCKED: scripts/m3_make_run_plan.py requires"
-	@echo "  --micro-batch-sequences, a value only produced by Fidan's A100"
-	@echo "  benchmark (not yet run). Wiring this target before that value"
-	@echo "  exists would mean guessing it, which this project's own rule"
-	@echo "  forbids. Re-check this target once the benchmark lands."
-	@exit 1
+	@if [ "$(MATRIX)" = "smoke" ]; then \
+		python scripts/m3_model_smoke.py --pe all --device cuda; \
+	elif [ "$(MATRIX)" = "core" ]; then \
+		if [ -z "$(MICRO_BATCH_SEQUENCES)" ]; then \
+			echo "[reproduce-training] ERROR: MICRO_BATCH_SEQUENCES=<measured A100 value> is required."; \
+			exit 1; \
+		fi; \
+		python scripts/m3_make_run_plan.py --micro-batch-sequences "$(MICRO_BATCH_SEQUENCES)"; \
+		python scripts/m3_server_preflight.py --require-cuda --require-bf16 --require-cache --require-environment-lock --require-headline-plan; \
+		python scripts/m3_launch_matrix.py $(if $(GPUS),--gpus $(GPUS),); \
+	else \
+		echo "[reproduce-training] ERROR: MATRIX must be smoke or core."; \
+		exit 1; \
+	fi
 
 # --- verify-release -----------------------------------------------------
 verify-release:
