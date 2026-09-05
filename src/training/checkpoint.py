@@ -27,15 +27,49 @@ def capture_rng_state() -> dict[str, Any]:
 
 
 def restore_rng_state(state: dict[str, Any]) -> None:
-    """Restore previously captured RNG states."""
+    """Restore previously captured RNG states safely across devices."""
 
     random.setstate(state["python"])
     np.random.set_state(state["numpy"])
-    torch.random.set_rng_state(state["torch_cpu"])
+
+    # torch.random.set_rng_state() requires a CPU ByteTensor.
+    # A checkpoint loaded with map_location="cuda" may move this
+    # state tensor to the GPU, so normalize it back to CPU.
+    cpu_rng_state = state["torch_cpu"]
+
+    if not isinstance(cpu_rng_state, torch.Tensor):
+        cpu_rng_state = torch.as_tensor(
+            cpu_rng_state,
+            dtype=torch.uint8,
+        )
+
+    cpu_rng_state = (
+        cpu_rng_state
+        .detach()
+        .to(device="cpu", dtype=torch.uint8)
+        .contiguous()
+    )
+
+    torch.random.set_rng_state(cpu_rng_state)
 
     if "torch_cuda" in state and torch.cuda.is_available():
-        torch.cuda.set_rng_state_all(state["torch_cuda"])
+        cuda_rng_states = []
 
+        for rng_state in state["torch_cuda"]:
+            if not isinstance(rng_state, torch.Tensor):
+                rng_state = torch.as_tensor(
+                    rng_state,
+                    dtype=torch.uint8,
+                )
+
+            cuda_rng_states.append(
+                rng_state
+                .detach()
+                .to(device="cpu", dtype=torch.uint8)
+                .contiguous()
+            )
+
+        torch.cuda.set_rng_state_all(cuda_rng_states)
 
 def save_checkpoint(
     path: str | Path,
