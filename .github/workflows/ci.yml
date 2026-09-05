@@ -2,7 +2,7 @@ name: CI
 
 # CI runs only CPU-compatible checks: lint, unit+integration tests,
 # config drift audit, parameter fairness audit, and release verification.
-# It NEVER launches full pretraining, the 15-run experiment matrix, or any
+# It NEVER launches full pretraining, the 25-run experiment matrix, or any
 # GPU job -- see Makefile::reproduce-training for that, which is
 # intentionally excluded here.
 
@@ -24,11 +24,16 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+          cache: "pip"
+          cache-dependency-path: requirements-reproducibility.txt
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements-reproducibility.txt ]; then pip install -r requirements-reproducibility.txt; \
+          if [ -f requirements-reproducibility.txt ]; then \
+            grep -v '^torch' requirements-reproducibility.txt | grep -v '^#' | grep -v '^$' > /tmp/reqs-no-torch.txt; \
+            pip install -r /tmp/reqs-no-torch.txt; \
+            pip install --index-url https://download.pytorch.org/whl/cpu "torch>=2.1"; \
           else echo "No pinned dependency file found (requirements-reproducibility.txt)"; exit 1; fi
           pip install pytest ruff
 
