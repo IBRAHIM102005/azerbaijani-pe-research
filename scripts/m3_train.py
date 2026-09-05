@@ -693,6 +693,13 @@ def main():
         resolved.config
     )
 
+    # Move parameters to their final device before creating the
+    # optimizer so optimizer param groups reference the exact
+    # parameter objects that will be trained.
+    model = model.to(
+        device
+    )
+
     # ========================================================
     # Optimizer
     # ========================================================
