@@ -69,6 +69,11 @@ from src.training.optimizer import (
     describe_optimizer_groups,
 )
 
+from src.training.production_guards import (
+    validate_cache_artifact,
+    validate_headline_plan,
+)
+
 from src.training.runner import (
     TrainingRunner,
 )
@@ -328,6 +333,15 @@ def parse_args():
     )
 
     parser.add_argument(
+        "--cache-metadata",
+        type=Path,
+        default=Path(
+            "data/cache/"
+            "train_50m.uint16.json"
+        ),
+    )
+
+    parser.add_argument(
         "--data-contract",
         type=Path,
         default=Path(
@@ -336,6 +350,15 @@ def parse_args():
         ),
         help=(
             "Frozen M1 training data contract."
+        ),
+    )
+
+    parser.add_argument(
+        "--headline",
+        action="store_true",
+        help=(
+            "Require the frozen scientific headline "
+            "experiment contract."
         ),
     )
 
@@ -392,6 +415,10 @@ def main():
         args.cache
     )
 
+    cache_metadata_path = resolve_path(
+        args.cache_metadata
+    )
+    
     contract_path = resolve_path(
         args.data_contract
     )
@@ -403,6 +430,11 @@ def main():
     plan_payload = load_json(
         plan_path
     )
+
+    if args.headline:
+        validate_headline_plan(
+            plan_payload
+        )
 
     run_plan = find_run_plan(
         plan_payload,
@@ -658,6 +690,12 @@ def main():
             f"actual={actual_cache_bytes:,}"
         )
 
+    cache_sha256 = validate_cache_artifact(
+        cache_path,
+        cache_metadata_path,
+        expected_tokens=total_tokens,
+    )
+
     # ========================================================
     # Model
     # ========================================================
@@ -853,6 +891,19 @@ def main():
             str(
                 contract_path
             )
+        ),
+        "cache_path": (
+            str(
+                cache_path
+            )
+        ),
+        "cache_metadata_path": (
+            str(
+                cache_metadata_path
+            )
+        ),
+        "cache_sha256": (
+            cache_sha256
         ),
         "contract_target_tokens": (
             contract.target_tokens
