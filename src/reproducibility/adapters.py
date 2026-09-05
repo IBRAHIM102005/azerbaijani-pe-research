@@ -10,9 +10,10 @@ even then it prints an unmistakable warning, because that fallback exists
 only so this suite's own tests can run before Yasin lands, per project rule
 "Do NOT silently ignore missing dependencies or failed checks."
 
-Edit the `# TODO(integration)` import lines below once Ibrahim/Yasin/Fidan/Nihat's real
-modules exist in this repository; nothing else in this test suite should
-need to change.
+The adapters below target the real Ibrahim/Yasin/Fidan/Nihat modules
+currently present in this repository. Missing required interfaces fail
+loudly rather than silently substituting production behavior.
+
 """
 from __future__ import annotations
 
@@ -96,9 +97,6 @@ def checkpoint_adapter():
     training code; use tests/integration/test_checkpoint_integration.py's
     own minimal reference loop instead when Fidan doesn't exist yet.
     """
-    # TODO(integration): point this at Fidan's real checkpoint module, e.g.:
-    #   from training.checkpoint import save_checkpoint, load_checkpoint
-    #   return save_checkpoint, load_checkpoint
     try:
         mod = importlib.import_module("src.training.checkpoint")
         return mod.save_checkpoint, mod.load_checkpoint
