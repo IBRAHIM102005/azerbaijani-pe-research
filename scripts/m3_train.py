@@ -22,7 +22,6 @@ from __future__ import annotations
 import argparse
 import json
 import os
-import random
 import sys
 import time
 from datetime import datetime, timezone
@@ -30,7 +29,6 @@ from pathlib import Path
 from typing import Any
 
 import numpy as np
-import torch
 
 
 # ============================================================
@@ -46,6 +44,13 @@ if str(REPO_ROOT) not in sys.path:
         0,
         str(REPO_ROOT),
     )
+
+
+from src.reproducibility.determinism import (
+    set_seed as set_deterministic_seed,
+)
+
+import torch
 
 
 from src.models.data_contract import (
@@ -123,29 +128,6 @@ def atomic_write_json(
         temp,
         path,
     )
-
-
-def set_seed(
-    seed: int,
-) -> None:
-    """Seed Python, NumPy and PyTorch."""
-
-    random.seed(
-        seed
-    )
-
-    np.random.seed(
-        seed
-    )
-
-    torch.manual_seed(
-        seed
-    )
-
-    if torch.cuda.is_available():
-        torch.cuda.manual_seed_all(
-            seed
-        )
 
 
 def resolve_device(
@@ -479,8 +461,15 @@ def main():
         run_plan["init_seed"]
     )
 
-    set_seed(
-        init_seed
+    seed_report = (
+        set_deterministic_seed(
+            init_seed,
+            deterministic=True,
+        )
+    )
+
+    determinism = (
+        seed_report.as_dict()
     )
 
     resolved = resolve_run_config(
@@ -943,6 +932,9 @@ def main():
             "environment": (
                 environment
             ),
+            "determinism": (
+                determinism
+            ),
             "data_identity": (
                 data_identity
             ),
@@ -1002,6 +994,16 @@ def main():
     print(
         f"precision:    "
         f"{trainer.precision}"
+    )
+
+    print(
+        f"determinism:  "
+        f"{determinism['deterministic_algorithms_applied']}"
+    )
+
+    print(
+        f"det limits:   "
+        f"{len(determinism['limitations'])}"
     )
 
     print(
@@ -1382,6 +1384,9 @@ def main():
                 "environment": (
                     environment
                 ),
+                "determinism": (
+                    determinism
+                ),
                 "data_identity": (
                     data_identity
                 ),
@@ -1488,6 +1493,9 @@ def main():
         ),
         "environment": (
             environment
+        ),
+        "determinism": (
+            determinism
         ),
         "data_identity": (
             data_identity
