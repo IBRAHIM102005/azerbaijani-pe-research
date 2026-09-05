@@ -233,6 +233,8 @@ def device_info() -> dict:
         "pytorch_version": (
             UNAVAILABLE
         ),
+        "python_version": platform.python_version(),
+        "numpy_version": UNAVAILABLE,
         "peak_allocated_vram_bytes": (
             UNAVAILABLE
         ),
@@ -240,6 +242,13 @@ def device_info() -> dict:
             UNAVAILABLE
         ),
     }
+
+    try:
+        import numpy
+
+        info["numpy_version"] = numpy.__version__
+    except ModuleNotFoundError:
+        pass
 
     try:
 
@@ -418,6 +427,7 @@ def collect_metadata(
     validation_manifest_hash: str | None = None,
     test_manifest_hash: str | None = None,
     training_subset_manifest_hash: str | None = None,
+    training_cache_hash: str | None = None,
     dataset_source_revision: str | None = None,
     precision: str | None = None,
     tokens_seen: int | None = None,
@@ -521,6 +531,9 @@ def collect_metadata(
         training_subset_manifest_hash
         or UNAVAILABLE
     )
+    # sha256 of the .bin token cache scripts/m3_train.py trains against.
+    # Only Fidan's training run can compute this; not derivable here.
+    meta["training_cache_hash"] = training_cache_hash or UNAVAILABLE
 
     meta[
         "dataset_source_revision"

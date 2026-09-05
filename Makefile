@@ -5,7 +5,7 @@ RELEASE ?=
 
 # --- test ---------------------------------------------------------------
 # Runs the full CPU-compatible unit + integration suite. Never runs the
-# 15-run experiment matrix or full pretraining (see reproduce-training).
+# 25-run experiment matrix or full pretraining (see reproduce-training).
 test:
 	python -m pytest tests -q
 
@@ -55,8 +55,11 @@ reproduce-training:
 		echo "[reproduce-training] ERROR: MATRIX=<smoke|core> is required."; \
 		exit 1; \
 	fi
-	@echo "[reproduce-training] TODO(Fidan-integration): wire the real launcher"
-	@echo "  here once Fidan's training entrypoint exists."
+	@echo "[reproduce-training] BLOCKED: scripts/m3_make_run_plan.py requires"
+	@echo "  --micro-batch-sequences, a value only produced by Fidan's A100"
+	@echo "  benchmark (not yet run). Wiring this target before that value"
+	@echo "  exists would mean guessing it, which this project's own rule"
+	@echo "  forbids. Re-check this target once the benchmark lands."
 	@exit 1
 
 # --- verify-release -----------------------------------------------------

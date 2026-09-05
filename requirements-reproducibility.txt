@@ -16,5 +16,14 @@ sentencepiece==0.2.1
 # Yasin's runtime dependency (no separate requirements file yet as of Yasin
 # landing; src/models/* only imports the standard library + torch):
 torch>=2.1
+# NOTE (open item): this is a floor, not a frozen environment. The exact
+# torch/CUDA-toolkit/driver combination for the real A100 training runs
+# has not been decided yet (blocked on the same A100 benchmark that also
+# blocks `make reproduce-training`, see Makefile). Pin this to an exact
+# torch== version once that's chosen -- guessing a version here that
+# doesn't match the real training server would be worse than this
+# explicit gap. Per-run device_info() in src/reproducibility/metadata.py
+# records the ACTUAL torch/CUDA/Python/NumPy versions a given run used,
+# which is the real source of truth until this is frozen.
 
 # This tooling has no additional dependencies beyond the above.

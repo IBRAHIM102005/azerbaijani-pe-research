@@ -52,6 +52,6 @@ M2/M3 should read `data/metadata/training_data_contract.json`. Repository-intern
 
 ## Status
 
-Current stage: the data and tokenizer artifacts are frozen and validated for M2/M3 handoff. Model implementation and training remain out of scope for this stage.
+Current stage: the data and tokenizer artifacts are frozen and validated for M2/M3 handoff. Model implementation (`src/models/`) and training (`src/training/`) have since landed; this document describes only the data-pipeline stage and does not track their status.
 
 See [`data/README.md`](data/README.md), [`docs/notes/corpus_data_card.md`](docs/notes/corpus_data_card.md), and [`docs/notes/corpus_data_analysis.md`](docs/notes/corpus_data_analysis.md) for the measured data details.

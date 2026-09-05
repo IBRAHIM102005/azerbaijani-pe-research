@@ -55,6 +55,11 @@ def main() -> int:
         default=None,
         help="sha256 of data/manifests/train_50m.parquet",
     )
+    parser.add_argument(
+        "--training-cache-hash",
+        default=None,
+        help="sha256 of the .bin token cache, as computed by scripts/m3_train.py",
+    )
     parser.add_argument("--dataset-source-revision", default=None)
     parser.add_argument("--precision", default=None)
     parser.add_argument("--tokens-seen", type=int, default=None)
@@ -136,6 +141,7 @@ def main() -> int:
             validation_manifest_hash=val_hash,
             test_manifest_hash=test_hash,
             training_subset_manifest_hash=subset_hash,
+            training_cache_hash=args.training_cache_hash,
             dataset_source_revision=args.dataset_source_revision,
             precision=args.precision,
             tokens_seen=args.tokens_seen,

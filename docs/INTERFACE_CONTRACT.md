@@ -76,7 +76,7 @@ wraps Yasin's own tested primitives instead:
 - **Config format is JSON, not YAML**, one file per arm:
   `configs/pe/{learned,sinusoidal,rope,alibi,nope}.json`, plus a shared
   `configs/model_base.json` and a preregistered `configs/run_matrix.json`
-  (`run_seeds: [17, 42, 1234]`, 15 total `(pe_type, init_seed)` cells).
+  (`run_seeds: [17, 42, 1234, 2027, 5003]`, 25 total `(pe_type, init_seed)` cells).
 - **`build_model(config: ModelConfig) -> PELanguageModel`** — a single
   resolved `ModelConfig` argument, not `(pe_type, config_dict)` as
   originally guessed. A config with `init_seed == TEMPLATE_SEED` (`-1`)

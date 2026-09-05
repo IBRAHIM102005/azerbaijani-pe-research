@@ -27,10 +27,20 @@ def test_collect_metadata_works_cpu_only():
         "train_manifest_hash",
         "validation_manifest_hash",
         "test_manifest_hash",
+        "training_subset_manifest_hash",
+        "training_cache_hash",
         "dataset_source_revision",
         "precision",
     ]:
         assert meta[field] == UNAVAILABLE
+
+
+def test_python_version_always_available():
+    # platform.python_version() can never fail; unlike numpy/torch this
+    # should never be UNAVAILABLE.
+    info = device_info()
+    assert info["python_version"] != UNAVAILABLE
+    assert info["python_version"][0].isdigit()
 
 
 def test_metadata_is_valid_json_with_stable_keys(tmp_path):
@@ -55,6 +65,8 @@ def test_device_info_never_raises_without_cuda():
     assert "device_name" in info
     assert "cuda_version" in info
     assert "pytorch_version" in info
+    assert "python_version" in info
+    assert "numpy_version" in info
     # must be a real string/value, never None or missing
     for v in info.values():
         assert v is not None
@@ -155,9 +167,11 @@ def test_training_subset_hash_and_vram_overrides_are_recorded():
         data_seed=2026,
         resolved_config_hash="deadbeef" * 8,
         training_subset_manifest_hash="805f7b18" * 8,
+        training_cache_hash="cafed00d" * 8,
         peak_allocated_vram_bytes=123456,
         peak_reserved_vram_bytes=234567,
     )
     assert meta["training_subset_manifest_hash"] == "805f7b18" * 8
+    assert meta["training_cache_hash"] == "cafed00d" * 8
     assert meta["peak_allocated_vram_bytes"] == 123456
     assert meta["peak_reserved_vram_bytes"] == 234567
