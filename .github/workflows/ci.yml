@@ -2,7 +2,7 @@ name: CI
 
 # CI runs only CPU-compatible checks: lint, unit+integration tests,
 # config drift audit, parameter fairness audit, and release verification.
-# It NEVER launches full pretraining, the 15-run experiment matrix, or any
+# It NEVER launches full pretraining, the 25-run experiment matrix, or any
 # GPU job -- see Makefile::reproduce-training for that, which is
 # intentionally excluded here.
 
