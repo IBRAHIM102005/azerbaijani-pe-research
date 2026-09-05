@@ -71,6 +71,10 @@ from src.training.queue import (
     build_matrix_jobs,
 )
 
+from src.training.production_guards import (
+    validate_headline_plan,
+)
+
 
 TRAIN_SCRIPT = (
     REPO_ROOT
@@ -188,6 +192,7 @@ def build_command(
     cache_path: Path,
     log_every: int,
     fresh: bool,
+    headline: bool,
 ) -> list[str]:
     command = [
         sys.executable,
@@ -211,6 +216,11 @@ def build_command(
             log_every
         ),
     ]
+
+    if headline:
+        command.append(
+            "--headline"
+        )
 
     # Default queue behavior is resume-safe.
     if not fresh:
@@ -364,6 +374,15 @@ def parse_args():
         ),
     )
 
+    parser.add_argument(
+        "--debug",
+        action="store_true",
+        help=(
+            "Allow launching a non-headline "
+            "debug run plan."
+        ),
+    )
+
     return parser.parse_args()
 
 
@@ -452,6 +471,7 @@ def start_job(
     cache_path: Path,
     log_every: int,
     fresh: bool,
+    headline: bool,
 ) -> RunningProcess:
 
     logs_dir = (
@@ -481,6 +501,7 @@ def start_job(
         cache_path=cache_path,
         log_every=log_every,
         fresh=fresh,
+        headline=headline,
     )
 
     env = os.environ.copy()
@@ -576,6 +597,11 @@ def main():
         plan_path
     )
 
+    if not args.debug:
+        validate_headline_plan(
+            payload
+        )
+
     jobs = build_matrix_jobs(
         payload,
         repo_root=REPO_ROOT,
@@ -634,6 +660,11 @@ def main():
         f"{not args.fresh}"
     )
 
+    print(
+        f"plan mode:   "
+        f"{'debug' if args.debug else 'headline'}"
+    )
+
     print()
 
     for number, job in enumerate(
@@ -690,6 +721,9 @@ def main():
                 cache_path=cache_path,
                 log_every=args.log_every,
                 fresh=args.fresh,
+                headline=(
+                    not args.debug
+                ),
             )
 
             print()
@@ -808,6 +842,9 @@ def main():
                         args.log_every
                     ),
                     fresh=args.fresh,
+                    headline=(
+                        not args.debug
+                    ),
                 )
 
                 running[

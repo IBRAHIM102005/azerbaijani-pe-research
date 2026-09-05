@@ -25,6 +25,7 @@ This is NOT a scientific experiment.
 
 from __future__ import annotations
 
+import hashlib
 import json
 import subprocess
 import sys
@@ -155,6 +156,37 @@ def create_synthetic_cache(
         )
 
 
+def create_synthetic_cache_metadata(
+    cache_path: Path,
+    metadata_path: Path,
+) -> str:
+    """Create metadata required by the production cache guard."""
+
+    cache_bytes = (
+        cache_path.read_bytes()
+    )
+
+    cache_sha256 = hashlib.sha256(
+        cache_bytes
+    ).hexdigest()
+
+    write_json(
+        metadata_path,
+        {
+            "dtype": "uint16",
+            "target_tokens": TOTAL_TOKENS,
+            "bytes": len(
+                cache_bytes
+            ),
+            "cache_sha256": (
+                cache_sha256
+            ),
+        },
+    )
+
+    return cache_sha256
+
+
 # ============================================================
 # Main
 # ============================================================
@@ -242,6 +274,11 @@ def main():
             / "tokens.uint16.bin"
         )
 
+        cache_metadata_path = (
+            tmp_dir
+            / "tokens.uint16.json"
+        )
+
         plan_path = (
             tmp_dir
             / "plan.json"
@@ -261,6 +298,13 @@ def main():
             vocab_size=(
                 resolved.config.vocab_size
             ),
+        )
+
+        cache_sha256 = (
+            create_synthetic_cache_metadata(
+                cache_path,
+                cache_metadata_path,
+            )
         )
 
         # ----------------------------------------------------
@@ -387,6 +431,10 @@ def main():
             str(
                 cache_path
             ),
+            "--cache-metadata",
+            str(
+                cache_metadata_path
+            ),
             "--device",
             "cpu",
             "--log-every",
@@ -467,6 +515,7 @@ def main():
         )
 
         required_files = [
+            cache_metadata_path,
             latest_checkpoint,
             milestone_128,
             milestone_256,
@@ -522,6 +571,25 @@ def main():
                 f"{expected_optimizer_steps}"
             )
 
+        completed_data_identity = (
+            completed.get(
+                "data_identity",
+                {}
+            )
+        )
+
+        if (
+            completed_data_identity.get(
+                "cache_sha256"
+            )
+            != cache_sha256
+        ):
+            raise AssertionError(
+                "completed.json cache SHA-256 "
+                "does not match the synthetic "
+                "cache metadata."
+            )
+
         # ----------------------------------------------------
         # status.json validation
         # ----------------------------------------------------
@@ -562,6 +630,14 @@ def main():
         print("=" * 72)
         print("ARTIFACT VALIDATION")
         print("=" * 72)
+
+        print(
+            "cache metadata:        OK"
+        )
+
+        print(
+            "cache SHA-256:         OK"
+        )
 
         print(
             "latest.pt:             OK"

@@ -22,7 +22,6 @@ from __future__ import annotations
 import argparse
 import json
 import os
-import random
 import sys
 import time
 from datetime import datetime, timezone
@@ -30,7 +29,6 @@ from pathlib import Path
 from typing import Any
 
 import numpy as np
-import torch
 
 
 # ============================================================
@@ -46,6 +44,13 @@ if str(REPO_ROOT) not in sys.path:
         0,
         str(REPO_ROOT),
     )
+
+
+from src.reproducibility.determinism import (
+    set_seed as set_deterministic_seed,
+)
+
+import torch
 
 
 from src.models.data_contract import (
@@ -67,6 +72,11 @@ from src.training.batching import (
 from src.training.optimizer import (
     build_optimizer,
     describe_optimizer_groups,
+)
+
+from src.training.production_guards import (
+    validate_cache_artifact,
+    validate_headline_plan,
 )
 
 from src.training.runner import (
@@ -118,29 +128,6 @@ def atomic_write_json(
         temp,
         path,
     )
-
-
-def set_seed(
-    seed: int,
-) -> None:
-    """Seed Python, NumPy and PyTorch."""
-
-    random.seed(
-        seed
-    )
-
-    np.random.seed(
-        seed
-    )
-
-    torch.manual_seed(
-        seed
-    )
-
-    if torch.cuda.is_available():
-        torch.cuda.manual_seed_all(
-            seed
-        )
 
 
 def resolve_device(
@@ -328,6 +315,15 @@ def parse_args():
     )
 
     parser.add_argument(
+        "--cache-metadata",
+        type=Path,
+        default=Path(
+            "data/cache/"
+            "train_50m.uint16.json"
+        ),
+    )
+
+    parser.add_argument(
         "--data-contract",
         type=Path,
         default=Path(
@@ -336,6 +332,15 @@ def parse_args():
         ),
         help=(
             "Frozen M1 training data contract."
+        ),
+    )
+
+    parser.add_argument(
+        "--headline",
+        action="store_true",
+        help=(
+            "Require the frozen scientific headline "
+            "experiment contract."
         ),
     )
 
@@ -392,6 +397,10 @@ def main():
         args.cache
     )
 
+    cache_metadata_path = resolve_path(
+        args.cache_metadata
+    )
+    
     contract_path = resolve_path(
         args.data_contract
     )
@@ -403,6 +412,11 @@ def main():
     plan_payload = load_json(
         plan_path
     )
+
+    if args.headline:
+        validate_headline_plan(
+            plan_payload
+        )
 
     run_plan = find_run_plan(
         plan_payload,
@@ -447,8 +461,15 @@ def main():
         run_plan["init_seed"]
     )
 
-    set_seed(
-        init_seed
+    seed_report = (
+        set_deterministic_seed(
+            init_seed,
+            deterministic=True,
+        )
+    )
+
+    determinism = (
+        seed_report.as_dict()
     )
 
     resolved = resolve_run_config(
@@ -658,6 +679,12 @@ def main():
             f"actual={actual_cache_bytes:,}"
         )
 
+    cache_sha256 = validate_cache_artifact(
+        cache_path,
+        cache_metadata_path,
+        expected_tokens=total_tokens,
+    )
+
     # ========================================================
     # Model
     # ========================================================
@@ -854,6 +881,19 @@ def main():
                 contract_path
             )
         ),
+        "cache_path": (
+            str(
+                cache_path
+            )
+        ),
+        "cache_metadata_path": (
+            str(
+                cache_metadata_path
+            )
+        ),
+        "cache_sha256": (
+            cache_sha256
+        ),
         "contract_target_tokens": (
             contract.target_tokens
         ),
@@ -891,6 +931,9 @@ def main():
             ),
             "environment": (
                 environment
+            ),
+            "determinism": (
+                determinism
             ),
             "data_identity": (
                 data_identity
@@ -951,6 +994,16 @@ def main():
     print(
         f"precision:    "
         f"{trainer.precision}"
+    )
+
+    print(
+        f"determinism:  "
+        f"{determinism['deterministic_algorithms_applied']}"
+    )
+
+    print(
+        f"det limits:   "
+        f"{len(determinism['limitations'])}"
     )
 
     print(
@@ -1331,6 +1384,9 @@ def main():
                 "environment": (
                     environment
                 ),
+                "determinism": (
+                    determinism
+                ),
                 "data_identity": (
                     data_identity
                 ),
@@ -1437,6 +1493,9 @@ def main():
         ),
         "environment": (
             environment
+        ),
+        "determinism": (
+            determinism
         ),
         "data_identity": (
             data_identity

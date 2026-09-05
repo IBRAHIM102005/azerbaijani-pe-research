@@ -4,6 +4,8 @@
 from __future__ import annotations
 
 import argparse
+import json
+import os
 import sys
 from pathlib import Path
 
@@ -22,6 +24,10 @@ if str(REPO_ROOT) not in sys.path:
 from src.training.launch import (
     make_run_plans,
     write_plan_manifest,
+)
+
+from src.training.production_guards import (
+    validate_headline_plan,
 )
 
 
@@ -64,7 +70,7 @@ def parse_args():
             "fp16",
             "fp32",
         ),
-        default="auto",
+        default="bf16",
     )
 
     parser.add_argument(
@@ -84,25 +90,61 @@ def parse_args():
         ),
     )
 
+    parser.add_argument(
+        "--debug",
+        action="store_true",
+        help=(
+            "Allow non-headline settings for "
+            "local/debug experiments."
+        ),
+    )
+
     return parser.parse_args()
+
+
+def load_json_object(
+    path: Path,
+) -> dict:
+    payload = json.loads(
+        path.read_text(
+            encoding="utf-8"
+        )
+    )
+
+    if not isinstance(
+        payload,
+        dict,
+    ):
+        raise TypeError(
+            "Run-plan manifest must contain "
+            "one JSON object."
+        )
+
+    return payload
 
 
 def main():
     args = parse_args()
+
+    if args.micro_batch_sequences <= 0:
+        raise ValueError(
+            "--micro-batch-sequences "
+            "must be positive."
+        )
 
     run_root = (
         args.run_root
         if args.run_root.is_absolute()
         else REPO_ROOT
         / args.run_root
-    )
+    ).resolve()
 
     output = (
         args.output
         if args.output.is_absolute()
         else REPO_ROOT
         / args.output
-    )
+    ).resolve()
 
     plans = make_run_plans(
         micro_batch_sequences=(
@@ -123,10 +165,48 @@ def main():
         ),
     )
 
-    write_plan_manifest(
-        output,
-        plans,
+    if not plans:
+        raise RuntimeError(
+            "Run-plan generation produced "
+            "no runs."
+        )
+
+    # Build the candidate manifest separately.
+    # Production/headline validation must pass
+    # before the canonical output path is replaced.
+    candidate_output = Path(
+        str(output)
+        + ".candidate"
     )
+
+    try:
+        write_plan_manifest(
+            candidate_output,
+            plans,
+        )
+
+        payload = load_json_object(
+            candidate_output
+        )
+
+        if not args.debug:
+            validate_headline_plan(
+                payload
+            )
+
+        output.parent.mkdir(
+            parents=True,
+            exist_ok=True,
+        )
+
+        os.replace(
+            candidate_output,
+            output,
+        )
+
+    finally:
+        if candidate_output.exists():
+            candidate_output.unlink()
 
     first = plans[0]
 
@@ -134,6 +214,11 @@ def main():
     print("=" * 72)
     print("M3 RUN PLAN")
     print("=" * 72)
+
+    print(
+        f"mode:              "
+        f"{'debug' if args.debug else 'headline'}"
+    )
 
     print(
         f"runs:              "
