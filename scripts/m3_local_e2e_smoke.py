@@ -514,8 +514,14 @@ def main():
             / "optimizer_groups.json"
         )
 
+        metadata_path = (
+            run_dir
+            / "metadata.json"
+        )
+
         required_files = [
             cache_metadata_path,
+            metadata_path,
             latest_checkpoint,
             milestone_128,
             milestone_256,
@@ -591,6 +597,63 @@ def main():
             )
 
         # ----------------------------------------------------
+        # metadata.json provenance validation
+        # ----------------------------------------------------
+
+        metadata = json.loads(
+            metadata_path.read_text(
+                encoding="utf-8"
+            )
+        )
+
+        if (
+            metadata["run_id"]
+            != resolved.run_id
+        ):
+            raise AssertionError(
+                "metadata.json run_id mismatch."
+            )
+
+        if (
+            metadata["training_cache_hash"]
+            != cache_sha256
+        ):
+            raise AssertionError(
+                "metadata.json cache SHA-256 mismatch."
+            )
+
+        if (
+            metadata["tokens_seen"]
+            != TOTAL_TOKENS
+        ):
+            raise AssertionError(
+                "metadata.json tokens_seen mismatch."
+            )
+
+        if metadata["exit_code"] != 0:
+            raise AssertionError(
+                "metadata.json exit_code is not 0."
+            )
+
+        checkpoint_hashes = (
+            metadata.get(
+                "checkpoint_hashes",
+                {}
+            )
+        )
+
+        for checkpoint_key in (
+            "latest",
+            "128t_model",
+            "256t_model",
+        ):
+            if checkpoint_key not in checkpoint_hashes:
+                raise AssertionError(
+                    "metadata.json missing checkpoint hash: "
+                    f"{checkpoint_key}"
+                )
+
+        # ----------------------------------------------------
         # status.json validation
         # ----------------------------------------------------
 
@@ -653,6 +716,14 @@ def main():
 
         print(
             "optimizer_groups.json: OK"
+        )
+
+        print(
+            "metadata.json:         OK"
+        )
+
+        print(
+            "checkpoint hashes:     OK"
         )
 
         print(

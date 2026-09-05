@@ -27,6 +27,7 @@ from src.reproducibility.config_utils import (
 
 
 UNAVAILABLE = "unavailable"
+NOT_APPLICABLE = "not_applicable"
 
 _SHA256_HEX_RE = re.compile(
     r"^[0-9a-f]{64}$"
@@ -207,6 +208,41 @@ def timestamps() -> dict:
 
 
 # ============================================================
+# NVIDIA driver metadata
+# ============================================================
+
+
+def nvidia_driver_version() -> str:
+    """Return the visible NVIDIA driver version when available."""
+
+    output = _run(
+        [
+            "nvidia-smi",
+            "--query-gpu=driver_version",
+            "--format=csv,noheader",
+        ]
+    )
+
+    if not output:
+        return UNAVAILABLE
+
+    versions = sorted(
+        {
+            line.strip()
+            for line in output.splitlines()
+            if line.strip()
+        }
+    )
+
+    if not versions:
+        return UNAVAILABLE
+
+    return ",".join(
+        versions
+    )
+
+
+# ============================================================
 # Device metadata
 # ============================================================
 
@@ -228,6 +264,12 @@ def device_info() -> dict:
             UNAVAILABLE
         ),
         "cuda_version": (
+            UNAVAILABLE
+        ),
+        "driver_version": (
+            nvidia_driver_version()
+        ),
+        "cudnn_version": (
             UNAVAILABLE
         ),
         "pytorch_version": (
@@ -257,6 +299,21 @@ def device_info() -> dict:
         info[
             "pytorch_version"
         ] = torch.__version__
+
+        try:
+            cudnn_version = (
+                torch.backends.cudnn.version()
+            )
+
+            if cudnn_version is not None:
+                info[
+                    "cudnn_version"
+                ] = str(
+                    cudnn_version
+                )
+
+        except Exception:
+            pass
 
         if torch.cuda.is_available():
 
@@ -331,6 +388,56 @@ def device_info() -> dict:
         pass
 
     return info
+
+
+def environment_fingerprint() -> dict[str, Any]:
+    """Return the runtime fields that must stay fixed for headline training."""
+
+    info = device_info()
+
+    return {
+        "python_version": (
+            info["python_version"]
+        ),
+        "numpy_version": (
+            info["numpy_version"]
+        ),
+        "pytorch_version": (
+            info["pytorch_version"]
+        ),
+        "cuda_version": (
+            info["cuda_version"]
+        ),
+        "cudnn_version": (
+            info["cudnn_version"]
+        ),
+        "driver_version": (
+            info["driver_version"]
+        ),
+        "device_name": (
+            info["device_name"]
+        ),
+        "bf16_supported": (
+            _bf16_supported()
+        ),
+    }
+
+
+def _bf16_supported() -> bool | str:
+    """Return CUDA bf16 capability without making CUDA mandatory."""
+
+    try:
+        import torch
+
+        if not torch.cuda.is_available():
+            return UNAVAILABLE
+
+        return bool(
+            torch.cuda.is_bf16_supported()
+        )
+
+    except Exception:
+        return UNAVAILABLE
 
 
 # ============================================================
@@ -545,6 +652,16 @@ def collect_metadata(
     meta.update(
         device_info()
     )
+
+    # The project uses its own Pythia-style implementation under src/models.
+    # GPT-NeoX is a design/reference source, not a runtime dependency.
+    meta[
+        "model_implementation"
+    ] = "local_pythia_style"
+
+    meta[
+        "gpt_neox_commit"
+    ] = NOT_APPLICABLE
 
     # Peak-memory counters are per-process.
     # Prefer measurements explicitly passed by

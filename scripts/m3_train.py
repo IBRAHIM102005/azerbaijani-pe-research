@@ -46,8 +46,21 @@ if str(REPO_ROOT) not in sys.path:
     )
 
 
+from src.reproducibility.adapters import (
+    MissingInterfaceError,
+    load_training_data_contract,
+    manifest_hashes_from_contract,
+    tokenizer_hashes_from_contract,
+    training_subset_hash_from_contract,
+)
+
 from src.reproducibility.determinism import (
     set_seed as set_deterministic_seed,
+)
+
+from src.reproducibility.metadata import (
+    collect_metadata,
+    write_metadata,
 )
 
 import torch
@@ -67,6 +80,10 @@ from src.models.transformer import (
 
 from src.training.batching import (
     SequentialTokenBatcher,
+)
+
+from src.training.cache_builder import (
+    sha256_file,
 )
 
 from src.training.optimizer import (
@@ -128,6 +145,120 @@ def atomic_write_json(
         temp,
         path,
     )
+
+
+def load_provenance_contract_hashes(
+    contract_path: Path,
+) -> dict[str, str | None]:
+    """Load frozen M1 hashes through the shared M5 adapters.
+
+    The shared adapter currently loads the repository's canonical
+    training_data_contract.json. For a custom --data-contract path,
+    leave these optional hashes unavailable rather than recording
+    hashes from a different contract.
+    """
+
+    values: dict[str, str | None] = {
+        "tokenizer_hash": None,
+        "train_manifest_hash": None,
+        "validation_manifest_hash": None,
+        "test_manifest_hash": None,
+        "training_subset_manifest_hash": None,
+    }
+
+    canonical_contract_path = (
+        REPO_ROOT
+        / "data"
+        / "metadata"
+        / "training_data_contract.json"
+    ).resolve()
+
+    if (
+        contract_path.resolve()
+        != canonical_contract_path
+    ):
+        return values
+
+    try:
+        provenance_contract = (
+            load_training_data_contract(
+                REPO_ROOT
+            )
+        )
+
+        manifest_hashes = (
+            manifest_hashes_from_contract(
+                provenance_contract
+            )
+        )
+
+        tokenizer_hashes = (
+            tokenizer_hashes_from_contract(
+                provenance_contract
+            )
+        )
+
+        values["tokenizer_hash"] = (
+            tokenizer_hashes.get(
+                "tokenizer.model"
+            )
+        )
+
+        values["train_manifest_hash"] = (
+            manifest_hashes.get(
+                "train"
+            )
+        )
+
+        values[
+            "validation_manifest_hash"
+        ] = manifest_hashes.get(
+            "validation"
+        )
+
+        values["test_manifest_hash"] = (
+            manifest_hashes.get(
+                "test"
+            )
+        )
+
+        values[
+            "training_subset_manifest_hash"
+        ] = training_subset_hash_from_contract(
+            provenance_contract
+        )
+
+    except MissingInterfaceError:
+        # collect_metadata() will record explicit "unavailable"
+        # sentinels rather than guessed values.
+        pass
+
+    return values
+
+
+def collect_checkpoint_hashes(
+    latest_checkpoint: Path,
+    milestone_dir: Path,
+) -> dict[str, str]:
+    """Hash every checkpoint artifact belonging to a completed run."""
+
+    hashes: dict[str, str] = {}
+
+    if latest_checkpoint.is_file():
+        hashes["latest"] = sha256_file(
+            latest_checkpoint
+        )
+
+    for path in sorted(
+        milestone_dir.glob(
+            "*_model.pt"
+        )
+    ):
+        hashes[path.stem] = sha256_file(
+            path
+        )
+
+    return hashes
 
 
 def resolve_device(
@@ -637,6 +768,11 @@ def main():
         / "optimizer_groups.json"
     )
 
+    provenance_path = (
+        run_dir
+        / "metadata.json"
+    )
+
     # ========================================================
     # Frozen cache validation
     # ========================================================
@@ -685,12 +821,25 @@ def main():
         expected_tokens=total_tokens,
     )
 
+    provenance_hashes = (
+        load_provenance_contract_hashes(
+            contract_path
+        )
+    )
+
     # ========================================================
     # Model
     # ========================================================
 
     model = PELanguageModel(
         resolved.config
+    )
+
+    # Move parameters to their final device before creating the
+    # optimizer so optimizer param groups reference the exact
+    # parameter objects that will be trained.
+    model = model.to(
+        device
     )
 
     # ========================================================
@@ -914,6 +1063,52 @@ def main():
         ),
     }
 
+    initial_provenance = collect_metadata(
+        run_id=resolved.run_id,
+        pe_method=pe_type,
+        model_seed=init_seed,
+        data_seed=contract_data_seed,
+        resolved_config_hash=(
+            resolved.config_sha256
+        ),
+        tokenizer_hash=(
+            provenance_hashes[
+                "tokenizer_hash"
+            ]
+        ),
+        train_manifest_hash=(
+            provenance_hashes[
+                "train_manifest_hash"
+            ]
+        ),
+        validation_manifest_hash=(
+            provenance_hashes[
+                "validation_manifest_hash"
+            ]
+        ),
+        test_manifest_hash=(
+            provenance_hashes[
+                "test_manifest_hash"
+            ]
+        ),
+        training_subset_manifest_hash=(
+            provenance_hashes[
+                "training_subset_manifest_hash"
+            ]
+        ),
+        training_cache_hash=cache_sha256,
+        precision=trainer.precision,
+        tokens_seen=(
+            trainer.state.tokens_seen
+        ),
+        repo_dir=REPO_ROOT,
+    )
+
+    write_metadata(
+        initial_provenance,
+        provenance_path,
+    )
+
     atomic_write_json(
         status_path,
         {
@@ -937,6 +1132,11 @@ def main():
             ),
             "data_identity": (
                 data_identity
+            ),
+            "provenance_path": (
+                str(
+                    provenance_path
+                )
             ),
             "tokens_seen": (
                 trainer.state.tokens_seen
@@ -1390,6 +1590,11 @@ def main():
                 "data_identity": (
                     data_identity
                 ),
+                "provenance_path": (
+                    str(
+                        provenance_path
+                    )
+                ),
                 "tokens_seen": (
                     trainer.state.tokens_seen
                 ),
@@ -1451,6 +1656,85 @@ def main():
         )
     )
 
+    checkpoint_hashes = (
+        collect_checkpoint_hashes(
+            latest_checkpoint,
+            milestone_dir,
+        )
+    )
+
+    peak_allocated_vram_bytes = None
+    peak_reserved_vram_bytes = None
+
+    if device.type == "cuda":
+        peak_allocated_vram_bytes = int(
+            torch.cuda.max_memory_allocated(
+                device
+            )
+        )
+
+        peak_reserved_vram_bytes = int(
+            torch.cuda.max_memory_reserved(
+                device
+            )
+        )
+
+    final_provenance = collect_metadata(
+        run_id=resolved.run_id,
+        pe_method=pe_type,
+        model_seed=init_seed,
+        data_seed=contract_data_seed,
+        resolved_config_hash=(
+            resolved.config_sha256
+        ),
+        tokenizer_hash=(
+            provenance_hashes[
+                "tokenizer_hash"
+            ]
+        ),
+        train_manifest_hash=(
+            provenance_hashes[
+                "train_manifest_hash"
+            ]
+        ),
+        validation_manifest_hash=(
+            provenance_hashes[
+                "validation_manifest_hash"
+            ]
+        ),
+        test_manifest_hash=(
+            provenance_hashes[
+                "test_manifest_hash"
+            ]
+        ),
+        training_subset_manifest_hash=(
+            provenance_hashes[
+                "training_subset_manifest_hash"
+            ]
+        ),
+        training_cache_hash=cache_sha256,
+        precision=trainer.precision,
+        tokens_seen=(
+            trainer.state.tokens_seen
+        ),
+        checkpoint_hashes=(
+            checkpoint_hashes
+        ),
+        exit_code=0,
+        repo_dir=REPO_ROOT,
+        peak_allocated_vram_bytes=(
+            peak_allocated_vram_bytes
+        ),
+        peak_reserved_vram_bytes=(
+            peak_reserved_vram_bytes
+        ),
+    )
+
+    write_metadata(
+        final_provenance,
+        provenance_path,
+    )
+
     completion = {
         "status": (
             "completed"
@@ -1499,6 +1783,14 @@ def main():
         ),
         "data_identity": (
             data_identity
+        ),
+        "provenance_path": (
+            str(
+                provenance_path
+            )
+        ),
+        "checkpoint_hashes": (
+            checkpoint_hashes
         ),
         "latest_checkpoint": (
             str(
@@ -1559,6 +1851,11 @@ def main():
     print(
         f"run_dir:         "
         f"{run_dir}"
+    )
+
+    print(
+        f"metadata:        "
+        f"{provenance_path}"
     )
 
 
