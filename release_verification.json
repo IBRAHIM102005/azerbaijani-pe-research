@@ -1,0 +1,276 @@
+{
+  "timestamp_utc": "2026-09-05T08:16:18.046224+00:00",
+  "git_commit": "7ada0e572e3603d206da37cc79fda722be783d3f",
+  "dirty_repository": false,
+  "artifact_verification": {
+    "pass": true,
+    "items": [
+      {
+        "path": "README.md",
+        "required": true,
+        "description": "top-level README",
+        "present": true
+      },
+      {
+        "path": "Makefile",
+        "required": true,
+        "description": "reproducibility commands",
+        "present": true
+      },
+      {
+        "path": "requirements-reproducibility.txt",
+        "required": false,
+        "description": "pinned dependency lock (or pyproject.toml)",
+        "present": true
+      },
+      {
+        "path": "pyproject.toml",
+        "required": false,
+        "description": "dependency declaration",
+        "present": false
+      },
+      {
+        "path": "configs/pe",
+        "required": true,
+        "description": "per-arm PE configuration templates (Yasin)",
+        "present": true
+      },
+      {
+        "path": "configs/model_base.json",
+        "required": true,
+        "description": "shared base model config (Yasin)",
+        "present": true
+      },
+      {
+        "path": "configs/run_matrix.json",
+        "required": true,
+        "description": "preregistered run/seed matrix (Yasin)",
+        "present": true
+      },
+      {
+        "path": "data/README.md",
+        "required": true,
+        "description": "data access documentation",
+        "present": true
+      },
+      {
+        "path": "data/metadata/source_registry.yaml",
+        "required": true,
+        "description": "source license/access registry",
+        "present": true
+      },
+      {
+        "path": "data/metadata/training_data_contract.json",
+        "required": true,
+        "description": "Ibrahim data/tokenizer handoff contract",
+        "present": true
+      },
+      {
+        "path": "tokenizer/tokenizer_hashes.json",
+        "required": true,
+        "description": "tokenizer artifact hashes",
+        "present": true
+      },
+      {
+        "path": "scripts",
+        "required": true,
+        "description": "reproducibility scripts",
+        "present": true
+      },
+      {
+        "path": "tests",
+        "required": true,
+        "description": "test suite",
+        "present": true
+      },
+      {
+        "path": "experiments/manifests",
+        "required": true,
+        "description": "run metadata manifests",
+        "present": true
+      },
+      {
+        "path": "docs/reproducibility.md",
+        "required": false,
+        "description": "reproducibility documentation",
+        "present": true
+      },
+      {
+        "path": "docs/ai_use.md",
+        "required": true,
+        "description": "AI-use disclosure",
+        "present": true
+      },
+      {
+        "path": "docs/failure_log.md",
+        "required": false,
+        "description": "failure log",
+        "present": true
+      }
+    ]
+  },
+  "checkpoint_interface": {
+    "using_real_m3_checkpoint": true,
+    "note": "Verified this repository's own src/training/checkpoint.py save_checkpoint/load_checkpoint interface."
+  },
+  "config_audit": {
+    "pass": true,
+    "report": {
+      "compared": [
+        "alibi",
+        "learned",
+        "nope",
+        "rope",
+        "sinusoidal"
+      ],
+      "allowlist": [
+        "pe_type"
+      ],
+      "allowed_differences": {
+        "pe_type": {
+          "learned": "learned",
+          "sinusoidal": "sinusoidal",
+          "rope": "rope",
+          "alibi": "alibi",
+          "nope": "nope"
+        }
+      },
+      "forbidden_differences": {},
+      "forbidden_total": 0
+    }
+  },
+  "parameter_audit": {
+    "pass": true,
+    "report": {
+      "rows": [
+        {
+          "pe_type": "learned",
+          "total": 13062144,
+          "core": 4739072,
+          "input_embedding": 4096000,
+          "output_head": 4096000,
+          "token_embedding": 8192000,
+          "positional": 131072,
+          "non_embedding": 4870144,
+          "tied_embeddings": false,
+          "d_model": 256,
+          "n_layer": 6,
+          "n_head": 8,
+          "max_seq_len": 512,
+          "init_fingerprint": "3f8961d7e672c3d2"
+        },
+        {
+          "pe_type": "sinusoidal",
+          "total": 12931072,
+          "core": 4739072,
+          "input_embedding": 4096000,
+          "output_head": 4096000,
+          "token_embedding": 8192000,
+          "positional": 0,
+          "non_embedding": 4739072,
+          "tied_embeddings": false,
+          "d_model": 256,
+          "n_layer": 6,
+          "n_head": 8,
+          "max_seq_len": 512,
+          "init_fingerprint": "3f8961d7e672c3d2"
+        },
+        {
+          "pe_type": "rope",
+          "total": 12931072,
+          "core": 4739072,
+          "input_embedding": 4096000,
+          "output_head": 4096000,
+          "token_embedding": 8192000,
+          "positional": 0,
+          "non_embedding": 4739072,
+          "tied_embeddings": false,
+          "d_model": 256,
+          "n_layer": 6,
+          "n_head": 8,
+          "max_seq_len": 512,
+          "init_fingerprint": "3f8961d7e672c3d2"
+        },
+        {
+          "pe_type": "alibi",
+          "total": 12931072,
+          "core": 4739072,
+          "input_embedding": 4096000,
+          "output_head": 4096000,
+          "token_embedding": 8192000,
+          "positional": 0,
+          "non_embedding": 4739072,
+          "tied_embeddings": false,
+          "d_model": 256,
+          "n_layer": 6,
+          "n_head": 8,
+          "max_seq_len": 512,
+          "init_fingerprint": "3f8961d7e672c3d2"
+        },
+        {
+          "pe_type": "nope",
+          "total": 12931072,
+          "core": 4739072,
+          "input_embedding": 4096000,
+          "output_head": 4096000,
+          "token_embedding": 8192000,
+          "positional": 0,
+          "non_embedding": 4739072,
+          "tied_embeddings": false,
+          "d_model": 256,
+          "n_layer": 6,
+          "n_head": 8,
+          "max_seq_len": 512,
+          "init_fingerprint": "3f8961d7e672c3d2"
+        }
+      ],
+      "core_parameters": 4739072,
+      "arms_with_positional_parameters": [
+        "learned"
+      ],
+      "violations": [],
+      "passed": true,
+      "resolved_seed": 17,
+      "base_config_path": "configs/model_base.json"
+    }
+  },
+  "training_data_contract": {
+    "pass": true,
+    "m1_status": "complete",
+    "vocab_size": 16000,
+    "data_seed": 2026,
+    "manifest_hashes": {
+      "test": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+      "train": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+      "validation": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+    },
+    "tokenizer_hashes": {
+      "special_tokens.json": "21d6ed125762219c944b7ba31f1d59d057d5766300671319a6083a2cac5863ce",
+      "tokenizer.model": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+      "tokenizer.vocab": "e7e0a932054e4917442fc960469c864de75a05eb7dd0e6234b17f0b09f9c9905",
+      "tokenizer_config.json": "595adb4626a3f38148543ad055dc5796d3550a9255a8f9b5327fedbe7cb8fbda"
+    },
+    "training_subset_hash": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48",
+    "verified_on_disk": [
+      "tokenizer/special_tokens.json",
+      "tokenizer/tokenizer.model",
+      "tokenizer/tokenizer.vocab",
+      "tokenizer/tokenizer_config.json"
+    ],
+    "skipped_not_present": [
+      "data/manifests/test.parquet",
+      "data/manifests/train.parquet",
+      "data/manifests/validation.parquet",
+      "data/manifests/train_50m.parquet"
+    ],
+    "mismatched": [],
+    "problems": []
+  },
+  "test_result": {
+    "pass": true,
+    "returncode": 0,
+    "stdout_tail": "......ss..................................sss.s......................... [ 21%]\n........................................................................ [ 42%]\n........................................................................ [ 63%]\n........................................................................ [ 84%]\n.....................................................                    [100%]\n=============================== warnings summary ===============================\n<frozen importlib._bootstrap>:241\n  <frozen importlib._bootstrap>:241: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute\n\n<frozen importlib._bootstrap>:241\n  <frozen importlib._bootstrap>:241: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n335 passed, 6 skipped, 2 warnings in 99.24s (0:01:39)",
+    "stderr_tail": "sys:1: DeprecationWarning: builtin type swigvarlink has no __module__ attribute"
+  },
+  "overall_pass": true
+}

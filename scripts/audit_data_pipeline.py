@@ -194,8 +194,8 @@ def main() -> None:
         exact = exact_report(metadata, connection)
         near = json.loads((metadata / "near_duplicate_report.json").read_text(encoding="utf-8"))
         raw = sum(values["raw"] for values in summary["accounting"]["sources"].values())
-        empty = sum(values["removed_empty"] for values in summary["accounting"]["sources"].values())
-        short = sum(values["removed_short"] for values in summary["accounting"]["sources"].values())
+        empty = sum(values.get("removed_empty",0) for values in summary["accounting"]["sources"].values())
+        short = sum(values.get("removed_short",0) for values in summary["accounting"]["sources"].values())
         exact_unique = summary["accounting"]["exact_unique_documents"]
         retained = exact_unique - near["removed_documents"]
         if raw != empty + short + exact["removed_documents"] + exact_unique:
