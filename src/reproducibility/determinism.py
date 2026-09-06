@@ -91,7 +91,7 @@ def set_seed(seed: int, deterministic: bool = True) -> SeedReport:
         if deterministic:
             report.deterministic_algorithms_requested = True
             try:
-                torch.use_deterministic_algorithms(True, warn_only=True)
+                torch.use_deterministic_algorithms(True, warn_only=False)
                 report.deterministic_algorithms_applied = True
             except Exception as exc:  # noqa: BLE001
                 report.limitations.append(f"use_deterministic_algorithms failed: {exc}")

@@ -15,6 +15,7 @@ from typing import Optional, Tuple
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from torch.nn.attention import SDPBackend, sdpa_kernel
 
 from .config import ModelConfig
 from .positional import PositionalScheme, build_positional_scheme
@@ -70,11 +71,16 @@ class CausalSelfAttention(nn.Module):
         if bias is not None:
             attn_mask = attn_mask + bias
 
-        out = F.scaled_dot_product_attention(
-            q, k, v,
-            attn_mask=attn_mask,
-            dropout_p=self.dropout_p if self.training else 0.0,
-        )
+        # Headline training requires same-device reproducibility.
+        # Force the deterministic SDPA math backend instead of allowing
+        # PyTorch to select a memory-efficient CUDA kernel whose backward
+        # may be non-deterministic on the target A100 environment.
+        with sdpa_kernel(SDPBackend.MATH):
+            out = F.scaled_dot_product_attention(
+                q, k, v,
+                attn_mask=attn_mask,
+                dropout_p=self.dropout_p if self.training else 0.0,
+            )
         out = out.transpose(1, 2).contiguous().view(B, T, C)
         return self.resid_dropout(self.proj(out))
 
