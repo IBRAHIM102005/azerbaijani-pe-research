@@ -1,0 +1,5 @@
+# Reuse the existing M3 torch==2.6.0+cu124 GPU environment; do not replace it with a CPU build.
+numpy==2.4.0
+pyarrow==25.0.1
+sentencepiece==0.2.1
+matplotlib==3.10.8
