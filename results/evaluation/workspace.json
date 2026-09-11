@@ -1,0 +1,2936 @@
+{
+  "checkpoints_verified": true,
+  "data": {
+    "test": {
+      "manifests": {
+        "bytes": 45845276,
+        "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/inputs/test(5).parquet",
+        "sha256": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def"
+      },
+      "processed_corpus": {
+        "bytes": 111670499,
+        "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/inputs/test(4).parquet",
+        "sha256": "8e3f0289c531a59108a3c131473b7270d8b93a5f172cbd351f3ab86a03e5a4fd"
+      }
+    },
+    "validation": {
+      "manifests": {
+        "bytes": 45886774,
+        "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/inputs/validation(4).parquet",
+        "sha256": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+      },
+      "processed_corpus": {
+        "bytes": 112211437,
+        "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/inputs/validation(3).parquet",
+        "sha256": "b54c7c42aeabe4c6df87cdcd42d7170ccedf4e07d9d5fb67184af06f79e38502"
+      }
+    }
+  },
+  "handoff_sha256": "1f28957b3674f770b9927f2cc64dd0b5f756d45c1accada5dea58d4377e0b355",
+  "identity": "5320b1cfdffddb4b56c0f879e28bc2adfe8a3c5328045a828567a9cb4448433e",
+  "protocol": {
+    "batch_sizes": {
+      "1024": 2,
+      "2048": 1,
+      "512": 8
+    },
+    "bootstrap_batch_size": 4,
+    "bootstrap_resamples": 10000,
+    "bootstrap_seed": 5,
+    "confidence_level": 0.95,
+    "cpu_threads": 4,
+    "document_policy": "independent_documents_no_bos_append_one_eod",
+    "evaluation_seed": 5,
+    "learned_above_512": "not_applicable",
+    "length_anchor": 2048,
+    "length_cohort": "all_documents_at_least_2048_tokens_including_eod",
+    "length_contexts": [
+      512,
+      1024,
+      2048
+    ],
+    "length_targets": 256,
+    "min_practical_delta_nll": 0.01,
+    "minimum_consistent_seeds": 4,
+    "pairwise_comparisons": "all_10_holm",
+    "precision": "bf16",
+    "primary_context": 512,
+    "primary_stride": 256,
+    "primary_targets": "all_except_first_exactly_once_including_eod",
+    "tokenizer_threads": 4,
+    "version": 2,
+    "workers_per_gpu": 1
+  },
+  "runs": [
+    {
+      "checkpoint_10m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s17-t50m-c512-v16k-be63691b/checkpoints/milestones/10m_model.pt",
+      "checkpoint_20m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s17-t50m-c512-v16k-be63691b/checkpoints/milestones/20m_model.pt",
+      "checkpoint_50m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s17-t50m-c512-v16k-be63691b/checkpoints/milestones/50m_model.pt",
+      "checkpoint_5m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s17-t50m-c512-v16k-be63691b/checkpoints/milestones/5m_model.pt",
+      "checkpoints": {
+        "10m": {
+          "member": "p31az-learned-s17-t50m-c512-v16k-be63691b/10m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_10M.tar",
+          "sha256": "03b42ba43ec86a4c8ae759ab31b47e82edf43f8e714b9d7eb23e5bd99f4f3240"
+        },
+        "20m": {
+          "member": "p31az-learned-s17-t50m-c512-v16k-be63691b/20m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_20M.tar",
+          "sha256": "c19e170886bfea6951b6f4aeadb52cce56d58c474d2349f3e1326456d21a9aa3"
+        },
+        "50m": {
+          "member": "p31az-learned-s17-t50m-c512-v16k-be63691b/50m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_50M.tar",
+          "sha256": "713e0f2db044fae106469264b26c4b657d8b919a58861e77e0b71e2322ea72b2"
+        },
+        "5m": {
+          "member": "p31az-learned-s17-t50m-c512-v16k-be63691b/5m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_5M.tar",
+          "sha256": "6b89ab6e9e220b8c61cf4db34e75b11a38816a130e9e87d1b6610167adfd2aac"
+        }
+      },
+      "completed_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s17-t50m-c512-v16k-be63691b/completed.json",
+      "config": {
+        "alibi_max_slope_exponent": 3.0,
+        "d_ff": 1024,
+        "d_model": 256,
+        "data_seed": 2026,
+        "dropout": 0.0,
+        "init_scheme": "pythia",
+        "init_seed": 17,
+        "layer_norm_eps": 1e-05,
+        "max_seq_len": 512,
+        "meta": {
+          "data_contract": "data/metadata/training_data_contract.json",
+          "eod_token_id": 1,
+          "manifest_sha256": {
+            "test": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+            "train": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+            "validation": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+          },
+          "milestone": "M2",
+          "seed_policy": "init_seed is a template here; production seeds come from configs/run_matrix.json. data_seed is fixed by M1 and is independent of the model seed.",
+          "selected_tokens": 50062887,
+          "token_budget": 50000000,
+          "tokenizer": "tokenizer/tokenizer.model",
+          "tokenizer_sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+          "training_subset_manifest": "data/manifests/train_50m.parquet",
+          "training_subset_sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48"
+        },
+        "n_head": 8,
+        "n_layer": 6,
+        "pe_type": "learned",
+        "reset_attention_mask": false,
+        "reset_position_ids": false,
+        "rope_theta": 10000.0,
+        "rotary_pct": 0.25,
+        "sinusoidal_theta": 10000.0,
+        "tie_embeddings": false,
+        "vocab_size": 16000
+      },
+      "data_seed": 2026,
+      "git_commit": "c1912f6e02aeebb4ca800903f55fc3f1c625cd6e",
+      "log_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s17-t50m-c512-v16k-be63691b/logs/matrix_process.log",
+      "metadata_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s17-t50m-c512-v16k-be63691b/metadata.json",
+      "milestones": {
+        "10m": {
+          "actual_tokens": 10027008,
+          "is_final": false,
+          "label": "10m",
+          "nominal_tokens": 10000000,
+          "overshoot_tokens": 27008
+        },
+        "20m": {
+          "actual_tokens": 20054016,
+          "is_final": false,
+          "label": "20m",
+          "nominal_tokens": 20000000,
+          "overshoot_tokens": 54016
+        },
+        "50m": {
+          "actual_tokens": 50000000,
+          "is_final": true,
+          "label": "50m",
+          "nominal_tokens": 50000000,
+          "overshoot_tokens": 0
+        },
+        "5m": {
+          "actual_tokens": 5046272,
+          "is_final": false,
+          "label": "5m",
+          "nominal_tokens": 5000000,
+          "overshoot_tokens": 46272
+        }
+      },
+      "model_seed": 17,
+      "optimizer_steps": 763,
+      "pe_method": "learned",
+      "precision": "bf16",
+      "run_id": "p31az-learned-s17-t50m-c512-v16k-be63691b",
+      "sha_10m": "03b42ba43ec86a4c8ae759ab31b47e82edf43f8e714b9d7eb23e5bd99f4f3240",
+      "sha_20m": "c19e170886bfea6951b6f4aeadb52cce56d58c474d2349f3e1326456d21a9aa3",
+      "sha_50m": "713e0f2db044fae106469264b26c4b657d8b919a58861e77e0b71e2322ea72b2",
+      "sha_5m": "6b89ab6e9e220b8c61cf4db34e75b11a38816a130e9e87d1b6610167adfd2aac",
+      "tokens_seen": 50000000,
+      "training_cache_hash": "3d36d7658c9edaa1101c60d02e27a8342e4e7027b4a0c3fe08b15d46ba186235"
+    },
+    {
+      "checkpoint_10m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s17-t50m-c512-v16k-70f821d5/checkpoints/milestones/10m_model.pt",
+      "checkpoint_20m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s17-t50m-c512-v16k-70f821d5/checkpoints/milestones/20m_model.pt",
+      "checkpoint_50m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s17-t50m-c512-v16k-70f821d5/checkpoints/milestones/50m_model.pt",
+      "checkpoint_5m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s17-t50m-c512-v16k-70f821d5/checkpoints/milestones/5m_model.pt",
+      "checkpoints": {
+        "10m": {
+          "member": "p31az-sinusoidal-s17-t50m-c512-v16k-70f821d5/10m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_10M.tar",
+          "sha256": "0fbd58ddfd081c7cd0901dc40f999cc16117cde6413ace4043bc6a17a3f4af77"
+        },
+        "20m": {
+          "member": "p31az-sinusoidal-s17-t50m-c512-v16k-70f821d5/20m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_20M.tar",
+          "sha256": "4784dae84f74a81c644ea30f6c67d0abc7d5c50e9c002dcc5540e5898ecff1d1"
+        },
+        "50m": {
+          "member": "p31az-sinusoidal-s17-t50m-c512-v16k-70f821d5/50m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_50M.tar",
+          "sha256": "c3e4f5a19b553591c89fa1b558f27d12cfab5c014b2e69d58b4a1fe3e30fa787"
+        },
+        "5m": {
+          "member": "p31az-sinusoidal-s17-t50m-c512-v16k-70f821d5/5m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_5M.tar",
+          "sha256": "7d434218acbde8286cf7cd80e0aad1fd9c140e74d148044f38a9147c6c29dfa5"
+        }
+      },
+      "completed_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s17-t50m-c512-v16k-70f821d5/completed.json",
+      "config": {
+        "alibi_max_slope_exponent": 3.0,
+        "d_ff": 1024,
+        "d_model": 256,
+        "data_seed": 2026,
+        "dropout": 0.0,
+        "init_scheme": "pythia",
+        "init_seed": 17,
+        "layer_norm_eps": 1e-05,
+        "max_seq_len": 512,
+        "meta": {
+          "data_contract": "data/metadata/training_data_contract.json",
+          "eod_token_id": 1,
+          "manifest_sha256": {
+            "test": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+            "train": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+            "validation": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+          },
+          "milestone": "M2",
+          "seed_policy": "init_seed is a template here; production seeds come from configs/run_matrix.json. data_seed is fixed by M1 and is independent of the model seed.",
+          "selected_tokens": 50062887,
+          "token_budget": 50000000,
+          "tokenizer": "tokenizer/tokenizer.model",
+          "tokenizer_sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+          "training_subset_manifest": "data/manifests/train_50m.parquet",
+          "training_subset_sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48"
+        },
+        "n_head": 8,
+        "n_layer": 6,
+        "pe_type": "sinusoidal",
+        "reset_attention_mask": false,
+        "reset_position_ids": false,
+        "rope_theta": 10000.0,
+        "rotary_pct": 0.25,
+        "sinusoidal_theta": 10000.0,
+        "tie_embeddings": false,
+        "vocab_size": 16000
+      },
+      "data_seed": 2026,
+      "git_commit": "c1912f6e02aeebb4ca800903f55fc3f1c625cd6e",
+      "log_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s17-t50m-c512-v16k-70f821d5/logs/matrix_process.log",
+      "metadata_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s17-t50m-c512-v16k-70f821d5/metadata.json",
+      "milestones": {
+        "10m": {
+          "actual_tokens": 10027008,
+          "is_final": false,
+          "label": "10m",
+          "nominal_tokens": 10000000,
+          "overshoot_tokens": 27008
+        },
+        "20m": {
+          "actual_tokens": 20054016,
+          "is_final": false,
+          "label": "20m",
+          "nominal_tokens": 20000000,
+          "overshoot_tokens": 54016
+        },
+        "50m": {
+          "actual_tokens": 50000000,
+          "is_final": true,
+          "label": "50m",
+          "nominal_tokens": 50000000,
+          "overshoot_tokens": 0
+        },
+        "5m": {
+          "actual_tokens": 5046272,
+          "is_final": false,
+          "label": "5m",
+          "nominal_tokens": 5000000,
+          "overshoot_tokens": 46272
+        }
+      },
+      "model_seed": 17,
+      "optimizer_steps": 763,
+      "pe_method": "sinusoidal",
+      "precision": "bf16",
+      "run_id": "p31az-sinusoidal-s17-t50m-c512-v16k-70f821d5",
+      "sha_10m": "0fbd58ddfd081c7cd0901dc40f999cc16117cde6413ace4043bc6a17a3f4af77",
+      "sha_20m": "4784dae84f74a81c644ea30f6c67d0abc7d5c50e9c002dcc5540e5898ecff1d1",
+      "sha_50m": "c3e4f5a19b553591c89fa1b558f27d12cfab5c014b2e69d58b4a1fe3e30fa787",
+      "sha_5m": "7d434218acbde8286cf7cd80e0aad1fd9c140e74d148044f38a9147c6c29dfa5",
+      "tokens_seen": 50000000,
+      "training_cache_hash": "3d36d7658c9edaa1101c60d02e27a8342e4e7027b4a0c3fe08b15d46ba186235"
+    },
+    {
+      "checkpoint_10m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s17-t50m-c512-v16k-fdb4e7aa/checkpoints/milestones/10m_model.pt",
+      "checkpoint_20m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s17-t50m-c512-v16k-fdb4e7aa/checkpoints/milestones/20m_model.pt",
+      "checkpoint_50m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s17-t50m-c512-v16k-fdb4e7aa/checkpoints/milestones/50m_model.pt",
+      "checkpoint_5m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s17-t50m-c512-v16k-fdb4e7aa/checkpoints/milestones/5m_model.pt",
+      "checkpoints": {
+        "10m": {
+          "member": "p31az-rope-s17-t50m-c512-v16k-fdb4e7aa/10m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_10M.tar",
+          "sha256": "17995429122c44309b5641d3f719e0256cbca846beaff2fe1ee7ec308c41cf3e"
+        },
+        "20m": {
+          "member": "p31az-rope-s17-t50m-c512-v16k-fdb4e7aa/20m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_20M.tar",
+          "sha256": "73042d4febf69468cb2435aa16a24c945856e1f28e71b21eb04bd1addb1ce94c"
+        },
+        "50m": {
+          "member": "p31az-rope-s17-t50m-c512-v16k-fdb4e7aa/50m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_50M.tar",
+          "sha256": "dba2baed42d5a3f70ca0e4957fad293a9c51d44f70f6912e18f939ad5de97382"
+        },
+        "5m": {
+          "member": "p31az-rope-s17-t50m-c512-v16k-fdb4e7aa/5m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_5M.tar",
+          "sha256": "a1d47e4bc1c5f8fa53f54038e142bb4402939fc8b66b74109ad8398a562a602d"
+        }
+      },
+      "completed_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s17-t50m-c512-v16k-fdb4e7aa/completed.json",
+      "config": {
+        "alibi_max_slope_exponent": 3.0,
+        "d_ff": 1024,
+        "d_model": 256,
+        "data_seed": 2026,
+        "dropout": 0.0,
+        "init_scheme": "pythia",
+        "init_seed": 17,
+        "layer_norm_eps": 1e-05,
+        "max_seq_len": 512,
+        "meta": {
+          "data_contract": "data/metadata/training_data_contract.json",
+          "eod_token_id": 1,
+          "manifest_sha256": {
+            "test": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+            "train": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+            "validation": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+          },
+          "milestone": "M2",
+          "seed_policy": "init_seed is a template here; production seeds come from configs/run_matrix.json. data_seed is fixed by M1 and is independent of the model seed.",
+          "selected_tokens": 50062887,
+          "token_budget": 50000000,
+          "tokenizer": "tokenizer/tokenizer.model",
+          "tokenizer_sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+          "training_subset_manifest": "data/manifests/train_50m.parquet",
+          "training_subset_sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48"
+        },
+        "n_head": 8,
+        "n_layer": 6,
+        "pe_type": "rope",
+        "reset_attention_mask": false,
+        "reset_position_ids": false,
+        "rope_theta": 10000.0,
+        "rotary_pct": 0.25,
+        "sinusoidal_theta": 10000.0,
+        "tie_embeddings": false,
+        "vocab_size": 16000
+      },
+      "data_seed": 2026,
+      "git_commit": "c1912f6e02aeebb4ca800903f55fc3f1c625cd6e",
+      "log_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s17-t50m-c512-v16k-fdb4e7aa/logs/matrix_process.log",
+      "metadata_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s17-t50m-c512-v16k-fdb4e7aa/metadata.json",
+      "milestones": {
+        "10m": {
+          "actual_tokens": 10027008,
+          "is_final": false,
+          "label": "10m",
+          "nominal_tokens": 10000000,
+          "overshoot_tokens": 27008
+        },
+        "20m": {
+          "actual_tokens": 20054016,
+          "is_final": false,
+          "label": "20m",
+          "nominal_tokens": 20000000,
+          "overshoot_tokens": 54016
+        },
+        "50m": {
+          "actual_tokens": 50000000,
+          "is_final": true,
+          "label": "50m",
+          "nominal_tokens": 50000000,
+          "overshoot_tokens": 0
+        },
+        "5m": {
+          "actual_tokens": 5046272,
+          "is_final": false,
+          "label": "5m",
+          "nominal_tokens": 5000000,
+          "overshoot_tokens": 46272
+        }
+      },
+      "model_seed": 17,
+      "optimizer_steps": 763,
+      "pe_method": "rope",
+      "precision": "bf16",
+      "run_id": "p31az-rope-s17-t50m-c512-v16k-fdb4e7aa",
+      "sha_10m": "17995429122c44309b5641d3f719e0256cbca846beaff2fe1ee7ec308c41cf3e",
+      "sha_20m": "73042d4febf69468cb2435aa16a24c945856e1f28e71b21eb04bd1addb1ce94c",
+      "sha_50m": "dba2baed42d5a3f70ca0e4957fad293a9c51d44f70f6912e18f939ad5de97382",
+      "sha_5m": "a1d47e4bc1c5f8fa53f54038e142bb4402939fc8b66b74109ad8398a562a602d",
+      "tokens_seen": 50000000,
+      "training_cache_hash": "3d36d7658c9edaa1101c60d02e27a8342e4e7027b4a0c3fe08b15d46ba186235"
+    },
+    {
+      "checkpoint_10m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s17-t50m-c512-v16k-18e3f193/checkpoints/milestones/10m_model.pt",
+      "checkpoint_20m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s17-t50m-c512-v16k-18e3f193/checkpoints/milestones/20m_model.pt",
+      "checkpoint_50m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s17-t50m-c512-v16k-18e3f193/checkpoints/milestones/50m_model.pt",
+      "checkpoint_5m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s17-t50m-c512-v16k-18e3f193/checkpoints/milestones/5m_model.pt",
+      "checkpoints": {
+        "10m": {
+          "member": "p31az-alibi-s17-t50m-c512-v16k-18e3f193/10m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_10M.tar",
+          "sha256": "7e1d0eab5be030996f0cc95972aa3b4b846ee79862dd92b53f7a7db2bc035593"
+        },
+        "20m": {
+          "member": "p31az-alibi-s17-t50m-c512-v16k-18e3f193/20m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_20M.tar",
+          "sha256": "8a4937c16ef2babe50ceadd4ba4df09ee14b42b1f81fc58d7c512090f59d081d"
+        },
+        "50m": {
+          "member": "p31az-alibi-s17-t50m-c512-v16k-18e3f193/50m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_50M.tar",
+          "sha256": "3d49c65ed0f90ce9df458c0a1f528f596904efec90c032f644b999495410bf51"
+        },
+        "5m": {
+          "member": "p31az-alibi-s17-t50m-c512-v16k-18e3f193/5m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_5M.tar",
+          "sha256": "9ae15627587ce2a16fed534293a36de87af274ec2ad779c1f0f6bfc132338a69"
+        }
+      },
+      "completed_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s17-t50m-c512-v16k-18e3f193/completed.json",
+      "config": {
+        "alibi_max_slope_exponent": 3.0,
+        "d_ff": 1024,
+        "d_model": 256,
+        "data_seed": 2026,
+        "dropout": 0.0,
+        "init_scheme": "pythia",
+        "init_seed": 17,
+        "layer_norm_eps": 1e-05,
+        "max_seq_len": 512,
+        "meta": {
+          "data_contract": "data/metadata/training_data_contract.json",
+          "eod_token_id": 1,
+          "manifest_sha256": {
+            "test": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+            "train": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+            "validation": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+          },
+          "milestone": "M2",
+          "seed_policy": "init_seed is a template here; production seeds come from configs/run_matrix.json. data_seed is fixed by M1 and is independent of the model seed.",
+          "selected_tokens": 50062887,
+          "token_budget": 50000000,
+          "tokenizer": "tokenizer/tokenizer.model",
+          "tokenizer_sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+          "training_subset_manifest": "data/manifests/train_50m.parquet",
+          "training_subset_sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48"
+        },
+        "n_head": 8,
+        "n_layer": 6,
+        "pe_type": "alibi",
+        "reset_attention_mask": false,
+        "reset_position_ids": false,
+        "rope_theta": 10000.0,
+        "rotary_pct": 0.25,
+        "sinusoidal_theta": 10000.0,
+        "tie_embeddings": false,
+        "vocab_size": 16000
+      },
+      "data_seed": 2026,
+      "git_commit": "c1912f6e02aeebb4ca800903f55fc3f1c625cd6e",
+      "log_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s17-t50m-c512-v16k-18e3f193/logs/matrix_process.log",
+      "metadata_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s17-t50m-c512-v16k-18e3f193/metadata.json",
+      "milestones": {
+        "10m": {
+          "actual_tokens": 10027008,
+          "is_final": false,
+          "label": "10m",
+          "nominal_tokens": 10000000,
+          "overshoot_tokens": 27008
+        },
+        "20m": {
+          "actual_tokens": 20054016,
+          "is_final": false,
+          "label": "20m",
+          "nominal_tokens": 20000000,
+          "overshoot_tokens": 54016
+        },
+        "50m": {
+          "actual_tokens": 50000000,
+          "is_final": true,
+          "label": "50m",
+          "nominal_tokens": 50000000,
+          "overshoot_tokens": 0
+        },
+        "5m": {
+          "actual_tokens": 5046272,
+          "is_final": false,
+          "label": "5m",
+          "nominal_tokens": 5000000,
+          "overshoot_tokens": 46272
+        }
+      },
+      "model_seed": 17,
+      "optimizer_steps": 763,
+      "pe_method": "alibi",
+      "precision": "bf16",
+      "run_id": "p31az-alibi-s17-t50m-c512-v16k-18e3f193",
+      "sha_10m": "7e1d0eab5be030996f0cc95972aa3b4b846ee79862dd92b53f7a7db2bc035593",
+      "sha_20m": "8a4937c16ef2babe50ceadd4ba4df09ee14b42b1f81fc58d7c512090f59d081d",
+      "sha_50m": "3d49c65ed0f90ce9df458c0a1f528f596904efec90c032f644b999495410bf51",
+      "sha_5m": "9ae15627587ce2a16fed534293a36de87af274ec2ad779c1f0f6bfc132338a69",
+      "tokens_seen": 50000000,
+      "training_cache_hash": "3d36d7658c9edaa1101c60d02e27a8342e4e7027b4a0c3fe08b15d46ba186235"
+    },
+    {
+      "checkpoint_10m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s17-t50m-c512-v16k-e11bc0a0/checkpoints/milestones/10m_model.pt",
+      "checkpoint_20m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s17-t50m-c512-v16k-e11bc0a0/checkpoints/milestones/20m_model.pt",
+      "checkpoint_50m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s17-t50m-c512-v16k-e11bc0a0/checkpoints/milestones/50m_model.pt",
+      "checkpoint_5m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s17-t50m-c512-v16k-e11bc0a0/checkpoints/milestones/5m_model.pt",
+      "checkpoints": {
+        "10m": {
+          "member": "p31az-nope-s17-t50m-c512-v16k-e11bc0a0/10m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_10M.tar",
+          "sha256": "490ef87cba4fe08f9c2f78754e07057c35c0d19392002f315dd90afec181fc72"
+        },
+        "20m": {
+          "member": "p31az-nope-s17-t50m-c512-v16k-e11bc0a0/20m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_20M.tar",
+          "sha256": "984005e1c7f6715c983a34a03bbf38a9258802bf582d2e3245f7adbd08d19b54"
+        },
+        "50m": {
+          "member": "p31az-nope-s17-t50m-c512-v16k-e11bc0a0/50m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_50M.tar",
+          "sha256": "1f83eb4266de7fc3317c9b89fd39737af1aceeab6ce1ba226757961740ededb0"
+        },
+        "5m": {
+          "member": "p31az-nope-s17-t50m-c512-v16k-e11bc0a0/5m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_5M.tar",
+          "sha256": "b7ce1a9c8a5135b86649b2cb5644b3c3189aae2151d14991ecb3a96af0595a40"
+        }
+      },
+      "completed_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s17-t50m-c512-v16k-e11bc0a0/completed.json",
+      "config": {
+        "alibi_max_slope_exponent": 3.0,
+        "d_ff": 1024,
+        "d_model": 256,
+        "data_seed": 2026,
+        "dropout": 0.0,
+        "init_scheme": "pythia",
+        "init_seed": 17,
+        "layer_norm_eps": 1e-05,
+        "max_seq_len": 512,
+        "meta": {
+          "data_contract": "data/metadata/training_data_contract.json",
+          "eod_token_id": 1,
+          "manifest_sha256": {
+            "test": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+            "train": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+            "validation": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+          },
+          "milestone": "M2",
+          "seed_policy": "init_seed is a template here; production seeds come from configs/run_matrix.json. data_seed is fixed by M1 and is independent of the model seed.",
+          "selected_tokens": 50062887,
+          "token_budget": 50000000,
+          "tokenizer": "tokenizer/tokenizer.model",
+          "tokenizer_sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+          "training_subset_manifest": "data/manifests/train_50m.parquet",
+          "training_subset_sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48"
+        },
+        "n_head": 8,
+        "n_layer": 6,
+        "pe_type": "nope",
+        "reset_attention_mask": false,
+        "reset_position_ids": false,
+        "rope_theta": 10000.0,
+        "rotary_pct": 0.25,
+        "sinusoidal_theta": 10000.0,
+        "tie_embeddings": false,
+        "vocab_size": 16000
+      },
+      "data_seed": 2026,
+      "git_commit": "c1912f6e02aeebb4ca800903f55fc3f1c625cd6e",
+      "log_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s17-t50m-c512-v16k-e11bc0a0/logs/matrix_process.log",
+      "metadata_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s17-t50m-c512-v16k-e11bc0a0/metadata.json",
+      "milestones": {
+        "10m": {
+          "actual_tokens": 10027008,
+          "is_final": false,
+          "label": "10m",
+          "nominal_tokens": 10000000,
+          "overshoot_tokens": 27008
+        },
+        "20m": {
+          "actual_tokens": 20054016,
+          "is_final": false,
+          "label": "20m",
+          "nominal_tokens": 20000000,
+          "overshoot_tokens": 54016
+        },
+        "50m": {
+          "actual_tokens": 50000000,
+          "is_final": true,
+          "label": "50m",
+          "nominal_tokens": 50000000,
+          "overshoot_tokens": 0
+        },
+        "5m": {
+          "actual_tokens": 5046272,
+          "is_final": false,
+          "label": "5m",
+          "nominal_tokens": 5000000,
+          "overshoot_tokens": 46272
+        }
+      },
+      "model_seed": 17,
+      "optimizer_steps": 763,
+      "pe_method": "nope",
+      "precision": "bf16",
+      "run_id": "p31az-nope-s17-t50m-c512-v16k-e11bc0a0",
+      "sha_10m": "490ef87cba4fe08f9c2f78754e07057c35c0d19392002f315dd90afec181fc72",
+      "sha_20m": "984005e1c7f6715c983a34a03bbf38a9258802bf582d2e3245f7adbd08d19b54",
+      "sha_50m": "1f83eb4266de7fc3317c9b89fd39737af1aceeab6ce1ba226757961740ededb0",
+      "sha_5m": "b7ce1a9c8a5135b86649b2cb5644b3c3189aae2151d14991ecb3a96af0595a40",
+      "tokens_seen": 50000000,
+      "training_cache_hash": "3d36d7658c9edaa1101c60d02e27a8342e4e7027b4a0c3fe08b15d46ba186235"
+    },
+    {
+      "checkpoint_10m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s42-t50m-c512-v16k-6ed2f7c1/checkpoints/milestones/10m_model.pt",
+      "checkpoint_20m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s42-t50m-c512-v16k-6ed2f7c1/checkpoints/milestones/20m_model.pt",
+      "checkpoint_50m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s42-t50m-c512-v16k-6ed2f7c1/checkpoints/milestones/50m_model.pt",
+      "checkpoint_5m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s42-t50m-c512-v16k-6ed2f7c1/checkpoints/milestones/5m_model.pt",
+      "checkpoints": {
+        "10m": {
+          "member": "p31az-learned-s42-t50m-c512-v16k-6ed2f7c1/10m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_10M.tar",
+          "sha256": "162b3328a428b15a54680dc39aed15746782997ca0da4801e3315e03060c9ed0"
+        },
+        "20m": {
+          "member": "p31az-learned-s42-t50m-c512-v16k-6ed2f7c1/20m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_20M.tar",
+          "sha256": "20d56d6236437a6d0b15873903871cd98502d00407b41c9cc1fbf09247a7c87d"
+        },
+        "50m": {
+          "member": "p31az-learned-s42-t50m-c512-v16k-6ed2f7c1/50m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_50M.tar",
+          "sha256": "a0b1d5050d056491d75677eced1f854d228776860c0ce8dc7745faac912d139b"
+        },
+        "5m": {
+          "member": "p31az-learned-s42-t50m-c512-v16k-6ed2f7c1/5m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_5M.tar",
+          "sha256": "a51561eb79a0db6431d04109e83da2ddc8cd73dc30801d056511ab05b816334f"
+        }
+      },
+      "completed_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s42-t50m-c512-v16k-6ed2f7c1/completed.json",
+      "config": {
+        "alibi_max_slope_exponent": 3.0,
+        "d_ff": 1024,
+        "d_model": 256,
+        "data_seed": 2026,
+        "dropout": 0.0,
+        "init_scheme": "pythia",
+        "init_seed": 42,
+        "layer_norm_eps": 1e-05,
+        "max_seq_len": 512,
+        "meta": {
+          "data_contract": "data/metadata/training_data_contract.json",
+          "eod_token_id": 1,
+          "manifest_sha256": {
+            "test": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+            "train": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+            "validation": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+          },
+          "milestone": "M2",
+          "seed_policy": "init_seed is a template here; production seeds come from configs/run_matrix.json. data_seed is fixed by M1 and is independent of the model seed.",
+          "selected_tokens": 50062887,
+          "token_budget": 50000000,
+          "tokenizer": "tokenizer/tokenizer.model",
+          "tokenizer_sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+          "training_subset_manifest": "data/manifests/train_50m.parquet",
+          "training_subset_sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48"
+        },
+        "n_head": 8,
+        "n_layer": 6,
+        "pe_type": "learned",
+        "reset_attention_mask": false,
+        "reset_position_ids": false,
+        "rope_theta": 10000.0,
+        "rotary_pct": 0.25,
+        "sinusoidal_theta": 10000.0,
+        "tie_embeddings": false,
+        "vocab_size": 16000
+      },
+      "data_seed": 2026,
+      "git_commit": "c1912f6e02aeebb4ca800903f55fc3f1c625cd6e",
+      "log_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s42-t50m-c512-v16k-6ed2f7c1/logs/matrix_process.log",
+      "metadata_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s42-t50m-c512-v16k-6ed2f7c1/metadata.json",
+      "milestones": {
+        "10m": {
+          "actual_tokens": 10027008,
+          "is_final": false,
+          "label": "10m",
+          "nominal_tokens": 10000000,
+          "overshoot_tokens": 27008
+        },
+        "20m": {
+          "actual_tokens": 20054016,
+          "is_final": false,
+          "label": "20m",
+          "nominal_tokens": 20000000,
+          "overshoot_tokens": 54016
+        },
+        "50m": {
+          "actual_tokens": 50000000,
+          "is_final": true,
+          "label": "50m",
+          "nominal_tokens": 50000000,
+          "overshoot_tokens": 0
+        },
+        "5m": {
+          "actual_tokens": 5046272,
+          "is_final": false,
+          "label": "5m",
+          "nominal_tokens": 5000000,
+          "overshoot_tokens": 46272
+        }
+      },
+      "model_seed": 42,
+      "optimizer_steps": 763,
+      "pe_method": "learned",
+      "precision": "bf16",
+      "run_id": "p31az-learned-s42-t50m-c512-v16k-6ed2f7c1",
+      "sha_10m": "162b3328a428b15a54680dc39aed15746782997ca0da4801e3315e03060c9ed0",
+      "sha_20m": "20d56d6236437a6d0b15873903871cd98502d00407b41c9cc1fbf09247a7c87d",
+      "sha_50m": "a0b1d5050d056491d75677eced1f854d228776860c0ce8dc7745faac912d139b",
+      "sha_5m": "a51561eb79a0db6431d04109e83da2ddc8cd73dc30801d056511ab05b816334f",
+      "tokens_seen": 50000000,
+      "training_cache_hash": "3d36d7658c9edaa1101c60d02e27a8342e4e7027b4a0c3fe08b15d46ba186235"
+    },
+    {
+      "checkpoint_10m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s42-t50m-c512-v16k-6a6c93d3/checkpoints/milestones/10m_model.pt",
+      "checkpoint_20m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s42-t50m-c512-v16k-6a6c93d3/checkpoints/milestones/20m_model.pt",
+      "checkpoint_50m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s42-t50m-c512-v16k-6a6c93d3/checkpoints/milestones/50m_model.pt",
+      "checkpoint_5m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s42-t50m-c512-v16k-6a6c93d3/checkpoints/milestones/5m_model.pt",
+      "checkpoints": {
+        "10m": {
+          "member": "p31az-sinusoidal-s42-t50m-c512-v16k-6a6c93d3/10m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_10M.tar",
+          "sha256": "ae9db73cbaf776de54b6e534103b189ba40bfabc66d4b80774ad34ba95137d1f"
+        },
+        "20m": {
+          "member": "p31az-sinusoidal-s42-t50m-c512-v16k-6a6c93d3/20m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_20M.tar",
+          "sha256": "e22ed126b72de174d39c59220439ff8f8ef183a9df62a4b853709dbd7b5ddbfd"
+        },
+        "50m": {
+          "member": "p31az-sinusoidal-s42-t50m-c512-v16k-6a6c93d3/50m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_50M.tar",
+          "sha256": "0fd268a438dfa0bcd670970da11d20233642e8369fd03660d5f4b3d19187c16d"
+        },
+        "5m": {
+          "member": "p31az-sinusoidal-s42-t50m-c512-v16k-6a6c93d3/5m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_5M.tar",
+          "sha256": "5db67014aebc95cd24da73e5ce9c8b00a1f38cf7c5121aa514f66f0a878b82d9"
+        }
+      },
+      "completed_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s42-t50m-c512-v16k-6a6c93d3/completed.json",
+      "config": {
+        "alibi_max_slope_exponent": 3.0,
+        "d_ff": 1024,
+        "d_model": 256,
+        "data_seed": 2026,
+        "dropout": 0.0,
+        "init_scheme": "pythia",
+        "init_seed": 42,
+        "layer_norm_eps": 1e-05,
+        "max_seq_len": 512,
+        "meta": {
+          "data_contract": "data/metadata/training_data_contract.json",
+          "eod_token_id": 1,
+          "manifest_sha256": {
+            "test": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+            "train": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+            "validation": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+          },
+          "milestone": "M2",
+          "seed_policy": "init_seed is a template here; production seeds come from configs/run_matrix.json. data_seed is fixed by M1 and is independent of the model seed.",
+          "selected_tokens": 50062887,
+          "token_budget": 50000000,
+          "tokenizer": "tokenizer/tokenizer.model",
+          "tokenizer_sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+          "training_subset_manifest": "data/manifests/train_50m.parquet",
+          "training_subset_sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48"
+        },
+        "n_head": 8,
+        "n_layer": 6,
+        "pe_type": "sinusoidal",
+        "reset_attention_mask": false,
+        "reset_position_ids": false,
+        "rope_theta": 10000.0,
+        "rotary_pct": 0.25,
+        "sinusoidal_theta": 10000.0,
+        "tie_embeddings": false,
+        "vocab_size": 16000
+      },
+      "data_seed": 2026,
+      "git_commit": "c1912f6e02aeebb4ca800903f55fc3f1c625cd6e",
+      "log_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s42-t50m-c512-v16k-6a6c93d3/logs/matrix_process.log",
+      "metadata_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s42-t50m-c512-v16k-6a6c93d3/metadata.json",
+      "milestones": {
+        "10m": {
+          "actual_tokens": 10027008,
+          "is_final": false,
+          "label": "10m",
+          "nominal_tokens": 10000000,
+          "overshoot_tokens": 27008
+        },
+        "20m": {
+          "actual_tokens": 20054016,
+          "is_final": false,
+          "label": "20m",
+          "nominal_tokens": 20000000,
+          "overshoot_tokens": 54016
+        },
+        "50m": {
+          "actual_tokens": 50000000,
+          "is_final": true,
+          "label": "50m",
+          "nominal_tokens": 50000000,
+          "overshoot_tokens": 0
+        },
+        "5m": {
+          "actual_tokens": 5046272,
+          "is_final": false,
+          "label": "5m",
+          "nominal_tokens": 5000000,
+          "overshoot_tokens": 46272
+        }
+      },
+      "model_seed": 42,
+      "optimizer_steps": 763,
+      "pe_method": "sinusoidal",
+      "precision": "bf16",
+      "run_id": "p31az-sinusoidal-s42-t50m-c512-v16k-6a6c93d3",
+      "sha_10m": "ae9db73cbaf776de54b6e534103b189ba40bfabc66d4b80774ad34ba95137d1f",
+      "sha_20m": "e22ed126b72de174d39c59220439ff8f8ef183a9df62a4b853709dbd7b5ddbfd",
+      "sha_50m": "0fd268a438dfa0bcd670970da11d20233642e8369fd03660d5f4b3d19187c16d",
+      "sha_5m": "5db67014aebc95cd24da73e5ce9c8b00a1f38cf7c5121aa514f66f0a878b82d9",
+      "tokens_seen": 50000000,
+      "training_cache_hash": "3d36d7658c9edaa1101c60d02e27a8342e4e7027b4a0c3fe08b15d46ba186235"
+    },
+    {
+      "checkpoint_10m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s42-t50m-c512-v16k-6bb3c920/checkpoints/milestones/10m_model.pt",
+      "checkpoint_20m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s42-t50m-c512-v16k-6bb3c920/checkpoints/milestones/20m_model.pt",
+      "checkpoint_50m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s42-t50m-c512-v16k-6bb3c920/checkpoints/milestones/50m_model.pt",
+      "checkpoint_5m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s42-t50m-c512-v16k-6bb3c920/checkpoints/milestones/5m_model.pt",
+      "checkpoints": {
+        "10m": {
+          "member": "p31az-rope-s42-t50m-c512-v16k-6bb3c920/10m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_10M.tar",
+          "sha256": "fe215ef9a217d71a21ee0637337ba402d0e590f861e0d2e543752bada6bb47e2"
+        },
+        "20m": {
+          "member": "p31az-rope-s42-t50m-c512-v16k-6bb3c920/20m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_20M.tar",
+          "sha256": "d1e75cefdefd34f1ca58e43473a0d55a146017a250a4f9b1c1099ed261071578"
+        },
+        "50m": {
+          "member": "p31az-rope-s42-t50m-c512-v16k-6bb3c920/50m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_50M.tar",
+          "sha256": "c23da0b829193b91a6b78840a4f68a40517c7f64c7a967f96b9b01f2e91a17f5"
+        },
+        "5m": {
+          "member": "p31az-rope-s42-t50m-c512-v16k-6bb3c920/5m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_5M.tar",
+          "sha256": "31e43d8bc39e43c6726e257f2e88da7d96d1b11f47dee370afe447364b0dbec3"
+        }
+      },
+      "completed_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s42-t50m-c512-v16k-6bb3c920/completed.json",
+      "config": {
+        "alibi_max_slope_exponent": 3.0,
+        "d_ff": 1024,
+        "d_model": 256,
+        "data_seed": 2026,
+        "dropout": 0.0,
+        "init_scheme": "pythia",
+        "init_seed": 42,
+        "layer_norm_eps": 1e-05,
+        "max_seq_len": 512,
+        "meta": {
+          "data_contract": "data/metadata/training_data_contract.json",
+          "eod_token_id": 1,
+          "manifest_sha256": {
+            "test": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+            "train": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+            "validation": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+          },
+          "milestone": "M2",
+          "seed_policy": "init_seed is a template here; production seeds come from configs/run_matrix.json. data_seed is fixed by M1 and is independent of the model seed.",
+          "selected_tokens": 50062887,
+          "token_budget": 50000000,
+          "tokenizer": "tokenizer/tokenizer.model",
+          "tokenizer_sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+          "training_subset_manifest": "data/manifests/train_50m.parquet",
+          "training_subset_sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48"
+        },
+        "n_head": 8,
+        "n_layer": 6,
+        "pe_type": "rope",
+        "reset_attention_mask": false,
+        "reset_position_ids": false,
+        "rope_theta": 10000.0,
+        "rotary_pct": 0.25,
+        "sinusoidal_theta": 10000.0,
+        "tie_embeddings": false,
+        "vocab_size": 16000
+      },
+      "data_seed": 2026,
+      "git_commit": "c1912f6e02aeebb4ca800903f55fc3f1c625cd6e",
+      "log_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s42-t50m-c512-v16k-6bb3c920/logs/matrix_process.log",
+      "metadata_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s42-t50m-c512-v16k-6bb3c920/metadata.json",
+      "milestones": {
+        "10m": {
+          "actual_tokens": 10027008,
+          "is_final": false,
+          "label": "10m",
+          "nominal_tokens": 10000000,
+          "overshoot_tokens": 27008
+        },
+        "20m": {
+          "actual_tokens": 20054016,
+          "is_final": false,
+          "label": "20m",
+          "nominal_tokens": 20000000,
+          "overshoot_tokens": 54016
+        },
+        "50m": {
+          "actual_tokens": 50000000,
+          "is_final": true,
+          "label": "50m",
+          "nominal_tokens": 50000000,
+          "overshoot_tokens": 0
+        },
+        "5m": {
+          "actual_tokens": 5046272,
+          "is_final": false,
+          "label": "5m",
+          "nominal_tokens": 5000000,
+          "overshoot_tokens": 46272
+        }
+      },
+      "model_seed": 42,
+      "optimizer_steps": 763,
+      "pe_method": "rope",
+      "precision": "bf16",
+      "run_id": "p31az-rope-s42-t50m-c512-v16k-6bb3c920",
+      "sha_10m": "fe215ef9a217d71a21ee0637337ba402d0e590f861e0d2e543752bada6bb47e2",
+      "sha_20m": "d1e75cefdefd34f1ca58e43473a0d55a146017a250a4f9b1c1099ed261071578",
+      "sha_50m": "c23da0b829193b91a6b78840a4f68a40517c7f64c7a967f96b9b01f2e91a17f5",
+      "sha_5m": "31e43d8bc39e43c6726e257f2e88da7d96d1b11f47dee370afe447364b0dbec3",
+      "tokens_seen": 50000000,
+      "training_cache_hash": "3d36d7658c9edaa1101c60d02e27a8342e4e7027b4a0c3fe08b15d46ba186235"
+    },
+    {
+      "checkpoint_10m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s42-t50m-c512-v16k-ea486142/checkpoints/milestones/10m_model.pt",
+      "checkpoint_20m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s42-t50m-c512-v16k-ea486142/checkpoints/milestones/20m_model.pt",
+      "checkpoint_50m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s42-t50m-c512-v16k-ea486142/checkpoints/milestones/50m_model.pt",
+      "checkpoint_5m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s42-t50m-c512-v16k-ea486142/checkpoints/milestones/5m_model.pt",
+      "checkpoints": {
+        "10m": {
+          "member": "p31az-alibi-s42-t50m-c512-v16k-ea486142/10m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_10M.tar",
+          "sha256": "bcfa5ff7ce8cc1fc91b8f80cd8ec549e0489b0dd1b7e44dd10a733893874840d"
+        },
+        "20m": {
+          "member": "p31az-alibi-s42-t50m-c512-v16k-ea486142/20m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_20M.tar",
+          "sha256": "9515943ca18b0aa8e341f22a9ac41cee733c4d43e5a23a4ff204b9bc23f3d803"
+        },
+        "50m": {
+          "member": "p31az-alibi-s42-t50m-c512-v16k-ea486142/50m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_50M.tar",
+          "sha256": "5e76a2672f8942c2699f5b2988fbc9e481c6a2bcb97cb7717c9db5b5713328f6"
+        },
+        "5m": {
+          "member": "p31az-alibi-s42-t50m-c512-v16k-ea486142/5m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_5M.tar",
+          "sha256": "402df0395b7c72aba2c17b905771085ee037d1a2effb3a66f567af03f27a60da"
+        }
+      },
+      "completed_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s42-t50m-c512-v16k-ea486142/completed.json",
+      "config": {
+        "alibi_max_slope_exponent": 3.0,
+        "d_ff": 1024,
+        "d_model": 256,
+        "data_seed": 2026,
+        "dropout": 0.0,
+        "init_scheme": "pythia",
+        "init_seed": 42,
+        "layer_norm_eps": 1e-05,
+        "max_seq_len": 512,
+        "meta": {
+          "data_contract": "data/metadata/training_data_contract.json",
+          "eod_token_id": 1,
+          "manifest_sha256": {
+            "test": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+            "train": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+            "validation": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+          },
+          "milestone": "M2",
+          "seed_policy": "init_seed is a template here; production seeds come from configs/run_matrix.json. data_seed is fixed by M1 and is independent of the model seed.",
+          "selected_tokens": 50062887,
+          "token_budget": 50000000,
+          "tokenizer": "tokenizer/tokenizer.model",
+          "tokenizer_sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+          "training_subset_manifest": "data/manifests/train_50m.parquet",
+          "training_subset_sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48"
+        },
+        "n_head": 8,
+        "n_layer": 6,
+        "pe_type": "alibi",
+        "reset_attention_mask": false,
+        "reset_position_ids": false,
+        "rope_theta": 10000.0,
+        "rotary_pct": 0.25,
+        "sinusoidal_theta": 10000.0,
+        "tie_embeddings": false,
+        "vocab_size": 16000
+      },
+      "data_seed": 2026,
+      "git_commit": "c1912f6e02aeebb4ca800903f55fc3f1c625cd6e",
+      "log_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s42-t50m-c512-v16k-ea486142/logs/matrix_process.log",
+      "metadata_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s42-t50m-c512-v16k-ea486142/metadata.json",
+      "milestones": {
+        "10m": {
+          "actual_tokens": 10027008,
+          "is_final": false,
+          "label": "10m",
+          "nominal_tokens": 10000000,
+          "overshoot_tokens": 27008
+        },
+        "20m": {
+          "actual_tokens": 20054016,
+          "is_final": false,
+          "label": "20m",
+          "nominal_tokens": 20000000,
+          "overshoot_tokens": 54016
+        },
+        "50m": {
+          "actual_tokens": 50000000,
+          "is_final": true,
+          "label": "50m",
+          "nominal_tokens": 50000000,
+          "overshoot_tokens": 0
+        },
+        "5m": {
+          "actual_tokens": 5046272,
+          "is_final": false,
+          "label": "5m",
+          "nominal_tokens": 5000000,
+          "overshoot_tokens": 46272
+        }
+      },
+      "model_seed": 42,
+      "optimizer_steps": 763,
+      "pe_method": "alibi",
+      "precision": "bf16",
+      "run_id": "p31az-alibi-s42-t50m-c512-v16k-ea486142",
+      "sha_10m": "bcfa5ff7ce8cc1fc91b8f80cd8ec549e0489b0dd1b7e44dd10a733893874840d",
+      "sha_20m": "9515943ca18b0aa8e341f22a9ac41cee733c4d43e5a23a4ff204b9bc23f3d803",
+      "sha_50m": "5e76a2672f8942c2699f5b2988fbc9e481c6a2bcb97cb7717c9db5b5713328f6",
+      "sha_5m": "402df0395b7c72aba2c17b905771085ee037d1a2effb3a66f567af03f27a60da",
+      "tokens_seen": 50000000,
+      "training_cache_hash": "3d36d7658c9edaa1101c60d02e27a8342e4e7027b4a0c3fe08b15d46ba186235"
+    },
+    {
+      "checkpoint_10m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s42-t50m-c512-v16k-2b4da78b/checkpoints/milestones/10m_model.pt",
+      "checkpoint_20m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s42-t50m-c512-v16k-2b4da78b/checkpoints/milestones/20m_model.pt",
+      "checkpoint_50m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s42-t50m-c512-v16k-2b4da78b/checkpoints/milestones/50m_model.pt",
+      "checkpoint_5m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s42-t50m-c512-v16k-2b4da78b/checkpoints/milestones/5m_model.pt",
+      "checkpoints": {
+        "10m": {
+          "member": "p31az-nope-s42-t50m-c512-v16k-2b4da78b/10m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_10M.tar",
+          "sha256": "2b8fae08c40bb3c78b464cbebca5087be389ee6e45fecd69908357535e62e447"
+        },
+        "20m": {
+          "member": "p31az-nope-s42-t50m-c512-v16k-2b4da78b/20m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_20M.tar",
+          "sha256": "2b5625695c514fb2e63c71651286a00f0dd1aa5693ef98cdf365d6da9c9ca768"
+        },
+        "50m": {
+          "member": "p31az-nope-s42-t50m-c512-v16k-2b4da78b/50m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_50M.tar",
+          "sha256": "5300687ed31e1e26c00acccbcdf562f09c753e737c47092f98607744a7132840"
+        },
+        "5m": {
+          "member": "p31az-nope-s42-t50m-c512-v16k-2b4da78b/5m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_5M.tar",
+          "sha256": "85b7d1310e13069d28990b1e1ab86e953e64b28f58db61b8710f9162aecbef68"
+        }
+      },
+      "completed_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s42-t50m-c512-v16k-2b4da78b/completed.json",
+      "config": {
+        "alibi_max_slope_exponent": 3.0,
+        "d_ff": 1024,
+        "d_model": 256,
+        "data_seed": 2026,
+        "dropout": 0.0,
+        "init_scheme": "pythia",
+        "init_seed": 42,
+        "layer_norm_eps": 1e-05,
+        "max_seq_len": 512,
+        "meta": {
+          "data_contract": "data/metadata/training_data_contract.json",
+          "eod_token_id": 1,
+          "manifest_sha256": {
+            "test": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+            "train": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+            "validation": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+          },
+          "milestone": "M2",
+          "seed_policy": "init_seed is a template here; production seeds come from configs/run_matrix.json. data_seed is fixed by M1 and is independent of the model seed.",
+          "selected_tokens": 50062887,
+          "token_budget": 50000000,
+          "tokenizer": "tokenizer/tokenizer.model",
+          "tokenizer_sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+          "training_subset_manifest": "data/manifests/train_50m.parquet",
+          "training_subset_sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48"
+        },
+        "n_head": 8,
+        "n_layer": 6,
+        "pe_type": "nope",
+        "reset_attention_mask": false,
+        "reset_position_ids": false,
+        "rope_theta": 10000.0,
+        "rotary_pct": 0.25,
+        "sinusoidal_theta": 10000.0,
+        "tie_embeddings": false,
+        "vocab_size": 16000
+      },
+      "data_seed": 2026,
+      "git_commit": "c1912f6e02aeebb4ca800903f55fc3f1c625cd6e",
+      "log_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s42-t50m-c512-v16k-2b4da78b/logs/matrix_process.log",
+      "metadata_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s42-t50m-c512-v16k-2b4da78b/metadata.json",
+      "milestones": {
+        "10m": {
+          "actual_tokens": 10027008,
+          "is_final": false,
+          "label": "10m",
+          "nominal_tokens": 10000000,
+          "overshoot_tokens": 27008
+        },
+        "20m": {
+          "actual_tokens": 20054016,
+          "is_final": false,
+          "label": "20m",
+          "nominal_tokens": 20000000,
+          "overshoot_tokens": 54016
+        },
+        "50m": {
+          "actual_tokens": 50000000,
+          "is_final": true,
+          "label": "50m",
+          "nominal_tokens": 50000000,
+          "overshoot_tokens": 0
+        },
+        "5m": {
+          "actual_tokens": 5046272,
+          "is_final": false,
+          "label": "5m",
+          "nominal_tokens": 5000000,
+          "overshoot_tokens": 46272
+        }
+      },
+      "model_seed": 42,
+      "optimizer_steps": 763,
+      "pe_method": "nope",
+      "precision": "bf16",
+      "run_id": "p31az-nope-s42-t50m-c512-v16k-2b4da78b",
+      "sha_10m": "2b8fae08c40bb3c78b464cbebca5087be389ee6e45fecd69908357535e62e447",
+      "sha_20m": "2b5625695c514fb2e63c71651286a00f0dd1aa5693ef98cdf365d6da9c9ca768",
+      "sha_50m": "5300687ed31e1e26c00acccbcdf562f09c753e737c47092f98607744a7132840",
+      "sha_5m": "85b7d1310e13069d28990b1e1ab86e953e64b28f58db61b8710f9162aecbef68",
+      "tokens_seen": 50000000,
+      "training_cache_hash": "3d36d7658c9edaa1101c60d02e27a8342e4e7027b4a0c3fe08b15d46ba186235"
+    },
+    {
+      "checkpoint_10m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s1234-t50m-c512-v16k-1cfd2782/checkpoints/milestones/10m_model.pt",
+      "checkpoint_20m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s1234-t50m-c512-v16k-1cfd2782/checkpoints/milestones/20m_model.pt",
+      "checkpoint_50m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s1234-t50m-c512-v16k-1cfd2782/checkpoints/milestones/50m_model.pt",
+      "checkpoint_5m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s1234-t50m-c512-v16k-1cfd2782/checkpoints/milestones/5m_model.pt",
+      "checkpoints": {
+        "10m": {
+          "member": "p31az-learned-s1234-t50m-c512-v16k-1cfd2782/10m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_10M.tar",
+          "sha256": "4ed1ae82f04a001683bacdcb16cb5ee32c16968eaf7b3f1c3fad8ef6417fbe39"
+        },
+        "20m": {
+          "member": "p31az-learned-s1234-t50m-c512-v16k-1cfd2782/20m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_20M.tar",
+          "sha256": "e0b512de83dda111bccb98e9bfcb1b072959ed2cb1c3ca79f65175094a4d550d"
+        },
+        "50m": {
+          "member": "p31az-learned-s1234-t50m-c512-v16k-1cfd2782/50m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_50M.tar",
+          "sha256": "e526543041d36510a04e3e1a3f3ba177d9fc62a734197085d4e645b48c5bf2d3"
+        },
+        "5m": {
+          "member": "p31az-learned-s1234-t50m-c512-v16k-1cfd2782/5m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_5M.tar",
+          "sha256": "cb97872ba2da0672774db70d11284942bd2819c5161d72be4a2e12ed0eae0968"
+        }
+      },
+      "completed_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s1234-t50m-c512-v16k-1cfd2782/completed.json",
+      "config": {
+        "alibi_max_slope_exponent": 3.0,
+        "d_ff": 1024,
+        "d_model": 256,
+        "data_seed": 2026,
+        "dropout": 0.0,
+        "init_scheme": "pythia",
+        "init_seed": 1234,
+        "layer_norm_eps": 1e-05,
+        "max_seq_len": 512,
+        "meta": {
+          "data_contract": "data/metadata/training_data_contract.json",
+          "eod_token_id": 1,
+          "manifest_sha256": {
+            "test": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+            "train": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+            "validation": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+          },
+          "milestone": "M2",
+          "seed_policy": "init_seed is a template here; production seeds come from configs/run_matrix.json. data_seed is fixed by M1 and is independent of the model seed.",
+          "selected_tokens": 50062887,
+          "token_budget": 50000000,
+          "tokenizer": "tokenizer/tokenizer.model",
+          "tokenizer_sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+          "training_subset_manifest": "data/manifests/train_50m.parquet",
+          "training_subset_sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48"
+        },
+        "n_head": 8,
+        "n_layer": 6,
+        "pe_type": "learned",
+        "reset_attention_mask": false,
+        "reset_position_ids": false,
+        "rope_theta": 10000.0,
+        "rotary_pct": 0.25,
+        "sinusoidal_theta": 10000.0,
+        "tie_embeddings": false,
+        "vocab_size": 16000
+      },
+      "data_seed": 2026,
+      "git_commit": "c1912f6e02aeebb4ca800903f55fc3f1c625cd6e",
+      "log_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s1234-t50m-c512-v16k-1cfd2782/logs/matrix_process.log",
+      "metadata_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s1234-t50m-c512-v16k-1cfd2782/metadata.json",
+      "milestones": {
+        "10m": {
+          "actual_tokens": 10027008,
+          "is_final": false,
+          "label": "10m",
+          "nominal_tokens": 10000000,
+          "overshoot_tokens": 27008
+        },
+        "20m": {
+          "actual_tokens": 20054016,
+          "is_final": false,
+          "label": "20m",
+          "nominal_tokens": 20000000,
+          "overshoot_tokens": 54016
+        },
+        "50m": {
+          "actual_tokens": 50000000,
+          "is_final": true,
+          "label": "50m",
+          "nominal_tokens": 50000000,
+          "overshoot_tokens": 0
+        },
+        "5m": {
+          "actual_tokens": 5046272,
+          "is_final": false,
+          "label": "5m",
+          "nominal_tokens": 5000000,
+          "overshoot_tokens": 46272
+        }
+      },
+      "model_seed": 1234,
+      "optimizer_steps": 763,
+      "pe_method": "learned",
+      "precision": "bf16",
+      "run_id": "p31az-learned-s1234-t50m-c512-v16k-1cfd2782",
+      "sha_10m": "4ed1ae82f04a001683bacdcb16cb5ee32c16968eaf7b3f1c3fad8ef6417fbe39",
+      "sha_20m": "e0b512de83dda111bccb98e9bfcb1b072959ed2cb1c3ca79f65175094a4d550d",
+      "sha_50m": "e526543041d36510a04e3e1a3f3ba177d9fc62a734197085d4e645b48c5bf2d3",
+      "sha_5m": "cb97872ba2da0672774db70d11284942bd2819c5161d72be4a2e12ed0eae0968",
+      "tokens_seen": 50000000,
+      "training_cache_hash": "3d36d7658c9edaa1101c60d02e27a8342e4e7027b4a0c3fe08b15d46ba186235"
+    },
+    {
+      "checkpoint_10m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s1234-t50m-c512-v16k-07760535/checkpoints/milestones/10m_model.pt",
+      "checkpoint_20m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s1234-t50m-c512-v16k-07760535/checkpoints/milestones/20m_model.pt",
+      "checkpoint_50m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s1234-t50m-c512-v16k-07760535/checkpoints/milestones/50m_model.pt",
+      "checkpoint_5m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s1234-t50m-c512-v16k-07760535/checkpoints/milestones/5m_model.pt",
+      "checkpoints": {
+        "10m": {
+          "member": "p31az-sinusoidal-s1234-t50m-c512-v16k-07760535/10m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_10M.tar",
+          "sha256": "38a2ba4e3a82f1f3c7d64b286e2c45485ae6d8ce6ac3d8567be21c66512c82c4"
+        },
+        "20m": {
+          "member": "p31az-sinusoidal-s1234-t50m-c512-v16k-07760535/20m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_20M.tar",
+          "sha256": "8978ea592b156e8a75e35020057266c64cce1e1933659efc7e038ddd4e1319d5"
+        },
+        "50m": {
+          "member": "p31az-sinusoidal-s1234-t50m-c512-v16k-07760535/50m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_50M.tar",
+          "sha256": "0bdcca191da3a067ba31436cc7e09c18c2e4403375c821df225e49862e2b14cb"
+        },
+        "5m": {
+          "member": "p31az-sinusoidal-s1234-t50m-c512-v16k-07760535/5m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_5M.tar",
+          "sha256": "38b45b7ea21e6fa324331a2d3fa2b0e9accacfbbff92354d49371287b94bcc08"
+        }
+      },
+      "completed_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s1234-t50m-c512-v16k-07760535/completed.json",
+      "config": {
+        "alibi_max_slope_exponent": 3.0,
+        "d_ff": 1024,
+        "d_model": 256,
+        "data_seed": 2026,
+        "dropout": 0.0,
+        "init_scheme": "pythia",
+        "init_seed": 1234,
+        "layer_norm_eps": 1e-05,
+        "max_seq_len": 512,
+        "meta": {
+          "data_contract": "data/metadata/training_data_contract.json",
+          "eod_token_id": 1,
+          "manifest_sha256": {
+            "test": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+            "train": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+            "validation": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+          },
+          "milestone": "M2",
+          "seed_policy": "init_seed is a template here; production seeds come from configs/run_matrix.json. data_seed is fixed by M1 and is independent of the model seed.",
+          "selected_tokens": 50062887,
+          "token_budget": 50000000,
+          "tokenizer": "tokenizer/tokenizer.model",
+          "tokenizer_sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+          "training_subset_manifest": "data/manifests/train_50m.parquet",
+          "training_subset_sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48"
+        },
+        "n_head": 8,
+        "n_layer": 6,
+        "pe_type": "sinusoidal",
+        "reset_attention_mask": false,
+        "reset_position_ids": false,
+        "rope_theta": 10000.0,
+        "rotary_pct": 0.25,
+        "sinusoidal_theta": 10000.0,
+        "tie_embeddings": false,
+        "vocab_size": 16000
+      },
+      "data_seed": 2026,
+      "git_commit": "c1912f6e02aeebb4ca800903f55fc3f1c625cd6e",
+      "log_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s1234-t50m-c512-v16k-07760535/logs/matrix_process.log",
+      "metadata_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s1234-t50m-c512-v16k-07760535/metadata.json",
+      "milestones": {
+        "10m": {
+          "actual_tokens": 10027008,
+          "is_final": false,
+          "label": "10m",
+          "nominal_tokens": 10000000,
+          "overshoot_tokens": 27008
+        },
+        "20m": {
+          "actual_tokens": 20054016,
+          "is_final": false,
+          "label": "20m",
+          "nominal_tokens": 20000000,
+          "overshoot_tokens": 54016
+        },
+        "50m": {
+          "actual_tokens": 50000000,
+          "is_final": true,
+          "label": "50m",
+          "nominal_tokens": 50000000,
+          "overshoot_tokens": 0
+        },
+        "5m": {
+          "actual_tokens": 5046272,
+          "is_final": false,
+          "label": "5m",
+          "nominal_tokens": 5000000,
+          "overshoot_tokens": 46272
+        }
+      },
+      "model_seed": 1234,
+      "optimizer_steps": 763,
+      "pe_method": "sinusoidal",
+      "precision": "bf16",
+      "run_id": "p31az-sinusoidal-s1234-t50m-c512-v16k-07760535",
+      "sha_10m": "38a2ba4e3a82f1f3c7d64b286e2c45485ae6d8ce6ac3d8567be21c66512c82c4",
+      "sha_20m": "8978ea592b156e8a75e35020057266c64cce1e1933659efc7e038ddd4e1319d5",
+      "sha_50m": "0bdcca191da3a067ba31436cc7e09c18c2e4403375c821df225e49862e2b14cb",
+      "sha_5m": "38b45b7ea21e6fa324331a2d3fa2b0e9accacfbbff92354d49371287b94bcc08",
+      "tokens_seen": 50000000,
+      "training_cache_hash": "3d36d7658c9edaa1101c60d02e27a8342e4e7027b4a0c3fe08b15d46ba186235"
+    },
+    {
+      "checkpoint_10m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s1234-t50m-c512-v16k-510667c7/checkpoints/milestones/10m_model.pt",
+      "checkpoint_20m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s1234-t50m-c512-v16k-510667c7/checkpoints/milestones/20m_model.pt",
+      "checkpoint_50m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s1234-t50m-c512-v16k-510667c7/checkpoints/milestones/50m_model.pt",
+      "checkpoint_5m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s1234-t50m-c512-v16k-510667c7/checkpoints/milestones/5m_model.pt",
+      "checkpoints": {
+        "10m": {
+          "member": "p31az-rope-s1234-t50m-c512-v16k-510667c7/10m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_10M.tar",
+          "sha256": "e0e6e5021a56b5e4150dbe2a3d4cea8b96c9dd9bcf30f19e3e36cab23006dac4"
+        },
+        "20m": {
+          "member": "p31az-rope-s1234-t50m-c512-v16k-510667c7/20m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_20M.tar",
+          "sha256": "8905865584b6b913bcdeee4395c711c925fd48042f26e15b3764214cc9ea3eb9"
+        },
+        "50m": {
+          "member": "p31az-rope-s1234-t50m-c512-v16k-510667c7/50m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_50M.tar",
+          "sha256": "affd4df06cf393e0cccebdad8f036298ed9e0ae83a3e41f2dc4b23a2405097a9"
+        },
+        "5m": {
+          "member": "p31az-rope-s1234-t50m-c512-v16k-510667c7/5m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_5M.tar",
+          "sha256": "afde6e33063fa148172b893f9ac187fe32e91219a32178a58332473f673e1ba7"
+        }
+      },
+      "completed_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s1234-t50m-c512-v16k-510667c7/completed.json",
+      "config": {
+        "alibi_max_slope_exponent": 3.0,
+        "d_ff": 1024,
+        "d_model": 256,
+        "data_seed": 2026,
+        "dropout": 0.0,
+        "init_scheme": "pythia",
+        "init_seed": 1234,
+        "layer_norm_eps": 1e-05,
+        "max_seq_len": 512,
+        "meta": {
+          "data_contract": "data/metadata/training_data_contract.json",
+          "eod_token_id": 1,
+          "manifest_sha256": {
+            "test": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+            "train": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+            "validation": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+          },
+          "milestone": "M2",
+          "seed_policy": "init_seed is a template here; production seeds come from configs/run_matrix.json. data_seed is fixed by M1 and is independent of the model seed.",
+          "selected_tokens": 50062887,
+          "token_budget": 50000000,
+          "tokenizer": "tokenizer/tokenizer.model",
+          "tokenizer_sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+          "training_subset_manifest": "data/manifests/train_50m.parquet",
+          "training_subset_sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48"
+        },
+        "n_head": 8,
+        "n_layer": 6,
+        "pe_type": "rope",
+        "reset_attention_mask": false,
+        "reset_position_ids": false,
+        "rope_theta": 10000.0,
+        "rotary_pct": 0.25,
+        "sinusoidal_theta": 10000.0,
+        "tie_embeddings": false,
+        "vocab_size": 16000
+      },
+      "data_seed": 2026,
+      "git_commit": "c1912f6e02aeebb4ca800903f55fc3f1c625cd6e",
+      "log_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s1234-t50m-c512-v16k-510667c7/logs/matrix_process.log",
+      "metadata_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s1234-t50m-c512-v16k-510667c7/metadata.json",
+      "milestones": {
+        "10m": {
+          "actual_tokens": 10027008,
+          "is_final": false,
+          "label": "10m",
+          "nominal_tokens": 10000000,
+          "overshoot_tokens": 27008
+        },
+        "20m": {
+          "actual_tokens": 20054016,
+          "is_final": false,
+          "label": "20m",
+          "nominal_tokens": 20000000,
+          "overshoot_tokens": 54016
+        },
+        "50m": {
+          "actual_tokens": 50000000,
+          "is_final": true,
+          "label": "50m",
+          "nominal_tokens": 50000000,
+          "overshoot_tokens": 0
+        },
+        "5m": {
+          "actual_tokens": 5046272,
+          "is_final": false,
+          "label": "5m",
+          "nominal_tokens": 5000000,
+          "overshoot_tokens": 46272
+        }
+      },
+      "model_seed": 1234,
+      "optimizer_steps": 763,
+      "pe_method": "rope",
+      "precision": "bf16",
+      "run_id": "p31az-rope-s1234-t50m-c512-v16k-510667c7",
+      "sha_10m": "e0e6e5021a56b5e4150dbe2a3d4cea8b96c9dd9bcf30f19e3e36cab23006dac4",
+      "sha_20m": "8905865584b6b913bcdeee4395c711c925fd48042f26e15b3764214cc9ea3eb9",
+      "sha_50m": "affd4df06cf393e0cccebdad8f036298ed9e0ae83a3e41f2dc4b23a2405097a9",
+      "sha_5m": "afde6e33063fa148172b893f9ac187fe32e91219a32178a58332473f673e1ba7",
+      "tokens_seen": 50000000,
+      "training_cache_hash": "3d36d7658c9edaa1101c60d02e27a8342e4e7027b4a0c3fe08b15d46ba186235"
+    },
+    {
+      "checkpoint_10m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s1234-t50m-c512-v16k-1e03c08c/checkpoints/milestones/10m_model.pt",
+      "checkpoint_20m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s1234-t50m-c512-v16k-1e03c08c/checkpoints/milestones/20m_model.pt",
+      "checkpoint_50m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s1234-t50m-c512-v16k-1e03c08c/checkpoints/milestones/50m_model.pt",
+      "checkpoint_5m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s1234-t50m-c512-v16k-1e03c08c/checkpoints/milestones/5m_model.pt",
+      "checkpoints": {
+        "10m": {
+          "member": "p31az-alibi-s1234-t50m-c512-v16k-1e03c08c/10m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_10M.tar",
+          "sha256": "b39dba9bdfbf5513ec88d35469485df4428c67bf6f8046034853423f3a791832"
+        },
+        "20m": {
+          "member": "p31az-alibi-s1234-t50m-c512-v16k-1e03c08c/20m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_20M.tar",
+          "sha256": "d7efb78bccb07a292fa34ae6211a8a49e6ad7d36ce740ab78b51f483d1ad2d84"
+        },
+        "50m": {
+          "member": "p31az-alibi-s1234-t50m-c512-v16k-1e03c08c/50m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_50M.tar",
+          "sha256": "3cd95a60dcc15bf29934dca91986599521563b96df41fcd2581d6b6e2e0f60b1"
+        },
+        "5m": {
+          "member": "p31az-alibi-s1234-t50m-c512-v16k-1e03c08c/5m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_5M.tar",
+          "sha256": "2adf462b8e6d9166089425de84861fb2c8d978234f5cb31335480c35017d41b1"
+        }
+      },
+      "completed_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s1234-t50m-c512-v16k-1e03c08c/completed.json",
+      "config": {
+        "alibi_max_slope_exponent": 3.0,
+        "d_ff": 1024,
+        "d_model": 256,
+        "data_seed": 2026,
+        "dropout": 0.0,
+        "init_scheme": "pythia",
+        "init_seed": 1234,
+        "layer_norm_eps": 1e-05,
+        "max_seq_len": 512,
+        "meta": {
+          "data_contract": "data/metadata/training_data_contract.json",
+          "eod_token_id": 1,
+          "manifest_sha256": {
+            "test": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+            "train": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+            "validation": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+          },
+          "milestone": "M2",
+          "seed_policy": "init_seed is a template here; production seeds come from configs/run_matrix.json. data_seed is fixed by M1 and is independent of the model seed.",
+          "selected_tokens": 50062887,
+          "token_budget": 50000000,
+          "tokenizer": "tokenizer/tokenizer.model",
+          "tokenizer_sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+          "training_subset_manifest": "data/manifests/train_50m.parquet",
+          "training_subset_sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48"
+        },
+        "n_head": 8,
+        "n_layer": 6,
+        "pe_type": "alibi",
+        "reset_attention_mask": false,
+        "reset_position_ids": false,
+        "rope_theta": 10000.0,
+        "rotary_pct": 0.25,
+        "sinusoidal_theta": 10000.0,
+        "tie_embeddings": false,
+        "vocab_size": 16000
+      },
+      "data_seed": 2026,
+      "git_commit": "c1912f6e02aeebb4ca800903f55fc3f1c625cd6e",
+      "log_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s1234-t50m-c512-v16k-1e03c08c/logs/matrix_process.log",
+      "metadata_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s1234-t50m-c512-v16k-1e03c08c/metadata.json",
+      "milestones": {
+        "10m": {
+          "actual_tokens": 10027008,
+          "is_final": false,
+          "label": "10m",
+          "nominal_tokens": 10000000,
+          "overshoot_tokens": 27008
+        },
+        "20m": {
+          "actual_tokens": 20054016,
+          "is_final": false,
+          "label": "20m",
+          "nominal_tokens": 20000000,
+          "overshoot_tokens": 54016
+        },
+        "50m": {
+          "actual_tokens": 50000000,
+          "is_final": true,
+          "label": "50m",
+          "nominal_tokens": 50000000,
+          "overshoot_tokens": 0
+        },
+        "5m": {
+          "actual_tokens": 5046272,
+          "is_final": false,
+          "label": "5m",
+          "nominal_tokens": 5000000,
+          "overshoot_tokens": 46272
+        }
+      },
+      "model_seed": 1234,
+      "optimizer_steps": 763,
+      "pe_method": "alibi",
+      "precision": "bf16",
+      "run_id": "p31az-alibi-s1234-t50m-c512-v16k-1e03c08c",
+      "sha_10m": "b39dba9bdfbf5513ec88d35469485df4428c67bf6f8046034853423f3a791832",
+      "sha_20m": "d7efb78bccb07a292fa34ae6211a8a49e6ad7d36ce740ab78b51f483d1ad2d84",
+      "sha_50m": "3cd95a60dcc15bf29934dca91986599521563b96df41fcd2581d6b6e2e0f60b1",
+      "sha_5m": "2adf462b8e6d9166089425de84861fb2c8d978234f5cb31335480c35017d41b1",
+      "tokens_seen": 50000000,
+      "training_cache_hash": "3d36d7658c9edaa1101c60d02e27a8342e4e7027b4a0c3fe08b15d46ba186235"
+    },
+    {
+      "checkpoint_10m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s1234-t50m-c512-v16k-410b4031/checkpoints/milestones/10m_model.pt",
+      "checkpoint_20m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s1234-t50m-c512-v16k-410b4031/checkpoints/milestones/20m_model.pt",
+      "checkpoint_50m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s1234-t50m-c512-v16k-410b4031/checkpoints/milestones/50m_model.pt",
+      "checkpoint_5m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s1234-t50m-c512-v16k-410b4031/checkpoints/milestones/5m_model.pt",
+      "checkpoints": {
+        "10m": {
+          "member": "p31az-nope-s1234-t50m-c512-v16k-410b4031/10m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_10M.tar",
+          "sha256": "25d25fd87d9afa690caca823bebf0d6276ec484f14d3bc31d5ddd4f01dfd28da"
+        },
+        "20m": {
+          "member": "p31az-nope-s1234-t50m-c512-v16k-410b4031/20m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_20M.tar",
+          "sha256": "f17644ec78fc2ba4dbb1b040be81f80f69af3304dd298fc459e5aa0ee98d5431"
+        },
+        "50m": {
+          "member": "p31az-nope-s1234-t50m-c512-v16k-410b4031/50m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_50M.tar",
+          "sha256": "8c228f1bcd42c9bf3e6ac8f751dbc8459b2c7a76226d1fbdf49787ec95dfee9c"
+        },
+        "5m": {
+          "member": "p31az-nope-s1234-t50m-c512-v16k-410b4031/5m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_5M.tar",
+          "sha256": "31c71ea426adb6e8ecdffd19831b177b39d65114a430b949df2ef16df24dbb08"
+        }
+      },
+      "completed_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s1234-t50m-c512-v16k-410b4031/completed.json",
+      "config": {
+        "alibi_max_slope_exponent": 3.0,
+        "d_ff": 1024,
+        "d_model": 256,
+        "data_seed": 2026,
+        "dropout": 0.0,
+        "init_scheme": "pythia",
+        "init_seed": 1234,
+        "layer_norm_eps": 1e-05,
+        "max_seq_len": 512,
+        "meta": {
+          "data_contract": "data/metadata/training_data_contract.json",
+          "eod_token_id": 1,
+          "manifest_sha256": {
+            "test": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+            "train": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+            "validation": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+          },
+          "milestone": "M2",
+          "seed_policy": "init_seed is a template here; production seeds come from configs/run_matrix.json. data_seed is fixed by M1 and is independent of the model seed.",
+          "selected_tokens": 50062887,
+          "token_budget": 50000000,
+          "tokenizer": "tokenizer/tokenizer.model",
+          "tokenizer_sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+          "training_subset_manifest": "data/manifests/train_50m.parquet",
+          "training_subset_sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48"
+        },
+        "n_head": 8,
+        "n_layer": 6,
+        "pe_type": "nope",
+        "reset_attention_mask": false,
+        "reset_position_ids": false,
+        "rope_theta": 10000.0,
+        "rotary_pct": 0.25,
+        "sinusoidal_theta": 10000.0,
+        "tie_embeddings": false,
+        "vocab_size": 16000
+      },
+      "data_seed": 2026,
+      "git_commit": "c1912f6e02aeebb4ca800903f55fc3f1c625cd6e",
+      "log_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s1234-t50m-c512-v16k-410b4031/logs/matrix_process.log",
+      "metadata_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s1234-t50m-c512-v16k-410b4031/metadata.json",
+      "milestones": {
+        "10m": {
+          "actual_tokens": 10027008,
+          "is_final": false,
+          "label": "10m",
+          "nominal_tokens": 10000000,
+          "overshoot_tokens": 27008
+        },
+        "20m": {
+          "actual_tokens": 20054016,
+          "is_final": false,
+          "label": "20m",
+          "nominal_tokens": 20000000,
+          "overshoot_tokens": 54016
+        },
+        "50m": {
+          "actual_tokens": 50000000,
+          "is_final": true,
+          "label": "50m",
+          "nominal_tokens": 50000000,
+          "overshoot_tokens": 0
+        },
+        "5m": {
+          "actual_tokens": 5046272,
+          "is_final": false,
+          "label": "5m",
+          "nominal_tokens": 5000000,
+          "overshoot_tokens": 46272
+        }
+      },
+      "model_seed": 1234,
+      "optimizer_steps": 763,
+      "pe_method": "nope",
+      "precision": "bf16",
+      "run_id": "p31az-nope-s1234-t50m-c512-v16k-410b4031",
+      "sha_10m": "25d25fd87d9afa690caca823bebf0d6276ec484f14d3bc31d5ddd4f01dfd28da",
+      "sha_20m": "f17644ec78fc2ba4dbb1b040be81f80f69af3304dd298fc459e5aa0ee98d5431",
+      "sha_50m": "8c228f1bcd42c9bf3e6ac8f751dbc8459b2c7a76226d1fbdf49787ec95dfee9c",
+      "sha_5m": "31c71ea426adb6e8ecdffd19831b177b39d65114a430b949df2ef16df24dbb08",
+      "tokens_seen": 50000000,
+      "training_cache_hash": "3d36d7658c9edaa1101c60d02e27a8342e4e7027b4a0c3fe08b15d46ba186235"
+    },
+    {
+      "checkpoint_10m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s2027-t50m-c512-v16k-52a357fe/checkpoints/milestones/10m_model.pt",
+      "checkpoint_20m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s2027-t50m-c512-v16k-52a357fe/checkpoints/milestones/20m_model.pt",
+      "checkpoint_50m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s2027-t50m-c512-v16k-52a357fe/checkpoints/milestones/50m_model.pt",
+      "checkpoint_5m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s2027-t50m-c512-v16k-52a357fe/checkpoints/milestones/5m_model.pt",
+      "checkpoints": {
+        "10m": {
+          "member": "p31az-learned-s2027-t50m-c512-v16k-52a357fe/10m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_10M.tar",
+          "sha256": "69f9ba1fd98777abbee4e5a176462c67e748164a07ad3072fce37838deb23a0d"
+        },
+        "20m": {
+          "member": "p31az-learned-s2027-t50m-c512-v16k-52a357fe/20m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_20M.tar",
+          "sha256": "dd0c4d9ecc4f3a50317fc968cd8ff472c4f1f0a2c12db6adbab56765ca1a0e7a"
+        },
+        "50m": {
+          "member": "p31az-learned-s2027-t50m-c512-v16k-52a357fe/50m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_50M.tar",
+          "sha256": "b6d95a02bd2266550c94a80548ed447179a9800c9f8806d96d79592d7e0322b7"
+        },
+        "5m": {
+          "member": "p31az-learned-s2027-t50m-c512-v16k-52a357fe/5m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_5M.tar",
+          "sha256": "01f6b4ca1d2aae94ef0ddb9beb66a8006c10f3990e688913014b9d3213b98780"
+        }
+      },
+      "completed_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s2027-t50m-c512-v16k-52a357fe/completed.json",
+      "config": {
+        "alibi_max_slope_exponent": 3.0,
+        "d_ff": 1024,
+        "d_model": 256,
+        "data_seed": 2026,
+        "dropout": 0.0,
+        "init_scheme": "pythia",
+        "init_seed": 2027,
+        "layer_norm_eps": 1e-05,
+        "max_seq_len": 512,
+        "meta": {
+          "data_contract": "data/metadata/training_data_contract.json",
+          "eod_token_id": 1,
+          "manifest_sha256": {
+            "test": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+            "train": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+            "validation": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+          },
+          "milestone": "M2",
+          "seed_policy": "init_seed is a template here; production seeds come from configs/run_matrix.json. data_seed is fixed by M1 and is independent of the model seed.",
+          "selected_tokens": 50062887,
+          "token_budget": 50000000,
+          "tokenizer": "tokenizer/tokenizer.model",
+          "tokenizer_sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+          "training_subset_manifest": "data/manifests/train_50m.parquet",
+          "training_subset_sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48"
+        },
+        "n_head": 8,
+        "n_layer": 6,
+        "pe_type": "learned",
+        "reset_attention_mask": false,
+        "reset_position_ids": false,
+        "rope_theta": 10000.0,
+        "rotary_pct": 0.25,
+        "sinusoidal_theta": 10000.0,
+        "tie_embeddings": false,
+        "vocab_size": 16000
+      },
+      "data_seed": 2026,
+      "git_commit": "c1912f6e02aeebb4ca800903f55fc3f1c625cd6e",
+      "log_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s2027-t50m-c512-v16k-52a357fe/logs/matrix_process.log",
+      "metadata_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s2027-t50m-c512-v16k-52a357fe/metadata.json",
+      "milestones": {
+        "10m": {
+          "actual_tokens": 10027008,
+          "is_final": false,
+          "label": "10m",
+          "nominal_tokens": 10000000,
+          "overshoot_tokens": 27008
+        },
+        "20m": {
+          "actual_tokens": 20054016,
+          "is_final": false,
+          "label": "20m",
+          "nominal_tokens": 20000000,
+          "overshoot_tokens": 54016
+        },
+        "50m": {
+          "actual_tokens": 50000000,
+          "is_final": true,
+          "label": "50m",
+          "nominal_tokens": 50000000,
+          "overshoot_tokens": 0
+        },
+        "5m": {
+          "actual_tokens": 5046272,
+          "is_final": false,
+          "label": "5m",
+          "nominal_tokens": 5000000,
+          "overshoot_tokens": 46272
+        }
+      },
+      "model_seed": 2027,
+      "optimizer_steps": 763,
+      "pe_method": "learned",
+      "precision": "bf16",
+      "run_id": "p31az-learned-s2027-t50m-c512-v16k-52a357fe",
+      "sha_10m": "69f9ba1fd98777abbee4e5a176462c67e748164a07ad3072fce37838deb23a0d",
+      "sha_20m": "dd0c4d9ecc4f3a50317fc968cd8ff472c4f1f0a2c12db6adbab56765ca1a0e7a",
+      "sha_50m": "b6d95a02bd2266550c94a80548ed447179a9800c9f8806d96d79592d7e0322b7",
+      "sha_5m": "01f6b4ca1d2aae94ef0ddb9beb66a8006c10f3990e688913014b9d3213b98780",
+      "tokens_seen": 50000000,
+      "training_cache_hash": "3d36d7658c9edaa1101c60d02e27a8342e4e7027b4a0c3fe08b15d46ba186235"
+    },
+    {
+      "checkpoint_10m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s2027-t50m-c512-v16k-ac61a89d/checkpoints/milestones/10m_model.pt",
+      "checkpoint_20m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s2027-t50m-c512-v16k-ac61a89d/checkpoints/milestones/20m_model.pt",
+      "checkpoint_50m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s2027-t50m-c512-v16k-ac61a89d/checkpoints/milestones/50m_model.pt",
+      "checkpoint_5m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s2027-t50m-c512-v16k-ac61a89d/checkpoints/milestones/5m_model.pt",
+      "checkpoints": {
+        "10m": {
+          "member": "p31az-sinusoidal-s2027-t50m-c512-v16k-ac61a89d/10m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_10M.tar",
+          "sha256": "203e251ac6f53453bb9617895a6622d85edbecb4f8a5a66912a3d73c3a4b1bdf"
+        },
+        "20m": {
+          "member": "p31az-sinusoidal-s2027-t50m-c512-v16k-ac61a89d/20m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_20M.tar",
+          "sha256": "180837227a53770ffb1f0f29a8ef6ed05142555104a36a7e3695dde165426038"
+        },
+        "50m": {
+          "member": "p31az-sinusoidal-s2027-t50m-c512-v16k-ac61a89d/50m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_50M.tar",
+          "sha256": "fa27f93a52b3ff9c7e0ee11a929ed4de16a203728f8a6de1c6eba35928f307ac"
+        },
+        "5m": {
+          "member": "p31az-sinusoidal-s2027-t50m-c512-v16k-ac61a89d/5m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_5M.tar",
+          "sha256": "fcde9b2a31bfe5e0a3ce611264d7e9d66fb99a5c8ff3543cdac9c3acb0d9a42d"
+        }
+      },
+      "completed_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s2027-t50m-c512-v16k-ac61a89d/completed.json",
+      "config": {
+        "alibi_max_slope_exponent": 3.0,
+        "d_ff": 1024,
+        "d_model": 256,
+        "data_seed": 2026,
+        "dropout": 0.0,
+        "init_scheme": "pythia",
+        "init_seed": 2027,
+        "layer_norm_eps": 1e-05,
+        "max_seq_len": 512,
+        "meta": {
+          "data_contract": "data/metadata/training_data_contract.json",
+          "eod_token_id": 1,
+          "manifest_sha256": {
+            "test": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+            "train": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+            "validation": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+          },
+          "milestone": "M2",
+          "seed_policy": "init_seed is a template here; production seeds come from configs/run_matrix.json. data_seed is fixed by M1 and is independent of the model seed.",
+          "selected_tokens": 50062887,
+          "token_budget": 50000000,
+          "tokenizer": "tokenizer/tokenizer.model",
+          "tokenizer_sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+          "training_subset_manifest": "data/manifests/train_50m.parquet",
+          "training_subset_sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48"
+        },
+        "n_head": 8,
+        "n_layer": 6,
+        "pe_type": "sinusoidal",
+        "reset_attention_mask": false,
+        "reset_position_ids": false,
+        "rope_theta": 10000.0,
+        "rotary_pct": 0.25,
+        "sinusoidal_theta": 10000.0,
+        "tie_embeddings": false,
+        "vocab_size": 16000
+      },
+      "data_seed": 2026,
+      "git_commit": "c1912f6e02aeebb4ca800903f55fc3f1c625cd6e",
+      "log_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s2027-t50m-c512-v16k-ac61a89d/logs/matrix_process.log",
+      "metadata_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s2027-t50m-c512-v16k-ac61a89d/metadata.json",
+      "milestones": {
+        "10m": {
+          "actual_tokens": 10027008,
+          "is_final": false,
+          "label": "10m",
+          "nominal_tokens": 10000000,
+          "overshoot_tokens": 27008
+        },
+        "20m": {
+          "actual_tokens": 20054016,
+          "is_final": false,
+          "label": "20m",
+          "nominal_tokens": 20000000,
+          "overshoot_tokens": 54016
+        },
+        "50m": {
+          "actual_tokens": 50000000,
+          "is_final": true,
+          "label": "50m",
+          "nominal_tokens": 50000000,
+          "overshoot_tokens": 0
+        },
+        "5m": {
+          "actual_tokens": 5046272,
+          "is_final": false,
+          "label": "5m",
+          "nominal_tokens": 5000000,
+          "overshoot_tokens": 46272
+        }
+      },
+      "model_seed": 2027,
+      "optimizer_steps": 763,
+      "pe_method": "sinusoidal",
+      "precision": "bf16",
+      "run_id": "p31az-sinusoidal-s2027-t50m-c512-v16k-ac61a89d",
+      "sha_10m": "203e251ac6f53453bb9617895a6622d85edbecb4f8a5a66912a3d73c3a4b1bdf",
+      "sha_20m": "180837227a53770ffb1f0f29a8ef6ed05142555104a36a7e3695dde165426038",
+      "sha_50m": "fa27f93a52b3ff9c7e0ee11a929ed4de16a203728f8a6de1c6eba35928f307ac",
+      "sha_5m": "fcde9b2a31bfe5e0a3ce611264d7e9d66fb99a5c8ff3543cdac9c3acb0d9a42d",
+      "tokens_seen": 50000000,
+      "training_cache_hash": "3d36d7658c9edaa1101c60d02e27a8342e4e7027b4a0c3fe08b15d46ba186235"
+    },
+    {
+      "checkpoint_10m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s2027-t50m-c512-v16k-474ef035/checkpoints/milestones/10m_model.pt",
+      "checkpoint_20m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s2027-t50m-c512-v16k-474ef035/checkpoints/milestones/20m_model.pt",
+      "checkpoint_50m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s2027-t50m-c512-v16k-474ef035/checkpoints/milestones/50m_model.pt",
+      "checkpoint_5m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s2027-t50m-c512-v16k-474ef035/checkpoints/milestones/5m_model.pt",
+      "checkpoints": {
+        "10m": {
+          "member": "p31az-rope-s2027-t50m-c512-v16k-474ef035/10m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_10M.tar",
+          "sha256": "70c4af91cbc8577c9fc92a5be332152f9bef6b761b50921760c8b62bcad53536"
+        },
+        "20m": {
+          "member": "p31az-rope-s2027-t50m-c512-v16k-474ef035/20m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_20M.tar",
+          "sha256": "1ba176dedf66df0213c419fb1a8c98283b1911abe7bb4966d989870f49df3181"
+        },
+        "50m": {
+          "member": "p31az-rope-s2027-t50m-c512-v16k-474ef035/50m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_50M.tar",
+          "sha256": "6f0d24cbd636cd5cad2f2a2b77609b7f3d62ec2c4d85cb81b129744a18d6b651"
+        },
+        "5m": {
+          "member": "p31az-rope-s2027-t50m-c512-v16k-474ef035/5m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_5M.tar",
+          "sha256": "6d493202a5d367993ac02556c57c7888141f40b62bc01211b0423bc0504858ee"
+        }
+      },
+      "completed_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s2027-t50m-c512-v16k-474ef035/completed.json",
+      "config": {
+        "alibi_max_slope_exponent": 3.0,
+        "d_ff": 1024,
+        "d_model": 256,
+        "data_seed": 2026,
+        "dropout": 0.0,
+        "init_scheme": "pythia",
+        "init_seed": 2027,
+        "layer_norm_eps": 1e-05,
+        "max_seq_len": 512,
+        "meta": {
+          "data_contract": "data/metadata/training_data_contract.json",
+          "eod_token_id": 1,
+          "manifest_sha256": {
+            "test": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+            "train": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+            "validation": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+          },
+          "milestone": "M2",
+          "seed_policy": "init_seed is a template here; production seeds come from configs/run_matrix.json. data_seed is fixed by M1 and is independent of the model seed.",
+          "selected_tokens": 50062887,
+          "token_budget": 50000000,
+          "tokenizer": "tokenizer/tokenizer.model",
+          "tokenizer_sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+          "training_subset_manifest": "data/manifests/train_50m.parquet",
+          "training_subset_sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48"
+        },
+        "n_head": 8,
+        "n_layer": 6,
+        "pe_type": "rope",
+        "reset_attention_mask": false,
+        "reset_position_ids": false,
+        "rope_theta": 10000.0,
+        "rotary_pct": 0.25,
+        "sinusoidal_theta": 10000.0,
+        "tie_embeddings": false,
+        "vocab_size": 16000
+      },
+      "data_seed": 2026,
+      "git_commit": "c1912f6e02aeebb4ca800903f55fc3f1c625cd6e",
+      "log_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s2027-t50m-c512-v16k-474ef035/logs/matrix_process.log",
+      "metadata_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s2027-t50m-c512-v16k-474ef035/metadata.json",
+      "milestones": {
+        "10m": {
+          "actual_tokens": 10027008,
+          "is_final": false,
+          "label": "10m",
+          "nominal_tokens": 10000000,
+          "overshoot_tokens": 27008
+        },
+        "20m": {
+          "actual_tokens": 20054016,
+          "is_final": false,
+          "label": "20m",
+          "nominal_tokens": 20000000,
+          "overshoot_tokens": 54016
+        },
+        "50m": {
+          "actual_tokens": 50000000,
+          "is_final": true,
+          "label": "50m",
+          "nominal_tokens": 50000000,
+          "overshoot_tokens": 0
+        },
+        "5m": {
+          "actual_tokens": 5046272,
+          "is_final": false,
+          "label": "5m",
+          "nominal_tokens": 5000000,
+          "overshoot_tokens": 46272
+        }
+      },
+      "model_seed": 2027,
+      "optimizer_steps": 763,
+      "pe_method": "rope",
+      "precision": "bf16",
+      "run_id": "p31az-rope-s2027-t50m-c512-v16k-474ef035",
+      "sha_10m": "70c4af91cbc8577c9fc92a5be332152f9bef6b761b50921760c8b62bcad53536",
+      "sha_20m": "1ba176dedf66df0213c419fb1a8c98283b1911abe7bb4966d989870f49df3181",
+      "sha_50m": "6f0d24cbd636cd5cad2f2a2b77609b7f3d62ec2c4d85cb81b129744a18d6b651",
+      "sha_5m": "6d493202a5d367993ac02556c57c7888141f40b62bc01211b0423bc0504858ee",
+      "tokens_seen": 50000000,
+      "training_cache_hash": "3d36d7658c9edaa1101c60d02e27a8342e4e7027b4a0c3fe08b15d46ba186235"
+    },
+    {
+      "checkpoint_10m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s2027-t50m-c512-v16k-f15422fb/checkpoints/milestones/10m_model.pt",
+      "checkpoint_20m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s2027-t50m-c512-v16k-f15422fb/checkpoints/milestones/20m_model.pt",
+      "checkpoint_50m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s2027-t50m-c512-v16k-f15422fb/checkpoints/milestones/50m_model.pt",
+      "checkpoint_5m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s2027-t50m-c512-v16k-f15422fb/checkpoints/milestones/5m_model.pt",
+      "checkpoints": {
+        "10m": {
+          "member": "p31az-alibi-s2027-t50m-c512-v16k-f15422fb/10m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_10M.tar",
+          "sha256": "cb8cffd3db3cc975dcb944fdc2b031d76424e09cf961d721d36b2adc968b7d3c"
+        },
+        "20m": {
+          "member": "p31az-alibi-s2027-t50m-c512-v16k-f15422fb/20m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_20M.tar",
+          "sha256": "61625f5dee1079ec3440e8cc0c922686a580a8a85f0439d58d68a2ab9603bf51"
+        },
+        "50m": {
+          "member": "p31az-alibi-s2027-t50m-c512-v16k-f15422fb/50m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_50M.tar",
+          "sha256": "ab1a5981c1961c9315535eeecf2562fdbebb85652c786e1f9bdc13c8613ded6b"
+        },
+        "5m": {
+          "member": "p31az-alibi-s2027-t50m-c512-v16k-f15422fb/5m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_5M.tar",
+          "sha256": "2de503fe6dff89baf24f817bb6bfbad25faf208d5d3c14353e0e1631e921aceb"
+        }
+      },
+      "completed_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s2027-t50m-c512-v16k-f15422fb/completed.json",
+      "config": {
+        "alibi_max_slope_exponent": 3.0,
+        "d_ff": 1024,
+        "d_model": 256,
+        "data_seed": 2026,
+        "dropout": 0.0,
+        "init_scheme": "pythia",
+        "init_seed": 2027,
+        "layer_norm_eps": 1e-05,
+        "max_seq_len": 512,
+        "meta": {
+          "data_contract": "data/metadata/training_data_contract.json",
+          "eod_token_id": 1,
+          "manifest_sha256": {
+            "test": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+            "train": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+            "validation": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+          },
+          "milestone": "M2",
+          "seed_policy": "init_seed is a template here; production seeds come from configs/run_matrix.json. data_seed is fixed by M1 and is independent of the model seed.",
+          "selected_tokens": 50062887,
+          "token_budget": 50000000,
+          "tokenizer": "tokenizer/tokenizer.model",
+          "tokenizer_sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+          "training_subset_manifest": "data/manifests/train_50m.parquet",
+          "training_subset_sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48"
+        },
+        "n_head": 8,
+        "n_layer": 6,
+        "pe_type": "alibi",
+        "reset_attention_mask": false,
+        "reset_position_ids": false,
+        "rope_theta": 10000.0,
+        "rotary_pct": 0.25,
+        "sinusoidal_theta": 10000.0,
+        "tie_embeddings": false,
+        "vocab_size": 16000
+      },
+      "data_seed": 2026,
+      "git_commit": "c1912f6e02aeebb4ca800903f55fc3f1c625cd6e",
+      "log_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s2027-t50m-c512-v16k-f15422fb/logs/matrix_process.log",
+      "metadata_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s2027-t50m-c512-v16k-f15422fb/metadata.json",
+      "milestones": {
+        "10m": {
+          "actual_tokens": 10027008,
+          "is_final": false,
+          "label": "10m",
+          "nominal_tokens": 10000000,
+          "overshoot_tokens": 27008
+        },
+        "20m": {
+          "actual_tokens": 20054016,
+          "is_final": false,
+          "label": "20m",
+          "nominal_tokens": 20000000,
+          "overshoot_tokens": 54016
+        },
+        "50m": {
+          "actual_tokens": 50000000,
+          "is_final": true,
+          "label": "50m",
+          "nominal_tokens": 50000000,
+          "overshoot_tokens": 0
+        },
+        "5m": {
+          "actual_tokens": 5046272,
+          "is_final": false,
+          "label": "5m",
+          "nominal_tokens": 5000000,
+          "overshoot_tokens": 46272
+        }
+      },
+      "model_seed": 2027,
+      "optimizer_steps": 763,
+      "pe_method": "alibi",
+      "precision": "bf16",
+      "run_id": "p31az-alibi-s2027-t50m-c512-v16k-f15422fb",
+      "sha_10m": "cb8cffd3db3cc975dcb944fdc2b031d76424e09cf961d721d36b2adc968b7d3c",
+      "sha_20m": "61625f5dee1079ec3440e8cc0c922686a580a8a85f0439d58d68a2ab9603bf51",
+      "sha_50m": "ab1a5981c1961c9315535eeecf2562fdbebb85652c786e1f9bdc13c8613ded6b",
+      "sha_5m": "2de503fe6dff89baf24f817bb6bfbad25faf208d5d3c14353e0e1631e921aceb",
+      "tokens_seen": 50000000,
+      "training_cache_hash": "3d36d7658c9edaa1101c60d02e27a8342e4e7027b4a0c3fe08b15d46ba186235"
+    },
+    {
+      "checkpoint_10m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s2027-t50m-c512-v16k-be28c108/checkpoints/milestones/10m_model.pt",
+      "checkpoint_20m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s2027-t50m-c512-v16k-be28c108/checkpoints/milestones/20m_model.pt",
+      "checkpoint_50m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s2027-t50m-c512-v16k-be28c108/checkpoints/milestones/50m_model.pt",
+      "checkpoint_5m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s2027-t50m-c512-v16k-be28c108/checkpoints/milestones/5m_model.pt",
+      "checkpoints": {
+        "10m": {
+          "member": "p31az-nope-s2027-t50m-c512-v16k-be28c108/10m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_10M.tar",
+          "sha256": "69b6ee6891477bbc7259139af15a958b436028627a5d9ff2dbfb13cefe9cef89"
+        },
+        "20m": {
+          "member": "p31az-nope-s2027-t50m-c512-v16k-be28c108/20m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_20M.tar",
+          "sha256": "409f83cce2f6c15fa6a7f4d89ecb04986fcc18d8a23aa7655fd607eed543e44f"
+        },
+        "50m": {
+          "member": "p31az-nope-s2027-t50m-c512-v16k-be28c108/50m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_50M.tar",
+          "sha256": "7fa23ce7dab053554e203a4af6ed9c6b44f03869d05703cb0e85d214920fc8f5"
+        },
+        "5m": {
+          "member": "p31az-nope-s2027-t50m-c512-v16k-be28c108/5m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_5M.tar",
+          "sha256": "433693b87f8a6ed79e82964347f3f846d42ab43f114078da5899bfbad0ce658e"
+        }
+      },
+      "completed_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s2027-t50m-c512-v16k-be28c108/completed.json",
+      "config": {
+        "alibi_max_slope_exponent": 3.0,
+        "d_ff": 1024,
+        "d_model": 256,
+        "data_seed": 2026,
+        "dropout": 0.0,
+        "init_scheme": "pythia",
+        "init_seed": 2027,
+        "layer_norm_eps": 1e-05,
+        "max_seq_len": 512,
+        "meta": {
+          "data_contract": "data/metadata/training_data_contract.json",
+          "eod_token_id": 1,
+          "manifest_sha256": {
+            "test": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+            "train": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+            "validation": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+          },
+          "milestone": "M2",
+          "seed_policy": "init_seed is a template here; production seeds come from configs/run_matrix.json. data_seed is fixed by M1 and is independent of the model seed.",
+          "selected_tokens": 50062887,
+          "token_budget": 50000000,
+          "tokenizer": "tokenizer/tokenizer.model",
+          "tokenizer_sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+          "training_subset_manifest": "data/manifests/train_50m.parquet",
+          "training_subset_sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48"
+        },
+        "n_head": 8,
+        "n_layer": 6,
+        "pe_type": "nope",
+        "reset_attention_mask": false,
+        "reset_position_ids": false,
+        "rope_theta": 10000.0,
+        "rotary_pct": 0.25,
+        "sinusoidal_theta": 10000.0,
+        "tie_embeddings": false,
+        "vocab_size": 16000
+      },
+      "data_seed": 2026,
+      "git_commit": "c1912f6e02aeebb4ca800903f55fc3f1c625cd6e",
+      "log_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s2027-t50m-c512-v16k-be28c108/logs/matrix_process.log",
+      "metadata_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s2027-t50m-c512-v16k-be28c108/metadata.json",
+      "milestones": {
+        "10m": {
+          "actual_tokens": 10027008,
+          "is_final": false,
+          "label": "10m",
+          "nominal_tokens": 10000000,
+          "overshoot_tokens": 27008
+        },
+        "20m": {
+          "actual_tokens": 20054016,
+          "is_final": false,
+          "label": "20m",
+          "nominal_tokens": 20000000,
+          "overshoot_tokens": 54016
+        },
+        "50m": {
+          "actual_tokens": 50000000,
+          "is_final": true,
+          "label": "50m",
+          "nominal_tokens": 50000000,
+          "overshoot_tokens": 0
+        },
+        "5m": {
+          "actual_tokens": 5046272,
+          "is_final": false,
+          "label": "5m",
+          "nominal_tokens": 5000000,
+          "overshoot_tokens": 46272
+        }
+      },
+      "model_seed": 2027,
+      "optimizer_steps": 763,
+      "pe_method": "nope",
+      "precision": "bf16",
+      "run_id": "p31az-nope-s2027-t50m-c512-v16k-be28c108",
+      "sha_10m": "69b6ee6891477bbc7259139af15a958b436028627a5d9ff2dbfb13cefe9cef89",
+      "sha_20m": "409f83cce2f6c15fa6a7f4d89ecb04986fcc18d8a23aa7655fd607eed543e44f",
+      "sha_50m": "7fa23ce7dab053554e203a4af6ed9c6b44f03869d05703cb0e85d214920fc8f5",
+      "sha_5m": "433693b87f8a6ed79e82964347f3f846d42ab43f114078da5899bfbad0ce658e",
+      "tokens_seen": 50000000,
+      "training_cache_hash": "3d36d7658c9edaa1101c60d02e27a8342e4e7027b4a0c3fe08b15d46ba186235"
+    },
+    {
+      "checkpoint_10m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s5003-t50m-c512-v16k-d537b197/checkpoints/milestones/10m_model.pt",
+      "checkpoint_20m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s5003-t50m-c512-v16k-d537b197/checkpoints/milestones/20m_model.pt",
+      "checkpoint_50m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s5003-t50m-c512-v16k-d537b197/checkpoints/milestones/50m_model.pt",
+      "checkpoint_5m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s5003-t50m-c512-v16k-d537b197/checkpoints/milestones/5m_model.pt",
+      "checkpoints": {
+        "10m": {
+          "member": "p31az-learned-s5003-t50m-c512-v16k-d537b197/10m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_10M.tar",
+          "sha256": "578ff5802ab425449bc3f9170eb828f9fcd5c1eed50076a038662306c8cb67f1"
+        },
+        "20m": {
+          "member": "p31az-learned-s5003-t50m-c512-v16k-d537b197/20m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_20M.tar",
+          "sha256": "52c817bb5f2837868b0cccaf69db68bd3e7db34a12f0dfa1cf241c741f313ca6"
+        },
+        "50m": {
+          "member": "p31az-learned-s5003-t50m-c512-v16k-d537b197/50m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_50M.tar",
+          "sha256": "3c34e9e5512471ad8ac21a3e3bc112985fa7693f4550e9313ed440c21c272335"
+        },
+        "5m": {
+          "member": "p31az-learned-s5003-t50m-c512-v16k-d537b197/5m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_5M.tar",
+          "sha256": "fcb217ab4668fe8a6ca57ce007efc572e17c4e875c272066186cc088ea95be22"
+        }
+      },
+      "completed_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s5003-t50m-c512-v16k-d537b197/completed.json",
+      "config": {
+        "alibi_max_slope_exponent": 3.0,
+        "d_ff": 1024,
+        "d_model": 256,
+        "data_seed": 2026,
+        "dropout": 0.0,
+        "init_scheme": "pythia",
+        "init_seed": 5003,
+        "layer_norm_eps": 1e-05,
+        "max_seq_len": 512,
+        "meta": {
+          "data_contract": "data/metadata/training_data_contract.json",
+          "eod_token_id": 1,
+          "manifest_sha256": {
+            "test": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+            "train": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+            "validation": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+          },
+          "milestone": "M2",
+          "seed_policy": "init_seed is a template here; production seeds come from configs/run_matrix.json. data_seed is fixed by M1 and is independent of the model seed.",
+          "selected_tokens": 50062887,
+          "token_budget": 50000000,
+          "tokenizer": "tokenizer/tokenizer.model",
+          "tokenizer_sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+          "training_subset_manifest": "data/manifests/train_50m.parquet",
+          "training_subset_sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48"
+        },
+        "n_head": 8,
+        "n_layer": 6,
+        "pe_type": "learned",
+        "reset_attention_mask": false,
+        "reset_position_ids": false,
+        "rope_theta": 10000.0,
+        "rotary_pct": 0.25,
+        "sinusoidal_theta": 10000.0,
+        "tie_embeddings": false,
+        "vocab_size": 16000
+      },
+      "data_seed": 2026,
+      "git_commit": "c1912f6e02aeebb4ca800903f55fc3f1c625cd6e",
+      "log_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s5003-t50m-c512-v16k-d537b197/logs/matrix_process.log",
+      "metadata_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-learned-s5003-t50m-c512-v16k-d537b197/metadata.json",
+      "milestones": {
+        "10m": {
+          "actual_tokens": 10027008,
+          "is_final": false,
+          "label": "10m",
+          "nominal_tokens": 10000000,
+          "overshoot_tokens": 27008
+        },
+        "20m": {
+          "actual_tokens": 20054016,
+          "is_final": false,
+          "label": "20m",
+          "nominal_tokens": 20000000,
+          "overshoot_tokens": 54016
+        },
+        "50m": {
+          "actual_tokens": 50000000,
+          "is_final": true,
+          "label": "50m",
+          "nominal_tokens": 50000000,
+          "overshoot_tokens": 0
+        },
+        "5m": {
+          "actual_tokens": 5046272,
+          "is_final": false,
+          "label": "5m",
+          "nominal_tokens": 5000000,
+          "overshoot_tokens": 46272
+        }
+      },
+      "model_seed": 5003,
+      "optimizer_steps": 763,
+      "pe_method": "learned",
+      "precision": "bf16",
+      "run_id": "p31az-learned-s5003-t50m-c512-v16k-d537b197",
+      "sha_10m": "578ff5802ab425449bc3f9170eb828f9fcd5c1eed50076a038662306c8cb67f1",
+      "sha_20m": "52c817bb5f2837868b0cccaf69db68bd3e7db34a12f0dfa1cf241c741f313ca6",
+      "sha_50m": "3c34e9e5512471ad8ac21a3e3bc112985fa7693f4550e9313ed440c21c272335",
+      "sha_5m": "fcb217ab4668fe8a6ca57ce007efc572e17c4e875c272066186cc088ea95be22",
+      "tokens_seen": 50000000,
+      "training_cache_hash": "3d36d7658c9edaa1101c60d02e27a8342e4e7027b4a0c3fe08b15d46ba186235"
+    },
+    {
+      "checkpoint_10m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s5003-t50m-c512-v16k-087a15f4/checkpoints/milestones/10m_model.pt",
+      "checkpoint_20m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s5003-t50m-c512-v16k-087a15f4/checkpoints/milestones/20m_model.pt",
+      "checkpoint_50m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s5003-t50m-c512-v16k-087a15f4/checkpoints/milestones/50m_model.pt",
+      "checkpoint_5m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s5003-t50m-c512-v16k-087a15f4/checkpoints/milestones/5m_model.pt",
+      "checkpoints": {
+        "10m": {
+          "member": "p31az-sinusoidal-s5003-t50m-c512-v16k-087a15f4/10m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_10M.tar",
+          "sha256": "cc2473a122fb17959621c026c1f978045a19fa1dfab9964253e5b05bebccda63"
+        },
+        "20m": {
+          "member": "p31az-sinusoidal-s5003-t50m-c512-v16k-087a15f4/20m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_20M.tar",
+          "sha256": "83094257387e09da6c750587c13ecce86ff4e7e369cb46d05281eb2e41f6f895"
+        },
+        "50m": {
+          "member": "p31az-sinusoidal-s5003-t50m-c512-v16k-087a15f4/50m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_50M.tar",
+          "sha256": "e81882488bcf432ffa45a9b6578c23be3c58da7492529f26213c56cb57c3a8cf"
+        },
+        "5m": {
+          "member": "p31az-sinusoidal-s5003-t50m-c512-v16k-087a15f4/5m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_5M.tar",
+          "sha256": "219554f30953d3d9b4084d245b39a456848e86206a16218602e98a4f3214c5c0"
+        }
+      },
+      "completed_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s5003-t50m-c512-v16k-087a15f4/completed.json",
+      "config": {
+        "alibi_max_slope_exponent": 3.0,
+        "d_ff": 1024,
+        "d_model": 256,
+        "data_seed": 2026,
+        "dropout": 0.0,
+        "init_scheme": "pythia",
+        "init_seed": 5003,
+        "layer_norm_eps": 1e-05,
+        "max_seq_len": 512,
+        "meta": {
+          "data_contract": "data/metadata/training_data_contract.json",
+          "eod_token_id": 1,
+          "manifest_sha256": {
+            "test": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+            "train": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+            "validation": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+          },
+          "milestone": "M2",
+          "seed_policy": "init_seed is a template here; production seeds come from configs/run_matrix.json. data_seed is fixed by M1 and is independent of the model seed.",
+          "selected_tokens": 50062887,
+          "token_budget": 50000000,
+          "tokenizer": "tokenizer/tokenizer.model",
+          "tokenizer_sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+          "training_subset_manifest": "data/manifests/train_50m.parquet",
+          "training_subset_sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48"
+        },
+        "n_head": 8,
+        "n_layer": 6,
+        "pe_type": "sinusoidal",
+        "reset_attention_mask": false,
+        "reset_position_ids": false,
+        "rope_theta": 10000.0,
+        "rotary_pct": 0.25,
+        "sinusoidal_theta": 10000.0,
+        "tie_embeddings": false,
+        "vocab_size": 16000
+      },
+      "data_seed": 2026,
+      "git_commit": "c1912f6e02aeebb4ca800903f55fc3f1c625cd6e",
+      "log_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s5003-t50m-c512-v16k-087a15f4/logs/matrix_process.log",
+      "metadata_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-sinusoidal-s5003-t50m-c512-v16k-087a15f4/metadata.json",
+      "milestones": {
+        "10m": {
+          "actual_tokens": 10027008,
+          "is_final": false,
+          "label": "10m",
+          "nominal_tokens": 10000000,
+          "overshoot_tokens": 27008
+        },
+        "20m": {
+          "actual_tokens": 20054016,
+          "is_final": false,
+          "label": "20m",
+          "nominal_tokens": 20000000,
+          "overshoot_tokens": 54016
+        },
+        "50m": {
+          "actual_tokens": 50000000,
+          "is_final": true,
+          "label": "50m",
+          "nominal_tokens": 50000000,
+          "overshoot_tokens": 0
+        },
+        "5m": {
+          "actual_tokens": 5046272,
+          "is_final": false,
+          "label": "5m",
+          "nominal_tokens": 5000000,
+          "overshoot_tokens": 46272
+        }
+      },
+      "model_seed": 5003,
+      "optimizer_steps": 763,
+      "pe_method": "sinusoidal",
+      "precision": "bf16",
+      "run_id": "p31az-sinusoidal-s5003-t50m-c512-v16k-087a15f4",
+      "sha_10m": "cc2473a122fb17959621c026c1f978045a19fa1dfab9964253e5b05bebccda63",
+      "sha_20m": "83094257387e09da6c750587c13ecce86ff4e7e369cb46d05281eb2e41f6f895",
+      "sha_50m": "e81882488bcf432ffa45a9b6578c23be3c58da7492529f26213c56cb57c3a8cf",
+      "sha_5m": "219554f30953d3d9b4084d245b39a456848e86206a16218602e98a4f3214c5c0",
+      "tokens_seen": 50000000,
+      "training_cache_hash": "3d36d7658c9edaa1101c60d02e27a8342e4e7027b4a0c3fe08b15d46ba186235"
+    },
+    {
+      "checkpoint_10m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s5003-t50m-c512-v16k-71dda99b/checkpoints/milestones/10m_model.pt",
+      "checkpoint_20m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s5003-t50m-c512-v16k-71dda99b/checkpoints/milestones/20m_model.pt",
+      "checkpoint_50m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s5003-t50m-c512-v16k-71dda99b/checkpoints/milestones/50m_model.pt",
+      "checkpoint_5m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s5003-t50m-c512-v16k-71dda99b/checkpoints/milestones/5m_model.pt",
+      "checkpoints": {
+        "10m": {
+          "member": "p31az-rope-s5003-t50m-c512-v16k-71dda99b/10m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_10M.tar",
+          "sha256": "cfa096acaf04e81766fb73ed517de9e86d07897a1412be24c9cbc47e04000a83"
+        },
+        "20m": {
+          "member": "p31az-rope-s5003-t50m-c512-v16k-71dda99b/20m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_20M.tar",
+          "sha256": "89f73169b734ed1b8af1a09afcb595653dae4343ba0836d267f51f81f89f1269"
+        },
+        "50m": {
+          "member": "p31az-rope-s5003-t50m-c512-v16k-71dda99b/50m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_50M.tar",
+          "sha256": "0d841074e9028571747b1d7e82b9d49c9bf53a51a0304207be01c30057387027"
+        },
+        "5m": {
+          "member": "p31az-rope-s5003-t50m-c512-v16k-71dda99b/5m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_5M.tar",
+          "sha256": "44284bff8ab42b4000449b77ca9b2c392b325052ed989b06150d2b02da965af1"
+        }
+      },
+      "completed_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s5003-t50m-c512-v16k-71dda99b/completed.json",
+      "config": {
+        "alibi_max_slope_exponent": 3.0,
+        "d_ff": 1024,
+        "d_model": 256,
+        "data_seed": 2026,
+        "dropout": 0.0,
+        "init_scheme": "pythia",
+        "init_seed": 5003,
+        "layer_norm_eps": 1e-05,
+        "max_seq_len": 512,
+        "meta": {
+          "data_contract": "data/metadata/training_data_contract.json",
+          "eod_token_id": 1,
+          "manifest_sha256": {
+            "test": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+            "train": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+            "validation": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+          },
+          "milestone": "M2",
+          "seed_policy": "init_seed is a template here; production seeds come from configs/run_matrix.json. data_seed is fixed by M1 and is independent of the model seed.",
+          "selected_tokens": 50062887,
+          "token_budget": 50000000,
+          "tokenizer": "tokenizer/tokenizer.model",
+          "tokenizer_sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+          "training_subset_manifest": "data/manifests/train_50m.parquet",
+          "training_subset_sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48"
+        },
+        "n_head": 8,
+        "n_layer": 6,
+        "pe_type": "rope",
+        "reset_attention_mask": false,
+        "reset_position_ids": false,
+        "rope_theta": 10000.0,
+        "rotary_pct": 0.25,
+        "sinusoidal_theta": 10000.0,
+        "tie_embeddings": false,
+        "vocab_size": 16000
+      },
+      "data_seed": 2026,
+      "git_commit": "c1912f6e02aeebb4ca800903f55fc3f1c625cd6e",
+      "log_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s5003-t50m-c512-v16k-71dda99b/logs/matrix_process.log",
+      "metadata_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-rope-s5003-t50m-c512-v16k-71dda99b/metadata.json",
+      "milestones": {
+        "10m": {
+          "actual_tokens": 10027008,
+          "is_final": false,
+          "label": "10m",
+          "nominal_tokens": 10000000,
+          "overshoot_tokens": 27008
+        },
+        "20m": {
+          "actual_tokens": 20054016,
+          "is_final": false,
+          "label": "20m",
+          "nominal_tokens": 20000000,
+          "overshoot_tokens": 54016
+        },
+        "50m": {
+          "actual_tokens": 50000000,
+          "is_final": true,
+          "label": "50m",
+          "nominal_tokens": 50000000,
+          "overshoot_tokens": 0
+        },
+        "5m": {
+          "actual_tokens": 5046272,
+          "is_final": false,
+          "label": "5m",
+          "nominal_tokens": 5000000,
+          "overshoot_tokens": 46272
+        }
+      },
+      "model_seed": 5003,
+      "optimizer_steps": 763,
+      "pe_method": "rope",
+      "precision": "bf16",
+      "run_id": "p31az-rope-s5003-t50m-c512-v16k-71dda99b",
+      "sha_10m": "cfa096acaf04e81766fb73ed517de9e86d07897a1412be24c9cbc47e04000a83",
+      "sha_20m": "89f73169b734ed1b8af1a09afcb595653dae4343ba0836d267f51f81f89f1269",
+      "sha_50m": "0d841074e9028571747b1d7e82b9d49c9bf53a51a0304207be01c30057387027",
+      "sha_5m": "44284bff8ab42b4000449b77ca9b2c392b325052ed989b06150d2b02da965af1",
+      "tokens_seen": 50000000,
+      "training_cache_hash": "3d36d7658c9edaa1101c60d02e27a8342e4e7027b4a0c3fe08b15d46ba186235"
+    },
+    {
+      "checkpoint_10m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s5003-t50m-c512-v16k-f3c841dd/checkpoints/milestones/10m_model.pt",
+      "checkpoint_20m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s5003-t50m-c512-v16k-f3c841dd/checkpoints/milestones/20m_model.pt",
+      "checkpoint_50m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s5003-t50m-c512-v16k-f3c841dd/checkpoints/milestones/50m_model.pt",
+      "checkpoint_5m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s5003-t50m-c512-v16k-f3c841dd/checkpoints/milestones/5m_model.pt",
+      "checkpoints": {
+        "10m": {
+          "member": "p31az-alibi-s5003-t50m-c512-v16k-f3c841dd/10m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_10M.tar",
+          "sha256": "0ca031ea9f7b93b4dd5ac1eb8458d591bacdb41e665bab8b9ed5f478ace11404"
+        },
+        "20m": {
+          "member": "p31az-alibi-s5003-t50m-c512-v16k-f3c841dd/20m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_20M.tar",
+          "sha256": "fdf24620247b477ef12f60846e1d935fb24fc9bc26340d4eaf48681f7390a0d6"
+        },
+        "50m": {
+          "member": "p31az-alibi-s5003-t50m-c512-v16k-f3c841dd/50m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_50M.tar",
+          "sha256": "57627ff30ace5b84e7d75383519175b7717910a9f0ecc84de31eb1c91842e857"
+        },
+        "5m": {
+          "member": "p31az-alibi-s5003-t50m-c512-v16k-f3c841dd/5m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_5M.tar",
+          "sha256": "f23f2cdce4efe14ab9347a4c3026ed209b050ffbc997fb01badece76a6948f5a"
+        }
+      },
+      "completed_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s5003-t50m-c512-v16k-f3c841dd/completed.json",
+      "config": {
+        "alibi_max_slope_exponent": 3.0,
+        "d_ff": 1024,
+        "d_model": 256,
+        "data_seed": 2026,
+        "dropout": 0.0,
+        "init_scheme": "pythia",
+        "init_seed": 5003,
+        "layer_norm_eps": 1e-05,
+        "max_seq_len": 512,
+        "meta": {
+          "data_contract": "data/metadata/training_data_contract.json",
+          "eod_token_id": 1,
+          "manifest_sha256": {
+            "test": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+            "train": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+            "validation": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+          },
+          "milestone": "M2",
+          "seed_policy": "init_seed is a template here; production seeds come from configs/run_matrix.json. data_seed is fixed by M1 and is independent of the model seed.",
+          "selected_tokens": 50062887,
+          "token_budget": 50000000,
+          "tokenizer": "tokenizer/tokenizer.model",
+          "tokenizer_sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+          "training_subset_manifest": "data/manifests/train_50m.parquet",
+          "training_subset_sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48"
+        },
+        "n_head": 8,
+        "n_layer": 6,
+        "pe_type": "alibi",
+        "reset_attention_mask": false,
+        "reset_position_ids": false,
+        "rope_theta": 10000.0,
+        "rotary_pct": 0.25,
+        "sinusoidal_theta": 10000.0,
+        "tie_embeddings": false,
+        "vocab_size": 16000
+      },
+      "data_seed": 2026,
+      "git_commit": "c1912f6e02aeebb4ca800903f55fc3f1c625cd6e",
+      "log_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s5003-t50m-c512-v16k-f3c841dd/logs/matrix_process.log",
+      "metadata_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-alibi-s5003-t50m-c512-v16k-f3c841dd/metadata.json",
+      "milestones": {
+        "10m": {
+          "actual_tokens": 10027008,
+          "is_final": false,
+          "label": "10m",
+          "nominal_tokens": 10000000,
+          "overshoot_tokens": 27008
+        },
+        "20m": {
+          "actual_tokens": 20054016,
+          "is_final": false,
+          "label": "20m",
+          "nominal_tokens": 20000000,
+          "overshoot_tokens": 54016
+        },
+        "50m": {
+          "actual_tokens": 50000000,
+          "is_final": true,
+          "label": "50m",
+          "nominal_tokens": 50000000,
+          "overshoot_tokens": 0
+        },
+        "5m": {
+          "actual_tokens": 5046272,
+          "is_final": false,
+          "label": "5m",
+          "nominal_tokens": 5000000,
+          "overshoot_tokens": 46272
+        }
+      },
+      "model_seed": 5003,
+      "optimizer_steps": 763,
+      "pe_method": "alibi",
+      "precision": "bf16",
+      "run_id": "p31az-alibi-s5003-t50m-c512-v16k-f3c841dd",
+      "sha_10m": "0ca031ea9f7b93b4dd5ac1eb8458d591bacdb41e665bab8b9ed5f478ace11404",
+      "sha_20m": "fdf24620247b477ef12f60846e1d935fb24fc9bc26340d4eaf48681f7390a0d6",
+      "sha_50m": "57627ff30ace5b84e7d75383519175b7717910a9f0ecc84de31eb1c91842e857",
+      "sha_5m": "f23f2cdce4efe14ab9347a4c3026ed209b050ffbc997fb01badece76a6948f5a",
+      "tokens_seen": 50000000,
+      "training_cache_hash": "3d36d7658c9edaa1101c60d02e27a8342e4e7027b4a0c3fe08b15d46ba186235"
+    },
+    {
+      "checkpoint_10m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s5003-t50m-c512-v16k-5dd0a4a1/checkpoints/milestones/10m_model.pt",
+      "checkpoint_20m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s5003-t50m-c512-v16k-5dd0a4a1/checkpoints/milestones/20m_model.pt",
+      "checkpoint_50m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s5003-t50m-c512-v16k-5dd0a4a1/checkpoints/milestones/50m_model.pt",
+      "checkpoint_5m": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s5003-t50m-c512-v16k-5dd0a4a1/checkpoints/milestones/5m_model.pt",
+      "checkpoints": {
+        "10m": {
+          "member": "p31az-nope-s5003-t50m-c512-v16k-5dd0a4a1/10m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_10M.tar",
+          "sha256": "ed84c2b9ed954ca2136f1eeb9f47220d163323571897fa498f2badde12c8f4c8"
+        },
+        "20m": {
+          "member": "p31az-nope-s5003-t50m-c512-v16k-5dd0a4a1/20m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_20M.tar",
+          "sha256": "824870149bbf9f6abe3dbb2bab67af7699a1ee471158ea235bc132e54c872890"
+        },
+        "50m": {
+          "member": "p31az-nope-s5003-t50m-c512-v16k-5dd0a4a1/50m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_50M.tar",
+          "sha256": "499bea72789065cf5a50448661a824abebfbfece02a6e0a237ac7b341ce03c8a"
+        },
+        "5m": {
+          "member": "p31az-nope-s5003-t50m-c512-v16k-5dd0a4a1/5m_model.pt",
+          "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/checkpoint/M3_CHECKPOINTS_5M.tar",
+          "sha256": "5d1d6d7d2607d5b1b8ec2ba23c16b196b78921b8e79bc12dcaa8cfb822ca0310"
+        }
+      },
+      "completed_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s5003-t50m-c512-v16k-5dd0a4a1/completed.json",
+      "config": {
+        "alibi_max_slope_exponent": 3.0,
+        "d_ff": 1024,
+        "d_model": 256,
+        "data_seed": 2026,
+        "dropout": 0.0,
+        "init_scheme": "pythia",
+        "init_seed": 5003,
+        "layer_norm_eps": 1e-05,
+        "max_seq_len": 512,
+        "meta": {
+          "data_contract": "data/metadata/training_data_contract.json",
+          "eod_token_id": 1,
+          "manifest_sha256": {
+            "test": "ecf197906ed97ffcd719e7f0fc3c8255d3c5e7455966611272bdff40c60d4def",
+            "train": "ab69a28403248ff5894960617373cfa69ccc2e48707516e4ecf0a7053b0c58f1",
+            "validation": "1a0dd2d244cad4290b697390c93dc57f04e5474130f005bac15ee2df93ba0786"
+          },
+          "milestone": "M2",
+          "seed_policy": "init_seed is a template here; production seeds come from configs/run_matrix.json. data_seed is fixed by M1 and is independent of the model seed.",
+          "selected_tokens": 50062887,
+          "token_budget": 50000000,
+          "tokenizer": "tokenizer/tokenizer.model",
+          "tokenizer_sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534",
+          "training_subset_manifest": "data/manifests/train_50m.parquet",
+          "training_subset_sha256": "805f7b18c17007d2c11628419ddcf0afea7e615240358d5bfa7f57684c681d48"
+        },
+        "n_head": 8,
+        "n_layer": 6,
+        "pe_type": "nope",
+        "reset_attention_mask": false,
+        "reset_position_ids": false,
+        "rope_theta": 10000.0,
+        "rotary_pct": 0.25,
+        "sinusoidal_theta": 10000.0,
+        "tie_embeddings": false,
+        "vocab_size": 16000
+      },
+      "data_seed": 2026,
+      "git_commit": "c1912f6e02aeebb4ca800903f55fc3f1c625cd6e",
+      "log_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s5003-t50m-c512-v16k-5dd0a4a1/logs/matrix_process.log",
+      "metadata_path": "/sdb-disk/notebooks/team9/azerbaijani-pe-research/results/runs/p31az-nope-s5003-t50m-c512-v16k-5dd0a4a1/metadata.json",
+      "milestones": {
+        "10m": {
+          "actual_tokens": 10027008,
+          "is_final": false,
+          "label": "10m",
+          "nominal_tokens": 10000000,
+          "overshoot_tokens": 27008
+        },
+        "20m": {
+          "actual_tokens": 20054016,
+          "is_final": false,
+          "label": "20m",
+          "nominal_tokens": 20000000,
+          "overshoot_tokens": 54016
+        },
+        "50m": {
+          "actual_tokens": 50000000,
+          "is_final": true,
+          "label": "50m",
+          "nominal_tokens": 50000000,
+          "overshoot_tokens": 0
+        },
+        "5m": {
+          "actual_tokens": 5046272,
+          "is_final": false,
+          "label": "5m",
+          "nominal_tokens": 5000000,
+          "overshoot_tokens": 46272
+        }
+      },
+      "model_seed": 5003,
+      "optimizer_steps": 763,
+      "pe_method": "nope",
+      "precision": "bf16",
+      "run_id": "p31az-nope-s5003-t50m-c512-v16k-5dd0a4a1",
+      "sha_10m": "ed84c2b9ed954ca2136f1eeb9f47220d163323571897fa498f2badde12c8f4c8",
+      "sha_20m": "824870149bbf9f6abe3dbb2bab67af7699a1ee471158ea235bc132e54c872890",
+      "sha_50m": "499bea72789065cf5a50448661a824abebfbfece02a6e0a237ac7b341ce03c8a",
+      "sha_5m": "5d1d6d7d2607d5b1b8ec2ba23c16b196b78921b8e79bc12dcaa8cfb822ca0310",
+      "tokens_seen": 50000000,
+      "training_cache_hash": "3d36d7658c9edaa1101c60d02e27a8342e4e7027b4a0c3fe08b15d46ba186235"
+    }
+  ],
+  "schema_version": 1,
+  "source": {
+    "scripts/m4.py": "396138520968648af063bf6b919902c6291c199386226852f70b852e65c472d4",
+    "src/data/hashing.py": "a6f0c1603fb5a281d6b02cfd35af23794c4eecd4cf6d242a101a3c41c0681c0d",
+    "src/evaluation/__init__.py": "f644cf1ff74a0305d26b015d08a3cf2e2559284ff92d2c727af4424ce6a70200",
+    "src/evaluation/common.py": "23d8988cc3957025e6a337ec8494263ff76acd39e6c24db0f9d848d7aac0057b",
+    "src/evaluation/data.py": "e866fd72cb818a0325a101bbb85d94020f875a431bc8705d808fd00b564391bd",
+    "src/evaluation/inputs.py": "98e3c31a04d0dbd580ad92032f824fb53434bd7916a75c3125cb1333bcdcd821",
+    "src/evaluation/metrics.py": "44cdf64baa32b2bb6e975be145e112b773311871a0244eb51c0afa000616a683",
+    "src/evaluation/pipeline.py": "1456ed7181bebba8150a60386f423d49c4a7d1c70e2f2dba9c6243643a1eff12",
+    "src/evaluation/report.py": "d06ab243c1c6526fc82401a86324f87b880a1313dedb45c2014f8b150c63a2c5",
+    "src/evaluation/statistics.py": "6d97a5f461cadcee8f809116116cadc7925757e79230acf3140fd9e1318998b3",
+    "src/models/__init__.py": "c2c6cab6e636992724b911aec6ad782f387482f53b719ec1f4ae2c47ded56de0",
+    "src/models/config.py": "46039de95aa214f40b7be1a2a7ce41b4b18e0eac4f01b0ac5acd829b71f5533f",
+    "src/models/data_contract.py": "31c3c0c4a16f98aaa39d3287f96457dc41030ebeafb8909b344790fdf61f2249",
+    "src/models/gates.py": "a35071dd968a01e51888853d54a0691cc4694b22f1af7b17f3ef89292bdf1a36",
+    "src/models/params.py": "33e354d8edf5b0215909f0abc02493c460dba6fba407f594c900f9636b346e57",
+    "src/models/positional.py": "02fc6ebddf24144fee2b7bea888f7bc497667fbe639ece247866b4c36d89f60f",
+    "src/models/run_config.py": "f412c23eb0db6db07a84e7dbc23feec4da85fdc4d567f29df206f659e44f3fe5",
+    "src/models/transformer.py": "57ecaa3113054b6875cad745d1bece3081b7d3dadf8f2bc052a7e9a70bf07093",
+    "src/tokenizer/corpus.py": "26ef5c25cfb20ed50e802ee7f45122fae7fa1ea48c7ca0b1a48c300aed4873bb"
+  },
+  "source_origin": {
+    "changed_paths_between_commits": [
+      "A\trelease_verification.json",
+      "M\tscripts/audit_data_pipeline.py"
+    ],
+    "scope": "Uploaded model, tokenizer projection, training, milestone writer and PE configs are byte-identical to the recorded training commit. M3 metadata reports a dirty working tree; uncommitted server edits cannot be independently recovered here.",
+    "training_commit": "c1912f6e02aeebb4ca800903f55fc3f1c625cd6e",
+    "uploaded_archive_commit": "cdf18c7f77646e76a35ad961bc93197ebd240651",
+    "verified_source_hashes": {
+      "configs/pe/.gitkeep": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "configs/pe/alibi.json": "4a0dea0f5fe601f88d87ac32e589e5ee3d2dcd01e65f283743044bf86ab92eff",
+      "configs/pe/learned.json": "8181808da72bee031de16a05e517cd934925f9a940323db5ca671e17a95c9643",
+      "configs/pe/nope.json": "e471d444a4000b27af41ce4040840102fb432e13da01d49ac4b05b43ef8721d1",
+      "configs/pe/rope.json": "86fbc898a63a606d537ba935d789ce3da9fabcdada85200c096bd81f2d981db1",
+      "configs/pe/sinusoidal.json": "754168716123a32d5091566ef9f24ca0f994ea5c055129146e5ebf19356d8532",
+      "configs/run_matrix.json": "9f4cdae240a9d1491dee2798e1c62733751659c08bb4e42fb41550e57810f17e",
+      "scripts/m3_train.py": "8543e9bb122f84f3119fea9566bd27262cc3632b9882dc1a2865b81b9dda468b",
+      "src/models/.gitkeep": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "src/models/__init__.py": "c2c6cab6e636992724b911aec6ad782f387482f53b719ec1f4ae2c47ded56de0",
+      "src/models/config.py": "46039de95aa214f40b7be1a2a7ce41b4b18e0eac4f01b0ac5acd829b71f5533f",
+      "src/models/data_contract.py": "31c3c0c4a16f98aaa39d3287f96457dc41030ebeafb8909b344790fdf61f2249",
+      "src/models/gates.py": "a35071dd968a01e51888853d54a0691cc4694b22f1af7b17f3ef89292bdf1a36",
+      "src/models/params.py": "33e354d8edf5b0215909f0abc02493c460dba6fba407f594c900f9636b346e57",
+      "src/models/positional.py": "02fc6ebddf24144fee2b7bea888f7bc497667fbe639ece247866b4c36d89f60f",
+      "src/models/run_config.py": "f412c23eb0db6db07a84e7dbc23feec4da85fdc4d567f29df206f659e44f3fe5",
+      "src/models/transformer.py": "57ecaa3113054b6875cad745d1bece3081b7d3dadf8f2bc052a7e9a70bf07093",
+      "src/tokenizer/corpus.py": "26ef5c25cfb20ed50e802ee7f45122fae7fa1ea48c7ca0b1a48c300aed4873bb",
+      "src/training/.gitkeep": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "src/training/__init__.py": "32015fc297ad80a479c6a6930a17a9c20caa05c64179cfc9eac62cd4511f0186",
+      "src/training/batching.py": "c044f6d09a7e3083466b750206037061bf8b1abf757cd1eff0ff500d6ecb5bfe",
+      "src/training/benchmark.py": "3d010a60e984aa954f62f4aad8b2f0e73bab313ba80f51f18a705e6f3ff4bb10",
+      "src/training/cache_builder.py": "690100b672eb4abeaa0b0e73126ea7e607ba9f38b7eb5482ec7a074b2b534fc8",
+      "src/training/checkpoint.py": "4dc741bcb603d7824f11369dab6cad6737575d0e25596661ad8e9878b8176469",
+      "src/training/data.py": "abf328647ea0dc2e6b1b191926bb16e2f148b185230ac7bfbc511f3ea2987d87",
+      "src/training/launch.py": "5cd90d3fa797df3541a8a742937a613eb679746fcb94e1e2fdbc28be4a464f0b",
+      "src/training/optimizer.py": "07f070950b76327b2507e2fbcf60d141a6c1ee7b7bb8d389881dc8326d1f8b68",
+      "src/training/production_guards.py": "fb60a8b6b2ecc020b81f1632d4ff8ca6b6a4645ba70498757e5504009823e7dc",
+      "src/training/queue.py": "4f23f7f092c1568347a98b74a97e0874ef1fd4ac2bb4eb2480a6b89499a72a8e",
+      "src/training/resume.py": "baa2e5bbe561c2422c54fb6a486a086fccb27a728d9f2db1e3c9d0f5c1a21b44",
+      "src/training/runner.py": "12d5e9eccd33446f5257c909f63732568e6929a7f47f839b71ba5aab8385d483",
+      "src/training/trainer.py": "6986464e12b73d005109a8880000f035db18fe9b4d67ef1fdf05bad41864c8f3"
+    }
+  },
+  "tokenizer": {
+    "bytes": 277746,
+    "path": "/sdb-disk/notebooks/team10/azerbaijani-pe-research-m4/tokenizer/tokenizer.model",
+    "sha256": "be05949c40afbe6031eee5678f49f5f49fad81cb1dd5fa8fb56c67f181222534"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "actual_tokens": 50000000,
+  "checkpoint_sha256": "b6d95a02bd2266550c94a80548ed447179a9800c9f8806d96d79592d7e0322b7",
+  "context": 1024,
+  "identity": "a08ba77d1c99e5be3b629bbad9ccb224b27257108eb70caf34ef43a6469275ef",
+  "kind": "length",
+  "milestone": "50m",
+  "pe": "learned",
+  "reason": "Learned table trained only to position 511; no new parameters/interpolation introduced.",
+  "run_id": "p31az-learned-s2027-t50m-c512-v16k-52a357fe",
+  "seed": 2027,
+  "split": "validation",
+  "status": "not_applicable",
+  "workspace_identity": "5320b1cfdffddb4b56c0f879e28bc2adfe8a3c5328045a828567a9cb4448433e"
+}

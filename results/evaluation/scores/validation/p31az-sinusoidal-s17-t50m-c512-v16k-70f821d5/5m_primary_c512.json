@@ -1,0 +1,23 @@
+{
+  "actual_tokens": 5046272,
+  "checkpoint_sha256": "7d434218acbde8286cf7cd80e0aad1fd9c140e74d148044f38a9147c6c29dfa5",
+  "completed_at": "2026-09-09T19:48:30.542515+00:00",
+  "context": 512,
+  "document_count": 309677,
+  "elapsed_seconds": 953.4453864858951,
+  "identity": "7051f79509614a1fd2e32219dde8ed16b5a542124ca63920c52b1c99a3c47dcd",
+  "kind": "primary",
+  "milestone": "5m",
+  "nll": 8.23138916459403,
+  "pe": "sinusoidal",
+  "peak_allocated_vram_bytes": 1029155840,
+  "ppl": 3757.049288481674,
+  "raw_sha256": "c625f0ea25e5ad21386181c88ea24ae4f391d0f1bab31baac977e0f8bd26c33d",
+  "run_id": "p31az-sinusoidal-s17-t50m-c512-v16k-70f821d5",
+  "seed": 17,
+  "split": "validation",
+  "status": "complete",
+  "token_count": 30019406,
+  "windows": 361524,
+  "workspace_identity": "5320b1cfdffddb4b56c0f879e28bc2adfe8a3c5328045a828567a9cb4448433e"
+}

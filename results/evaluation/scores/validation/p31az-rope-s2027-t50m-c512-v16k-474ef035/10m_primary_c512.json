@@ -1,0 +1,23 @@
+{
+  "actual_tokens": 10027008,
+  "checkpoint_sha256": "70c4af91cbc8577c9fc92a5be332152f9bef6b761b50921760c8b62bcad53536",
+  "completed_at": "2026-09-10T14:17:28.278739+00:00",
+  "context": 512,
+  "document_count": 309677,
+  "elapsed_seconds": 1058.9260780189652,
+  "identity": "71c943291624a725ebfa850048dba397958babf20259a1c960f600dec28c5cdc",
+  "kind": "primary",
+  "milestone": "10m",
+  "nll": 6.61973516334871,
+  "pe": "rope",
+  "peak_allocated_vram_bytes": 1028632064,
+  "ppl": 749.7465104613844,
+  "raw_sha256": "4e74d94596927b979614a8e3873dae575126194ecdd1df338aba2fd5b85d3011",
+  "run_id": "p31az-rope-s2027-t50m-c512-v16k-474ef035",
+  "seed": 2027,
+  "split": "validation",
+  "status": "complete",
+  "token_count": 30019406,
+  "windows": 361524,
+  "workspace_identity": "5320b1cfdffddb4b56c0f879e28bc2adfe8a3c5328045a828567a9cb4448433e"
+}
