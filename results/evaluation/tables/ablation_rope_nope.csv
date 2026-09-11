@@ -1,2 +1,0 @@
-a,b,delta_nll_a_minus_b,ci_low,ci_high,relative_ppl_change_a_vs_b_percent,p_uncorrected,consistent_seeds,min_practical_delta_nll,passes_practical_effect,p_holm,statistically_supported_direction,supported_direction
-rope,nope,-0.11555439971811943,-0.11786055853290489,-0.11259819927709917,-10.912789227267858,9.999000099990002e-05,5,0.01,True,0.000999900009999,True,True
