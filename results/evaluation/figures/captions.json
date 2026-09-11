@@ -1,0 +1,6 @@
+{
+  "figure_4_learning": "All validation documents; means and \u00b11 sample SD across five model seeds. Actual optimizer-boundary token counts are used. Vertical scale is cropped for comparison.",
+  "figure_5_primary": "Colored dots: five trained seeds. Diamond: mean token-weighted NLL. Dark intervals: 95% paired-document percentile bootstrap intervals conditional on those fixed seeds (10,000 draws). These intervals do not measure uncertainty over a population of model seeds. Vertical scale is cropped.",
+  "figure_6_length": "Only documents with at least 2048 tokens including EOD. Score the same target indices 1792\u20132047 of each document prefix at contexts 512, 1024 and 2048. Error bars: \u00b11 sample SD across five seeds. Learned >512 is undefined. This cohort/target set differs from Figure 5; vertical scale is cropped.",
+  "figure_7_pairwise": "Mean NLL differences with 95% paired-document percentile CIs conditional on five seeds. Holm adjustment covers all ten null-centered bootstrap tests. Green: CI excludes zero, Holm p<0.05, direction agrees in at least four of five seeds, and observed absolute mean difference is at least 0.01 NLL. The practical flag applies to the point estimate; it does not assert the whole CI exceeds the margin."
+}

@@ -1,0 +1,23 @@
+{
+  "actual_tokens": 10027008,
+  "checkpoint_sha256": "490ef87cba4fe08f9c2f78754e07057c35c0d19392002f315dd90afec181fc72",
+  "completed_at": "2026-09-09T23:34:46.817724+00:00",
+  "context": 512,
+  "document_count": 309677,
+  "elapsed_seconds": 947.7091105638538,
+  "identity": "8ccb7910ef5d7f0dca8d9eff2d7ea4766e3c391f4fd278a95886f8d412b3c92d",
+  "kind": "primary",
+  "milestone": "10m",
+  "nll": 6.592865956399332,
+  "pe": "nope",
+  "peak_allocated_vram_bytes": 1028631552,
+  "ppl": 729.8696498866943,
+  "raw_sha256": "a1d716fdda87bdb61b0780ea4a7458c79a48d7e69f2c7a532beb1708aecb8ae9",
+  "run_id": "p31az-nope-s17-t50m-c512-v16k-e11bc0a0",
+  "seed": 17,
+  "split": "validation",
+  "status": "complete",
+  "token_count": 30019406,
+  "windows": 361524,
+  "workspace_identity": "5320b1cfdffddb4b56c0f879e28bc2adfe8a3c5328045a828567a9cb4448433e"
+}
