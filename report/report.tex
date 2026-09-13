@@ -1,0 +1,267 @@
+\documentclass[conference]{IEEEtran}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,booktabs,array,graphicx}
+\usepackage{tipa}
+\usepackage{cite}
+\usepackage{balance}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+\graphicspath{{figures/}}
+\newcommand{\nll}{\operatorname{NLL}}
+\newcommand{\ppl}{\operatorname{PPL}}
+\newcommand{\pe}{\mathrm{PE}}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\setlength{\emergencystretch}{1.2em}
+\title{Positional Encoding under a 50-Million-Token Budget:\
+A Five-Seed Study of Azerbaijani Language Modeling}
+\input{authors}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Which positional encoding generalizes best when a small causal language model is trained on a limited amount of Azerbaijani text? We compare learned absolute embeddings, sinusoidal encoding, rotary position embedding (RoPE), attention with linear biases (ALiBi), and no explicit positional encoding (NoPE). Twenty-five models share a frozen tokenizer, data order, approximately 13-million-parameter architecture, training recipe, and 50-million-token budget, with five matched initialization seeds. Final evaluation covers 309,369 held-out documents and uses token-weighted negative log-likelihood (NLL). ALiBi achieves the lowest mean NLL, 5.4341, and perplexity 229.08, a 9.41\% reduction relative to RoPE. All four ALiBi contrasts meet a comparison rule combining paired document bootstrap intervals, Holm-adjusted tests, seed consistency, and a minimum observed effect. The RoPE--NoPE ablation favors RoPE at the training context length. On identical targets in long documents, ALiBi remains nearly unchanged from 512 to 2048 tokens, whereas RoPE and sinusoidal encoding deteriorate; NoPE deteriorates modestly. These results establish a controlled, budget-specific finding rather than a universal ranking of positional methods. Code and result summaries: \url{https://github.com/IBRAHIM102005/azerbaijani-pe-research/tree/evaluation-results}.
+\end{abstract}
+
+\begin{IEEEkeywords}
+positional encoding, Azerbaijani, language modeling, ALiBi, RoPE, controlled evaluation
+\end{IEEEkeywords}
+
+\section{Introduction}
+Positional representation is a consequential design choice in Transformer language models. Learned and sinusoidal absolute encodings attach a representation to token positions, while rotary embeddings and attention biases inject position into attention itself \cite{vaswani,su,press}. Their relative value need not be constant across data regimes, architectures, and evaluation tasks. A method that performs well with a large training corpus or on a reasoning benchmark may behave differently in a small monolingual model.
+
+We study the question: \emph{under a fixed 50-million-token training budget, which of five positional encoding schemes yields the best held-out language-model likelihood on Azerbaijani text?} The project is a controlled methods study using a real Azerbaijani corpus, corresponding to the research track of the course. We test three claims: positional choice affects final likelihood under matched training conditions; removing RoPE changes performance relative to NoPE; and extending inference context can change both likelihood and method rankings. These are evaluated with distinct primary, ablation, and context-extension analyses.
+
+Our contribution is an empirical comparison, not a new positional architecture. We hold the Transformer core, tokenizer, sequence order, optimizer recipe, and consumed token count fixed, expose the learned arm's additional parameters, and evaluate five seeds rather than selecting a favorable run. We retain checkpoints along each training trajectory to describe learning behavior. Finally, we evaluate identical target tokens at three context lengths so that context effects are not confounded by different target populations.
+
+\section{Related Work}
+The original Transformer uses sinusoidal position vectors and also studies learned position embeddings \cite{vaswani}. RoPE rotates query and key coordinates so that their inner product depends on relative position \cite{su}. ALiBi introduces a distance-dependent penalty in attention scores and was developed to support inference at longer sequence lengths than those used for training \cite{press}. We compare these mechanisms within one small causal model rather than transfer performance claims from their original experiments.
+
+NoPE is a substantive baseline: removing explicit positional features does not remove the causal attention mask. Kazemnejad et al. show that its length generalization can be strong on reasoning and mathematical tasks \cite{kazemnejad}. Our evaluation instead measures token likelihood on natural Azerbaijani documents; disagreement in method rankings would therefore concern different tasks and model settings.
+
+The DOLLMA work introduces a corpus and open models for Azerbaijani \cite{isbarov}. We use a filtered native-text subset with a separately frozen split and training budget. SentencePiece provides the shared subword tokenizer \cite{kudo}. Following the controlled-training motivation of Pythia \cite{biderman}, our checkpoints share a fixed data order and permit analysis along training trajectories. Our architecture is a small local implementation, not a pretrained Pythia checkpoint.
+
+\section{Data and Method}
+\subsection{Corpus, filtering, and split}
+The input corpus uses six DOLLMA components: news, native Azerbaijani Wikipedia, blogs, laws, and two book components. Translated English Wikipedia is excluded to avoid a translated-text confound; another component with unresolved source provenance is also excluded. Text processing preserves Azerbaijani letters, case, punctuation, and paragraph structure, normalizes Unicode to NFC, and removes documents with fewer than 50 Unicode letters.
+
+Exact duplicate detection uses canonical-text SHA-256 hashes. Near-duplicate candidates use character 5-grams, 32-value bottom-$k$ fingerprints, eight bands, and exact Jaccard verification at a 0.95 threshold. One deterministic representative is retained per connected component. Before model training, the pipeline corrected an anchor-only candidate shortcut in large buckets by enumerating all within-bucket pairs. Its recorded audit found no retained true-near cross-split pair in the checked candidate set. This does not prove that all possible near duplicates outside that candidate set are absent.
+
+Duplicate grouping and deterministic hash ranges define a nominal 90/5/5 split with data seed 2026. Table~\ref{tab:data} separates the complete training pool from the smaller model-training selection. The frozen selection contains 277,027 documents and 50,062,887 tokens, but each model consumes exactly 50,000,000 token IDs. This boundary is reached part-way through the 276,626th selected document. The same selected order is reused for all seeds and methods.
+
+\begin{table}[t]
+\caption{Frozen data sizes. Token counts include one EOD token per document. The selection is part of the training pool.}
+\label{tab:data}
+\centering\footnotesize
+\begin{tabular}{lrr}
+\toprule
+Partition & Documents & Token IDs \\
+\midrule
+Training pool & 5,574,885 & 544,498,912 \\
+Selected training manifest & 277,027 & 50,062,887 \\
+Validation & 309,677 & 30,329,083 \\
+Test & 309,369 & 30,892,742 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The intended selection balances news, Wikipedia, books, laws, and blogs, but available blog text is insufficient for its target share. The frozen algorithm redistributes this shortage among eligible groups without replacement. Consequently, the selected manifest contains 2.81\% blog tokens rather than the intended 10\%. This distributional constraint is shared by all arms and limits conclusions about less represented domains.
+
+\subsection{Shared tokenizer and model}
+A 16,000-piece SentencePiece BPE tokenizer is fitted on a deterministic one-million-document sample from the training split only. It uses identity normalization, no beginning-of-sequence token, and a single end-of-document (EOD) token. Newlines are projected to spaces at encoding time. The tokenizer and its hash are shared by every model; vocabulary size is not selected using final test results.
+
+The causal Transformer has six layers, hidden width 256, eight attention heads, and feed-forward width 1024. It uses pre-layer normalization, parallel attention/MLP residual branches, zero dropout, and separate input embeddings and output weights. Training context is 512 tokens. The non-positional core is held fixed: four arms have 12,931,072 parameters, while learned absolute embeddings add $512\times256=131,072$, for a total of 13,062,144. We report this difference rather than claim identical total parameter counts.
+
+\subsection{Positional variants and the ablation}
+The five variants use shared attention code with different positional hooks:
+\begin{itemize}
+\item \textbf{Learned:} add a trainable 512-position table to token embeddings. No resizing or interpolation is performed for longer contexts.
+\item \textbf{Sinusoidal:} add fixed sine/cosine vectors with frequency base 10,000, without a method-specific amplitude search.
+\item \textbf{RoPE:} rotate the first 25\% of each query/key head's coordinates with base 10,000. With head width 32, eight coordinates are rotated. No context-extension scaling is applied.
+\item \textbf{ALiBi:} add $-m_h(i-j)$ to allowed attention scores for query $i$ and key $j\leq i$, using the frozen eight-head slopes $m_h=2^{-h}$ for $h=1,\ldots,8$.
+\item \textbf{NoPE:} omit explicit positional additions, rotations, and biases while retaining causal masking.
+\end{itemize}
+The explicit ablation compares RoPE with NoPE under matched seeds, data, and core weights. It removes the rotary hook without changing the parameter count. It tests this partial-RoPE configuration, not every possible rotary variant.
+
+\section{Experimental Setup}
+\subsection{Training controls and checkpoints}
+The model seeds are 17, 42, 1234, 2027, and 5003; the data seed remains 2026. For a given seed, the recorded core initialization is matched across positional arms. Every run consumes 50 million tokens and completes 763 optimizer steps. The frozen training implementation uses AdamW with peak learning rate $6\times10^{-4}$, $\beta=(0.9,0.95)$, $\epsilon=10^{-8}$, and shared-parameter weight decay 0.1. The learned position table has a separate zero-decay group. The schedule uses 1\% linear warmup and cosine decay to 10\% of the peak rate, with gradient clipping at 1.0 and a nominal global batch of 65,536 tokens. The final partial batch is accounted for explicitly.
+
+Nominal 5M, 10M, and 20M checkpoints correspond to 5,046,272, 10,027,008, and 20,054,016 consumed tokens because saving occurs at optimizer boundaries. The final checkpoint is exactly 50M. These checkpoints are intermediate states of the same 50M trajectories, including their full-run schedule; they are not independently optimized short-budget models. All 25 final models are tested. Validation freezes the protocol and execution environment before the final test batch, with no checkpoint selected retrospectively from test scores.
+
+\subsection{Primary likelihood evaluation}
+Documents are evaluated independently. With context 512 and stride 256, overlapping windows score every token after the first exactly once, including EOD. Padding and previously scored overlap targets are ignored in the loss. Let $L_{s,k,d}$ be the sum of negative log probabilities for method $s$, seed $k$, and document $d$, and let $T_d$ be its number of scored targets. The run-level and headline metrics are
+\begin{align}
+\nll_{s,k} &= \frac{\sum_d L_{s,k,d}}{\sum_d T_d},\\
+\overline{\nll}_s &= \frac{1}{5}\sum_{k=1}^{5}\nll_{s,k},\qquad
+\ppl_s=\exp(\overline{\nll}_s).
+\end{align}
+Thus long documents contribute proportionally to their target counts, while the five runs have equal weight. Reported perplexity is the exponential of mean NLL, not the arithmetic mean of seed perplexities. The latter is separately available in the result tables. The primary test has 30,583,373 targets per run, equal to total test tokens minus one first token for each of 309,369 documents.
+
+\subsection{Uncertainty and comparison rule}
+We use 10,000 paired document bootstrap draws with bootstrap seed 5. Each draw resamples documents with replacement; the same indices are shared across methods and seeds, and loss sums and token counts are resampled together. The resulting 95\% percentile intervals are conditional on the five trained seeds. Sample standard deviation across those seeds is reported separately and is not a confidence interval for unseen training seeds.
+
+For a pair $a,b$, define $\widehat\Delta=\overline{\nll}_a-\overline{\nll}_b$ and bootstrap differences $\Delta^{*(r)}$. Approximate two-sided null-centered $p$-values use
+\begin{equation}
+p=\frac{1+\sum_{r=1}^{B}\mathbf{1}\{\lvert\Delta^{*(r)}-\widehat\Delta\rvert\geq\lvert\widehat\Delta\rvert\}}{B+1},\quad B=10,000.
+\end{equation}
+We apply Holm adjustment across all ten method pairs \cite{holm}. The recorded rule requires an interval excluding zero, adjusted $p<0.05$, the same observed direction in at least four of five seeds, and $|\widehat\Delta|\geq0.01$ nats/token. The practical threshold applies to the point estimate, not to the entire interval. The intervals themselves are unadjusted pairwise percentile intervals; multiplicity is handled by the adjusted tests. The evaluation rules were frozen before final test; we do not claim an externally registered statistical protocol.
+
+\subsection{Matched-target context extension}
+The context experiment includes every document with at least 2048 tokens including EOD: 2,130 validation and 2,011 test documents. It takes each document's first 2048-token prefix and scores the same final 256 target positions, indices 1792--2047, at contexts 512, 1024, and 2048. The test cohort therefore has 514,816 scored targets per eligible model/context. Longer windows change available preceding context and local positional range, not the target identities. Learned positions above 512 are not applicable because the trained table ends there. These evaluations constitute a narrower estimand than the all-document primary test; their absolute NLL values must not be compared as a direct improvement over the primary score.
+
+\subsection{Runtime and completed work}
+Recorded evaluation uses an NVIDIA A100-SXM4-40GB exposed as a 3g.20gb MIG partition, Python 3.12.3, PyTorch 2.6.0+cu124, CUDA 12.4, NumPy 2.4.0, PyArrow 25.0.1, and SentencePiece 0.2.1. Inference uses BF16, FP32 cross-entropy, and double-precision loss accumulation. Deterministic settings disable TF32 and use the mathematical scaled-dot-product-attention backend. Evaluation batch sizes are 8, 2, and 1 at contexts 512, 1024, and 2048, with four CPU threads and one worker per GPU.
+
+The completed records contain 100 primary and 65 defined length-validation jobs, followed by 25 primary and 65 defined length-test jobs. Each split also contains ten learned-position N/A records. Summed job elapsed times are 28.32 hours for validation and 7.68 hours for test; these exclude broader setup and other pipeline stages and are not training-time measurements. Maximum recorded PyTorch-allocated evaluation memory is about 0.96 GiB. That metric excludes driver/reserved memory and does not establish the training peak or scheduled compute-budget compliance.
+
+\section{Results}
+\subsection{Final held-out performance}
+Table~\ref{tab:primary} gives the primary result. ALiBi has the lowest mean NLL (5.4341) and the lowest score in each of the five seeds. RoPE is second, followed by NoPE, learned positions, and sinusoidal encoding. Fig.~\ref{fig:primary} displays document-bootstrap intervals; their width should not be confused with the much smaller seed standard deviations in the table.
+
+\begin{table}[t]
+\caption{Primary test results at context 512. Lower is better. NLL is in nats/token; SD is across five seeds. PPL is $\exp(\text{mean NLL})$.}
+\label{tab:primary}
+\centering\small
+\begin{tabular}{lrrr}
+\toprule
+Method & Mean NLL & Seed SD & PPL \\
+\midrule
+\textbf{ALiBi} & \textbf{5.4341} & 0.0065 & \textbf{229.08} \\
+RoPE & 5.5329 & 0.0063 & 252.87 \\
+NoPE & 5.6484 & 0.0055 & 283.85 \\
+Learned & 5.7939 & 0.0090 & 328.29 \\
+Sinusoidal & 6.8940 & 0.0269 & 986.38 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering\includegraphics[width=\columnwidth]{primary_results.pdf}
+\caption{Final test mean NLL with conditional 95\% paired document bootstrap intervals, using 10,000 draws and the five fixed trained seeds. The horizontal axis is truncated for a point-and-interval comparison.}
+\label{fig:primary}
+\end{figure}
+
+The ALiBi-minus-RoPE difference is $-0.098825$ NLL, with conditional 95\% interval $[-0.100657,-0.095834]$. Its relative perplexity change is $100[\exp(-0.098825)-1]=-9.41\%$. All five seeds favor ALiBi in this contrast. Table~\ref{tab:contrasts} reports the four comparisons against ALiBi and the RoPE--NoPE ablation; all satisfy the recorded practical and statistical rule. All ten adjusted pairwise $p$-values are approximately 0.0010 because the unadjusted values reach the finite-bootstrap resolution of $1/10,001$. They should not be interpreted as equally precise estimates of extremely small tail probabilities.
+
+\begin{table*}[t]
+\caption{Selected primary-test contrasts. Negative differences favor the first method. Every row has 5/5 consistent seed directions, Holm-adjusted $p\approx0.0010$, and an observed absolute NLL effect above 0.01.}
+\label{tab:contrasts}
+\centering\small
+\begin{tabular}{lrrr}
+\toprule
+Contrast & Mean NLL difference & Conditional 95\% interval & Relative PPL change \\
+\midrule
+ALiBi $-$ RoPE & $-0.098825$ & $[-0.100657,-0.095834]$ & $-9.41\%$ \\
+ALiBi $-$ NoPE & $-0.214380$ & $[-0.218278,-0.208603]$ & $-19.30\%$ \\
+ALiBi $-$ Learned & $-0.359840$ & $[-0.364770,-0.352292]$ & $-30.22\%$ \\
+ALiBi $-$ Sinusoidal & $-1.459976$ & $[-1.484286,-1.437031]$ & $-76.78\%$ \\
+RoPE $-$ NoPE & $-0.115554$ & $[-0.117861,-0.112598]$ & $-10.91\%$ \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{RoPE--NoPE ablation}
+Removing partial RoPE increases primary NLL from 5.5329 to 5.6484. The canonical RoPE-minus-NoPE contrast is $-0.115554$ with interval $[-0.117861,-0.112598]$ and 5/5 consistent seed directions. RoPE's perplexity is 10.91\% lower. This supports the utility of the rotary hook at the training context under the chosen recipe. It does not establish that explicit position is necessary for a causal Transformer to learn, nor that RoPE must win at longer contexts. The ablation is one of the ten corrected comparisons, not an extra uncorrected test. Fig.~\ref{fig:pairs} includes the complete comparison family.
+
+\begin{figure}[t]
+\centering\includegraphics[width=\columnwidth]{pairwise_effects.pdf}
+\caption{All ten primary-test NLL contrasts with conditional 95\% percentile intervals. A negative value favors the first named method. Intervals are pairwise; the significance rule separately uses Holm-adjusted $p$-values.}
+\label{fig:pairs}
+\end{figure}
+
+\subsection{Learning along the fixed trajectories}
+ALiBi has the lowest observed mean validation NLL at every milestone in Table~\ref{tab:learning} and Fig.~\ref{fig:learning}. Its advantage over RoPE increases from 0.0269 NLL at the first checkpoint to 0.0996 at 50M. NoPE is descriptively ahead of RoPE by only 0.0015 at the first checkpoint; RoPE leads at later milestones. This early near-tie is not assigned a separate significance claim.
+
+Sinusoidal encoding improves little between the first two checkpoints (8.2314 to 8.2203) before decreasing to 6.8726 at 50M. The trajectory makes its weak endpoint performance visible instead of hiding it as a single final number. However, this pattern alone does not identify an optimization failure or its cause. We did not prescribe an absolute target NLL, independently train shorter-budget models, or measure a target-reaching token count; consequently, no interpolated token-saving claim is made.
+
+\begin{table}[t]
+\caption{Mean validation NLL along the same training trajectories. Column labels are nominal token milestones.}
+\label{tab:learning}
+\centering\footnotesize
+\begin{tabular}{lrrrr}
+\toprule
+Method & 5M & 10M & 20M & 50M \\
+\midrule
+Learned & 7.6957 & 6.9000 & 6.2393 & 5.7813 \\
+Sinusoidal & 8.2314 & 8.2203 & 7.5467 & 6.8726 \\
+RoPE & 7.3929 & 6.5942 & 5.9709 & 5.5209 \\
+ALiBi & \textbf{7.3659} & \textbf{6.5272} & \textbf{5.8897} & \textbf{5.4213} \\
+NoPE & 7.3914 & 6.5981 & 6.0058 & 5.6376 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering\includegraphics[width=\columnwidth]{learning_curves.pdf}
+\caption{Validation learning curves against actual consumed token counts. Error bars are one sample SD across five seeds, not document-bootstrap intervals. Curves connect observed checkpoints without asserting intermediate measurements.}
+\label{fig:learning}
+\end{figure}
+
+\subsection{Context extension changes the interpretation}
+Table~\ref{tab:length} and Fig.~\ref{fig:length} show the matched-target test. ALiBi's mean NLL changes by only $-0.000513$ from 512 to 2048 tokens, supporting a descriptive conclusion of stability rather than a substantial benefit from extra context. NoPE worsens by 0.018963, RoPE by 0.233865, and sinusoidal encoding by 2.353433. Learned positions cannot be evaluated unchanged above 512.
+
+An informative reversal occurs between RoPE and NoPE: RoPE is better at context 512, but NoPE has lower mean NLL at 1024 and 2048 on the matched cohort. The primary-context ablation therefore cannot be used to claim RoPE's superiority under extrapolation. These length results report means and seed SDs; no separate document-bootstrap significance analysis of the length changes was performed. The small ALiBi change is also below the primary study's 0.01 point-effect threshold, although that threshold was not a preregistered length-equivalence test.
+
+\begin{table}[t]
+\caption{Matched-target test mean NLL on 2,011 long documents. Each defined entry scores the identical 256 targets per document. $\Delta$ is 2048 minus 512.}
+\label{tab:length}
+\centering\footnotesize
+\begin{tabular}{lrrrr}
+\toprule
+Method & 512 & 1024 & 2048 & $\Delta$ \\
+\midrule
+Learned & 5.6954 & N/A & N/A & N/A \\
+Sinusoidal & 6.8091 & 9.1250 & 9.1625 & $+2.3534$ \\
+RoPE & 5.4236 & 5.6307 & 5.6574 & $+0.2339$ \\
+ALiBi & \textbf{5.3176} & \textbf{5.3171} & \textbf{5.3171} & $-0.0005$ \\
+NoPE & 5.5454 & 5.5538 & 5.5644 & $+0.0190$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering\includegraphics[width=\columnwidth]{context_extension.pdf}
+\caption{Context extension on matched test targets; error bars are seed SD. The learned arm has a single defined point. ALiBi remains nearly stable, while extended context alone does not guarantee lower NLL for the other methods.}
+\label{fig:length}
+\end{figure}
+
+\section{Discussion and Limitations}
+\subsection{What the experiment supports}
+ALiBi is the strongest of these five frozen configurations under this corpus, model size, initialization policy, optimizer schedule, and token budget. Its recency bias offers a plausible interpretation of context stability, but we did not measure attention-distance distributions or intervene on its slopes. We therefore do not identify that mechanism as the demonstrated cause. Likewise, the experiment does not show that ALiBi learns Azerbaijani morphology better: there is no morphology-specific benchmark, downstream task suite, human generation study, or comparison language.
+
+The large sinusoidal deficit deserves follow-up. A shared training recipe is an intentional control, but it does not optimize every positional family individually. There is no amplitude sweep for additive encodings, no alternative RoPE fraction or frequency scaling, and no ALiBi-slope search. The learned arm also has more parameters and a separate positional-table decay policy. Our claim concerns matched core architecture and an explicit frozen recipe, not equal optimal tuning or exactly equal total capacity.
+
+\subsection{Data and statistical uncertainty}
+The results cover one native-text subset and its observed source distribution. Book/OCR quality, source imbalance, limited blog material, and incomplete source-level licensing/revision metadata remain limitations. The public DOLLMA dataset card declares CC BY-NC-SA 4.0 \cite{dollmacard}; this report records that declaration without treating it as independent verification of every underlying source. Corpus files are not redistributed in the review export.
+
+Document bootstrap intervals condition on the five trained seeds and on documents as resampling units. They do not include uncertainty from unseen training seeds, independently sampled training corpora, or correlated documents from the same book or source. Per-source evaluations, cluster-aware resampling, additional seeds and a second model size would strengthen generalization claims. They were not part of the completed primary analysis and are not represented as completed experiments.
+
+\subsection{Provenance and reproducibility scope}
+The completed test state and manifest record completion. In the supplied export, all 100 test summary JSON hashes match the manifest. The five seed means/SDs and stored bootstrap intervals also agree with the aggregate tables. The raw per-document test arrays are excluded from this review bundle; they cannot be independently recomputed from summary means alone. The original full result archive is required to repeat the document bootstrap.
+
+The training handoff records a dirty working tree. Available model/training sources were checked against the recorded training commit, but that does not reconstruct uncommitted server edits. Checkpoint hashes, strict state-dictionary loading, payload checks, and frozen runtime identities provide further provenance without removing this limitation. After completion, public entry points were renamed for repository organization; the renamed source has a different identity and must not be used to resume the original frozen workspace.
+
+The review repository is therefore not yet demonstrated as a standalone clean-checkout reproduction package. A new evaluation requires the original training handoff, checkpoints, dataset artifacts, tokenizer, and compatible source/runtime. Bootstrap-only reproduction requires the full score archive and original analysis source. This report does not assert a successful current CI run or a verified \code{v1.0-final} release. Those release checks are distinct from the completed numerical experiment, and the abstract links the available evaluation branch.
+
+\balance
+\section{Conclusion}
+Under a fixed 50-million-token Azerbaijani training budget, ALiBi gives the lowest final mean NLL across five seeds and meets the recorded comparison rule against learned, sinusoidal, RoPE, and NoPE alternatives. The RoPE--NoPE ablation favors partial RoPE at context 512, while matched-target extrapolation reverses their descriptive ordering at longer contexts. ALiBi is nearly stable to 2048 tokens; this is evidence of robustness in this setting, not a large context-utilization gain or universal language-specific superiority. The study answers a controlled empirical question while retaining the numerical evidence and the limits of its reproducibility package.
+
+\section*{Tools and Acknowledgements}
+The team used Python, PyTorch, NumPy, PyArrow, SentencePiece, Matplotlib, Git/GitHub, and a shared A100 workstation. We acknowledge the DOLLMA creators and the AI Academy computing infrastructure. OpenAI ChatGPT/Codex provided substantial assistance with evaluation code, debugging, statistical-analysis implementation, repository packaging, and manuscript/figure preparation. The experiment outputs reported here came from the team's recorded execution; AI-generated narrative is not an independent experimental observation. Team members remain responsible for reviewing the code, verifying interpretations, and explaining the work during the defense.
+
+\begin{thebibliography}{9}
+\bibitem{vaswani} A. Vaswani et al., ``Attention is all you need,'' in \emph{Advances in Neural Information Processing Systems}, vol. 30, 2017. [Online]. Available: \url{https://arxiv.org/abs/1706.03762}
+\bibitem{su} J. Su, Y. Lu, S. Pan, A. Murtadha, B. Wen, and Y. Liu, ``RoFormer: Enhanced Transformer with rotary position embedding,'' arXiv:2104.09864, 2021. [Online]. Available: \url{https://arxiv.org/abs/2104.09864}
+\bibitem{press} O. Press, N. A. Smith, and M. Lewis, ``Train short, test long: Attention with linear biases enables input length extrapolation,'' in \emph{International Conference on Learning Representations}, 2022. [Online]. Available: \url{https://arxiv.org/abs/2108.12409}
+\bibitem{kazemnejad} A. Kazemnejad, I. Padhi, K. N. Ramamurthy, P. Das, and S. Reddy, ``The impact of positional encoding on length generalization in Transformers,'' in \emph{Advances in Neural Information Processing Systems}, vol. 36, 2023. [Online]. Available: \url{https://arxiv.org/abs/2305.19466}
+\bibitem{isbarov} J. Isbarov, K. Huseynova, E. Mammadov, M. Hajili, and D. Ataman, ``Open foundation models for Azerbaijani language,'' in \emph{Proc. First Workshop on Natural Language Processing for Turkic Languages}, 2024, pp. 18--28. [Online]. Available: \url{https://aclanthology.org/2024.sigturk-1.2/}
+\bibitem{kudo} T. Kudo and J. Richardson, ``SentencePiece: A simple and language independent subword tokenizer and detokenizer for neural text processing,'' in \emph{Proc. EMNLP: System Demonstrations}, 2018, pp. 66--71. [Online]. Available: \url{https://aclanthology.org/D18-2012/}
+\bibitem{biderman} S. Biderman et al., ``Pythia: A suite for analyzing large language models across training and scaling,'' in \emph{Proc. International Conference on Machine Learning}, vol. 202, 2023, pp. 2397--2430. [Online]. Available: \url{https://arxiv.org/abs/2304.01373}
+\bibitem{holm} S. Holm, ``A simple sequentially rejective multiple test procedure,'' \emph{Scandinavian Journal of Statistics}, vol. 6, no. 2, pp. 65--70, 1979. [Online]. Available: \url{https://www.jstor.org/stable/4615733}
+\bibitem{dollmacard} aLLMA Lab, ``DOLLMA dataset card,'' Hugging Face. Accessed: Sep. 11, 2026. [Online]. Available: \url{https://huggingface.co/datasets/allmalab/DOLLMA}
+\end{thebibliography}
+\end{document}
